@@ -1,7 +1,8 @@
-package com.morozov.psychology
+package com.morozov.psychology.ui.activities
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.morozov.psychology.R
 
 class MainActivity : AppCompatActivity() {
 
