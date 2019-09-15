@@ -3,19 +3,24 @@ package com.morozov.psychology.ui.activities
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
+import android.view.View
+import com.arellomobile.mvp.MvpAppCompatActivity
+import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
+import com.morozov.psychology.mvp.presenters.MainPresenter
+import com.morozov.psychology.mvp.views.MainView
 import com.morozov.psychology.ui.fragments.examples.ExCardsFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : MvpAppCompatActivity(), MainView {
+
+    @InjectPresenter
+    lateinit var mPresenter: MainPresenter
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_examples -> {
-                supportFragmentManager
-                    .beginTransaction()
-                    .replace(R.id.contentMain, ExCardsFragment())
-                    .commit()
+                mPresenter.showExCards()
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_diary -> {
@@ -42,10 +47,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        mPresenter.showExCards()
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+    }
+
+    override fun showBottomNav() {
+        navigation.visibility = View.VISIBLE
+    }
+
+    override fun hideBottomNav() {
+        navigation.visibility = View.GONE
+    }
+
+    override fun showExCards() {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.contentMain, ExCardsFragment())
             .commit()
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
 }
