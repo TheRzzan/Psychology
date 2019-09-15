@@ -10,6 +10,7 @@ import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.views.MainView
 import com.morozov.psychology.ui.fragments.examples.ExCardsFragment
+import com.morozov.psychology.ui.fragments.examples.ExDescriptionFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : MvpAppCompatActivity(), MainView {
@@ -60,9 +61,22 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     }
 
     override fun showExCards() {
+        val exCardsFragment = ExCardsFragment()
+        exCardsFragment.mActivityPresenter = mPresenter
+
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.contentMain, ExCardsFragment())
+            .replace(R.id.contentMain, exCardsFragment)
+            .commit()
+    }
+
+    override fun showExDescr() {
+        val exDescriptionFragment = ExDescriptionFragment()
+        exDescriptionFragment.mActivityPresenter = mPresenter
+
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.contentMain, exDescriptionFragment)
             .commit()
     }
 }

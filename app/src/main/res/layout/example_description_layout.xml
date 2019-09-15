@@ -4,6 +4,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
         android:fitsSystemWindows="true">
+
+    <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
+            android:backgroundTint="@android:color/darker_gray"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:id="@+id/fabExit"
+            app:layout_anchorGravity="right|top"
+            app:layout_anchor="@+id/appBar"/>
+
     <android.support.design.widget.AppBarLayout android:id="@+id/appBar"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="300dp"
@@ -32,6 +44,7 @@
                         app:layout_collapseMode="parallax"
                 />
                 <TextView
+                        android:id="@+id/textDescrName"
                         style="@style/TextView.Primary"
                         android:text="Some name"
                         android:layout_marginStart="@dimen/activity_horizontal_margin"
@@ -54,6 +67,7 @@
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <TextView
+                android:id="@+id/textDescription"
                 style="@style/TextView.Secondary"
                 android:textColor="@android:color/black"
                 android:lineSpacingExtra="8dp"
