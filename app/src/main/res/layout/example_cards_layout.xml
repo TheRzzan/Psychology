@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <TextView
+            android:id="@+id/textHeader"
+            style="@style/TextView.Primary.Header"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:text="Тестирование"/>
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerCards"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/textHeader"/>
+</RelativeLayout>

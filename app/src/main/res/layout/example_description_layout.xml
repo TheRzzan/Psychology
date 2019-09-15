@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:fitsSystemWindows="true">
+    <android.support.design.widget.AppBarLayout android:id="@+id/appBar"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="300dp"
+                                                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                                                android:fitsSystemWindows="true">
+
+        <android.support.design.widget.CollapsingToolbarLayout android:id="@+id/collapsBar"
+                                                               android:layout_width="match_parent"
+                                                               android:layout_height="match_parent"
+                                                               app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                                                               android:fitsSystemWindows="true"
+                                                               app:contentScrim="?attr/colorPrimary"
+                                                               app:expandedTitleMarginStart="48dp"
+                                                               app:expandedTitleMarginEnd="64dp">
+
+            <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                <ImageView
+                        android:id="@+id/imageToolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:fitsSystemWindows="true"
+                        android:src="@color/colorAccent"
+                        app:layout_collapseMode="parallax"
+                />
+                <TextView
+                        style="@style/TextView.Primary"
+                        android:text="Some name"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:layout_marginTop="230dp"/>
+            </RelativeLayout>
+
+            <android.support.v7.widget.Toolbar
+                    android:id="@+id/main.toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                    app:layout_collapseMode="pin"
+            />
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <TextView
+                style="@style/TextView.Secondary"
+                android:textColor="@android:color/black"
+                android:lineSpacingExtra="8dp"
+                android:text="В данном случае AppBarLayout это синяя view, размещенная под исчезающим изображением, она содержит Toolbar, LinearLayout с заголовком и подзаголовком и TabLayout с несколькими вкладками.
+
+Мы можем управлять поведением элементов AppbarLayout с помощью параметров: layout_scrollFlags. Значение: scroll в данном случае присутствует почти во всех элементах view, если бы этот параметр не был указан ни в одном из элементов AppbarLayout, он остался бы неизменным, позволяя прокручиваемому контенту проходить позади него.
+
+Со значением: snap, мы избегаем попадания в полу-анимационного-состояния, это значит, что анимация всегда скрывает или отображает полный размер view.
+
+LinearLayout который содержит заголовок и подзаголовок будет всегда отображен при прокручивании вверх, (enterAlways значение), и TabLayout будет видим всегда так как на него не установлен ни один флаг.
+
+Как видите настоящая мощь AppbarLayout определяется должным управлением его флагами прокрутки в определенных view.
+
+Посмотреть код
+Все эти параметры доступны в документации Google Developers. В любом случае, я рекомендую поиграть с примерами. В конце статьи размещены ссылки на репозитории Github с реализацией примеров.
+"
+                android:padding="@dimen/activity_horizontal_margin"
+        />
+    </android.support.v4.widget.NestedScrollView>
+</android.support.design.widget.CoordinatorLayout>
