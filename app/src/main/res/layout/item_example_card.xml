@@ -9,9 +9,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/activity_horizontal_margin"
-            app:cardCornerRadius="100dp"
+            app:cardCornerRadius="14dp"
             style="@style/Widget.MaterialComponents.CardView">
-
 
         <RelativeLayout
                 android:layout_width="match_parent"
