@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Psychology</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+
+    <!-- Bottom navigation -->
+    <string name="title_examples">Examples</string>
+    <string name="title_diary">Personal diary</string>
+    <string name="title_tests">Tests</string>
+    <string name="title_mind_change">Change of mind</string>
+    <string name="title_consultation">Consultation</string>
 </resources>
