@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent">
+<LinearLayout
+        android:orientation="vertical"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+        <ImageView
+                android:id="@+id/imageTest"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                app:srcCompat="@color/colorAccent"/>
+
+        <TextView
+                android:id="@+id/textExampleName"
+                android:text="Эксперимент №1"
+                style="@style/TextView.Primary"
+                android:textColor="@android:color/black"
+                android:layout_margin="@dimen/activity_horizontal_margin"/>
+
+        <TextView
+                android:id="@+id/textExampleQuestion"
+                android:text="Друг обещал прийти в 14.00. Уже 15.00, а его все нет. И на звонки он не отвечает."
+                style="@style/TextView.Secondary"
+                android:textColor="@android:color/black"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:layout_below="@id/textExampleName"/>
+    </RelativeLayout>
+
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    </FrameLayout>
+</LinearLayout>
