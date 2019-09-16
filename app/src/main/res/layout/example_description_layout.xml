@@ -93,7 +93,7 @@ LinearLayout который содержит заголовок и подзаг�
             android:text="Начать"
             style="@style/TextView.Button"
             android:background="@drawable/rectangle_button"
-            android:id="@+id/button"
+            android:id="@+id/buttonStartTest"
             android:layout_gravity="bottom|center"/>
 
 </android.support.design.widget.CoordinatorLayout>

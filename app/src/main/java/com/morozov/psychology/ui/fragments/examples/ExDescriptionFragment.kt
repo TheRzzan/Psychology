@@ -29,6 +29,11 @@ class ExDescriptionFragment: MvpAppCompatFragment(), ExDescriptionView {
             if (mActivityPresenter != null)
                 mActivityPresenter.showExCards()
         }
+
+        buttonStartTest.setOnClickListener {
+            if (mActivityPresenter != null)
+                mActivityPresenter.showExTest()
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -9,41 +9,42 @@ import com.arellomobile.mvp.MvpAppCompatFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
-import com.morozov.psychology.mvp.presenters.examples.ExCardsPresenter
-import com.morozov.psychology.mvp.views.examples.ExCardsView
-import com.morozov.psychology.ui.adapters.examples.ExCardsAdapter
+import com.morozov.psychology.mvp.presenters.examples.ExTestsPresenter
+import com.morozov.psychology.mvp.views.examples.ExTestsView
+import com.morozov.psychology.ui.adapters.examples.ExTestAdapter
 import kotlinx.android.synthetic.main.example_cards_layout.*
+import kotlinx.android.synthetic.main.example_description_layout.*
+import kotlinx.android.synthetic.main.example_test_layout.*
 
-class ExCardsFragment: MvpAppCompatFragment(), ExCardsView, View.OnClickListener {
+class ExTestsFragment: MvpAppCompatFragment(), ExTestsView {
 
     @InjectPresenter
-    lateinit var mPresenter: ExCardsPresenter
+    lateinit var mPresenter: ExTestsPresenter
 
     lateinit var mActivityPresenter: MainPresenter
 
-    lateinit var adapter: ExCardsAdapter
+    lateinit var adapter: ExTestAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-        inflater.inflate(R.layout.example_cards_layout, container, false)
+        inflater.inflate(R.layout.example_test_layout, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = ExCardsAdapter(this)
-        recyclerCards.layoutManager = LinearLayoutManager(context)
-        recyclerCards.adapter = adapter
+        adapter = ExTestAdapter()
+        recyclerTest.layoutManager = LinearLayoutManager(context)
+        recyclerTest.adapter = adapter
+
+        buttonFinishTest.setOnClickListener {
+            if (mActivityPresenter != null)
+                mActivityPresenter.showExCards()
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         mPresenter.loadData()
-    }
-
-    override fun onClick(v: View?) {
-        if (v != null && v.id == R.id.imageCard && mActivityPresenter != null) {
-            mActivityPresenter.showExDescr()
-        }
     }
 
     override fun showData(data: List<String>) {

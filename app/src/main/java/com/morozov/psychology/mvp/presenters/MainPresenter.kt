@@ -16,4 +16,9 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.hideBottomNav()
         viewState.showExDescr()
     }
+
+    fun showExTest() {
+        viewState.hideBottomNav()
+        viewState.showExTest()
+    }
 }
