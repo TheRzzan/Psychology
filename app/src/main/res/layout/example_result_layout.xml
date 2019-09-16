@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+                    style="@style/TextView.Primary"
+                    android:text="Эксперимент №1"
+                    android:textColor="@android:color/black"
+                    android:layout_margin="@dimen/activity_horizontal_margin"
+                    android:id="@+id/textResultName"/>
+
+            <android.support.v7.widget.CardView
+                    android:id="@+id/resultCardView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_horizontal_margin"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/textResultName"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    style="@style/Widget.MaterialComponents.CardView">
+
+                <ImageView
+                        android:id="@+id/imageCard"
+                        android:layout_width="379dp"
+                        android:layout_height="200dp"
+                        app:srcCompat="@color/colorAccent"/>
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                    android:text="Было бы очень печально, если бы мы все были вынуждены реагировать одинаково на одинаковые события. Мы были бы обречены. Человечеству повезло, что у нас есть возможность реагировать по-разному. Спасибо нашим мыслям. Хотите еще раз убедиться в том, что мысли влияют на эмоции? Добро пожаловать в эксперимент №2."
+                    style="@style/TextView.Secondary"
+                    android:textColor="@android:color/black"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:id="@+id/textResultDescription"
+                    android:layout_below="@+id/resultCardView"/>
+
+            <FrameLayout
+                    android:id="@+id/contentResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_horizontal_margin"
+                    android:layout_below="@+id/textResultDescription"/>
+
+            <Button
+                    android:text="Эксперимент №2"
+                    style="@style/TextView.Button"
+                    android:background="@drawable/rectangle_button"
+                    android:id="@+id/buttonNextTest"
+                    android:layout_below="@+id/contentResult"/>
+
+            <Button
+                    android:text="Выбрать другой эксперимент"
+                    style="@style/TextView.Button"
+                    android:background="@drawable/rectangle_button"
+                    android:id="@+id/buttonChoseAnother"
+                    android:layout_below="@+id/buttonNextTest"/>
+
+            <Button
+                    android:text="Закрепить навык поиска мыслей"
+                    style="@style/TextView.Button"
+                    android:background="@drawable/rectangle_button"
+                    android:id="@+id/buttonConsolidateScill"
+                    android:layout_below="@+id/buttonChoseAnother"/>
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>
