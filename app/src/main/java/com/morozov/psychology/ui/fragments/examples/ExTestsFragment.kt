@@ -37,7 +37,7 @@ class ExTestsFragment: MvpAppCompatFragment(), ExTestsView {
 
         buttonFinishTest.setOnClickListener {
             if (mActivityPresenter != null)
-                mActivityPresenter.showExCards()
+                mActivityPresenter.showExResults()
         }
     }
 

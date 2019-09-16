@@ -11,6 +11,7 @@ import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.views.MainView
 import com.morozov.psychology.ui.fragments.examples.ExCardsFragment
 import com.morozov.psychology.ui.fragments.examples.ExDescriptionFragment
+import com.morozov.psychology.ui.fragments.examples.ExResultsFragment
 import com.morozov.psychology.ui.fragments.examples.ExTestsFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -88,6 +89,16 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.contentMain, exTestsFragment)
+            .commit()
+    }
+
+    override fun showExResults() {
+        val exResultsFragment = ExResultsFragment()
+        exResultsFragment.mActivityPresenter = mPresenter
+
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.contentMain, exResultsFragment)
             .commit()
     }
 }
