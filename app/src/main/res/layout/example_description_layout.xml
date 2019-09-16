@@ -90,12 +90,9 @@ LinearLayout который содержит заголовок и подзаг�
     </android.support.v4.widget.NestedScrollView>
 
     <Button
-            android:text="Button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:text="Начать"
+            style="@style/TextView.Button"
             android:background="@drawable/rectangle_button"
-            android:layout_margin="@dimen/activity_vertical_margin"
-            android:textColor="@android:color/white"
             android:id="@+id/button"
             android:layout_gravity="bottom|center"/>
 

@@ -49,4 +49,13 @@
     <style name="TextView.Primary.Header">
         <item name="android:textAppearance">@style/Text.Primary.Header</item>
     </style>
+
+    <style name="TextView.Button">
+        <item name="android:textSize">@dimen/button_font_size</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">@style/Text.Primary</item>
+        <item name="android:layout_margin">@dimen/activity_horizontal_margin</item>
+    </style>
+
 </resources>

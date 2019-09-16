@@ -7,4 +7,7 @@
     <dimen name="text_header_size">34sp</dimen>
     <dimen name="text_primary_size">28sp</dimen>
     <dimen name="text_secondary_size">16sp</dimen>
+
+    <!-- Button -->
+    <dimen name="button_font_size">17sp</dimen>
 </resources>
