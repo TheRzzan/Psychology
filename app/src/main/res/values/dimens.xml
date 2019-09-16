@@ -10,4 +10,7 @@
 
     <!-- Button -->
     <dimen name="button_font_size">17sp</dimen>
+
+    <!-- Card View -->
+    <dimen name="card_corner_radius">14dp</dimen>
 </resources>
