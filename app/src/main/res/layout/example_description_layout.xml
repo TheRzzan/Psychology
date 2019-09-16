@@ -3,7 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:fitsSystemWindows="true">
+        android:fitsSystemWindows="false">
 
     <android.support.design.widget.FloatingActionButton
             android:layout_width="wrap_content"
@@ -11,7 +11,8 @@
             android:clickable="true"
             app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
             android:backgroundTint="@android:color/darker_gray"
-            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
             android:id="@+id/fabExit"
             app:layout_anchorGravity="right|top"
             app:layout_anchor="@+id/appBar"/>
