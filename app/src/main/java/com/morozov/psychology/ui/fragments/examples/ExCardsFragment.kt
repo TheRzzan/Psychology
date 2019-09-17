@@ -11,17 +11,24 @@ import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.examples.ExCardsPresenter
 import com.morozov.psychology.mvp.views.examples.ExCardsView
-import com.morozov.psychology.ui.adapters.examples.ExCardsAdapter
-import com.morozov.psychology.ui.adapters.examples.ExFixCardsAdapter
+import com.morozov.psychology.ui.adapters.examples.cards.exp.ExCardsAdapter
+import com.morozov.psychology.ui.adapters.examples.cards.fix.ExFixCardsAdapter
 import kotlinx.android.synthetic.main.example_cards_layout.*
 
 class ExCardsFragment: MvpAppCompatFragment(), ExCardsView, View.OnClickListener {
 
+    /*
+    * Moxy presenters
+    *
+    * */
     @InjectPresenter
     lateinit var mPresenter: ExCardsPresenter
-
     lateinit var mActivityPresenter: MainPresenter
 
+    /*
+    * Recycler adapters
+    *
+    * */
     lateinit var adapterExp: ExCardsAdapter
     lateinit var adapterFix: ExFixCardsAdapter
 
@@ -48,12 +55,20 @@ class ExCardsFragment: MvpAppCompatFragment(), ExCardsView, View.OnClickListener
         mPresenter.loadDataFixing()
     }
 
+    /*
+    * Click listener for images in items
+    *
+    * */
     override fun onClick(v: View?) {
         if (v != null && v.id == R.id.imageCard && mActivityPresenter != null) {
             mActivityPresenter.showExDescr()
         }
     }
 
+    /*
+    *ExCardsView implementation
+    *
+    * */
     override fun showDataExperiments(data: List<String>) {
         adapterExp.setData(data)
     }

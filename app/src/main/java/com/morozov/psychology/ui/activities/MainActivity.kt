@@ -21,7 +21,8 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     @InjectPresenter
     lateinit var mPresenter: MainPresenter
 
-    /* Bottom Navigation
+    /*
+    * Bottom Navigation
     *
     * */
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -58,8 +59,9 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
 
-    /* Interface controls
-    *
+    /*
+    * Interface controls
+    * (MainView impl)
     * */
     override fun showBottomNav() {
         navigation.visibility = View.VISIBLE
@@ -69,8 +71,9 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         navigation.visibility = View.GONE
     }
 
-    /* Experiments section controls
-    *
+    /*
+    * Experiments section controls
+    * (MainView impl)
     * */
     override fun showExCards() {
         val exCardsFragment = ExCardsFragment()

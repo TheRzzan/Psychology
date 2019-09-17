@@ -14,9 +14,12 @@ import kotlinx.android.synthetic.main.example_description_layout.*
 
 class ExDescriptionFragment: MvpAppCompatFragment(), ExDescriptionView {
 
+    /*
+    * Moxy presenters
+    *
+    * */
     @InjectPresenter
     lateinit var mPresenter: ExDescriptionPresenter
-
     lateinit var mActivityPresenter: MainPresenter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
@@ -42,6 +45,10 @@ class ExDescriptionFragment: MvpAppCompatFragment(), ExDescriptionView {
         mPresenter.loadData()
     }
 
+    /*
+    * ExDescriptionView implementation
+    *
+    * */
     override fun showData(name: String, description: String) {
         textDescrName.text = name
         textDescription.text = description

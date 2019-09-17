@@ -11,18 +11,23 @@ import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.examples.ExTestsPresenter
 import com.morozov.psychology.mvp.views.examples.ExTestsView
-import com.morozov.psychology.ui.adapters.examples.ExTestAdapter
-import kotlinx.android.synthetic.main.example_cards_layout.*
-import kotlinx.android.synthetic.main.example_description_layout.*
+import com.morozov.psychology.ui.adapters.examples.test.ExTestAdapter
 import kotlinx.android.synthetic.main.example_test_layout.*
 
 class ExTestsFragment: MvpAppCompatFragment(), ExTestsView {
 
+    /*
+    * Moxy presenters
+    *
+    * */
     @InjectPresenter
     lateinit var mPresenter: ExTestsPresenter
-
     lateinit var mActivityPresenter: MainPresenter
 
+    /*
+    * Recycler adapter
+    *
+    * */
     lateinit var adapter: ExTestAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
@@ -47,6 +52,10 @@ class ExTestsFragment: MvpAppCompatFragment(), ExTestsView {
         mPresenter.loadData()
     }
 
+    /*
+    * ExTestsView implementation
+    *
+    * */
     override fun showData(data: List<String>) {
         adapter.setData(data)
     }

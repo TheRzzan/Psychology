@@ -1,4 +1,4 @@
-package com.morozov.psychology.ui.adapters.examples
+package com.morozov.psychology.ui.adapters.examples.test
 
 import android.support.v7.widget.RecyclerView
 import android.view.View

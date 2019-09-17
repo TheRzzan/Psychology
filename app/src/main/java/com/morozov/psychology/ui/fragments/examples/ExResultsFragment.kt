@@ -14,9 +14,12 @@ import kotlinx.android.synthetic.main.example_result_layout.*
 
 class ExResultsFragment: MvpAppCompatFragment(), ExResultsView {
 
+    /*
+    * Moxy presenters
+    *
+    * */
     @InjectPresenter
     lateinit var mPresenter: ExResultsPresenter
-
     lateinit var mActivityPresenter: MainPresenter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
