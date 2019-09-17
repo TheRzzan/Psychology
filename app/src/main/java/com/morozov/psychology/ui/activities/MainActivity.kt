@@ -2,8 +2,6 @@ package com.morozov.psychology.ui.activities
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
-import android.support.v7.app.AppCompatActivity
-import android.view.MenuItem
 import android.view.View
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
@@ -12,7 +10,6 @@ import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.views.MainView
 import com.morozov.psychology.ui.fragments.examples.*
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.example_cards_layout.*
 
 class MainActivity : MvpAppCompatActivity(), MainView {
 

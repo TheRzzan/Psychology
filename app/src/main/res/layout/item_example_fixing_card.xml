@@ -20,7 +20,7 @@
                     android:id="@+id/imageCardFixing"
                     android:layout_width="350dp"
                     android:layout_height="220dp"
-                    app:srcCompat="@color/colorAccent"/>
+                    app:srcCompat="@drawable/image_test_3"/>
 
             <TextView
                     android:id="@+id/textExampleFixingName"
