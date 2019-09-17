@@ -25,7 +25,7 @@ class ExTestsFragment: MvpAppCompatFragment(), ExTestsView {
     lateinit var mActivityPresenter: MainPresenter
 
     /*
-    * Recycler adapter
+    * Recycler adapterTest
     *
     * */
     lateinit var adapter: ExTestAdapter

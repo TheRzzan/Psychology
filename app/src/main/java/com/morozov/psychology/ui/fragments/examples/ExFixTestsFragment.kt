@@ -8,9 +8,11 @@ import android.view.ViewGroup
 import com.arellomobile.mvp.MvpAppCompatFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
+import com.morozov.psychology.mvp.models.ExFixingResultModel
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.examples.ExFixTestsPresenter
 import com.morozov.psychology.mvp.views.examples.ExFixTestsView
+import com.morozov.psychology.ui.adapters.examples.results.ExFixResultAdapter
 import com.morozov.psychology.ui.adapters.examples.test.ExTestAdapter
 import kotlinx.android.synthetic.main.example_fix_test_layout.*
 
@@ -25,10 +27,11 @@ class ExFixTestsFragment: MvpAppCompatFragment(), ExFixTestsView {
     lateinit var mActivityPresenter: MainPresenter
 
     /*
-    * Recycler adapter
+    * Recycler adapterTest
     *
     * */
-    lateinit var adapter: ExTestAdapter
+    lateinit var adapterTest: ExTestAdapter
+    lateinit var adapterResults: ExFixResultAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.example_fix_test_layout, container, false)
@@ -36,9 +39,9 @@ class ExFixTestsFragment: MvpAppCompatFragment(), ExFixTestsView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = ExTestAdapter()
+        adapterTest = ExTestAdapter()
         recyclerFixTest.layoutManager = LinearLayoutManager(context)
-        recyclerFixTest.adapter = adapter
+        recyclerFixTest.adapter = adapterTest
 
         buttonFixFinishTest.setOnClickListener {
             mPresenter.showResults()
@@ -56,16 +59,25 @@ class ExFixTestsFragment: MvpAppCompatFragment(), ExFixTestsView {
     *
     * */
     override fun showData(data: List<String>) {
-        adapter.setData(data)
+        adapterTest.setData(data)
     }
 
-    override fun showResults() {
+    override fun showResults(data: List<ExFixingResultModel>) {
+        adapterResults = ExFixResultAdapter()
+        recyclerFixTest.layoutManager = LinearLayoutManager(context)
+        recyclerFixTest.adapter = adapterResults
+
+        adapterResults.setData(data)
+
         scrollFixTest.smoothScrollTo(0, 0)
+
         buttonFixFinishTest.setOnClickListener {
             if (mActivityPresenter != null)
                 mActivityPresenter.showExCards()
         }
+
         buttonFixFinishTest.text = "Далее"
+
         linearFixTestHint.visibility = View.VISIBLE
         textFixTestHint.visibility = View.GONE
     }
