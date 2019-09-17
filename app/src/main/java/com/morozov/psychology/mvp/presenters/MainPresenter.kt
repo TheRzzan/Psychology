@@ -7,6 +7,9 @@ import com.morozov.psychology.mvp.views.MainView
 @InjectViewState
 class MainPresenter:MvpPresenter<MainView>() {
 
+    /* Experiments section controls
+    *
+    * */
     fun showExCards() {
         viewState.showBottomNav()
         viewState.showExCards()

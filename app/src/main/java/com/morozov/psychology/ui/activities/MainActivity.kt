@@ -3,6 +3,7 @@ package com.morozov.psychology.ui.activities
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
+import android.view.MenuItem
 import android.view.View
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
@@ -20,6 +21,9 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     @InjectPresenter
     lateinit var mPresenter: MainPresenter
 
+    /* Bottom Navigation
+    *
+    * */
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_examples -> {
@@ -54,6 +58,9 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
 
+    /* Interface controls
+    *
+    * */
     override fun showBottomNav() {
         navigation.visibility = View.VISIBLE
     }
@@ -62,6 +69,9 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         navigation.visibility = View.GONE
     }
 
+    /* Experiments section controls
+    *
+    * */
     override fun showExCards() {
         val exCardsFragment = ExCardsFragment()
         exCardsFragment.mActivityPresenter = mPresenter

@@ -7,5 +7,7 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
 @StateStrategyType(value = AddToEndSingleStrategy::class)
 interface ExCardsView: MvpView {
 
-    fun showData(data: List<String>)
+    fun showDataExperiments(data: List<String>)
+
+    fun showDataFixing(data: List<String>)
 }

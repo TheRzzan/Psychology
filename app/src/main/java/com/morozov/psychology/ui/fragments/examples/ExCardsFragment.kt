@@ -12,6 +12,7 @@ import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.examples.ExCardsPresenter
 import com.morozov.psychology.mvp.views.examples.ExCardsView
 import com.morozov.psychology.ui.adapters.examples.ExCardsAdapter
+import com.morozov.psychology.ui.adapters.examples.ExFixCardsAdapter
 import kotlinx.android.synthetic.main.example_cards_layout.*
 
 class ExCardsFragment: MvpAppCompatFragment(), ExCardsView, View.OnClickListener {
@@ -21,7 +22,8 @@ class ExCardsFragment: MvpAppCompatFragment(), ExCardsView, View.OnClickListener
 
     lateinit var mActivityPresenter: MainPresenter
 
-    lateinit var adapter: ExCardsAdapter
+    lateinit var adapterExp: ExCardsAdapter
+    lateinit var adapterFix: ExFixCardsAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.example_cards_layout, container, false)
@@ -29,15 +31,21 @@ class ExCardsFragment: MvpAppCompatFragment(), ExCardsView, View.OnClickListener
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = ExCardsAdapter(this)
-        recyclerCards.layoutManager = LinearLayoutManager(context)
-        recyclerCards.adapter = adapter
+        adapterExp = ExCardsAdapter(this)
+        adapterFix = ExFixCardsAdapter(this)
+
+        recyclerCardsExper.layoutManager = LinearLayoutManager(context)
+        recyclerCardsExper.adapter = adapterExp
+
+        recyclerCardsFixing.layoutManager = LinearLayoutManager(context)
+        recyclerCardsFixing.adapter = adapterFix
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        mPresenter.loadData()
+        mPresenter.loadDataExperiments()
+        mPresenter.loadDataFixing()
     }
 
     override fun onClick(v: View?) {
@@ -46,7 +54,11 @@ class ExCardsFragment: MvpAppCompatFragment(), ExCardsView, View.OnClickListener
         }
     }
 
-    override fun showData(data: List<String>) {
-        adapter.setData(data)
+    override fun showDataExperiments(data: List<String>) {
+        adapterExp.setData(data)
+    }
+
+    override fun showDataFixing(data: List<String>) {
+        adapterFix.setData(data)
     }
 }

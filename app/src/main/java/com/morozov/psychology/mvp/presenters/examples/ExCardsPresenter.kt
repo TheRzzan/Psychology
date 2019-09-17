@@ -7,8 +7,12 @@ import com.morozov.psychology.mvp.views.examples.ExCardsView
 @InjectViewState
 class ExCardsPresenter: MvpPresenter<ExCardsView>() {
 
-    fun loadData() {
-        viewState.showData(listOf("Эксперимент №1", "Эксперимент №2", "Эксперимент №3"
+    fun loadDataExperiments() {
+        viewState.showDataExperiments(listOf("Эксперимент №1", "Эксперимент №2", "Эксперимент №3"
             , "Эксперимент №4", "Эксперимент №5"))
+    }
+
+    fun loadDataFixing() {
+        viewState.showDataFixing(listOf("Упражнение на закрепление навыка поиска мыслей"))
     }
 }

@@ -7,11 +7,16 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
 @StateStrategyType(value = AddToEndSingleStrategy::class)
 interface MainView: MvpView {
 
+    /* Interface controls
+    *
+    * */
     fun showBottomNav()
 
     fun hideBottomNav()
 
-    // examples
+    /* Experiments section controls
+    *
+    * */
     fun showExCards()
 
     fun showExDescr()
