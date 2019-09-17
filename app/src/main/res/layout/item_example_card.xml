@@ -8,7 +8,7 @@
             android:id="@+id/exampleCardView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
             app:cardCornerRadius="@dimen/card_corner_radius"
             style="@style/Widget.MaterialComponents.CardView">
 

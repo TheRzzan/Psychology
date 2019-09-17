@@ -8,7 +8,7 @@
             android:id="@+id/exampleFixingCardView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
             app:cardCornerRadius="@dimen/card_corner_radius"
             style="@style/Widget.MaterialComponents.CardView">
 
@@ -24,10 +24,11 @@
 
             <TextView
                     android:id="@+id/textExampleFixingName"
+                    android:layout_width="300dp"
                     android:text="Упражнение на закрепление навыка поиска мыслей"
                     style="@style/TextView.Primary"
                     android:layout_marginTop="22dp"
-                    android:layout_marginStart="@dimen/activity_horizontal_margin"/>
+                    android:layout_marginStart="@dimen/activity_horizontal_margin" android:layout_height="135dp"/>
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 </LinearLayout>
