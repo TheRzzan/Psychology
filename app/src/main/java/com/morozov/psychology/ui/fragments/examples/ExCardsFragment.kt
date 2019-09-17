@@ -38,6 +38,8 @@ class ExCardsFragment: MvpAppCompatFragment(), ExCardsView, View.OnClickListener
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        scrollMain.smoothScrollTo(0, 0)
+
         adapterExp = ExCardsAdapter(this)
         adapterFix = ExFixCardsAdapter(this)
 
