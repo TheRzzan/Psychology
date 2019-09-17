@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+                    style="@style/TextView.Primary"
+                    android:text="Упражнение на закрепление навыка поиска мыслей"
+                    android:textColor="@android:color/black"
+                    android:layout_margin="@dimen/activity_horizontal_margin"
+                    android:id="@+id/textFixTestName"/>
+
+            <TextView
+                    android:text="Артем очень расстроился, когда ему отказали на собеседовании. Он решил, что недостоин этой работы и в этот день не стал отправлять резюме на другие вакансии."
+                    style="@style/TextView.Secondary"
+                    android:textColor="@android:color/black"
+                    android:layout_margin="@dimen/activity_horizontal_margin"
+                    android:id="@+id/textFixTestDescr"
+                    android:layout_below="@+id/textFixTestName"/>
+
+            <TextView
+                    android:visibility="visible"
+                    android:id="@+id/textFixTestHint"
+                    android:text="Впишите свои ответы."
+                    style="@style/TextView.Secondary"
+                    android:textColor="@android:color/black"
+                    android:layout_margin="@dimen/activity_horizontal_margin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textFixTestDescr"/>
+
+            <LinearLayout
+                    android:visibility="gone"
+                    android:id="@+id/linearFixTestHint"
+                    android:orientation="horizontal"
+                    style="@style/TextView.Secondary"
+                    android:textColor="@android:color/black"
+                    android:layout_margin="@dimen/activity_horizontal_margin"
+                    android:layout_below="@+id/textFixTestDescr">
+
+                <TextView
+                        android:text="*Ваш ответ"
+                        style="@style/TextView.Secondary"
+                        android:textColor="@android:color/darker_gray"
+                        android:id="@+id/textView"
+                        android:layout_weight="1"/>
+                <TextView
+                        android:text="*Правильный ответ"
+                        style="@style/TextView.Secondary"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:id="@+id/textView2"
+                        android:layout_weight="1"/>
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerFixTest"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="55dp"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_below="@+id/textFixTestDescr"/>
+
+            <Button
+                    android:text="Проверить"
+                    style="@style/TextView.Button"
+                    android:background="@drawable/rectangle_button"
+                    android:id="@+id/buttonFixFinishTest"
+                    android:layout_below="@+id/recyclerFixTest"/>
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>
