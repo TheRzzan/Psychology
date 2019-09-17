@@ -60,4 +60,16 @@
         <item name="android:layout_marginBottom">@dimen/activity_horizontal_margin</item>
     </style>
 
+    <style name="ScrollViewStyle">
+        <item name="android:overScrollMode">never</item>
+        <item name="android:scrollbars">none</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="RecyclerViewStyle">
+        <item name="android:overScrollMode">never</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
 </resources>

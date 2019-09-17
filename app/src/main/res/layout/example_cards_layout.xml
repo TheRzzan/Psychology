@@ -8,8 +8,7 @@
 
     <ScrollView
             android:id="@+id/scrollMain"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            style="@style/ScrollViewStyle">
 
         <RelativeLayout
                 android:layout_width="match_parent"
@@ -23,14 +22,12 @@
 
             <android.support.v7.widget.RecyclerView
                     android:id="@+id/recyclerCardsExper"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    style="@style/RecyclerViewStyle"
                     android:layout_below="@+id/textHeader"/>
 
             <android.support.v7.widget.RecyclerView
                     android:id="@+id/recyclerCardsFixing"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    style="@style/RecyclerViewStyle"
                     android:layout_below="@+id/recyclerCardsExper"/>
         </RelativeLayout>
     </ScrollView>

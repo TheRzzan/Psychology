@@ -5,34 +5,34 @@
         android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
         android:fitsSystemWindows="false">
 
-    <ImageView
-            android:id="@+id/imageFixToolbar"
-            android:layout_width="match_parent"
-            android:layout_height="230dp"
-            android:scaleType="centerCrop"
-            android:fitsSystemWindows="true"
-            android:src="@color/colorAccent"
-            app:layout_collapseMode="parallax"
-    />
-    <TextView
-            android:id="@+id/textFixDescrName"
-            style="@style/TextView.Primary"
-            android:text="Some name"
-            android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="48dp"/>
-
     <ScrollView
             android:id="@+id/scrollViewFix"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/imageFixToolbar">
+            style="@style/ScrollViewStyle">
 
         <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+            <ImageView
+                    android:id="@+id/imageFixToolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp"
+                    android:scaleType="centerCrop"
+                    android:fitsSystemWindows="true"
+                    android:src="@color/colorAccent"
+                    app:layout_collapseMode="parallax"
+            />
+
+            <TextView
+                    android:id="@+id/textFixDescrName"
+                    style="@style/TextView.Primary"
+                    android:text="Some name"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="48dp"/>
+
             <TextView
                     android:id="@+id/textFixDescription"
+                    android:layout_below="@+id/imageFixToolbar"
                     style="@style/TextView.Secondary"
                     android:textColor="@android:color/black"
                     android:lineSpacingExtra="8dp"
