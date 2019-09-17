@@ -23,6 +23,8 @@ interface MainView: MvpView {
 
     fun showExDescr()
 
+    fun showExFixDescr()
+
     fun showExTest()
 
     fun showExResults()

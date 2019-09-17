@@ -63,6 +63,10 @@ class ExCardsFragment: MvpAppCompatFragment(), ExCardsView, View.OnClickListener
         if (v != null && v.id == R.id.imageCard && mActivityPresenter != null) {
             mActivityPresenter.showExDescr()
         }
+
+        if (v != null && v.id == R.id.imageCardFixing && mActivityPresenter != null) {
+            mActivityPresenter.showExFixDescr()
+        }
     }
 
     /*

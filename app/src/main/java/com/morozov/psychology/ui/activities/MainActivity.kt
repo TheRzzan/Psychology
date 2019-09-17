@@ -10,10 +10,7 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.views.MainView
-import com.morozov.psychology.ui.fragments.examples.ExCardsFragment
-import com.morozov.psychology.ui.fragments.examples.ExDescriptionFragment
-import com.morozov.psychology.ui.fragments.examples.ExResultsFragment
-import com.morozov.psychology.ui.fragments.examples.ExTestsFragment
+import com.morozov.psychology.ui.fragments.examples.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : MvpAppCompatActivity(), MainView {
@@ -92,6 +89,16 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.contentMain, exDescriptionFragment)
+            .commit()
+    }
+
+    override fun showExFixDescr() {
+        val exFixDescriptionFragment = ExFixDescriptionFragment()
+        exFixDescriptionFragment.mActivityPresenter = mPresenter
+
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.contentMain, exFixDescriptionFragment)
             .commit()
     }
 
