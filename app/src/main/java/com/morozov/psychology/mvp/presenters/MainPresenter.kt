@@ -31,6 +31,11 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showExTest()
     }
 
+    fun showExFixTest() {
+        viewState.hideBottomNav()
+        viewState.showExFixTest()
+    }
+
     fun showExResults() {
         viewState.hideBottomNav()
         viewState.showExResults()

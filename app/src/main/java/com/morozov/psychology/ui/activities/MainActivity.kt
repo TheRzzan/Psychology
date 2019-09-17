@@ -12,6 +12,7 @@ import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.views.MainView
 import com.morozov.psychology.ui.fragments.examples.*
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.example_cards_layout.*
 
 class MainActivity : MvpAppCompatActivity(), MainView {
 
@@ -57,9 +58,9 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     }
 
     /*
-    * Interface controls
-    * (MainView impl)
-    * */
+        * Interface controls
+        * (MainView impl)
+        * */
     override fun showBottomNav() {
         navigation.visibility = View.VISIBLE
     }
@@ -109,6 +110,16 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.contentMain, exTestsFragment)
+            .commit()
+    }
+
+    override fun showExFixTest() {
+        val exFixTestsFragment = ExFixTestsFragment()
+        exFixTestsFragment.mActivityPresenter = mPresenter
+
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.contentMain, exFixTestsFragment)
             .commit()
     }
 

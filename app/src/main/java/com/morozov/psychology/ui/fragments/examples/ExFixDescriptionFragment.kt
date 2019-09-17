@@ -41,7 +41,7 @@ class ExFixDescriptionFragment: MvpAppCompatFragment(), ExFixDescriptionView {
 
         buttonFixStartTest.setOnClickListener {
             if (mActivityPresenter != null)
-                mActivityPresenter.showExTest()
+                mActivityPresenter.showExFixTest()
         }
     }
 
