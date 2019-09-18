@@ -28,7 +28,7 @@ class ExDescriptionFragment: MvpAppCompatFragment(), ExDescriptionView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        fabExit.setOnClickListener {
+        buttonExit.setOnClickListener {
             if (mActivityPresenter != null)
                 mActivityPresenter.showExCards()
         }

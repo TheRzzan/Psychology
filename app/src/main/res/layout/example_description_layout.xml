@@ -61,15 +61,13 @@ LinearLayout который содержит заголовок и подзаг�
         </RelativeLayout>
     </ScrollView>
 
-    <android.support.design.widget.FloatingActionButton
-            android:layout_marginTop="30dp"
+    <Button
+            android:layout_marginTop="@dimen/activity_vertical_margin"
             android:layout_marginEnd="@dimen/activity_horizontal_margin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
-            android:backgroundTint="@android:color/darker_gray"
-            android:id="@+id/fabExit"
+            android:id="@+id/buttonExit"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"/>
+            android:layout_alignParentTop="true"
+            android:background="@drawable/close_icon"
+            android:layout_width="26dp"
+            android:layout_height="26dp"/>
 </RelativeLayout>

@@ -34,7 +34,7 @@ class ExFixDescriptionFragment: MvpAppCompatFragment(), ExFixDescriptionView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        fabFixExit.setOnClickListener {
+        buttonFixExit.setOnClickListener {
             if (mActivityPresenter != null)
                 mActivityPresenter.showExCards()
         }
