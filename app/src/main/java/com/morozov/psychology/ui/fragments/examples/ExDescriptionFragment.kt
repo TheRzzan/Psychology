@@ -29,8 +29,7 @@ class ExDescriptionFragment: MvpAppCompatFragment(), ExDescriptionView {
         super.onViewCreated(view, savedInstanceState)
 
         buttonExit.setOnClickListener {
-            if (mActivityPresenter != null)
-                mActivityPresenter.showExCards()
+            activity?.onBackPressed()
         }
 
         buttonStartTest.setOnClickListener {

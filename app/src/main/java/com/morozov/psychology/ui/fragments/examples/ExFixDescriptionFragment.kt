@@ -35,8 +35,7 @@ class ExFixDescriptionFragment: MvpAppCompatFragment(), ExFixDescriptionView {
         super.onViewCreated(view, savedInstanceState)
 
         buttonFixExit.setOnClickListener {
-            if (mActivityPresenter != null)
-                mActivityPresenter.showExCards()
+            activity?.onBackPressed()
         }
 
         buttonFixStartTest.setOnClickListener {
