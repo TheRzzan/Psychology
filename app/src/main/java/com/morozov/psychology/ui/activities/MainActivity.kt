@@ -88,6 +88,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         val exCardsFragment = ExCardsFragment()
         exCardsFragment.mActivityPresenter = mPresenter
 
+        clearBackStack()
         setFragment(exCardsFragment)
     }
 
@@ -140,5 +141,13 @@ class MainActivity : MvpAppCompatActivity(), MainView {
             transaction.addToBackStack(null)
 
         transaction.commit()
+    }
+
+    private fun clearBackStack() {
+        var i = 0
+        while (i < supportFragmentManager.backStackEntryCount){
+            i++
+            supportFragmentManager.popBackStack()
+        }
     }
 }
