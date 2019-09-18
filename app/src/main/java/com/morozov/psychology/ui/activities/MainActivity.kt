@@ -2,6 +2,7 @@ package com.morozov.psychology.ui.activities
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
+import android.support.v4.app.Fragment
 import android.view.View
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
@@ -54,10 +55,23 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
 
+    override fun onBackPressed() {
+        when (supportFragmentManager.backStackEntryCount) {
+            0 -> super.onBackPressed()
+            1 -> {
+                showBottomNav()
+                supportFragmentManager.popBackStack()
+            }
+            else -> {
+                supportFragmentManager.popBackStack()
+            }
+        }
+    }
+
     /*
-        * Interface controls
-        * (MainView impl)
-        * */
+    * Interface controls
+    * (MainView impl)
+    * */
     override fun showBottomNav() {
         navigation.visibility = View.VISIBLE
     }
@@ -74,59 +88,57 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         val exCardsFragment = ExCardsFragment()
         exCardsFragment.mActivityPresenter = mPresenter
 
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.contentMain, exCardsFragment)
-            .commit()
+        setFragment(exCardsFragment)
     }
 
     override fun showExDescr() {
         val exDescriptionFragment = ExDescriptionFragment()
         exDescriptionFragment.mActivityPresenter = mPresenter
 
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.contentMain, exDescriptionFragment)
-            .commit()
+        setFragment(exDescriptionFragment, true)
     }
 
     override fun showExFixDescr() {
         val exFixDescriptionFragment = ExFixDescriptionFragment()
         exFixDescriptionFragment.mActivityPresenter = mPresenter
 
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.contentMain, exFixDescriptionFragment)
-            .commit()
+        setFragment(exFixDescriptionFragment, true)
     }
 
     override fun showExTest() {
         val exTestsFragment = ExTestsFragment()
         exTestsFragment.mActivityPresenter = mPresenter
 
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.contentMain, exTestsFragment)
-            .commit()
+        setFragment(exTestsFragment, true)
     }
 
     override fun showExFixTest() {
         val exFixTestsFragment = ExFixTestsFragment()
         exFixTestsFragment.mActivityPresenter = mPresenter
 
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.contentMain, exFixTestsFragment)
-            .commit()
+        setFragment(exFixTestsFragment, true)
     }
 
     override fun showExResults() {
         val exResultsFragment = ExResultsFragment()
         exResultsFragment.mActivityPresenter = mPresenter
 
-        supportFragmentManager
+        setFragment(exResultsFragment, true)
+    }
+
+    /*
+    *  Helper methods
+    *
+    *  */
+
+    private fun setFragment(fragment: Fragment, b: Boolean = false) {
+        val transaction = supportFragmentManager
             .beginTransaction()
-            .replace(R.id.contentMain, exResultsFragment)
-            .commit()
+            .replace(R.id.contentMain, fragment)
+
+        if (b)
+            transaction.addToBackStack(null)
+
+        transaction.commit()
     }
 }
