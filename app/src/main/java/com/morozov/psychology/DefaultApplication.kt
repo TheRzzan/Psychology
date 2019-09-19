@@ -4,6 +4,7 @@ import android.app.Application
 import com.morozov.psychology.di.examples.DaggerExamplesComponent
 import com.morozov.psychology.di.examples.ExamplesComponent
 import com.morozov.psychology.di.examples.ExamplesModule
+import com.morozov.psychology.di.examples.FixingModule
 
 class DefaultApplication: Application() {
 
@@ -17,6 +18,7 @@ class DefaultApplication: Application() {
         examplesComponent = DaggerExamplesComponent
                             .builder()
                             .examplesModule(ExamplesModule())
+                            .fixingModule(FixingModule())
                             .build()
     }
 }

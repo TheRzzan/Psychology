@@ -7,7 +7,7 @@ import com.morozov.psychology.mvp.presenters.examples.ExResultsPresenter
 import com.morozov.psychology.mvp.presenters.examples.ExTestsPresenter
 import dagger.Component
 
-@Component(modules = arrayOf(ExamplesModule::class))
+@Component(modules = arrayOf(ExamplesModule::class, FixingModule::class))
 interface ExamplesComponent: AppComponent {
 
     fun inject(presenter: ExCardsPresenter)
