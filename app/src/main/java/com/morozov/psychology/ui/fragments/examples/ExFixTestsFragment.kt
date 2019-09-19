@@ -30,6 +30,8 @@ class ExFixTestsFragment: MvpAppCompatFragment(), ExFixTestsView, OnTextChangeLi
 
     var allTextRecycler: MutableList<String> = mutableListOf()
 
+    var currentPos = 0
+
     /*
     * Recycler adapterTest
     *
@@ -51,9 +53,9 @@ class ExFixTestsFragment: MvpAppCompatFragment(), ExFixTestsView, OnTextChangeLi
 
         buttonFixFinishTest.setOnClickListener {
             if (bundle != null)
-                mPresenter.showResults(bundle.getInt(AppConstants.EXP_POSITION),0, allTextRecycler)
+                mPresenter.showResults(bundle.getInt(AppConstants.EXP_POSITION),currentPos, allTextRecycler)
             else
-                mPresenter.showResults(0, 0, allTextRecycler)
+                mPresenter.showResults(0, currentPos, allTextRecycler)
         }
     }
 
@@ -63,9 +65,9 @@ class ExFixTestsFragment: MvpAppCompatFragment(), ExFixTestsView, OnTextChangeLi
         val bundle = this.arguments
 
         if (bundle != null)
-            mPresenter.loadData(bundle.getInt(AppConstants.EXP_POSITION), 0)
+            mPresenter.loadData(bundle.getInt(AppConstants.EXP_POSITION), currentPos)
         else
-            mPresenter.loadData(0, 0)
+            mPresenter.loadData(0, currentPos)
     }
 
     /*
@@ -90,10 +92,22 @@ class ExFixTestsFragment: MvpAppCompatFragment(), ExFixTestsView, OnTextChangeLi
     * ExFixTestsView implementation
     *
     * */
-    override fun showData(data: List<String>) {
+    override fun showData(description: String, data: List<String>) {
+        recyclerFixTest.layoutManager = LinearLayoutManager(context)
+        recyclerFixTest.adapter = adapterTest
         adapterTest.setData(data)
 
         allTextRecycler = mutableListOf()
+
+        textFixTestDescr.text = description
+
+        val bundle = this.arguments
+        buttonFixFinishTest.setOnClickListener {
+            if (bundle != null)
+                mPresenter.showResults(bundle.getInt(AppConstants.EXP_POSITION),currentPos, allTextRecycler)
+            else
+                mPresenter.showResults(0, currentPos, allTextRecycler)
+        }
 
         var i = 0
         while (i < adapterTest.itemCount) {
@@ -102,6 +116,9 @@ class ExFixTestsFragment: MvpAppCompatFragment(), ExFixTestsView, OnTextChangeLi
         }
 
         setFinishEnabled(false)
+
+        linearFixTestHint.visibility = View.GONE
+        textFixTestHint.visibility = View.VISIBLE
     }
 
     override fun showResults(data: List<ExFixingResultModel>) {
@@ -114,11 +131,16 @@ class ExFixTestsFragment: MvpAppCompatFragment(), ExFixTestsView, OnTextChangeLi
         scrollFixTest.smoothScrollTo(0, 0)
 
         buttonFixFinishTest.setOnClickListener {
-            if (mActivityPresenter != null)
-                mActivityPresenter.showExCards()
-        }
+            scrollFixTest.scrollTo(0, 0)
 
-        buttonFixFinishTest.text = "Далее"
+            val bundle = this.arguments
+            currentPos++
+
+            if (bundle != null)
+                mPresenter.loadData(bundle.getInt(AppConstants.EXP_POSITION), currentPos)
+            else
+                mPresenter.loadData(0, currentPos)
+        }
 
         linearFixTestHint.visibility = View.VISIBLE
         textFixTestHint.visibility = View.GONE
@@ -129,5 +151,14 @@ class ExFixTestsFragment: MvpAppCompatFragment(), ExFixTestsView, OnTextChangeLi
             true -> View.VISIBLE
             false -> View.GONE
         }
+    }
+
+    override fun outOfTest() {
+        if (mActivityPresenter != null)
+            mActivityPresenter.showExCards()
+    }
+
+    override fun setButtonText(text: String) {
+        buttonFixFinishTest.text = text
     }
 }

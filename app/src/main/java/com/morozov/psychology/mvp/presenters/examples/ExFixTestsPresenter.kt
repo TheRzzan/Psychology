@@ -19,6 +19,11 @@ class ExFixTestsPresenter: MvpPresenter<ExFixTestsView>() {
     }
 
     fun loadData(exercisePos: Int, fixingPos: Int) {
+        if (fixingPos >= fixingLoader.getFixings()[exercisePos].fixings.size) {
+            viewState.outOfTest()
+            return
+        }
+
         val pairs = fixingLoader.getFixings()[exercisePos].fixings[fixingPos].pairs
 
         val texts: MutableList<String> = mutableListOf()
@@ -27,7 +32,8 @@ class ExFixTestsPresenter: MvpPresenter<ExFixTestsView>() {
             texts.add(pair.first)
         }
 
-        viewState.showData(texts)
+        viewState.showData(fixingLoader.getFixings()[exercisePos].fixings[fixingPos].situation, texts)
+        viewState.setButtonText("Проверить")
     }
 
     fun showResults(exercisePos: Int, fixingPos: Int, userAnswers: List<String>) {
@@ -42,5 +48,10 @@ class ExFixTestsPresenter: MvpPresenter<ExFixTestsView>() {
         }
 
         viewState.showResults(result)
+
+        if (fixingPos + 1 >= fixingLoader.getFixings()[exercisePos].fixings.size)
+            viewState.setButtonText("Завершить")
+        else
+            viewState.setButtonText("Далее")
     }
 }

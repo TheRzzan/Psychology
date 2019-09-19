@@ -8,9 +8,13 @@ import com.morozov.psychology.mvp.models.ExFixingResultModel
 @StateStrategyType(value = AddToEndSingleStrategy::class)
 interface ExFixTestsView: MvpView {
 
-    fun showData(data: List<String>)
+    fun showData(description: String, data: List<String>)
 
     fun showResults(data: List<ExFixingResultModel>)
 
     fun setFinishEnabled(boolean: Boolean)
+
+    fun outOfTest()
+
+    fun setButtonText(text: String)
 }
