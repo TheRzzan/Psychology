@@ -73,10 +73,16 @@ class ExTestsFragment: MvpAppCompatFragment(), ExTestsView {
     }
 
     override fun showTitle(title: String) {
-        textTestName.text = title
+        if (title == "")
+            textTestName.visibility = View.GONE
+        else
+            textTestName.text = title
     }
 
-    override fun showDescription(description: String) {
-        textTestDescr.text = description
+    override fun showQuestion(description: String) {
+        if (description == "")
+            textTestDescr.visibility = View.GONE
+        else
+            textTestDescr.text = description
     }
 }

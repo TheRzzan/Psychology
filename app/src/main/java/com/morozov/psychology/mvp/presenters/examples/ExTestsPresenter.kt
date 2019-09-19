@@ -21,7 +21,7 @@ class ExTestsPresenter: MvpPresenter<ExTestsView>() {
         val experiments = experimentsLoader.getExperiments()
 
         viewState.showTitle(experiments[position].title)
-        viewState.showDescription(experiments[position].description)
+        viewState.showQuestion(experiments[position].question)
         viewState.showVariants(experiments[position].variants)
     }
 }

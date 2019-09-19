@@ -9,7 +9,7 @@ interface ExTestsView: MvpView {
 
     fun showTitle(title: String)
 
-    fun showDescription(description: String)
+    fun showQuestion(description: String)
 
     fun showVariants(variants: List<String>)
 }
