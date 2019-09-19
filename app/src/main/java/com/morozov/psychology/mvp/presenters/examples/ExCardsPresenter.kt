@@ -18,7 +18,13 @@ class ExCardsPresenter: MvpPresenter<ExCardsView>() {
     }
 
     fun loadDataExperiments() {
-        viewState.showDataExperiments(experimentsLoader.getExperiments())
+        val titles: MutableList<String> = mutableListOf()
+
+        for (item in experimentsLoader.getExperiments()) {
+            titles.add(item.title)
+        }
+
+        viewState.showDataExperiments(titles)
     }
 
     fun loadDataFixing() {
