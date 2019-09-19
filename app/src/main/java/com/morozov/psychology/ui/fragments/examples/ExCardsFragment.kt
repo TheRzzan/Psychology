@@ -16,7 +16,7 @@ import com.morozov.psychology.ui.adapters.examples.cards.fix.ExFixCardsAdapter
 import com.morozov.psychology.ui.adapters.listeners.OnItemClickListener
 import kotlinx.android.synthetic.main.example_cards_layout.*
 
-class ExCardsFragment: MvpAppCompatFragment(), ExCardsView, View.OnClickListener, OnItemClickListener {
+class ExCardsFragment: MvpAppCompatFragment(), ExCardsView, OnItemClickListener {
 
     /*
     * Moxy presenters
@@ -57,22 +57,16 @@ class ExCardsFragment: MvpAppCompatFragment(), ExCardsView, View.OnClickListener
     }
 
     /*
-    * Click listener for images in items
-    *
-    * */
-    override fun onClick(v: View?) {
-        if (v != null && v.id == R.id.imageCardFixing && mActivityPresenter != null) {
-            mActivityPresenter.showExFixDescr()
-        }
-    }
-
-    /*
     * OnItemClickListener implementation
     *
     * */
     override fun onItemClick(view: View, position: Int) {
         if (view.id == R.id.imageCard && mActivityPresenter != null) {
             mActivityPresenter.showExDescr(position)
+        }
+
+        if (view.id == R.id.imageCardFixing && mActivityPresenter != null) {
+            mActivityPresenter.showExFixDescr(position)
         }
     }
 

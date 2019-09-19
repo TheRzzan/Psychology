@@ -21,9 +21,9 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showExDescr(position)
     }
 
-    fun showExFixDescr() {
+    fun showExFixDescr(position: Int) {
         viewState.hideBottomNav()
-        viewState.showExFixDescr()
+        viewState.showExFixDescr(position)
     }
 
     fun showExTest(position: Int) {
@@ -31,9 +31,9 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showExTest(position)
     }
 
-    fun showExFixTest() {
+    fun showExFixTest(position: Int) {
         viewState.hideBottomNav()
-        viewState.showExFixTest()
+        viewState.showExFixTest(position)
     }
 
     fun showExResults(position: Int) {

@@ -1,10 +1,7 @@
 package com.morozov.psychology.di.examples
 
 import com.morozov.psychology.di.AppComponent
-import com.morozov.psychology.mvp.presenters.examples.ExCardsPresenter
-import com.morozov.psychology.mvp.presenters.examples.ExDescriptionPresenter
-import com.morozov.psychology.mvp.presenters.examples.ExResultsPresenter
-import com.morozov.psychology.mvp.presenters.examples.ExTestsPresenter
+import com.morozov.psychology.mvp.presenters.examples.*
 import dagger.Component
 
 @Component(modules = arrayOf(ExamplesModule::class, FixingModule::class))
@@ -17,4 +14,6 @@ interface ExamplesComponent: AppComponent {
     fun inject(presenter: ExTestsPresenter)
 
     fun inject(presenter: ExResultsPresenter)
+
+    fun inject(presenter: ExFixDescriptionPresenter)
 }

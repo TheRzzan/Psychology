@@ -105,8 +105,13 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         setFragment(exDescriptionFragment, true)
     }
 
-    override fun showExFixDescr() {
+    override fun showExFixDescr(position: Int) {
         val exFixDescriptionFragment = ExFixDescriptionFragment()
+
+        val bundle = Bundle()
+        bundle.putInt(AppConstants.EXP_POSITION, position)
+
+        exFixDescriptionFragment.arguments = bundle
         exFixDescriptionFragment.mActivityPresenter = mPresenter
 
         setFragment(exFixDescriptionFragment, true)
@@ -124,8 +129,13 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         setFragment(exTestsFragment, true)
     }
 
-    override fun showExFixTest() {
+    override fun showExFixTest(position: Int) {
         val exFixTestsFragment = ExFixTestsFragment()
+
+        val bundle = Bundle()
+        bundle.putInt(AppConstants.EXP_POSITION, position)
+
+        exFixTestsFragment.arguments = bundle
         exFixTestsFragment.mActivityPresenter = mPresenter
 
         setFragment(exFixTestsFragment, true)
