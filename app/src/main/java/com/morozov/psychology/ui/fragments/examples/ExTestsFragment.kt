@@ -56,7 +56,15 @@ class ExTestsFragment: MvpAppCompatFragment(), ExTestsView {
     * ExTestsView implementation
     *
     * */
-    override fun showData(data: List<String>) {
-        adapter.setData(data)
+    override fun showVariants(variants: List<String>) {
+        adapter.setData(variants)
+    }
+
+    override fun showTitle(title: String) {
+        textTestName.text = title
+    }
+
+    override fun showDescription(description: String) {
+        textTestDescr.text = description
     }
 }

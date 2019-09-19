@@ -38,4 +38,22 @@ class ExResultsFragment: MvpAppCompatFragment(), ExResultsView {
                 mActivityPresenter.showExCards()
         }
     }
+
+    override fun onStart() {
+        super.onStart()
+
+        mPresenter.loadResult()
+    }
+
+    /*
+        * ExResultsView implementation
+        *
+        * */
+    override fun showTitle(title: String) {
+        textResultName.text = title
+    }
+
+    override fun showResult(result: String) {
+        textResultDescription.text = result
+    }
 }

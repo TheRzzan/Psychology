@@ -20,6 +20,8 @@ class ExTestsPresenter: MvpPresenter<ExTestsView>() {
     fun loadData() {
         val experiments = experimentsLoader.getExperiments()
 
-        viewState.showData(experiments[experiments.size - 1].variants)
+        viewState.showTitle(experiments[experiments.size - 1].title)
+        viewState.showDescription(experiments[experiments.size - 1].description)
+        viewState.showVariants(experiments[experiments.size - 1].variants)
     }
 }

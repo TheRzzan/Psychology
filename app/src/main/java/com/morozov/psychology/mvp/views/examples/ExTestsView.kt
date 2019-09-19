@@ -7,5 +7,9 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
 @StateStrategyType(value = AddToEndSingleStrategy::class)
 interface ExTestsView: MvpView {
 
-    fun showData(data: List<String>)
+    fun showTitle(title: String)
+
+    fun showDescription(description: String)
+
+    fun showVariants(variants: List<String>)
 }
