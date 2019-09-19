@@ -22,5 +22,10 @@ class ExResultsPresenter: MvpPresenter<ExResultsView>() {
 
         viewState.showTitle(experiments[position].title)
         viewState.showResult(experiments[position].conclusion)
+
+        if (position + 1 >= experiments.size)
+            viewState.hideButtonNext()
+        else
+            viewState.showButtonNext(experiments[position + 1].title, position + 1)
     }
 }

@@ -10,4 +10,8 @@ interface ExResultsView: MvpView {
     fun showTitle(title: String)
 
     fun showResult(result: String)
+
+    fun showButtonNext(text: String, position: Int)
+
+    fun hideButtonNext()
 }

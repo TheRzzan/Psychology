@@ -29,16 +29,6 @@ class ExResultsFragment: MvpAppCompatFragment(), ExResultsView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val bundle = this.arguments
-
-        buttonNextTest.setOnClickListener {
-            if (mActivityPresenter != null)
-            if (bundle != null)
-                mActivityPresenter.showExTest(bundle.getInt(AppConstants.EXP_POSITION))
-            else
-                mActivityPresenter.showExTest(0)
-        }
-
         buttonChoseAnother.setOnClickListener {
             if (mActivityPresenter != null)
                 mActivityPresenter.showExCards()
@@ -66,5 +56,18 @@ class ExResultsFragment: MvpAppCompatFragment(), ExResultsView {
 
     override fun showResult(result: String) {
         textResultDescription.text = result
+    }
+
+    override fun showButtonNext(text: String, position: Int) {
+        buttonNextTest.visibility = View.VISIBLE
+        buttonNextTest.text = text
+        buttonNextTest.setOnClickListener {
+            if (mActivityPresenter != null)
+                mActivityPresenter.showExTest(position)
+        }
+    }
+
+    override fun hideButtonNext() {
+        buttonNextTest.visibility = View.GONE
     }
 }
