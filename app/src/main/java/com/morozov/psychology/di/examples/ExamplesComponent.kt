@@ -16,4 +16,6 @@ interface ExamplesComponent: AppComponent {
     fun inject(presenter: ExResultsPresenter)
 
     fun inject(presenter: ExFixDescriptionPresenter)
+
+    fun inject(presenter: ExFixTestsPresenter)
 }

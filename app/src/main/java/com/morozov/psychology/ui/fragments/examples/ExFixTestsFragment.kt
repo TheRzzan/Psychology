@@ -15,6 +15,7 @@ import com.morozov.psychology.mvp.views.examples.ExFixTestsView
 import com.morozov.psychology.ui.adapters.examples.results.ExFixResultAdapter
 import com.morozov.psychology.ui.adapters.examples.test.ExTestAdapter
 import com.morozov.psychology.ui.adapters.listeners.OnTextChangeListener
+import com.morozov.psychology.utility.AppConstants
 import kotlinx.android.synthetic.main.example_fix_test_layout.*
 
 class ExFixTestsFragment: MvpAppCompatFragment(), ExFixTestsView, OnTextChangeListener {
@@ -27,7 +28,7 @@ class ExFixTestsFragment: MvpAppCompatFragment(), ExFixTestsView, OnTextChangeLi
     lateinit var mPresenter: ExFixTestsPresenter
     lateinit var mActivityPresenter: MainPresenter
 
-    var allTextRecycler: MutableList<Boolean> = mutableListOf()
+    var allTextRecycler: MutableList<String> = mutableListOf()
 
     /*
     * Recycler adapterTest
@@ -42,19 +43,29 @@ class ExFixTestsFragment: MvpAppCompatFragment(), ExFixTestsView, OnTextChangeLi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val bundle = this.arguments
+
         adapterTest = ExTestAdapter(this)
         recyclerFixTest.layoutManager = LinearLayoutManager(context)
         recyclerFixTest.adapter = adapterTest
 
         buttonFixFinishTest.setOnClickListener {
-            mPresenter.showResults()
+            if (bundle != null)
+                mPresenter.showResults(bundle.getInt(AppConstants.EXP_POSITION),0, allTextRecycler)
+            else
+                mPresenter.showResults(0, 0, allTextRecycler)
         }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        mPresenter.loadData()
+        val bundle = this.arguments
+
+        if (bundle != null)
+            mPresenter.loadData(bundle.getInt(AppConstants.EXP_POSITION), 0)
+        else
+            mPresenter.loadData(0, 0)
     }
 
     /*
@@ -62,11 +73,11 @@ class ExFixTestsFragment: MvpAppCompatFragment(), ExFixTestsView, OnTextChangeLi
     *
     * */
     override fun onTextChanged(position: Int, count: Int, symbolSet: String) {
-        allTextRecycler[position] = count > 0
+        allTextRecycler[position] = symbolSet
 
         var b = true
         for (item in allTextRecycler) {
-            if (!item) {
+            if (item.isEmpty()) {
                 b = false
                 break
             }
@@ -87,7 +98,7 @@ class ExFixTestsFragment: MvpAppCompatFragment(), ExFixTestsView, OnTextChangeLi
         var i = 0
         while (i < adapterTest.itemCount) {
             i++
-            allTextRecycler.add(false)
+            allTextRecycler.add("")
         }
 
         setFinishEnabled(false)
