@@ -10,6 +10,7 @@ import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.views.MainView
 import com.morozov.psychology.ui.fragments.examples.*
+import com.morozov.psychology.utility.AppConstants
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : MvpAppCompatActivity(), MainView {
@@ -92,8 +93,13 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         setFragment(exCardsFragment)
     }
 
-    override fun showExDescr() {
+    override fun showExDescr(position: Int) {
         val exDescriptionFragment = ExDescriptionFragment()
+
+        val bundle = Bundle()
+        bundle.putInt(AppConstants.EXP_POSITION, position)
+
+        exDescriptionFragment.arguments = bundle
         exDescriptionFragment.mActivityPresenter = mPresenter
 
         setFragment(exDescriptionFragment, true)
@@ -106,8 +112,13 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         setFragment(exFixDescriptionFragment, true)
     }
 
-    override fun showExTest() {
+    override fun showExTest(position: Int) {
         val exTestsFragment = ExTestsFragment()
+
+        val bundle = Bundle()
+        bundle.putInt(AppConstants.EXP_POSITION, position)
+
+        exTestsFragment.arguments = bundle
         exTestsFragment.mActivityPresenter = mPresenter
 
         setFragment(exTestsFragment, true)
@@ -120,8 +131,13 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         setFragment(exFixTestsFragment, true)
     }
 
-    override fun showExResults() {
+    override fun showExResults(position: Int) {
         val exResultsFragment = ExResultsFragment()
+
+        val bundle = Bundle()
+        bundle.putInt(AppConstants.EXP_POSITION, position)
+
+        exResultsFragment.arguments = bundle
         exResultsFragment.mActivityPresenter = mPresenter
 
         setFragment(exResultsFragment, true)

@@ -21,13 +21,13 @@ interface MainView: MvpView {
     * */
     fun showExCards()
 
-    fun showExDescr()
+    fun showExDescr(position: Int)
 
     fun showExFixDescr()
 
-    fun showExTest()
+    fun showExTest(position: Int)
 
     fun showExFixTest()
 
-    fun showExResults()
+    fun showExResults(position: Int)
 }

@@ -10,6 +10,7 @@ import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.examples.ExResultsPresenter
 import com.morozov.psychology.mvp.views.examples.ExResultsView
+import com.morozov.psychology.utility.AppConstants
 import kotlinx.android.synthetic.main.example_result_layout.*
 
 class ExResultsFragment: MvpAppCompatFragment(), ExResultsView {
@@ -28,9 +29,14 @@ class ExResultsFragment: MvpAppCompatFragment(), ExResultsView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val bundle = this.arguments
+
         buttonNextTest.setOnClickListener {
             if (mActivityPresenter != null)
-                mActivityPresenter.showExTest()
+            if (bundle != null)
+                mActivityPresenter.showExTest(bundle.getInt(AppConstants.EXP_POSITION))
+            else
+                mActivityPresenter.showExTest(0)
         }
 
         buttonChoseAnother.setOnClickListener {
@@ -42,7 +48,12 @@ class ExResultsFragment: MvpAppCompatFragment(), ExResultsView {
     override fun onStart() {
         super.onStart()
 
-        mPresenter.loadResult()
+        val bundle = this.arguments
+
+        if (bundle != null)
+            mPresenter.loadResult(bundle.getInt(AppConstants.EXP_POSITION))
+        else
+            mPresenter.loadResult(0)
     }
 
     /*

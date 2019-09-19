@@ -1,12 +1,12 @@
 package com.morozov.psychology.ui.adapters.examples.cards.exp
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import com.morozov.psychology.R
 import com.morozov.psychology.ui.adapters.ListAdapter
+import com.morozov.psychology.ui.adapters.listeners.OnItemClickListener
 
-class ExCardsAdapter(private val listener: View.OnClickListener) : ListAdapter<String, ExCardsViewHolder>() {
+class ExCardsAdapter(private val listener: OnItemClickListener) : ListAdapter<String, ExCardsViewHolder>() {
 
     override fun onCreateViewHolder(container: ViewGroup, p1: Int): ExCardsViewHolder =
         ExCardsViewHolder(
@@ -18,6 +18,6 @@ class ExCardsAdapter(private val listener: View.OnClickListener) : ListAdapter<S
         )
 
     override fun onBindViewHolder(holder: ExCardsViewHolder, position: Int) {
-        holder.populate(data()[position], listener)
+        holder.populate(data()[position], position, listener)
     }
 }

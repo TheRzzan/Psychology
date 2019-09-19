@@ -17,11 +17,11 @@ class ExTestsPresenter: MvpPresenter<ExTestsView>() {
         DefaultApplication.examplesComponent.inject(this)
     }
 
-    fun loadData() {
+    fun loadData(position: Int) {
         val experiments = experimentsLoader.getExperiments()
 
-        viewState.showTitle(experiments[experiments.size - 1].title)
-        viewState.showDescription(experiments[experiments.size - 1].description)
-        viewState.showVariants(experiments[experiments.size - 1].variants)
+        viewState.showTitle(experiments[position].title)
+        viewState.showDescription(experiments[position].description)
+        viewState.showVariants(experiments[position].variants)
     }
 }

@@ -16,9 +16,9 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showExCards()
     }
 
-    fun showExDescr() {
+    fun showExDescr(position: Int) {
         viewState.hideBottomNav()
-        viewState.showExDescr()
+        viewState.showExDescr(position)
     }
 
     fun showExFixDescr() {
@@ -26,9 +26,9 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showExFixDescr()
     }
 
-    fun showExTest() {
+    fun showExTest(position: Int) {
         viewState.hideBottomNav()
-        viewState.showExTest()
+        viewState.showExTest(position)
     }
 
     fun showExFixTest() {
@@ -36,8 +36,8 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showExFixTest()
     }
 
-    fun showExResults() {
+    fun showExResults(position: Int) {
         viewState.hideBottomNav()
-        viewState.showExResults()
+        viewState.showExResults(position)
     }
 }

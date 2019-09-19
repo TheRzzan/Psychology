@@ -10,6 +10,7 @@ import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.examples.ExDescriptionPresenter
 import com.morozov.psychology.mvp.views.examples.ExDescriptionView
+import com.morozov.psychology.utility.AppConstants
 import kotlinx.android.synthetic.main.example_description_layout.*
 
 class ExDescriptionFragment: MvpAppCompatFragment(), ExDescriptionView {
@@ -28,20 +29,31 @@ class ExDescriptionFragment: MvpAppCompatFragment(), ExDescriptionView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val bundle = this.arguments
+
         buttonExit.setOnClickListener {
             activity?.onBackPressed()
         }
 
         buttonStartTest.setOnClickListener {
-            if (mActivityPresenter != null)
-                mActivityPresenter.showExTest()
+            if (mActivityPresenter != null) {
+                if (bundle != null)
+                    mActivityPresenter.showExTest(bundle.getInt(AppConstants.EXP_POSITION))
+                else
+                    mActivityPresenter.showExTest(0)
+            }
         }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        mPresenter.loadData()
+        val bundle = this.arguments
+
+        if (bundle != null)
+            mPresenter.loadData(bundle.getInt(AppConstants.EXP_POSITION))
+        else
+            mPresenter.loadData(0)
     }
 
     /*

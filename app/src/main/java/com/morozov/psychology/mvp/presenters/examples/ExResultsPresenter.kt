@@ -17,10 +17,10 @@ class ExResultsPresenter: MvpPresenter<ExResultsView>() {
         DefaultApplication.examplesComponent.inject(this)
     }
 
-    fun loadResult() {
+    fun loadResult(position: Int) {
         val experiments = experimentsLoader.getExperiments()
 
-        viewState.showTitle(experiments[experiments.size - 1].title)
-        viewState.showResult(experiments[experiments.size - 1].conclusion)
+        viewState.showTitle(experiments[position].title)
+        viewState.showResult(experiments[position].conclusion)
     }
 }

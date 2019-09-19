@@ -12,6 +12,7 @@ import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.examples.ExTestsPresenter
 import com.morozov.psychology.mvp.views.examples.ExTestsView
 import com.morozov.psychology.ui.adapters.examples.test.ExTestAdapter
+import com.morozov.psychology.utility.AppConstants
 import kotlinx.android.synthetic.main.example_test_layout.*
 
 class ExTestsFragment: MvpAppCompatFragment(), ExTestsView {
@@ -36,20 +37,31 @@ class ExTestsFragment: MvpAppCompatFragment(), ExTestsView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val bundle = this.arguments
+
         adapter = ExTestAdapter()
         recyclerTest.layoutManager = LinearLayoutManager(context)
         recyclerTest.adapter = adapter
 
         buttonFinishTest.setOnClickListener {
-            if (mActivityPresenter != null)
-                mActivityPresenter.showExResults()
+            if (mActivityPresenter != null) {
+                if (bundle != null)
+                    mActivityPresenter.showExResults(bundle.getInt(AppConstants.EXP_POSITION))
+                else
+                    mActivityPresenter.showExResults(0)
+            }
         }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        mPresenter.loadData()
+        val bundle = this.arguments
+
+        if (bundle != null)
+            mPresenter.loadData(bundle.getInt(AppConstants.EXP_POSITION))
+        else
+            mPresenter.loadData(0)
     }
 
     /*
