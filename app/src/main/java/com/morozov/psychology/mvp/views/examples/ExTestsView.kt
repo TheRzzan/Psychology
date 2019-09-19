@@ -12,4 +12,6 @@ interface ExTestsView: MvpView {
     fun showQuestion(description: String)
 
     fun showVariants(variants: List<String>)
+
+    fun setFinishEnabled(boolean: Boolean)
 }

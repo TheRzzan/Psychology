@@ -12,10 +12,11 @@ import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.examples.ExTestsPresenter
 import com.morozov.psychology.mvp.views.examples.ExTestsView
 import com.morozov.psychology.ui.adapters.examples.test.ExTestAdapter
+import com.morozov.psychology.ui.adapters.listeners.OnTextChangeListener
 import com.morozov.psychology.utility.AppConstants
 import kotlinx.android.synthetic.main.example_test_layout.*
 
-class ExTestsFragment: MvpAppCompatFragment(), ExTestsView {
+class ExTestsFragment: MvpAppCompatFragment(), ExTestsView, OnTextChangeListener {
 
     /*
     * Moxy presenters
@@ -24,6 +25,8 @@ class ExTestsFragment: MvpAppCompatFragment(), ExTestsView {
     @InjectPresenter
     lateinit var mPresenter: ExTestsPresenter
     lateinit var mActivityPresenter: MainPresenter
+
+    var allTextRecycler: MutableList<Boolean> = mutableListOf()
 
     /*
     * Recycler adapterTest
@@ -39,7 +42,7 @@ class ExTestsFragment: MvpAppCompatFragment(), ExTestsView {
 
         val bundle = this.arguments
 
-        adapter = ExTestAdapter()
+        adapter = ExTestAdapter(this)
         recyclerTest.layoutManager = LinearLayoutManager(context)
         recyclerTest.adapter = adapter
 
@@ -65,11 +68,38 @@ class ExTestsFragment: MvpAppCompatFragment(), ExTestsView {
     }
 
     /*
+    * OnTextChangeListener implementation
+    *
+    * */
+    override fun onTextChanged(position: Int, count: Int, symbolSet: String) {
+        allTextRecycler[position] = count > 0
+
+        var b = true
+        for (item in allTextRecycler) {
+            if (!item) {
+                b = false
+                break
+            }
+        }
+
+        setFinishEnabled(b)
+    }
+
+    /*
     * ExTestsView implementation
     *
     * */
     override fun showVariants(variants: List<String>) {
         adapter.setData(variants)
+        allTextRecycler = mutableListOf()
+
+        var i = 0
+        while (i < adapter.itemCount) {
+            i++
+            allTextRecycler.add(false)
+        }
+
+        setFinishEnabled(false)
     }
 
     override fun showTitle(title: String) {
@@ -84,5 +114,12 @@ class ExTestsFragment: MvpAppCompatFragment(), ExTestsView {
             textTestDescr.visibility = View.GONE
         else
             textTestDescr.text = description
+    }
+
+    override fun setFinishEnabled(boolean: Boolean) {
+        buttonFinishTest.visibility = when(boolean) {
+            true -> View.VISIBLE
+            false -> View.GONE
+        }
     }
 }

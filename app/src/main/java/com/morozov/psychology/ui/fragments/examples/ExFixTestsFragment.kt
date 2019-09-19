@@ -14,9 +14,10 @@ import com.morozov.psychology.mvp.presenters.examples.ExFixTestsPresenter
 import com.morozov.psychology.mvp.views.examples.ExFixTestsView
 import com.morozov.psychology.ui.adapters.examples.results.ExFixResultAdapter
 import com.morozov.psychology.ui.adapters.examples.test.ExTestAdapter
+import com.morozov.psychology.ui.adapters.listeners.OnTextChangeListener
 import kotlinx.android.synthetic.main.example_fix_test_layout.*
 
-class ExFixTestsFragment: MvpAppCompatFragment(), ExFixTestsView {
+class ExFixTestsFragment: MvpAppCompatFragment(), ExFixTestsView, OnTextChangeListener {
 
     /*
     * Moxy presenters
@@ -25,6 +26,8 @@ class ExFixTestsFragment: MvpAppCompatFragment(), ExFixTestsView {
     @InjectPresenter
     lateinit var mPresenter: ExFixTestsPresenter
     lateinit var mActivityPresenter: MainPresenter
+
+    var allTextRecycler: MutableList<Boolean> = mutableListOf()
 
     /*
     * Recycler adapterTest
@@ -39,7 +42,7 @@ class ExFixTestsFragment: MvpAppCompatFragment(), ExFixTestsView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapterTest = ExTestAdapter()
+        adapterTest = ExTestAdapter(this)
         recyclerFixTest.layoutManager = LinearLayoutManager(context)
         recyclerFixTest.adapter = adapterTest
 
@@ -55,11 +58,39 @@ class ExFixTestsFragment: MvpAppCompatFragment(), ExFixTestsView {
     }
 
     /*
+    * OnTextChangeListener implementation
+    *
+    * */
+    override fun onTextChanged(position: Int, count: Int, symbolSet: String) {
+        allTextRecycler[position] = count > 0
+
+        var b = true
+        for (item in allTextRecycler) {
+            if (!item) {
+                b = false
+                break
+            }
+        }
+
+        setFinishEnabled(b)
+    }
+
+    /*
     * ExFixTestsView implementation
     *
     * */
     override fun showData(data: List<String>) {
         adapterTest.setData(data)
+
+        allTextRecycler = mutableListOf()
+
+        var i = 0
+        while (i < adapterTest.itemCount) {
+            i++
+            allTextRecycler.add(false)
+        }
+
+        setFinishEnabled(false)
     }
 
     override fun showResults(data: List<ExFixingResultModel>) {
@@ -80,5 +111,12 @@ class ExFixTestsFragment: MvpAppCompatFragment(), ExFixTestsView {
 
         linearFixTestHint.visibility = View.VISIBLE
         textFixTestHint.visibility = View.GONE
+    }
+
+    override fun setFinishEnabled(boolean: Boolean) {
+        buttonFixFinishTest.visibility = when(boolean) {
+            true -> View.VISIBLE
+            false -> View.GONE
+        }
     }
 }

@@ -4,9 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.morozov.psychology.R
 import com.morozov.psychology.ui.adapters.ListAdapter
+import com.morozov.psychology.ui.adapters.listeners.OnTextChangeListener
 
 
-class ExTestAdapter: ListAdapter<String, ExTestViewHolder>() {
+class ExTestAdapter(private val listener: OnTextChangeListener): ListAdapter<String, ExTestViewHolder>() {
 
     override fun onCreateViewHolder(container: ViewGroup, p1: Int): ExTestViewHolder =
         ExTestViewHolder(
@@ -18,6 +19,6 @@ class ExTestAdapter: ListAdapter<String, ExTestViewHolder>() {
         )
 
     override fun onBindViewHolder(holder: ExTestViewHolder, position: Int) {
-        holder.populate(data().get(position))
+        holder.populate(data().get(position), position, listener)
     }
 }

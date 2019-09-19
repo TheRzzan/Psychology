@@ -11,4 +11,6 @@ interface ExFixTestsView: MvpView {
     fun showData(data: List<String>)
 
     fun showResults(data: List<ExFixingResultModel>)
+
+    fun setFinishEnabled(boolean: Boolean)
 }
