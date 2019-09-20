@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+        android:id="@+id/diaryDateCard"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:cardCornerRadius="@dimen/card_corner_radius"
+        android:layout_width="260dp"
+        android:layout_height="280dp">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="24dp">
+            <ImageView
+                    android:background="@drawable/diary_date_ellipse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:id="@+id/textDiaryDay"
+                    style="@style/TextView.Primary.Header"
+                    android:textSize="56sp"
+                    android:layout_centerInParent="true"
+                    android:text="18"/>
+        </RelativeLayout>
+
+        <TextView
+                android:id="@+id/textDiaryMonth"
+                style="@style/TextView.Primary.Header"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="24dp"
+                android:text="сентябрь"/>
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
