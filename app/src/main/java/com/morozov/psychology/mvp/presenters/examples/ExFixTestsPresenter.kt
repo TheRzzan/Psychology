@@ -4,7 +4,7 @@ import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import com.morozov.psychology.DefaultApplication
 import com.morozov.psychology.domain.interfaces.examples.FixingLoader
-import com.morozov.psychology.mvp.models.ExFixingResultModel
+import com.morozov.psychology.mvp.models.examples.ExFixingResultModel
 import com.morozov.psychology.mvp.views.examples.ExFixTestsView
 import javax.inject.Inject
 
@@ -43,7 +43,13 @@ class ExFixTestsPresenter: MvpPresenter<ExFixTestsView>() {
         var i = 0
 
         for (pair in pairs) {
-            result.add(ExFixingResultModel(pair.first, userAnswers[i], pair.second))
+            result.add(
+                ExFixingResultModel(
+                    pair.first,
+                    userAnswers[i],
+                    pair.second
+                )
+            )
             i++
         }
 

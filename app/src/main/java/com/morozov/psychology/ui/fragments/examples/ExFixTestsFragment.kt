@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.arellomobile.mvp.MvpAppCompatFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
-import com.morozov.psychology.mvp.models.ExFixingResultModel
+import com.morozov.psychology.mvp.models.examples.ExFixingResultModel
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.examples.ExFixTestsPresenter
 import com.morozov.psychology.mvp.views.examples.ExFixTestsView
