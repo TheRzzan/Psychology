@@ -1,12 +1,17 @@
 package com.morozov.psychology.domain.implementation.diary
 
 import com.morozov.psychology.domain.interfaces.diary.ThinkLoader
+import com.morozov.psychology.domain.interfaces.diary.ThinkSaver
 import com.morozov.psychology.mvp.models.diary.ThinkModel
 import java.text.SimpleDateFormat
 
-class ThinkLoaderImpl: ThinkLoader {
+class ThinkLoaderImpl: ThinkLoader, ThinkSaver {
 
-    override fun getThinks(): List<ThinkModel> {
+    companion object {
+        var dataList: MutableList<ThinkModel> = mutableListOf()
+    }
+
+    init {
         val simpleDateFormat = SimpleDateFormat("dd/MM/yyyy HH:mm")
 
         val date1 = simpleDateFormat.parse("15/09/2019 08:00")
@@ -30,6 +35,16 @@ class ThinkLoaderImpl: ThinkLoader {
         val thModel5 = ThinkModel(date5,
             "Ситуация 5", "Мысль 5", "Эмоция 5", "Озарение 5")
 
-        return listOf(thModel1, thModel2, thModel3, thModel4, thModel5)
+        dataList.addAll(listOf(thModel1, thModel2, thModel3, thModel4, thModel5))
+    }
+
+    override fun getThinks(): List<ThinkModel> = dataList
+
+    override fun saveNew(think: ThinkModel) {
+        dataList.add(think)
+    }
+
+    override fun overwriteThink(think: ThinkModel) {
+
     }
 }
