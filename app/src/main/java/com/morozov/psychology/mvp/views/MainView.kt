@@ -30,4 +30,10 @@ interface MainView: MvpView {
     fun showExFixTest(position: Int)
 
     fun showExResults(position: Int)
+
+    /*
+    * Diary section controls
+    *
+    * */
+    fun showDiaryCards()
 }

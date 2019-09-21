@@ -40,4 +40,13 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.hideBottomNav()
         viewState.showExResults(position)
     }
+
+    /*
+    * Diary section controls
+    *
+    * */
+    fun showDiaryCards() {
+        viewState.showBottomNav()
+        viewState.showDiaryCards()
+    }
 }

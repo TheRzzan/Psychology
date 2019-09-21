@@ -9,6 +9,7 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.views.MainView
+import com.morozov.psychology.ui.fragments.diary.DiaryFragment
 import com.morozov.psychology.ui.fragments.examples.*
 import com.morozov.psychology.utility.AppConstants
 import kotlinx.android.synthetic.main.activity_main.*
@@ -29,7 +30,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_diary -> {
-                //
+                mPresenter.showDiaryCards()
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_tests -> {
@@ -151,6 +152,18 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         exResultsFragment.mActivityPresenter = mPresenter
 
         setFragment(exResultsFragment, true)
+    }
+
+    /*
+    * Diary section controls
+    * (MainView impl)
+    * */
+    override fun showDiaryCards() {
+        val diaryFragment = DiaryFragment()
+        diaryFragment.mActivityPresenter = mPresenter
+
+        clearBackStack()
+        setFragment(diaryFragment)
     }
 
     /*
