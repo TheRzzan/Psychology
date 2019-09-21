@@ -12,11 +12,13 @@ import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.diary.DiaryPresenter
 import com.morozov.psychology.mvp.views.diary.DiaryView
 import com.morozov.psychology.ui.adapters.diary.date.DiaryDateAdapter
+import com.morozov.psychology.ui.adapters.diary.date.DiaryDateViewHolder
 import com.morozov.psychology.ui.adapters.diary.think.list.DiaryThinkAdapter
+import com.yarolegovich.discretescrollview.DiscreteScrollView
 import com.yarolegovich.discretescrollview.transform.ScaleTransformer
 import kotlinx.android.synthetic.main.diary_cards_layout.*
 
-class DiaryFragment: MvpAppCompatFragment(), DiaryView {
+class DiaryFragment: MvpAppCompatFragment(), DiaryView, DiscreteScrollView.OnItemChangedListener<DiaryDateViewHolder> {
 
     /*
     * Moxy presenters
@@ -42,6 +44,7 @@ class DiaryFragment: MvpAppCompatFragment(), DiaryView {
         adapterDate = DiaryDateAdapter()
         recyclerDiaryDays.setSlideOnFling(true)
         recyclerDiaryDays.adapter = adapterDate
+        recyclerDiaryDays.addOnItemChangedListener(this)
         recyclerDiaryDays.setItemTransformer(
             ScaleTransformer.Builder()
                 .setMinScale(0.8f)
@@ -64,10 +67,20 @@ class DiaryFragment: MvpAppCompatFragment(), DiaryView {
     * */
     override fun showDates(elements: List<Pair<Int, String>>) {
         adapterDate.setData(elements)
+        adapterDate.notifyDataSetChanged()
         recyclerDiaryDays.scrollToPosition(elements.size - 1)
     }
 
     override fun showThinkList(elements: List<Pair<String, String>>) {
         adapterThink.setData(elements)
+        adapterThink.notifyDataSetChanged()
+    }
+
+    /*
+    * OnItemChangedListener implementation
+    *
+    * */
+    override fun onCurrentItemChanged(viewHolder: DiaryDateViewHolder?, adapterPosition: Int) {
+        mPresenter.selectDay(adapterPosition)
     }
 }
