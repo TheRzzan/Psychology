@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+        style="@style/ScrollViewStyle"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+            android:id="@+id/linearSituation"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:id="@+id/textDiaryEditorTime"
+                style="@style/TextView.Primary.Header"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:text="18 сентября, 2019"/>
+
+        <TextView
+                android:text="Что произошло? Опишите максимально объективно."
+                style="@style/TextView.Secondary"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:textColor="@android:color/black"/>
+
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:inputType="textPersonName"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:hint="Ситуация"
+                android:ems="10"
+                android:background="@drawable/rectangle_edit_text"
+                android:id="@+id/editTextDiarySituation"/>
+
+        <TextView
+                android:text="О чем вы думали?"
+                style="@style/TextView.Secondary"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:textColor="@android:color/black"/>
+
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:inputType="textPersonName"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:hint="Мысли"
+                android:ems="10"
+                android:background="@drawable/rectangle_edit_text"
+                android:id="@+id/editTextDiaryThink"/>
+
+        <TextView
+                android:text="Выберите одну или несколько эмоций. Оцените степень выраженности в %."
+                style="@style/TextView.Secondary"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:textColor="@android:color/black"/>
+
+        <LinearLayout
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+        </LinearLayout>
+
+        <RelativeLayout
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:id="@+id/textDiaryEmotion"
+                    android:text="Радость"
+                    style="@style/TextView.Secondary"
+                    android:layout_alignParentStart="true"
+                    android:textColor="@android:color/black"/>
+
+            <TextView
+                    android:id="@+id/textDiaryPercent"
+                    android:text="70%"
+                    android:textStyle="bold"
+                    style="@style/TextView.Secondary"
+                    android:layout_alignParentEnd="true"
+                    android:textColor="@android:color/black"/>
+        </RelativeLayout>
+        
+        <SeekBar
+                android:id="@+id/seekBarDiaryEditor"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <TextView
+                android:text="Что вы сделали или что вам захотелось сделать? Как отреагировало ваше тело?"
+                style="@style/TextView.Secondary"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:textColor="@android:color/black"/>
+
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:inputType="textPersonName"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:hint="Поведение и телесные ощущения"
+                android:ems="10"
+                android:background="@drawable/rectangle_edit_text"
+                android:id="@+id/editTextDiarySensation"/>
+    </LinearLayout>
+</ScrollView>
