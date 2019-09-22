@@ -27,14 +27,17 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
     lateinit var mPresenter: DiaryEditorPresenter
     lateinit var mActivityPresenter: MainPresenter
 
+    lateinit var mDate: Date
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.diary_think_editor_layout, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val bundle = this.arguments
+
         buttonDiarySave.setOnClickListener {
-            val bundle = this.arguments
             if (bundle != null) {
                 if (bundle.getBoolean(AppConstants.DIARY_IS_NEW_ITEM))
                     mPresenter.saveNewThink(getThink())
@@ -50,18 +53,25 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
         super.onCreate(savedInstanceState)
 
         val bundle = this.arguments
+
+        mDate = if (bundle != null) {
+            bundle.getSerializable(AppConstants.DIARY_SELECTED_DAY) as Date
+        } else {
+            Date()
+        }
+
         if (bundle != null) {
             if (bundle.getBoolean(AppConstants.DIARY_IS_NEW_ITEM))
-                mPresenter.initNewThink()
+                mPresenter.initNewThink(mDate)
             else
-                mPresenter.loadOldThink()
+                mPresenter.loadOldThink(mDate)
         }
     }
 
     /*
-        * DiaryEditorView implementation
-        *
-        * */
+    * DiaryEditorView implementation
+    *
+    * */
     override fun showButtonSave() {
         buttonDiarySave.visibility = View.VISIBLE
     }
@@ -102,7 +112,10 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
                 mPresenter.dateOld
         }
 
-        return ThinkModel(date, editTextDiarySituation.text.toString(),
+        mDate.hours = date.hours
+        mDate.minutes = date.minutes
+
+        return ThinkModel(mDate, editTextDiarySituation.text.toString(),
             editTextDiaryThink.text.toString(),
             "some",
             editTextDiarySensation.text.toString())

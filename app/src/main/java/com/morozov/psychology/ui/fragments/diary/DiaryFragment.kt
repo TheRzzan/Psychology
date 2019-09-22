@@ -55,7 +55,7 @@ class DiaryFragment: MvpAppCompatFragment(), DiaryView, DiscreteScrollView.OnIte
         recyclerDiaryThinks.adapter = adapterThink
 
         buttonDiaryAdd.setOnClickListener {
-            mActivityPresenter.showDiaryEditor(true)
+            mActivityPresenter.showDiaryEditor(true, mPresenter.dateList[recyclerDiaryDays.currentItem])
         }
     }
 

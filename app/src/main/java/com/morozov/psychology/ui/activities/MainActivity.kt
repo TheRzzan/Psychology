@@ -14,6 +14,7 @@ import com.morozov.psychology.ui.fragments.diary.DiaryFragment
 import com.morozov.psychology.ui.fragments.examples.*
 import com.morozov.psychology.utility.AppConstants
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 class MainActivity : MvpAppCompatActivity(), MainView {
 
@@ -167,11 +168,12 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         setFragment(diaryFragment)
     }
 
-    override fun showDiaryEditor(isNew: Boolean) {
+    override fun showDiaryEditor(isNew: Boolean, date: Date) {
         val diaryEditorFragment = DiaryEditorFragment()
 
         val bundle = Bundle()
         bundle.putBoolean(AppConstants.DIARY_IS_NEW_ITEM, isNew)
+        bundle.putSerializable(AppConstants.DIARY_SELECTED_DAY, date)
 
         diaryEditorFragment.arguments = bundle
         diaryEditorFragment.mActivityPresenter = mPresenter

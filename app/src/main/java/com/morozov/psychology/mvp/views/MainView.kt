@@ -3,6 +3,7 @@ package com.morozov.psychology.mvp.views
 import com.arellomobile.mvp.MvpView
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
+import java.util.*
 
 @StateStrategyType(value = AddToEndSingleStrategy::class)
 interface MainView: MvpView {
@@ -37,5 +38,5 @@ interface MainView: MvpView {
     * */
     fun showDiaryCards()
 
-    fun showDiaryEditor(isNew: Boolean)
+    fun showDiaryEditor(isNew: Boolean, date: Date)
 }

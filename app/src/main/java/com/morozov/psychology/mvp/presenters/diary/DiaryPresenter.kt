@@ -22,6 +22,7 @@ class DiaryPresenter: MvpPresenter<DiaryView>() {
     }
 
     var lastMonthData: MutableList<MutableList<ThinkModel>> = mutableListOf()
+    var dateList: MutableList<Date> = mutableListOf()
 
     fun loadData() {
         val thinksAll = thinkLoader.getThinks()
@@ -51,6 +52,7 @@ class DiaryPresenter: MvpPresenter<DiaryView>() {
             val listTmp = mutableListOf<ThinkModel>()
 
             listTmp.add(thinkModel)
+            dateList.add(thinkModel.date)
 
             var j = i + 1
             while (j < thinksLastMonth.size) {
@@ -74,6 +76,7 @@ class DiaryPresenter: MvpPresenter<DiaryView>() {
             )
 
             lastMonthData.add(mutableListOf())
+            dateList.add(todayDate)
         }
         viewState.showDates(elements)
         selectDay(lastMonthData.size - 1)

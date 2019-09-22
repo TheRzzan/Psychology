@@ -15,20 +15,20 @@ class DiaryEditorPresenter: MvpPresenter<DiaryEditorView>() {
     @Inject
     lateinit var thinkSaver: ThinkSaver
 
-    var dateNew: Date
+    lateinit var dateNew: Date
     lateinit var dateOld: Date
 
     init {
         DefaultApplication.diaryComponent.inject(this)
+    }
+
+    fun initNewThink(date: Date) {
         dateNew = Date()
+        viewState.setDate(date)
     }
 
-    fun initNewThink() {
-        viewState.setDate(dateNew)
-    }
-
-    fun loadOldThink() {
-        dateOld = Date()
+    fun loadOldThink(date: Date) {
+        dateOld = date
     }
 
     fun saveNewThink(think: ThinkModel) {
