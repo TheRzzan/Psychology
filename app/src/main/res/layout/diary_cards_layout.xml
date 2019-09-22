@@ -16,8 +16,7 @@
             android:layout_below="@+id/textDiaryHeader"
             android:layout_marginTop="@dimen/activity_vertical_margin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="280dp"/>
+            android:layout_height="wrap_content"/>
 
     <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerDiaryThinks"

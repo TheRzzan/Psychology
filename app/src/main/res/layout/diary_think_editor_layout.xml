@@ -92,7 +92,7 @@
                     android:layout_alignParentEnd="true"
                     android:textColor="@android:color/black"/>
         </RelativeLayout>
-        
+
         <SeekBar
                 android:id="@+id/seekBarDiaryEditor"
                 android:layout_marginBottom="@dimen/activity_vertical_margin"
@@ -109,7 +109,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:inputType="textPersonName"
-                android:layout_marginBottom="@dimen/activity_vertical_margin"
                 android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:layout_marginEnd="@dimen/activity_horizontal_margin"
                 android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -118,5 +117,19 @@
                 android:ems="10"
                 android:background="@drawable/rectangle_edit_text"
                 android:id="@+id/editTextDiarySensation"/>
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <Button
+                    android:id="@+id/buttonDiarySave"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:background="@drawable/fab_add"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+        </RelativeLayout>
     </LinearLayout>
 </ScrollView>

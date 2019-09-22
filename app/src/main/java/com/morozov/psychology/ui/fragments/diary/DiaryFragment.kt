@@ -53,6 +53,10 @@ class DiaryFragment: MvpAppCompatFragment(), DiaryView, DiscreteScrollView.OnIte
         adapterThink = DiaryThinkAdapter()
         recyclerDiaryThinks.layoutManager = LinearLayoutManager(context)
         recyclerDiaryThinks.adapter = adapterThink
+
+        buttonDiaryAdd.setOnClickListener {
+            mActivityPresenter.showDiaryEditor(true)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -9,6 +9,7 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.views.MainView
+import com.morozov.psychology.ui.fragments.diary.DiaryEditorFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryFragment
 import com.morozov.psychology.ui.fragments.examples.*
 import com.morozov.psychology.utility.AppConstants
@@ -164,6 +165,18 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
         clearBackStack()
         setFragment(diaryFragment)
+    }
+
+    override fun showDiaryEditor(isNew: Boolean) {
+        val diaryEditorFragment = DiaryEditorFragment()
+
+        val bundle = Bundle()
+        bundle.putBoolean(AppConstants.DIARY_IS_NEW_ITEM, isNew)
+
+        diaryEditorFragment.arguments = bundle
+        diaryEditorFragment.mActivityPresenter = mPresenter
+
+        setFragment(diaryEditorFragment, true)
     }
 
     /*

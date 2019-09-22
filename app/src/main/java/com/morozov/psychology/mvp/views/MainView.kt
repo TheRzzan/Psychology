@@ -36,4 +36,6 @@ interface MainView: MvpView {
     *
     * */
     fun showDiaryCards()
+
+    fun showDiaryEditor(isNew: Boolean)
 }

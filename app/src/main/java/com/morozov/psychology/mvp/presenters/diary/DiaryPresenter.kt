@@ -6,7 +6,9 @@ import com.morozov.psychology.DefaultApplication
 import com.morozov.psychology.domain.interfaces.diary.ThinkLoader
 import com.morozov.psychology.mvp.models.diary.ThinkModel
 import com.morozov.psychology.mvp.views.diary.DiaryView
+import com.morozov.psychology.utility.DateConverter
 import java.text.SimpleDateFormat
+import java.util.*
 import javax.inject.Inject
 
 @InjectViewState
@@ -29,8 +31,10 @@ class DiaryPresenter: MvpPresenter<DiaryView>() {
         val dayFormat = SimpleDateFormat("dd")
         val monthFormat = SimpleDateFormat("MM")
 
+        val todayDate = Date()
+
         for (item in thinksAll) {
-            if (monthFormat.format(item.date) != "9")
+            if (monthFormat.format(item.date) == monthFormat.format(todayDate))
                 thinksLastMonth.add(item)
         }
 
@@ -39,7 +43,10 @@ class DiaryPresenter: MvpPresenter<DiaryView>() {
             val thinkModel = thinksLastMonth[i]
 
             val dateTmp = dayFormat.format(thinkModel.date)
-            elements.add(Pair(dayFormat.format(thinkModel.date).toInt(), "сентябрь"))
+            elements.add(Pair(
+                dayFormat.format(thinkModel.date).toInt(),
+                DateConverter.getStringMonthSimple(monthFormat.format(todayDate))
+            ))
 
             val listTmp = mutableListOf<ThinkModel>()
 
@@ -58,11 +65,24 @@ class DiaryPresenter: MvpPresenter<DiaryView>() {
             i++
         }
 
+        if (elements[elements.size - 1].first != dayFormat.format(todayDate).toInt()) {
+            elements.add(
+                Pair(
+                    dayFormat.format(todayDate).toInt(),
+                    DateConverter.getStringMonthSimple(monthFormat.format(todayDate))
+                )
+            )
+
+            lastMonthData.add(mutableListOf())
+        }
         viewState.showDates(elements)
         selectDay(lastMonthData.size - 1)
     }
 
     fun selectDay(position: Int) {
+        if (position >= lastMonthData.size || lastMonthData.isEmpty())
+            return
+
         val thinks = lastMonthData[position]
         val elements: MutableList<Pair<String, String>> = mutableListOf()
 
