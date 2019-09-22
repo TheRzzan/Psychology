@@ -50,7 +50,12 @@ class ThinkLoaderImpl: ThinkLoader, ThinkSaver {
         }
     }
 
-    override fun getThinks(): List<ThinkModel> = dataList
+    override fun getThinks(): List<ThinkModel> = sordThinksByDate(dataList)
+
+    fun sordThinksByDate(data: MutableList<ThinkModel>): MutableList<ThinkModel> {
+        data.sort()
+        return data
+    }
 
     override fun saveNew(think: ThinkModel) {
         dataList.add(think)
