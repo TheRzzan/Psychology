@@ -57,6 +57,16 @@ class ThinkLoaderImpl: ThinkLoader, ThinkSaver {
     }
 
     override fun overwriteThink(think: ThinkModel) {
+        val smpDtFrm = SimpleDateFormat("dd/MM/yyyy HH:mm")
 
+        for (thinkTmp in dataList) {
+            if (smpDtFrm.format(think.date) == smpDtFrm.format(thinkTmp.date)) {
+
+                dataList.remove(thinkTmp)
+                dataList.add(think)
+
+                break
+            }
+        }
     }
 }
