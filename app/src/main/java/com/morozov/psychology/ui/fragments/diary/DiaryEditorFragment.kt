@@ -64,7 +64,8 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
             if (bundle.getBoolean(AppConstants.DIARY_IS_NEW_ITEM))
                 mPresenter.initNewThink(mDate)
             else
-                mPresenter.loadOldThink(mDate)
+                mPresenter.loadOldThink(mDate,
+                    bundle.getSerializable(AppConstants.DIARY_OVERWRITE_THINK) as ThinkModel)
         }
     }
 

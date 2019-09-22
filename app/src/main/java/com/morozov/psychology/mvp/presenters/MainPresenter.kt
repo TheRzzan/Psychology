@@ -2,6 +2,7 @@ package com.morozov.psychology.mvp.presenters
 
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
+import com.morozov.psychology.mvp.models.diary.ThinkModel
 import com.morozov.psychology.mvp.views.MainView
 import java.util.*
 
@@ -51,8 +52,8 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showDiaryCards()
     }
 
-    fun showDiaryEditor(isNew: Boolean, date: Date) {
+    fun showDiaryEditor(isNew: Boolean, date: Date, think: ThinkModel? = null) {
         viewState.hideBottomNav()
-        viewState.showDiaryEditor(isNew, date)
+        viewState.showDiaryEditor(isNew, date, think)
     }
 }

@@ -79,7 +79,6 @@ class DiaryPresenter: MvpPresenter<DiaryView>() {
             dateList.add(todayDate)
         }
         viewState.showDates(elements)
-        selectDay(lastMonthData.size - 1)
     }
 
     fun selectDay(position: Int) {

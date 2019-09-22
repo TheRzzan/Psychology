@@ -27,8 +27,10 @@ class DiaryEditorPresenter: MvpPresenter<DiaryEditorView>() {
         viewState.setDate(date)
     }
 
-    fun loadOldThink(date: Date) {
+    fun loadOldThink(date: Date, think: ThinkModel) {
         dateOld = date
+        viewState.setDate(date)
+        viewState.showThink(think)
     }
 
     fun saveNewThink(think: ThinkModel) {

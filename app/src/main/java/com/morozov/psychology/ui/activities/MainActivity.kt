@@ -7,6 +7,7 @@ import android.view.View
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
+import com.morozov.psychology.mvp.models.diary.ThinkModel
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.views.MainView
 import com.morozov.psychology.ui.fragments.diary.DiaryEditorFragment
@@ -168,12 +169,16 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         setFragment(diaryFragment)
     }
 
-    override fun showDiaryEditor(isNew: Boolean, date: Date) {
+    override fun showDiaryEditor(isNew: Boolean, date: Date, think: ThinkModel?) {
+        if (!isNew && think == null)
+            return
+
         val diaryEditorFragment = DiaryEditorFragment()
 
         val bundle = Bundle()
         bundle.putBoolean(AppConstants.DIARY_IS_NEW_ITEM, isNew)
         bundle.putSerializable(AppConstants.DIARY_SELECTED_DAY, date)
+        bundle.putSerializable(AppConstants.DIARY_OVERWRITE_THINK, think)
 
         diaryEditorFragment.arguments = bundle
         diaryEditorFragment.mActivityPresenter = mPresenter

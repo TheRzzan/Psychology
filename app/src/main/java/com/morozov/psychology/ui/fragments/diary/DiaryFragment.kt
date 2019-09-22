@@ -14,11 +14,14 @@ import com.morozov.psychology.mvp.views.diary.DiaryView
 import com.morozov.psychology.ui.adapters.diary.date.DiaryDateAdapter
 import com.morozov.psychology.ui.adapters.diary.date.DiaryDateViewHolder
 import com.morozov.psychology.ui.adapters.diary.think.list.DiaryThinkAdapter
+import com.morozov.psychology.ui.adapters.listeners.OnItemClickListener
 import com.yarolegovich.discretescrollview.DiscreteScrollView
 import com.yarolegovich.discretescrollview.transform.ScaleTransformer
 import kotlinx.android.synthetic.main.diary_cards_layout.*
 
-class DiaryFragment: MvpAppCompatFragment(), DiaryView, DiscreteScrollView.OnItemChangedListener<DiaryDateViewHolder> {
+class DiaryFragment:
+    MvpAppCompatFragment(), DiaryView,
+    DiscreteScrollView.OnItemChangedListener<DiaryDateViewHolder>, OnItemClickListener {
 
     /*
     * Moxy presenters
@@ -50,7 +53,7 @@ class DiaryFragment: MvpAppCompatFragment(), DiaryView, DiscreteScrollView.OnIte
                 .setMinScale(0.8f)
                 .build())
 
-        adapterThink = DiaryThinkAdapter()
+        adapterThink = DiaryThinkAdapter(this)
         recyclerDiaryThinks.layoutManager = LinearLayoutManager(context)
         recyclerDiaryThinks.adapter = adapterThink
 
@@ -66,9 +69,19 @@ class DiaryFragment: MvpAppCompatFragment(), DiaryView, DiscreteScrollView.OnIte
     }
 
     /*
-    * DiaryView implementation
+    * OnItemClickListener implementation
     *
     * */
+    override fun onItemClick(view: View, position: Int) {
+        mActivityPresenter.showDiaryEditor(false,
+            mPresenter.lastMonthData[recyclerDiaryDays.currentItem][position].date,
+            mPresenter.lastMonthData[recyclerDiaryDays.currentItem][position])
+    }
+
+    /*
+        * DiaryView implementation
+        *
+        * */
     override fun showDates(elements: List<Pair<Int, String>>) {
         adapterDate.setData(elements)
         adapterDate.notifyDataSetChanged()
@@ -78,6 +91,8 @@ class DiaryFragment: MvpAppCompatFragment(), DiaryView, DiscreteScrollView.OnIte
     override fun showThinkList(elements: List<Pair<String, String>>) {
         adapterThink.setData(elements)
         adapterThink.notifyDataSetChanged()
+        if (elements.isNotEmpty())
+            recyclerDiaryThinks.scrollToPosition(0)
     }
 
     /*
