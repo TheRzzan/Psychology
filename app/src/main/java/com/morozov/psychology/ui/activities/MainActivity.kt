@@ -12,6 +12,7 @@ import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.views.MainView
 import com.morozov.psychology.ui.fragments.diary.DiaryEditorFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryFragment
+import com.morozov.psychology.ui.fragments.diary.DiaryThinkViewingFragment
 import com.morozov.psychology.ui.fragments.examples.*
 import com.morozov.psychology.utility.AppConstants
 import kotlinx.android.synthetic.main.activity_main.*
@@ -167,6 +168,18 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
         clearBackStack()
         setFragment(diaryFragment)
+    }
+
+    override fun showDiaryViewing(date: Date) {
+        val diaryThinkViewingFragment = DiaryThinkViewingFragment()
+
+        val bundle = Bundle()
+        bundle.putSerializable(AppConstants.DIARY_SELECTED_DAY, date)
+
+        diaryThinkViewingFragment.arguments = bundle
+        diaryThinkViewingFragment.mActivityPresenter = mPresenter
+
+        setFragment(diaryThinkViewingFragment, true)
     }
 
     override fun showDiaryEditor(isNew: Boolean, date: Date) {

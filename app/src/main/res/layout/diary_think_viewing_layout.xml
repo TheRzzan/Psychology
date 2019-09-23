@@ -28,7 +28,7 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginBottom="24dp"
-                android:textColor="@android:color/black"/>
+                android:textColor="@android:color/black" android:id="@+id/textDiaryViewSituation"/>
 
         <TextView
                 android:text="Мысли:"
@@ -43,7 +43,7 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginBottom="24dp"
-                android:textColor="@android:color/black"/>
+                android:textColor="@android:color/black" android:id="@+id/textDiaryViewThink"/>
 
         <TextView
                 android:text="Эмоции:"
@@ -60,66 +60,74 @@
                 android:layout_height="wrap_content">
 
             <ImageView
+                    android:visibility="gone"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:layout_marginEnd="12dp"
                     app:srcCompat="@drawable/emotion_active_joy"
-                    android:id="@+id/imageJoy"
+                    android:id="@+id/imageJoyViewing"
                     android:layout_weight="1"/>
 
             <ImageView
+                    android:visibility="gone"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:layout_marginEnd="12dp"
                     app:srcCompat="@drawable/emotion_active_sedness"
-                    android:id="@+id/imageSadness"
+                    android:id="@+id/imageSadnessViewing"
                     android:layout_weight="1"/>
 
             <ImageView
+                    android:visibility="gone"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:layout_marginEnd="12dp"
                     app:srcCompat="@drawable/emotion_active_annoyance"
-                    android:id="@+id/imageAnnoyance"
+                    android:id="@+id/imageAnnoyanceViewing"
                     android:layout_weight="1"/>
 
             <ImageView
+                    android:visibility="gone"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:layout_marginEnd="12dp"
                     app:srcCompat="@drawable/emotion_active_anxiety"
-                    android:id="@+id/imageAnxiety"
+                    android:id="@+id/imageAnxietyViewing"
                     android:layout_weight="1"/>
 
             <ImageView
+                    android:visibility="gone"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:layout_marginEnd="12dp"
                     app:srcCompat="@drawable/emotion_active_disgust"
-                    android:id="@+id/imageDisgust"
+                    android:id="@+id/imageDisgustViewing"
                     android:layout_weight="1"/>
 
             <ImageView
+                    android:visibility="gone"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:layout_marginEnd="12dp"
                     app:srcCompat="@drawable/emotion_active_interest"
-                    android:id="@+id/imageInterest"
+                    android:id="@+id/imageInterestViewing"
                     android:layout_weight="1"/>
 
             <ImageView
+                    android:visibility="gone"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:layout_marginEnd="12dp"
                     app:srcCompat="@drawable/emotion_active_guilt"
-                    android:id="@+id/imageGuilt"
+                    android:id="@+id/imageGuiltViewing"
                     android:layout_weight="1"/>
 
             <ImageView
+                    android:visibility="gone"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     app:srcCompat="@drawable/emotion_active_resentment"
-                    android:id="@+id/imageResentment"
+                    android:id="@+id/imageResentmentViewing"
                     android:layout_weight="1"/>
         </LinearLayout>
 
@@ -136,7 +144,7 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginBottom="24dp"
-                android:textColor="@android:color/black"/>
+                android:textColor="@android:color/black" android:id="@+id/textDiaryViewSensation"/>
     </LinearLayout>
 
     <Button
