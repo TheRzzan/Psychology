@@ -52,8 +52,8 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showDiaryCards()
     }
 
-    fun showDiaryEditor(isNew: Boolean, date: Date, think: ThinkModel? = null) {
+    fun showDiaryEditor(isNew: Boolean, date: Date) {
         viewState.hideBottomNav()
-        viewState.showDiaryEditor(isNew, date, think)
+        viewState.showDiaryEditor(isNew, date)
     }
 }

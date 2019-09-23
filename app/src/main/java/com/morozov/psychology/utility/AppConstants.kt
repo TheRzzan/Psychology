@@ -9,6 +9,5 @@ class AppConstants {
         // Diary section
         const val DIARY_IS_NEW_ITEM = "diary_is_new_item"
         const val DIARY_SELECTED_DAY ="diary_selected_day"
-        const val DIARY_OVERWRITE_THINK ="diary_overwrite_think"
     }
 }

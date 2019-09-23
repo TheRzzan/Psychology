@@ -74,8 +74,7 @@ class DiaryFragment:
     * */
     override fun onItemClick(view: View, position: Int) {
         mActivityPresenter.showDiaryEditor(false,
-            mPresenter.lastMonthData[recyclerDiaryDays.currentItem][position].date,
-            mPresenter.lastMonthData[recyclerDiaryDays.currentItem][position])
+            mPresenter.lastMonthData[recyclerDiaryDays.currentItem][position].date)
     }
 
     /*

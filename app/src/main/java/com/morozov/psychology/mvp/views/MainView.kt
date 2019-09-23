@@ -39,5 +39,5 @@ interface MainView: MvpView {
     * */
     fun showDiaryCards()
 
-    fun showDiaryEditor(isNew: Boolean, date: Date, think: ThinkModel? = null)
+    fun showDiaryEditor(isNew: Boolean, date: Date)
 }

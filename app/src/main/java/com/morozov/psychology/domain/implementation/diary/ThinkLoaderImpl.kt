@@ -2,8 +2,10 @@ package com.morozov.psychology.domain.implementation.diary
 
 import com.morozov.psychology.domain.interfaces.diary.ThinkLoader
 import com.morozov.psychology.domain.interfaces.diary.ThinkSaver
+import com.morozov.psychology.mvp.models.diary.EmotionModel
 import com.morozov.psychology.mvp.models.diary.ThinkModel
 import java.text.SimpleDateFormat
+import java.util.*
 
 class ThinkLoaderImpl: ThinkLoader, ThinkSaver {
 
@@ -23,27 +25,27 @@ class ThinkLoaderImpl: ThinkLoader, ThinkSaver {
 
             val thModel1 = ThinkModel(
                 date1,
-                "Ситуация 1", "Мысль 1", "Эмоция 1", "Озарение 1"
+                "Ситуация 1", "Мысль 1", arrayListOf(EmotionModel(EmotionModel.Emotion.JOY, 100)), "Озарение 1"
             )
 
             val thModel2 = ThinkModel(
                 date2,
-                "Ситуация 2", "Мысль 2", "Эмоция 2", "Озарение 2"
+                "Ситуация 2", "Мысль 2", arrayListOf(EmotionModel(EmotionModel.Emotion.RESENTMENT, 100)), "Озарение 2"
             )
 
             val thModel3 = ThinkModel(
                 date3,
-                "Ситуация 3", "Мысль 3", "Эмоция 3", "Озарение 3"
+                "Ситуация 3", "Мысль 3", arrayListOf(EmotionModel(EmotionModel.Emotion.GUILT, 100)), "Озарение 3"
             )
 
             val thModel4 = ThinkModel(
                 date4,
-                "Ситуация 4", "Мысль 4", "Эмоция 4", "Озарение 4"
+                "Ситуация 4", "Мысль 4", arrayListOf(EmotionModel(EmotionModel.Emotion.JOY, 100)), "Озарение 4"
             )
 
             val thModel5 = ThinkModel(
                 date5,
-                "Ситуация 5", "Мысль 5", "Эмоция 5", "Озарение 5"
+                "Ситуация 5", "Мысль 5", arrayListOf(EmotionModel(EmotionModel.Emotion.ANXIETY, 100)), "Озарение 5"
             )
 
             dataList.addAll(listOf(thModel1, thModel2, thModel3, thModel4, thModel5))
@@ -51,6 +53,14 @@ class ThinkLoaderImpl: ThinkLoader, ThinkSaver {
     }
 
     override fun getThinks(): List<ThinkModel> = sordThinksByDate(dataList)
+
+    override fun getThinkByDate(date: Date): ThinkModel? {
+        for (item in dataList)
+            if (item.date.compareTo(date) == 0)
+                return item
+
+        return null
+    }
 
     fun sordThinksByDate(data: MutableList<ThinkModel>): MutableList<ThinkModel> {
         data.sort()

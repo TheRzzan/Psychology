@@ -31,7 +31,6 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
 
     lateinit var mDate: Date
 
-
     /*
     * LiveData
     *
@@ -44,6 +43,12 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
     var interest = MutableLiveData<Boolean>()
     var guilt = MutableLiveData<Boolean>()
     var resentment = MutableLiveData<Boolean>()
+
+    /*
+    * Emotions
+    *
+    * */
+    var selectedEmotions = arrayListOf<EmotionModel>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.diary_think_editor_layout, container, false)
@@ -82,8 +87,7 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
             if (bundle.getBoolean(AppConstants.DIARY_IS_NEW_ITEM))
                 mPresenter.initNewThink(mDate)
             else
-                mPresenter.loadOldThink(mDate,
-                    bundle.getSerializable(AppConstants.DIARY_OVERWRITE_THINK) as ThinkModel)
+                mPresenter.loadOldThink(mDate)
         }
     }
 
@@ -104,6 +108,7 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
         editTextDiarySituation.setText(think.situation)
         editTextDiaryThink.setText(think.think)
         editTextDiarySensation.setText(think.sensation)
+        showEmotions(think.emotion)
     }
 
     override fun setDate(date: Date) {
@@ -136,7 +141,7 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
 
         return ThinkModel(mDate, editTextDiarySituation.text.toString(),
             editTextDiaryThink.text.toString(),
-            "some",
+            selectedEmotions,
             editTextDiarySensation.text.toString())
     }
 
@@ -252,12 +257,30 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
     * Helper functions
     *
     * */
-    private fun addEmotion(emotion: EmotionModel) {
+    private fun showEmotions(items: List<EmotionModel>) {
+        for (item in items) {
+            when (item.emotion) {
+                EmotionModel.Emotion.JOY -> joy.value = true
+                EmotionModel.Emotion.SADNESS -> sadness.value = true
+                EmotionModel.Emotion.ANNOYANCE -> annoyance.value = true
+                EmotionModel.Emotion.ANXIETY -> anxiety.value = true
+                EmotionModel.Emotion.DISGUST -> disgust.value = true
+                EmotionModel.Emotion.INTEREST -> interest.value = true
+                EmotionModel.Emotion.GUILT -> guilt.value = true
+                EmotionModel.Emotion.RESENTMENT -> resentment.value = true
+            }
+        }
+    }
 
+    private fun addEmotion(emotion: EmotionModel) {
+        selectedEmotions.add(emotion)
     }
 
     private fun removeEmotion(emotion: EmotionModel.Emotion) {
-
+        for (item in selectedEmotions) {
+            if (item.emotion == emotion)
+                selectedEmotions.remove(item)
+        }
     }
 
     private fun getPercent(): Int {

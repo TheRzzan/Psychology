@@ -169,16 +169,12 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         setFragment(diaryFragment)
     }
 
-    override fun showDiaryEditor(isNew: Boolean, date: Date, think: ThinkModel?) {
-        if (!isNew && think == null)
-            return
-
+    override fun showDiaryEditor(isNew: Boolean, date: Date) {
         val diaryEditorFragment = DiaryEditorFragment()
 
         val bundle = Bundle()
         bundle.putBoolean(AppConstants.DIARY_IS_NEW_ITEM, isNew)
         bundle.putSerializable(AppConstants.DIARY_SELECTED_DAY, date)
-        bundle.putSerializable(AppConstants.DIARY_OVERWRITE_THINK, think)
 
         diaryEditorFragment.arguments = bundle
         diaryEditorFragment.mActivityPresenter = mPresenter
