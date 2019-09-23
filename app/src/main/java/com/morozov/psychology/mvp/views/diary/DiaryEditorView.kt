@@ -16,4 +16,13 @@ interface DiaryEditorView: MvpView {
     fun showThink(think: ThinkModel)
 
     fun setDate(date: Date)
+
+    fun setIsActiveJoy(b: Boolean)
+    fun setIsActiveSadness(b: Boolean)
+    fun setIsActiveAnnoyance(b: Boolean)
+    fun setIsActiveAnxiety(b: Boolean)
+    fun setIsActiveDisgust(b: Boolean)
+    fun setIsActiveInterest(b: Boolean)
+    fun setIsActiveGuilt(b: Boolean)
+    fun setIsActiveResentment(b: Boolean)
 }
