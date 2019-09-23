@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <TextView
+                android:id="@+id/textDiaryViewingTime"
+                style="@style/TextView.Primary.Header"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:text="18 сентября, 2019"/>
+
+        <TextView
+                android:text="Ситуация:"
+                android:textStyle="bold"
+                style="@style/TextView.Secondary"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:textColor="@android:color/black"/>
+
+        <TextView
+                android:text="Встречаю родителей на пироне"
+                style="@style/TextView.Secondary"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="24dp"
+                android:textColor="@android:color/black"/>
+
+        <TextView
+                android:text="Мысли:"
+                android:textStyle="bold"
+                style="@style/TextView.Secondary"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:textColor="@android:color/black"/>
+
+        <TextView
+                android:text="Как же давно я их не видел"
+                style="@style/TextView.Secondary"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="24dp"
+                android:textColor="@android:color/black"/>
+
+        <TextView
+                android:text="Эмоции:"
+                android:textStyle="bold"
+                style="@style/TextView.Secondary"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:textColor="@android:color/black"/>
+
+        <LinearLayout
+                android:layout_marginBottom="24dp"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="12dp"
+                    app:srcCompat="@drawable/emotion_active_joy"
+                    android:id="@+id/imageJoy"
+                    android:layout_weight="1"/>
+
+            <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="12dp"
+                    app:srcCompat="@drawable/emotion_active_sedness"
+                    android:id="@+id/imageSadness"
+                    android:layout_weight="1"/>
+
+            <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="12dp"
+                    app:srcCompat="@drawable/emotion_active_annoyance"
+                    android:id="@+id/imageAnnoyance"
+                    android:layout_weight="1"/>
+
+            <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="12dp"
+                    app:srcCompat="@drawable/emotion_active_anxiety"
+                    android:id="@+id/imageAnxiety"
+                    android:layout_weight="1"/>
+
+            <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="12dp"
+                    app:srcCompat="@drawable/emotion_active_disgust"
+                    android:id="@+id/imageDisgust"
+                    android:layout_weight="1"/>
+
+            <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="12dp"
+                    app:srcCompat="@drawable/emotion_active_interest"
+                    android:id="@+id/imageInterest"
+                    android:layout_weight="1"/>
+
+            <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="12dp"
+                    app:srcCompat="@drawable/emotion_active_guilt"
+                    android:id="@+id/imageGuilt"
+                    android:layout_weight="1"/>
+
+            <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    app:srcCompat="@drawable/emotion_active_resentment"
+                    android:id="@+id/imageResentment"
+                    android:layout_weight="1"/>
+        </LinearLayout>
+
+        <TextView
+                android:text="Поведение и телесные ощущения:"
+                android:textStyle="bold"
+                style="@style/TextView.Secondary"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:textColor="@android:color/black"/>
+
+        <TextView
+                android:text="Хотел обнять. Почувствовал небольшое тепло"
+                style="@style/TextView.Secondary"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="24dp"
+                android:textColor="@android:color/black"/>
+    </LinearLayout>
+
+    <Button
+            android:id="@+id/buttonDiaryEditThink"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@drawable/fab_add"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+</RelativeLayout>
