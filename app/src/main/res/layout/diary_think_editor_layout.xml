@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
-        style="@style/ScrollViewStyle"
+        xmlns:app="http://schemas.android.com/apk/res-auto" style="@style/ScrollViewStyle"
         xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
@@ -66,8 +66,70 @@
                 android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:layout_marginEnd="@dimen/activity_horizontal_margin"
                 android:layout_width="match_parent"
-                android:layout_height="40dp">
+                android:layout_height="wrap_content">
 
+            <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="12dp"
+                    app:srcCompat="@drawable/emotion_non_active_joy"
+                    android:id="@+id/imageJoy"
+                    android:layout_weight="1"/>
+
+            <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="12dp"
+                    app:srcCompat="@drawable/emotion_non_active_sedness"
+                    android:id="@+id/imageSadness"
+                    android:layout_weight="1"/>
+
+            <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="12dp"
+                    app:srcCompat="@drawable/emotion_non_active_annoyance"
+                    android:id="@+id/imageAnnoyance"
+                    android:layout_weight="1"/>
+
+            <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="12dp"
+                    app:srcCompat="@drawable/emotion_non_active_anxiety"
+                    android:id="@+id/imageAnxiety"
+                    android:layout_weight="1"/>
+
+            <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="12dp"
+                    app:srcCompat="@drawable/emotion_non_active_disgust"
+                    android:id="@+id/imageDisgust"
+                    android:layout_weight="1"/>
+
+            <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="12dp"
+                    app:srcCompat="@drawable/emotion_non_active_interest"
+                    android:id="@+id/imageInterest"
+                    android:layout_weight="1"/>
+
+            <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="12dp"
+                    app:srcCompat="@drawable/emotion_non_active_guilt"
+                    android:id="@+id/imageGuilt"
+                    android:layout_weight="1"/>
+
+            <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    app:srcCompat="@drawable/emotion_non_active_resentment"
+                    android:id="@+id/imageResentment"
+                    android:layout_weight="1"/>
         </LinearLayout>
 
         <RelativeLayout
