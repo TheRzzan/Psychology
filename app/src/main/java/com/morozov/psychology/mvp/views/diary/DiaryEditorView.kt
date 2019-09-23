@@ -13,6 +13,10 @@ interface DiaryEditorView: MvpView {
 
     fun hideButtonSave()
 
+    fun showSeekBar()
+
+    fun hideSeekBar()
+
     fun showThink(think: ThinkModel)
 
     fun setDate(date: Date)

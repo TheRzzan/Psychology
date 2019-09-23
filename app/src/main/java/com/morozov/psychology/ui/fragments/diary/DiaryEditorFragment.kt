@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SeekBar
 import com.arellomobile.mvp.MvpAppCompatFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
@@ -49,6 +50,7 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
     *
     * */
     var selectedEmotions = arrayListOf<EmotionModel>()
+    var currentEmotion= MutableLiveData<Int>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.diary_think_editor_layout, container, false)
@@ -68,6 +70,34 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
                 mActivityPresenter.showDiaryCards()
             }
         }
+
+        seekBarDiaryEditor.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                textDiaryPercent.text = "$progress%"
+                if (currentEmotion.value!! >= 0 && currentEmotion.value!! < selectedEmotions.size)
+                    selectedEmotions[currentEmotion.value!!].percent = seekBarDiaryEditor.progress
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+
+            }
+        })
+
+        currentEmotion.observeForever {
+            if (it != null)
+            when (it) {
+                -1 -> hideSeekBar()
+                else -> {
+                    showSeekBar()
+                }
+            }
+        }
+
+        currentEmotion.value = -1
 
         setEmotionsOnClick()
     }
@@ -101,6 +131,21 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
 
     override fun hideButtonSave() {
         buttonDiarySave.visibility = View.GONE
+    }
+
+    override fun showSeekBar() {
+        seekBarDiaryEditor.progress = 0
+        textDiaryPercent.text = "1%"
+
+        textDiaryPercent.visibility = View.VISIBLE
+        textDiaryEmotion.visibility = View.VISIBLE
+        seekBarDiaryEditor.visibility = View.VISIBLE
+    }
+
+    override fun hideSeekBar() {
+        textDiaryPercent.visibility = View.INVISIBLE
+        textDiaryEmotion.visibility = View.INVISIBLE
+        seekBarDiaryEditor.visibility = View.INVISIBLE
     }
 
     override fun showThink(think: ThinkModel) {
@@ -138,6 +183,10 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
 
         mDate.hours = date.hours
         mDate.minutes = date.minutes
+
+        for (item in selectedEmotions) {
+            println(item.percent)
+        }
 
         return ThinkModel(mDate, editTextDiarySituation.text.toString(),
             editTextDiaryThink.text.toString(),
@@ -274,13 +323,20 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
 
     private fun addEmotion(emotion: EmotionModel) {
         selectedEmotions.add(emotion)
+        currentEmotion.value = selectedEmotions.size - 1
     }
 
     private fun removeEmotion(emotion: EmotionModel.Emotion) {
+        val newList = arrayListOf<EmotionModel>()
+
         for (item in selectedEmotions) {
-            if (item.emotion == emotion)
-                selectedEmotions.remove(item)
+            if (item.emotion != emotion) {
+                newList.add(item)
+            } else {
+                currentEmotion.value = -1
+            }
         }
+        selectedEmotions = newList
     }
 
     private fun getPercent(): Int {
