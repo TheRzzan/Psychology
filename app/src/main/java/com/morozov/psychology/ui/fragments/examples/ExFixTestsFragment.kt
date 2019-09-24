@@ -155,8 +155,12 @@ class ExFixTestsFragment: MvpAppCompatFragment(), ExFixTestsView, OnTextChangeLi
     }
 
     override fun outOfTest() {
-        if (mActivityPresenter != null)
-            mActivityPresenter.showExCards()
+        val bundle = this.arguments
+
+        if (bundle != null)
+            mActivityPresenter.showExFixResults(bundle.getInt(AppConstants.EXP_POSITION))
+        else
+            mActivityPresenter.showExFixResults(0)
     }
 
     override fun setButtonText(text: String) {

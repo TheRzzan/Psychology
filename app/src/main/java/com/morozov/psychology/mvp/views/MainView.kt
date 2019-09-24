@@ -33,6 +33,8 @@ interface MainView: MvpView {
 
     fun showExResults(position: Int)
 
+    fun showExFixResults(position: Int)
+
     /*
     * Diary section controls
     *

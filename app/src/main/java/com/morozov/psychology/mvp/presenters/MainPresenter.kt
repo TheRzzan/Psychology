@@ -43,6 +43,11 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showExResults(position)
     }
 
+    fun showExFixResults(position: Int) {
+        viewState.hideBottomNav()
+        viewState.showExFixResults(position)
+    }
+
     /*
     * Diary section controls
     *

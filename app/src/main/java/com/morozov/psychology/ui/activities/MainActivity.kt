@@ -158,6 +158,18 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         setFragment(exResultsFragment, true)
     }
 
+    override fun showExFixResults(position: Int) {
+        val exfixResultsFragment = ExFixResultsFragment()
+
+        val bundle = Bundle()
+        bundle.putInt(AppConstants.EXP_POSITION, position)
+
+        exfixResultsFragment.arguments = bundle
+        exfixResultsFragment.mActivityPresenter = mPresenter
+
+        setFragment(exfixResultsFragment, true)
+    }
+
     /*
     * Diary section controls
     * (MainView impl)
