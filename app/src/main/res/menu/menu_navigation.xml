@@ -3,27 +3,27 @@
 
     <item
             android:id="@+id/navigation_examples"
-            android:icon="@drawable/ic_examples_black_24dp"
+            android:icon="@drawable/bar_icon_mind"
             android:title="@string/title_examples"/>
 
     <item
-            android:id="@+id/navigation_diary"
-            android:icon="@drawable/ic_event_note_black_24dp"
-            android:title="@string/title_diary"/>
-
-    <item
             android:id="@+id/navigation_tests"
-            android:icon="@drawable/ic_tests_black_24dp"
+            android:icon="@drawable/bar_icon_test"
             android:title="@string/title_tests"/>
 
     <item
+            android:id="@+id/navigation_diary"
+            android:icon="@drawable/bar_icon_diary"
+            android:title="@string/title_diary"/>
+
+    <item
             android:id="@+id/navigation_mind_change"
-            android:icon="@drawable/ic_mood_black_24dp"
+            android:icon="@drawable/bar_icon_changes"
             android:title="@string/title_mind_change"/>
 
     <item
             android:id="@+id/navigation_consultation"
-            android:icon="@drawable/ic_consultation_black_24dp"
+            android:icon="@drawable/bar_icon_profile"
             android:title="@string/title_consultation"/>
 
 </menu>

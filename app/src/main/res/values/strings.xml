@@ -2,9 +2,9 @@
     <string name="app_name">Psychology</string>
 
     <!-- Bottom navigation -->
-    <string name="title_examples">Examples</string>
-    <string name="title_diary">Personal diary</string>
-    <string name="title_tests">Tests</string>
-    <string name="title_mind_change">Change of mind</string>
-    <string name="title_consultation">Consultation</string>
+    <string name="title_examples">Проверка</string>
+    <string name="title_diary">Дневник</string>
+    <string name="title_tests">Тесты</string>
+    <string name="title_mind_change">Изменения</string>
+    <string name="title_consultation">Профиль</string>
 </resources>
