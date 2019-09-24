@@ -117,9 +117,10 @@ class ExTestsFragment: MvpAppCompatFragment(), ExTestsView, OnTextChangeListener
     }
 
     override fun setFinishEnabled(boolean: Boolean) {
-        buttonFinishTest.visibility = when(boolean) {
-            true -> View.VISIBLE
-            false -> View.GONE
+        when(boolean) {
+            true -> buttonFinishTest.setBackgroundResource(R.drawable.rectangle_button)
+            false -> buttonFinishTest.setBackgroundResource(R.drawable.rectangle_button_disable)
         }
+        buttonFinishTest.isEnabled = boolean
     }
 }
