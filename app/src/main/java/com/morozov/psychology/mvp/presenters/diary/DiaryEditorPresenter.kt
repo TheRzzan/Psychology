@@ -37,6 +37,7 @@ class DiaryEditorPresenter: MvpPresenter<DiaryEditorView>() {
 
         val thinkByDate = thinkLoader.getThinkByDate(date) ?: return
         viewState.showThink(thinkByDate)
+        viewState.hideSeekBar()
     }
 
     fun saveNewThink(think: ThinkModel) {

@@ -74,8 +74,20 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
         seekBarDiaryEditor.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 textDiaryPercent.text = "$progress%"
-                if (currentEmotion.value!! >= 0 && currentEmotion.value!! < selectedEmotions.size)
+                if (currentEmotion.value!! >= 0 && currentEmotion.value!! < selectedEmotions.size) {
                     selectedEmotions[currentEmotion.value!!].percent = seekBarDiaryEditor.progress
+
+                    when (selectedEmotions[currentEmotion.value!!].emotion) {
+                        EmotionModel.Emotion.JOY -> textJoy.text = "$progress%"
+                        EmotionModel.Emotion.SADNESS -> textSadness.text = "$progress%"
+                        EmotionModel.Emotion.ANNOYANCE -> textAnnoyance.text = "$progress%"
+                        EmotionModel.Emotion.ANXIETY -> textAnxiety.text = "$progress%"
+                        EmotionModel.Emotion.DISGUST -> textDisgust.text = "$progress%"
+                        EmotionModel.Emotion.INTEREST -> textInterest.text = "$progress%"
+                        EmotionModel.Emotion.GUILT -> textGuilt.text = "$progress%"
+                        EmotionModel.Emotion.RESENTMENT -> textResentment.text = "$progress%"
+                    }
+                }
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -134,7 +146,7 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
     }
 
     override fun showSeekBar() {
-        seekBarDiaryEditor.progress = 0
+        seekBarDiaryEditor.progress = 1
         textDiaryPercent.text = "1%"
 
         textDiaryPercent.visibility = View.VISIBLE
@@ -203,10 +215,13 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
             true -> {
                 addEmotion(EmotionModel(EmotionModel.Emotion.JOY, getPercent()))
                 imageJoy.setImageDrawable(resources.getDrawable(R.drawable.emotion_active_joy))
+                textJoy.text = "1%"
+                textJoy.visibility = View.VISIBLE
             }
             false -> {
                 removeEmotion(EmotionModel.Emotion.JOY)
                 imageJoy.setImageDrawable(resources.getDrawable(R.drawable.emotion_non_active_joy))
+                textJoy.visibility = View.GONE
             }
         }
     }
@@ -216,10 +231,13 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
             true -> {
                 addEmotion(EmotionModel(EmotionModel.Emotion.SADNESS, getPercent()))
                 imageSadness.setImageDrawable(resources.getDrawable(R.drawable.emotion_active_sedness))
+                textSadness.text = "1%"
+                textSadness.visibility = View.VISIBLE
             }
             false -> {
                 removeEmotion(EmotionModel.Emotion.SADNESS)
                 imageSadness.setImageDrawable(resources.getDrawable(R.drawable.emotion_non_active_sedness))
+                textSadness.visibility = View.GONE
             }
         }
     }
@@ -229,10 +247,13 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
             true -> {
                 addEmotion(EmotionModel(EmotionModel.Emotion.ANNOYANCE, getPercent()))
                 imageAnnoyance.setImageDrawable(resources.getDrawable(R.drawable.emotion_active_annoyance))
+                textAnnoyance.text = "1%"
+                textAnnoyance.visibility = View.VISIBLE
             }
             false -> {
                 removeEmotion(EmotionModel.Emotion.ANNOYANCE)
                 imageAnnoyance.setImageDrawable(resources.getDrawable(R.drawable.emotion_non_active_annoyance))
+                textAnnoyance.visibility = View.GONE
             }
         }
     }
@@ -242,10 +263,13 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
             true -> {
                 addEmotion(EmotionModel(EmotionModel.Emotion.ANXIETY, getPercent()))
                 imageAnxiety.setImageDrawable(resources.getDrawable(R.drawable.emotion_active_anxiety))
+                textAnxiety.text = "1%"
+                textAnxiety.visibility = View.VISIBLE
             }
             false -> {
                 removeEmotion(EmotionModel.Emotion.ANXIETY)
                 imageAnxiety.setImageDrawable(resources.getDrawable(R.drawable.emotion_non_active_anxiety))
+                textAnxiety.visibility = View.GONE
             }
         }
     }
@@ -255,10 +279,13 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
             true -> {
                 addEmotion(EmotionModel(EmotionModel.Emotion.DISGUST, getPercent()))
                 imageDisgust.setImageDrawable(resources.getDrawable(R.drawable.emotion_active_disgust))
+                textDisgust.text = "1%"
+                textDisgust.visibility = View.VISIBLE
             }
             false -> {
                 removeEmotion(EmotionModel.Emotion.DISGUST)
                 imageDisgust.setImageDrawable(resources.getDrawable(R.drawable.emotion_non_active_disgust))
+                textDisgust.visibility = View.GONE
             }
         }
     }
@@ -268,10 +295,13 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
             true -> {
                 addEmotion(EmotionModel(EmotionModel.Emotion.INTEREST, getPercent()))
                 imageInterest.setImageDrawable(resources.getDrawable(R.drawable.emotion_active_interest))
+                textInterest.text = "1%"
+                textInterest.visibility = View.VISIBLE
             }
             false -> {
                 removeEmotion(EmotionModel.Emotion.INTEREST)
                 imageInterest.setImageDrawable(resources.getDrawable(R.drawable.emotion_non_active_interest))
+                textInterest.visibility = View.GONE
             }
         }
     }
@@ -281,10 +311,13 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
             true -> {
                 addEmotion(EmotionModel(EmotionModel.Emotion.GUILT, getPercent()))
                 imageGuilt.setImageDrawable(resources.getDrawable(R.drawable.emotion_active_guilt))
+                textGuilt.text = "1%"
+                textGuilt.visibility = View.VISIBLE
             }
             false -> {
                 removeEmotion(EmotionModel.Emotion.GUILT)
                 imageGuilt.setImageDrawable(resources.getDrawable(R.drawable.emotion_non_active_guilt))
+                textGuilt.visibility = View.GONE
             }
         }
     }
@@ -294,10 +327,13 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
             true -> {
                 addEmotion(EmotionModel(EmotionModel.Emotion.RESENTMENT, getPercent()))
                 imageResentment.setImageDrawable(resources.getDrawable(R.drawable.emotion_active_resentment))
+                textResentment.text = "1%"
+                textResentment.visibility = View.VISIBLE
             }
             false -> {
                 removeEmotion(EmotionModel.Emotion.RESENTMENT)
                 imageResentment.setImageDrawable(resources.getDrawable(R.drawable.emotion_non_active_resentment))
+                textResentment.visibility = View.GONE
             }
         }
     }
@@ -309,14 +345,38 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
     private fun showEmotions(items: List<EmotionModel>) {
         for (item in items) {
             when (item.emotion) {
-                EmotionModel.Emotion.JOY -> joy.value = true
-                EmotionModel.Emotion.SADNESS -> sadness.value = true
-                EmotionModel.Emotion.ANNOYANCE -> annoyance.value = true
-                EmotionModel.Emotion.ANXIETY -> anxiety.value = true
-                EmotionModel.Emotion.DISGUST -> disgust.value = true
-                EmotionModel.Emotion.INTEREST -> interest.value = true
-                EmotionModel.Emotion.GUILT -> guilt.value = true
-                EmotionModel.Emotion.RESENTMENT -> resentment.value = true
+                EmotionModel.Emotion.JOY -> {
+                    joy.value = true
+                    textJoy.text = item.percent.toString()
+                }
+                EmotionModel.Emotion.SADNESS -> {
+                    sadness.value = true
+                    textSadness.text = item.percent.toString()
+                }
+                EmotionModel.Emotion.ANNOYANCE -> {
+                    annoyance.value = true
+                    textAnnoyance.text = item.percent.toString()
+                }
+                EmotionModel.Emotion.ANXIETY -> {
+                    anxiety.value = true
+                    textAnxiety.text = item.percent.toString()
+                }
+                EmotionModel.Emotion.DISGUST -> {
+                    disgust.value = true
+                    textDisgust.text = item.percent.toString()
+                }
+                EmotionModel.Emotion.INTEREST -> {
+                    interest.value = true
+                    textInterest.text = item.percent.toString()
+                }
+                EmotionModel.Emotion.GUILT -> {
+                    guilt.value = true
+                    textGuilt.text = item.percent.toString()
+                }
+                EmotionModel.Emotion.RESENTMENT -> {
+                    resentment.value = true
+                    textResentment.text = item.percent.toString()
+                }
             }
         }
     }

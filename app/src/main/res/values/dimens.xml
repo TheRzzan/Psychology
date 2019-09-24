@@ -13,4 +13,7 @@
 
     <!-- Card View -->
     <dimen name="card_corner_radius">14dp</dimen>
+
+    <!-- Emotions -->
+    <dimen name="diary_emotions_margin">6dp</dimen>
 </resources>

@@ -68,68 +68,165 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-            <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:layout_marginEnd="12dp"
-                    app:srcCompat="@drawable/emotion_non_active_joy"
-                    android:id="@+id/imageJoy"
-                    android:layout_weight="1"/>
+            <LinearLayout
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="@dimen/diary_emotions_margin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                <ImageView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        app:srcCompat="@drawable/emotion_non_active_joy"
+                        android:id="@+id/imageJoy"/>
+
+                <TextView
+                        android:text="30%"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content" android:visibility="gone"
+                        android:layout_height="wrap_content" android:id="@+id/textJoy"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="@dimen/diary_emotions_margin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
             <ImageView
                     android:layout_width="36dp"
                     android:layout_height="36dp"
-                    android:layout_marginEnd="12dp"
                     app:srcCompat="@drawable/emotion_non_active_sedness"
-                    android:id="@+id/imageSadness"
-                    android:layout_weight="1"/>
+                    android:id="@+id/imageSadness"/>
+
+                <TextView
+                        android:text="30%"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content" android:visibility="gone"
+                        android:layout_height="wrap_content" android:id="@+id/textSadness"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="@dimen/diary_emotions_margin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
             <ImageView
                     android:layout_width="36dp"
                     android:layout_height="36dp"
-                    android:layout_marginEnd="12dp"
                     app:srcCompat="@drawable/emotion_non_active_annoyance"
-                    android:id="@+id/imageAnnoyance"
-                    android:layout_weight="1"/>
+                    android:id="@+id/imageAnnoyance"/>
+
+                <TextView
+                        android:text="30%"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content" android:visibility="gone"
+                        android:layout_height="wrap_content" android:id="@+id/textAnnoyance"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="@dimen/diary_emotions_margin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
             <ImageView
                     android:layout_width="36dp"
                     android:layout_height="36dp"
-                    android:layout_marginEnd="12dp"
                     app:srcCompat="@drawable/emotion_non_active_anxiety"
-                    android:id="@+id/imageAnxiety"
-                    android:layout_weight="1"/>
+                    android:id="@+id/imageAnxiety"/>
+
+                <TextView
+                        android:text="30%"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content" android:visibility="gone"
+                        android:layout_height="wrap_content" android:id="@+id/textAnxiety"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="@dimen/diary_emotions_margin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
             <ImageView
                     android:layout_width="36dp"
                     android:layout_height="36dp"
-                    android:layout_marginEnd="12dp"
                     app:srcCompat="@drawable/emotion_non_active_disgust"
-                    android:id="@+id/imageDisgust"
-                    android:layout_weight="1"/>
+                    android:id="@+id/imageDisgust"/>
+
+                <TextView
+                        android:text="30%"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content" android:visibility="gone"
+                        android:layout_height="wrap_content" android:id="@+id/textDisgust"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="@dimen/diary_emotions_margin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
             <ImageView
                     android:layout_width="36dp"
                     android:layout_height="36dp"
-                    android:layout_marginEnd="12dp"
                     app:srcCompat="@drawable/emotion_non_active_interest"
-                    android:id="@+id/imageInterest"
-                    android:layout_weight="1"/>
+                    android:id="@+id/imageInterest"/>
+
+                <TextView
+                        android:text="30%"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content" android:visibility="gone"
+                        android:layout_height="wrap_content" android:id="@+id/textInterest"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="@dimen/diary_emotions_margin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
             <ImageView
                     android:layout_width="36dp"
                     android:layout_height="36dp"
-                    android:layout_marginEnd="12dp"
                     app:srcCompat="@drawable/emotion_non_active_guilt"
-                    android:id="@+id/imageGuilt"
-                    android:layout_weight="1"/>
+                    android:id="@+id/imageGuilt"/>
+
+                <TextView
+                        android:text="30%"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content" android:visibility="gone"
+                        android:layout_height="wrap_content" android:id="@+id/textGuilt"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
             <ImageView
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     app:srcCompat="@drawable/emotion_non_active_resentment"
-                    android:id="@+id/imageResentment"
-                    android:layout_weight="1"/>
+                    android:id="@+id/imageResentment"/>
+
+                <TextView
+                        android:text="30%"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content" android:visibility="gone"
+                        android:layout_height="wrap_content" android:id="@+id/textResentment"/>
+            </LinearLayout>
+
         </LinearLayout>
 
         <RelativeLayout
