@@ -347,35 +347,51 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
             when (item.emotion) {
                 EmotionModel.Emotion.JOY -> {
                     joy.value = true
-                    textJoy.text = item.percent.toString()
+                    textJoy.text = item.percent.toString() + "%"
+                    seekBarDiaryEditor.progress = item.percent
+                    textDiaryPercent.text = item.percent.toString() + "%"
                 }
                 EmotionModel.Emotion.SADNESS -> {
                     sadness.value = true
-                    textSadness.text = item.percent.toString()
+                    textSadness.text = item.percent.toString() + "%"
+                    seekBarDiaryEditor.progress = item.percent
+                    textDiaryPercent.text = item.percent.toString() + "%"
                 }
                 EmotionModel.Emotion.ANNOYANCE -> {
                     annoyance.value = true
-                    textAnnoyance.text = item.percent.toString()
+                    textAnnoyance.text = item.percent.toString() + "%"
+                    seekBarDiaryEditor.progress = item.percent
+                    textDiaryPercent.text = item.percent.toString() + "%"
                 }
                 EmotionModel.Emotion.ANXIETY -> {
                     anxiety.value = true
-                    textAnxiety.text = item.percent.toString()
+                    textAnxiety.text = item.percent.toString() + "%"
+                    seekBarDiaryEditor.progress = item.percent
+                    textDiaryPercent.text = item.percent.toString() + "%"
                 }
                 EmotionModel.Emotion.DISGUST -> {
                     disgust.value = true
-                    textDisgust.text = item.percent.toString()
+                    textDisgust.text = item.percent.toString() + "%"
+                    seekBarDiaryEditor.progress = item.percent
+                    textDiaryPercent.text = item.percent.toString() + "%"
                 }
                 EmotionModel.Emotion.INTEREST -> {
                     interest.value = true
-                    textInterest.text = item.percent.toString()
+                    textInterest.text = item.percent.toString() + "%"
+                    seekBarDiaryEditor.progress = item.percent
+                    textDiaryPercent.text = item.percent.toString() + "%"
                 }
                 EmotionModel.Emotion.GUILT -> {
                     guilt.value = true
-                    textGuilt.text = item.percent.toString()
+                    textGuilt.text = item.percent.toString() + "%"
+                    seekBarDiaryEditor.progress = item.percent
+                    textDiaryPercent.text = item.percent.toString() + "%"
                 }
                 EmotionModel.Emotion.RESENTMENT -> {
                     resentment.value = true
-                    textResentment.text = item.percent.toString()
+                    textResentment.text = item.percent.toString() + "%"
+                    seekBarDiaryEditor.progress = item.percent
+                    textDiaryPercent.text = item.percent.toString() + "%"
                 }
             }
         }
