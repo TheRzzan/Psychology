@@ -75,4 +75,9 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
     </style>
+
+    <style name="EditTextStyle">
+        <item name="android:textCursorDrawable">@drawable/cursor_color</item>
+        <item name="android:background">@drawable/rectangle_edit_text</item>
+    </style>
 </resources>

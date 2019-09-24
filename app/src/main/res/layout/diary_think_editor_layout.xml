@@ -32,7 +32,7 @@
                 android:paddingRight="@dimen/activity_horizontal_margin"
                 android:hint="Ситуация"
                 android:ems="10"
-                android:background="@drawable/rectangle_edit_text"
+                style="@style/EditTextStyle"
                 android:id="@+id/editTextDiarySituation"/>
 
         <TextView
@@ -52,7 +52,7 @@
                 android:paddingRight="@dimen/activity_horizontal_margin"
                 android:hint="Мысли"
                 android:ems="10"
-                android:background="@drawable/rectangle_edit_text"
+                style="@style/EditTextStyle"
                 android:id="@+id/editTextDiaryThink"/>
 
         <TextView
@@ -276,7 +276,7 @@
                 android:paddingRight="@dimen/activity_horizontal_margin"
                 android:hint="Поведение и телесные ощущения"
                 android:ems="10"
-                android:background="@drawable/rectangle_edit_text"
+                style="@style/EditTextStyle"
                 android:id="@+id/editTextDiarySensation"/>
 
         <RelativeLayout

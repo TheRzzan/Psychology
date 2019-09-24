@@ -21,6 +21,6 @@
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:hint="Введите ответ"
             android:ems="10"
-            android:background="@drawable/rectangle_edit_text"
+            style="@style/EditTextStyle"
             android:id="@+id/editTextAnswer"/>
 </LinearLayout>
