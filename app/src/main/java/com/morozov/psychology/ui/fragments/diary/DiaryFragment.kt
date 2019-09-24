@@ -79,9 +79,22 @@ class DiaryFragment:
     }
 
     /*
-        * DiaryView implementation
-        *
-        * */
+    * DiaryView implementation
+    *
+    * */
+    override fun showIsEmptyMessage(b: Boolean) {
+        when (!b) {
+            true -> {
+                textDiaryEmptyDay.visibility = View.GONE
+                arrowEmpty.visibility = View.GONE
+            }
+            false -> {
+                textDiaryEmptyDay.visibility = View.VISIBLE
+                arrowEmpty.visibility = View.VISIBLE
+            }
+        }
+    }
+
     override fun showDates(elements: List<Pair<Int, String>>) {
         adapterDate.setData(elements)
         adapterDate.notifyDataSetChanged()
@@ -89,6 +102,8 @@ class DiaryFragment:
     }
 
     override fun showThinkList(elements: List<Pair<String, String>>) {
+        showIsEmptyMessage(elements.isEmpty())
+
         adapterThink.setData(elements)
         adapterThink.notifyDataSetChanged()
         if (elements.isNotEmpty())
