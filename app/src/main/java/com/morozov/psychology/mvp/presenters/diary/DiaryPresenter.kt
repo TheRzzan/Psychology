@@ -21,6 +21,10 @@ class DiaryPresenter: MvpPresenter<DiaryView>() {
         DefaultApplication.diaryComponent.inject(this)
     }
 
+    companion object {
+        var currentDate = -1
+    }
+
     var lastMonthData: MutableList<MutableList<ThinkModel>> = mutableListOf()
     var dateList: MutableList<Date> = mutableListOf()
 
@@ -78,10 +82,16 @@ class DiaryPresenter: MvpPresenter<DiaryView>() {
             lastMonthData.add(mutableListOf())
             dateList.add(todayDate)
         }
+
+        if (currentDate < 0 || currentDate >= elements.size)
+            currentDate = elements.size - 1
+
         viewState.showDates(elements)
     }
 
     fun selectDay(position: Int) {
+        currentDate = position
+
         if (position >= lastMonthData.size || lastMonthData.isEmpty())
             return
 

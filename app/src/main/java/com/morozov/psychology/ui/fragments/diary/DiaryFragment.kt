@@ -98,7 +98,7 @@ class DiaryFragment:
     override fun showDates(elements: List<Pair<Int, String>>) {
         adapterDate.setData(elements)
         adapterDate.notifyDataSetChanged()
-        recyclerDiaryDays.scrollToPosition(elements.size - 1)
+        recyclerDiaryDays.scrollToPosition(DiaryPresenter.currentDate)
     }
 
     override fun showThinkList(elements: List<Pair<String, String>>) {
