@@ -15,36 +15,43 @@ class MainPresenter:MvpPresenter<MainView>() {
     * */
     fun showExCards() {
         viewState.showBottomNav()
+        viewState.hideBackArrow()
         viewState.showExCards()
     }
 
     fun showExDescr(position: Int) {
         viewState.hideBottomNav()
+        viewState.hideBackArrow()
         viewState.showExDescr(position)
     }
 
     fun showExFixDescr(position: Int) {
         viewState.hideBottomNav()
+        viewState.hideBackArrow()
         viewState.showExFixDescr(position)
     }
 
     fun showExTest(position: Int) {
         viewState.hideBottomNav()
+        viewState.showBackArrow()
         viewState.showExTest(position)
     }
 
     fun showExFixTest(position: Int) {
         viewState.hideBottomNav()
+        viewState.showBackArrow()
         viewState.showExFixTest(position)
     }
 
     fun showExResults(position: Int) {
         viewState.hideBottomNav()
+        viewState.showBackArrow()
         viewState.showExResults(position)
     }
 
     fun showExFixResults(position: Int) {
         viewState.hideBottomNav()
+        viewState.showBackArrow()
         viewState.showExFixResults(position)
     }
 
@@ -54,16 +61,19 @@ class MainPresenter:MvpPresenter<MainView>() {
     * */
     fun showDiaryCards() {
         viewState.showBottomNav()
+        viewState.hideBackArrow()
         viewState.showDiaryCards()
     }
 
     fun showDiaryViewing(date: Date) {
         viewState.hideBottomNav()
+        viewState.showBackArrow()
         viewState.showDiaryViewing(date)
     }
 
     fun showDiaryEditor(isNew: Boolean, date: Date) {
         viewState.hideBottomNav()
+        viewState.showBackArrow()
         viewState.showDiaryEditor(isNew, date)
     }
 }

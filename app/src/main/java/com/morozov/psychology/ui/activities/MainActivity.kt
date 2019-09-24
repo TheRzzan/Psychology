@@ -59,6 +59,9 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
         mPresenter.showExCards()
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        linearBack.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     override fun onBackPressed() {
@@ -66,9 +69,16 @@ class MainActivity : MvpAppCompatActivity(), MainView {
             0 -> super.onBackPressed()
             1 -> {
                 showBottomNav()
+                hideBackArrow()
                 supportFragmentManager.popBackStack()
             }
             else -> {
+                val fragment = supportFragmentManager.fragments[supportFragmentManager.fragments.size - 1]
+                if (fragment is ExTestsFragment ||
+                    fragment is ExFixTestsFragment) {
+                    hideBackArrow()
+                }
+
                 supportFragmentManager.popBackStack()
             }
         }
@@ -84,6 +94,14 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun hideBottomNav() {
         navigation.visibility = View.GONE
+    }
+
+    override fun showBackArrow() {
+        linearBack.visibility = View.VISIBLE
+    }
+
+    override fun hideBackArrow() {
+        linearBack.visibility = View.GONE
     }
 
     /*

@@ -16,7 +16,7 @@
                     style="@style/TextView.Primary"
                     android:text="Упражнение на закрепление навыка поиска мыслей"
                     android:textColor="@android:color/black"
-                    android:id="@+id/textFixResultName" android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:id="@+id/textFixResultName"
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
                     android:layout_marginBottom="@dimen/activity_horizontal_margin"/>

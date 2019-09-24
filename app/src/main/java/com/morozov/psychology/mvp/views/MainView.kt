@@ -17,6 +17,10 @@ interface MainView: MvpView {
 
     fun hideBottomNav()
 
+    fun showBackArrow()
+
+    fun hideBackArrow()
+
     /*
     * Experiments section controls
     *
