@@ -44,7 +44,8 @@ class DiaryPresenter: MvpPresenter<DiaryView>() {
         val todayDate = Date()
 
         for (item in thinksAll) {
-            if (monthYearFormat.format(item.date) == monthYearFormat.format(todayDate))
+            if (monthYearFormat.format(item.date) == monthYearFormat.format(todayDate) ||
+                (dateC != null && monthYearFormat.format(item.date) == monthYearFormat.format(dateC)))
                 thinksLastMonth.add(item)
         }
 
