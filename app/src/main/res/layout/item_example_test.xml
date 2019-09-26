@@ -11,16 +11,30 @@
             android:textColor="@android:color/black"
             android:id="@+id/textTestQuestion"/>
 
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:inputType="textPersonName"
+    <RelativeLayout
             android:layout_marginTop="@dimen/activity_vertical_margin"
             android:layout_marginBottom="@dimen/activity_vertical_margin"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:hint="Введите ответ"
-            android:ems="10"
-            style="@style/EditTextStyle"
-            android:id="@+id/editTextAnswer"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:inputType="textPersonName"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="50dp"
+                android:hint="Введите ответ"
+                android:ems="10"
+                style="@style/EditTextStyle"
+                android:id="@+id/editTextAnswer"/>
+
+        <Button
+                android:id="@+id/buttonClearText"
+                android:visibility="gone"
+                android:background="@drawable/close_icon"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp"/>
+    </RelativeLayout>
 </LinearLayout>

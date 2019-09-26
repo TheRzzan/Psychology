@@ -125,6 +125,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         exDescriptionFragment.arguments = bundle
         exDescriptionFragment.mActivityPresenter = mPresenter
 
+        clearBackStack()
         setFragment(exDescriptionFragment, true)
     }
 
@@ -137,6 +138,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         exFixDescriptionFragment.arguments = bundle
         exFixDescriptionFragment.mActivityPresenter = mPresenter
 
+        clearBackStack()
         setFragment(exFixDescriptionFragment, true)
     }
 

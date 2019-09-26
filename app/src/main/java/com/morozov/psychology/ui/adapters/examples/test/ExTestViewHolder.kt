@@ -22,11 +22,21 @@ class ExTestViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (s != null) {
+                    if (s.isNotEmpty())
+                        itemView.buttonClearText.visibility = View.VISIBLE
+                    else
+                        itemView.buttonClearText.visibility = View.GONE
+
                     listener.onTextChanged(position, s.length, s.toString())
                 } else {
+                    itemView.buttonClearText.visibility = View.GONE
                     listener.onTextChanged(position, 0, s.toString())
                 }
             }
         })
+
+        itemView.buttonClearText.setOnClickListener {
+            itemView.editTextAnswer.text.clear()
+        }
     }
 }
