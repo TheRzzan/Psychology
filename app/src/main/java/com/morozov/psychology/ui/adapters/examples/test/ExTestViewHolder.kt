@@ -35,6 +35,13 @@ class ExTestViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
             }
         })
 
+        itemView.editTextAnswer.onFocusChangeListener = View.OnFocusChangeListener{ view: View, b: Boolean ->
+            if (b && itemView.editTextAnswer.text.isNotEmpty())
+                itemView.buttonClearText.visibility = View.VISIBLE
+            else
+                itemView.buttonClearText.visibility = View.GONE
+        }
+
         itemView.buttonClearText.setOnClickListener {
             itemView.editTextAnswer.text.clear()
         }
