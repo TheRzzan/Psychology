@@ -193,14 +193,15 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
                 mPresenter.dateOld
         }
 
-        mDate.hours = date.hours
-        mDate.minutes = date.minutes
+        date.date = mDate.date
+        date.month = mDate.month
+        date.year = mDate.year
 
         for (item in selectedEmotions) {
             println(item.percent)
         }
 
-        return ThinkModel(mDate, editTextDiarySituation.text.toString(),
+        return ThinkModel(date, editTextDiarySituation.text.toString(),
             editTextDiaryThink.text.toString(),
             selectedEmotions,
             editTextDiarySensation.text.toString())
