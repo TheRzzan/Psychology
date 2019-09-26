@@ -105,15 +105,6 @@ class DiaryPresenter: MvpPresenter<DiaryView>() {
         if (position >= lastMonthData.size || lastMonthData.isEmpty())
             return
 
-        val thinks = lastMonthData[position]
-        val elements: MutableList<Pair<String, String>> = mutableListOf()
-
-        for (item in thinks) {
-            val timeFormat = SimpleDateFormat("HH:mm")
-            val pairThinkItem: Pair<String, String> = Pair(timeFormat.format(item.date), item.situation)
-            elements.add(pairThinkItem)
-        }
-
-        viewState.showThinkList(elements)
+        viewState.showThinkList(lastMonthData[position])
     }
 }

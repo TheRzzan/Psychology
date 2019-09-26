@@ -5,7 +5,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 data class ThinkModel(val date: Date, var situation: String, var think: String,
-                      var emotion: ArrayList<EmotionModel>, var sensation: String)
+                      var emotion: ArrayList<EmotionModel>, var sensation: String, var isOverwrited: Boolean = false)
     : Serializable, Comparable<ThinkModel> {
 
     override fun compareTo(other: ThinkModel): Int {

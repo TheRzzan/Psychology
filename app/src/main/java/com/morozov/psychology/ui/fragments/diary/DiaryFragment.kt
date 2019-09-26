@@ -10,6 +10,7 @@ import android.widget.DatePicker
 import com.arellomobile.mvp.MvpAppCompatFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
+import com.morozov.psychology.mvp.models.diary.ThinkModel
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.diary.DiaryPresenter
 import com.morozov.psychology.mvp.views.diary.DiaryView
@@ -125,7 +126,7 @@ class DiaryFragment:
         recyclerDiaryDays.scrollToPosition(DiaryPresenter.currentDate)
     }
 
-    override fun showThinkList(elements: List<Pair<String, String>>) {
+    override fun showThinkList(elements: List<ThinkModel>) {
         showIsEmptyMessage(elements.isEmpty())
 
         adapterThink.setData(elements)

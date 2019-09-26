@@ -45,6 +45,7 @@ class DiaryEditorPresenter: MvpPresenter<DiaryEditorView>() {
     }
 
     fun saveOldThink(think: ThinkModel) {
+        think.isOverwrited = true
         thinkSaver.overwriteThink(think)
     }
 }
