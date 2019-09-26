@@ -1,10 +1,12 @@
 package com.morozov.psychology.ui.fragments.diary
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.DatePicker
 import com.arellomobile.mvp.MvpAppCompatFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
@@ -18,9 +20,11 @@ import com.morozov.psychology.ui.adapters.listeners.OnItemClickListener
 import com.yarolegovich.discretescrollview.DiscreteScrollView
 import com.yarolegovich.discretescrollview.transform.ScaleTransformer
 import kotlinx.android.synthetic.main.diary_cards_layout.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class DiaryFragment:
-    MvpAppCompatFragment(), DiaryView,
+    MvpAppCompatFragment(), DiaryView, View.OnClickListener,
     DiscreteScrollView.OnItemChangedListener<DiaryDateViewHolder>, OnItemClickListener {
 
     /*
@@ -38,13 +42,25 @@ class DiaryFragment:
     lateinit var adapterDate: DiaryDateAdapter
     lateinit var adapterThink: DiaryThinkAdapter
 
+    /*
+    * Calendar
+    *
+    * */
+    var calendar = Calendar.getInstance()
+    val calendarListener = DatePickerDialog.OnDateSetListener{ datePicker: DatePicker, year: Int, month: Int, day: Int ->
+        val dayMtYrFormat = SimpleDateFormat("dd/MM/yyyy")
+        val dateCal = dayMtYrFormat.parse("$day/${month + 1}/$year")
+
+        mPresenter.calendarDateSelected(dateCal)
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.diary_cards_layout, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapterDate = DiaryDateAdapter()
+        adapterDate = DiaryDateAdapter(this)
         recyclerDiaryDays.setSlideOnFling(true)
         recyclerDiaryDays.adapter = adapterDate
         recyclerDiaryDays.addOnItemChangedListener(this)
@@ -69,9 +85,17 @@ class DiaryFragment:
     }
 
     /*
-    * OnItemClickListener implementation
+    * OnClickListener implementation
     *
     * */
+    override fun onClick(v: View?) {
+        showCalendar()
+    }
+
+    /*
+        * OnItemClickListener implementation
+        *
+        * */
     override fun onItemClick(view: View, position: Int) {
         mActivityPresenter.showDiaryViewing(
             mPresenter.lastMonthData[recyclerDiaryDays.currentItem][position].date
@@ -110,10 +134,18 @@ class DiaryFragment:
             recyclerDiaryThinks.scrollToPosition(0)
     }
 
+    override fun showCalendar() {
+        DatePickerDialog(context, calendarListener,
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH))
+            .show()
+    }
+
     /*
-    * OnItemChangedListener implementation
-    *
-    * */
+        * OnItemChangedListener implementation
+        *
+        * */
     override fun onCurrentItemChanged(viewHolder: DiaryDateViewHolder?, adapterPosition: Int) {
         mPresenter.selectDay(adapterPosition)
     }

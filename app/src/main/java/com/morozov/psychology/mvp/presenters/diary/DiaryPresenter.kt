@@ -28,20 +28,29 @@ class DiaryPresenter: MvpPresenter<DiaryView>() {
     var lastMonthData: MutableList<MutableList<ThinkModel>> = mutableListOf()
     var dateList: MutableList<Date> = mutableListOf()
 
-    fun loadData() {
+    fun loadData(dateC: Date? = null) {
+        lastMonthData = mutableListOf()
+        dateList = mutableListOf()
+
         val thinksAll = thinkLoader.getThinks()
         val thinksLastMonth: MutableList<ThinkModel> = mutableListOf()
         val elements: MutableList<Pair<Int, String>> = mutableListOf()
 
         val dayFormat = SimpleDateFormat("dd")
         val monthFormat = SimpleDateFormat("MM")
+        val monthYearFormat = SimpleDateFormat("MM/yyyy")
         val dayMtYrFormat = SimpleDateFormat("dd/MM/yyyy")
 
         val todayDate = Date()
 
         for (item in thinksAll) {
-            if (monthFormat.format(item.date) == monthFormat.format(todayDate))
+            if (monthYearFormat.format(item.date) == monthYearFormat.format(todayDate))
                 thinksLastMonth.add(item)
+        }
+
+        if (dateC != null) {
+            thinksLastMonth.add(ThinkModel(dateC, "", "", arrayListOf(), ""))
+            thinksLastMonth.sort()
         }
 
         var listTmp = mutableListOf<ThinkModel>()
@@ -60,10 +69,14 @@ class DiaryPresenter: MvpPresenter<DiaryView>() {
                 listTmp = mutableListOf()
                 lastMonthData.add(listTmp)
             }
-            listTmp.add(item)
+
+            if (dateC != null && item.date.compareTo(dateC) == 0)
+                currentDate = elements.size - 1
+            else
+                listTmp.add(item)
         }
 
-        if (elements[elements.size - 1].first != dayFormat.format(todayDate).toInt()) {
+        if (dayMtYrFormat.format(todayDate) != dayMtYrFormat.format(dateList[dateList.size - 1])) {
             elements.add(
                 Pair(
                     dayFormat.format(todayDate).toInt(),
@@ -79,6 +92,10 @@ class DiaryPresenter: MvpPresenter<DiaryView>() {
             currentDate = elements.size - 1
 
         viewState.showDates(elements)
+    }
+
+    fun calendarDateSelected(date: Date) {
+        loadData(date)
     }
 
     fun selectDay(position: Int) {

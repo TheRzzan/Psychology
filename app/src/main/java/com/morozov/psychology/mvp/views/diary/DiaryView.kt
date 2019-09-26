@@ -12,4 +12,6 @@ interface DiaryView: MvpView {
     fun showDates(elements: List<Pair<Int, String>>)
 
     fun showThinkList(elements: List<Pair<String, String>>)
+
+    fun showCalendar()
 }

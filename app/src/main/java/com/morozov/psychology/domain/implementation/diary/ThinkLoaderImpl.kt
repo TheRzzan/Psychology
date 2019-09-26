@@ -17,8 +17,8 @@ class ThinkLoaderImpl: ThinkLoader, ThinkSaver {
         if (dataList.isEmpty()) {
             val simpleDateFormat = SimpleDateFormat("dd/MM/yyyy HH:mm")
 
-            val date1 = simpleDateFormat.parse("15/09/2019 08:00")
-            val date2 = simpleDateFormat.parse("16/09/2019 08:10")
+            val date1 = simpleDateFormat.parse("16/09/2019 08:00")
+            val date2 = simpleDateFormat.parse("14/09/2019 08:10")
             val date3 = simpleDateFormat.parse("17/09/2019 09:15")
             val date4 = simpleDateFormat.parse("18/09/2019 16:50")
             val date5 = simpleDateFormat.parse("18/09/2019 00:00")

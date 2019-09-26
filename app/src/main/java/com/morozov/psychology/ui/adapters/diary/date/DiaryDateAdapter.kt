@@ -1,11 +1,12 @@
 package com.morozov.psychology.ui.adapters.diary.date
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import com.morozov.psychology.R
 import com.morozov.psychology.ui.adapters.ListAdapter
 
-class DiaryDateAdapter: ListAdapter<Pair<Int, String>, DiaryDateViewHolder>() {
+class DiaryDateAdapter(val listener: View.OnClickListener): ListAdapter<Pair<Int, String>, DiaryDateViewHolder>() {
 
     override fun onCreateViewHolder(container: ViewGroup, p1: Int): DiaryDateViewHolder =
         DiaryDateViewHolder(
@@ -17,6 +18,6 @@ class DiaryDateAdapter: ListAdapter<Pair<Int, String>, DiaryDateViewHolder>() {
         )
 
     override fun onBindViewHolder(holder: DiaryDateViewHolder, position: Int) {
-        holder.populate(data()[position])
+        holder.populate(data()[position], listener)
     }
 }
