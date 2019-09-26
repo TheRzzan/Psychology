@@ -214,6 +214,9 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
     override fun setIsActiveJoy(b: Boolean) {
         when (b) {
             true -> {
+                if (selectedEmotions.size > 2)
+                    return
+
                 addEmotion(EmotionModel(EmotionModel.Emotion.JOY, getPercent()))
                 imageJoy.setImageDrawable(resources.getDrawable(R.drawable.emotion_active_joy))
                 textJoy.text = "1%"
@@ -230,6 +233,9 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
     override fun setIsActiveSadness(b: Boolean) {
         when (b) {
             true -> {
+                if (selectedEmotions.size > 2)
+                    return
+
                 addEmotion(EmotionModel(EmotionModel.Emotion.SADNESS, getPercent()))
                 imageSadness.setImageDrawable(resources.getDrawable(R.drawable.emotion_active_sedness))
                 textSadness.text = "1%"
@@ -246,6 +252,9 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
     override fun setIsActiveAnnoyance(b: Boolean) {
         when (b) {
             true -> {
+                if (selectedEmotions.size > 2)
+                    return
+
                 addEmotion(EmotionModel(EmotionModel.Emotion.ANNOYANCE, getPercent()))
                 imageAnnoyance.setImageDrawable(resources.getDrawable(R.drawable.emotion_active_annoyance))
                 textAnnoyance.text = "1%"
@@ -262,6 +271,9 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
     override fun setIsActiveAnxiety(b: Boolean) {
         when (b) {
             true -> {
+                if (selectedEmotions.size > 2)
+                    return
+
                 addEmotion(EmotionModel(EmotionModel.Emotion.ANXIETY, getPercent()))
                 imageAnxiety.setImageDrawable(resources.getDrawable(R.drawable.emotion_active_anxiety))
                 textAnxiety.text = "1%"
@@ -278,6 +290,9 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
     override fun setIsActiveDisgust(b: Boolean) {
         when (b) {
             true -> {
+                if (selectedEmotions.size > 2)
+                    return
+
                 addEmotion(EmotionModel(EmotionModel.Emotion.DISGUST, getPercent()))
                 imageDisgust.setImageDrawable(resources.getDrawable(R.drawable.emotion_active_disgust))
                 textDisgust.text = "1%"
@@ -294,6 +309,9 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
     override fun setIsActiveInterest(b: Boolean) {
         when (b) {
             true -> {
+                if (selectedEmotions.size > 2)
+                    return
+
                 addEmotion(EmotionModel(EmotionModel.Emotion.INTEREST, getPercent()))
                 imageInterest.setImageDrawable(resources.getDrawable(R.drawable.emotion_active_interest))
                 textInterest.text = "1%"
@@ -310,6 +328,9 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
     override fun setIsActiveGuilt(b: Boolean) {
         when (b) {
             true -> {
+                if (selectedEmotions.size > 2)
+                    return
+
                 addEmotion(EmotionModel(EmotionModel.Emotion.GUILT, getPercent()))
                 imageGuilt.setImageDrawable(resources.getDrawable(R.drawable.emotion_active_guilt))
                 textGuilt.text = "1%"
@@ -326,6 +347,9 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
     override fun setIsActiveResentment(b: Boolean) {
         when (b) {
             true -> {
+                if (selectedEmotions.size > 2)
+                    return
+
                 addEmotion(EmotionModel(EmotionModel.Emotion.RESENTMENT, getPercent()))
                 imageResentment.setImageDrawable(resources.getDrawable(R.drawable.emotion_active_resentment))
                 textResentment.text = "1%"
