@@ -2,6 +2,8 @@ package com.morozov.psychology.ui.fragments.diary
 
 import android.arch.lifecycle.MutableLiveData
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,10 +19,11 @@ import com.morozov.psychology.mvp.views.diary.DiaryEditorView
 import com.morozov.psychology.utility.AppConstants
 import com.morozov.psychology.utility.DateConverter
 import kotlinx.android.synthetic.main.diary_think_editor_layout.*
+import kotlinx.android.synthetic.main.item_diary_think_card.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
+class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView, TextWatcher {
 
     /*
     * Moxy presenters
@@ -99,6 +102,10 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
             }
         })
 
+        editTextDiarySituation.addTextChangedListener(this)
+        editTextDiarySensation.addTextChangedListener(this)
+        editTextDiaryThink.addTextChangedListener(this)
+
         currentEmotion.observeForever {
             if (it != null)
             when (it) {
@@ -131,6 +138,22 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
             else
                 mPresenter.loadOldThink(mDate)
         }
+    }
+
+    /*
+    * TextWatcher implementation
+    *
+    * */
+    override fun afterTextChanged(s: Editable?) {
+
+    }
+
+    override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+    }
+
+    override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+        verifyIsReadyToSave()
     }
 
     /*
@@ -228,6 +251,8 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
                 textJoy.visibility = View.GONE
             }
         }
+
+        verifyIsReadyToSave()
     }
 
     override fun setIsActiveSadness(b: Boolean) {
@@ -247,6 +272,8 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
                 textSadness.visibility = View.GONE
             }
         }
+
+        verifyIsReadyToSave()
     }
 
     override fun setIsActiveAnnoyance(b: Boolean) {
@@ -266,6 +293,8 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
                 textAnnoyance.visibility = View.GONE
             }
         }
+
+        verifyIsReadyToSave()
     }
 
     override fun setIsActiveAnxiety(b: Boolean) {
@@ -285,6 +314,8 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
                 textAnxiety.visibility = View.GONE
             }
         }
+
+        verifyIsReadyToSave()
     }
 
     override fun setIsActiveDisgust(b: Boolean) {
@@ -304,6 +335,8 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
                 textDisgust.visibility = View.GONE
             }
         }
+
+        verifyIsReadyToSave()
     }
 
     override fun setIsActiveInterest(b: Boolean) {
@@ -323,6 +356,8 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
                 textInterest.visibility = View.GONE
             }
         }
+
+        verifyIsReadyToSave()
     }
 
     override fun setIsActiveGuilt(b: Boolean) {
@@ -342,6 +377,8 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
                 textGuilt.visibility = View.GONE
             }
         }
+
+        verifyIsReadyToSave()
     }
 
     override fun setIsActiveResentment(b: Boolean) {
@@ -361,12 +398,27 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView {
                 textResentment.visibility = View.GONE
             }
         }
+
+        verifyIsReadyToSave()
     }
 
     /*
     * Helper functions
     *
     * */
+    fun verifyIsReadyToSave() {
+        buttonDiarySave.visibility = when (isReadyToSave()){
+            true -> View.VISIBLE
+            false -> View.GONE
+        }
+    }
+
+    fun isReadyToSave(): Boolean =
+                editTextDiarySituation.text.isNotEmpty() &&
+                editTextDiarySensation.text.isNotEmpty() &&
+                editTextDiaryThink.text.isNotEmpty() &&
+                selectedEmotions.isNotEmpty()
+
     private fun showEmotions(items: List<EmotionModel>) {
         for (item in items) {
             when (item.emotion) {

@@ -268,22 +268,24 @@
                 android:layout_margin="@dimen/activity_vertical_margin"
                 android:textColor="@android:color/black"/>
 
-        <EditText
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:inputType="textPersonName"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin"
-                android:hint="Поведение и телесные ощущения"
-                android:ems="10"
-                style="@style/EditTextStyle"
-                android:id="@+id/editTextDiarySensation"/>
-
         <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:inputType="textPersonName"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:hint="Поведение и телесные ощущения"
+                    android:ems="10"
+                    style="@style/EditTextStyle"
+                    android:id="@+id/editTextDiarySensation"/>
+
             <Button
                     android:id="@+id/buttonDiarySave"
                     android:layout_width="56dp"
@@ -291,6 +293,7 @@
                     android:background="@drawable/fab_add"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
+                    android:layout_marginTop="30dp"
                     android:layout_marginBottom="@dimen/activity_vertical_margin"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
         </RelativeLayout>
