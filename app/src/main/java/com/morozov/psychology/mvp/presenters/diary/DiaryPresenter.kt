@@ -35,6 +35,7 @@ class DiaryPresenter: MvpPresenter<DiaryView>() {
 
         val dayFormat = SimpleDateFormat("dd")
         val monthFormat = SimpleDateFormat("MM")
+        val dayMtYrFormat = SimpleDateFormat("dd/MM/yyyy")
 
         val todayDate = Date()
 
@@ -43,32 +44,23 @@ class DiaryPresenter: MvpPresenter<DiaryView>() {
                 thinksLastMonth.add(item)
         }
 
-        var i = 0
-        while (i < thinksLastMonth.size) {
-            val thinkModel = thinksLastMonth[i]
+        var listTmp = mutableListOf<ThinkModel>()
+        for (item in thinksLastMonth) {
+            if (dateList.isEmpty() ||
+                dayMtYrFormat.format(item.date) != dayMtYrFormat.format(dateList[dateList.size - 1])) {
 
-            val dateTmp = dayFormat.format(thinkModel.date)
-            elements.add(Pair(
-                dayFormat.format(thinkModel.date).toInt(),
-                DateConverter.getStringMonthSimple(monthFormat.format(todayDate))
-            ))
+                dateList.add(item.date)
+                elements.add(
+                    Pair(
+                        dayFormat.format(item.date).toInt(),
+                        DateConverter.getStringMonthSimple(monthFormat.format(item.date))
+                    )
+                )
 
-            val listTmp = mutableListOf<ThinkModel>()
-
-            listTmp.add(thinkModel)
-            dateList.add(thinkModel.date)
-
-            var j = i + 1
-            while (j < thinksLastMonth.size) {
-                if (dayFormat.format(thinksLastMonth[j].date).equals(dateTmp)) {
-                    listTmp.add(thinksLastMonth[j])
-                    thinksLastMonth.removeAt(j)
-                }
-                j++
+                listTmp = mutableListOf()
+                lastMonthData.add(listTmp)
             }
-
-            lastMonthData.add(listTmp)
-            i++
+            listTmp.add(item)
         }
 
         if (elements[elements.size - 1].first != dayFormat.format(todayDate).toInt()) {
