@@ -33,6 +33,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    // Some design
     implementation 'com.android.support:cardview-v7:28.0.0'
     implementation 'com.android.support:recyclerview-v7:28.0.0'
 
@@ -49,4 +51,7 @@ dependencies {
 
     // Carousel recycler
     implementation 'com.yarolegovich:discrete-scrollview:1.4.9'
+
+    // Segmented progress bar
+    implementation 'com.github.carlosmuvi:SegmentedProgressBar:0.7.0'
 }

@@ -16,4 +16,7 @@
 
     <!-- Emotions -->
     <dimen name="diary_emotions_margin">6dp</dimen>
+
+    <!-- Segmented progress bar -->
+    <dimen name="progressbar_gap">5dp</dimen>
 </resources>

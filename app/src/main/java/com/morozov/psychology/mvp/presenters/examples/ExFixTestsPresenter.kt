@@ -18,6 +18,8 @@ class ExFixTestsPresenter: MvpPresenter<ExFixTestsView>() {
         DefaultApplication.examplesComponent.inject(this)
     }
 
+    var firstLoad = true
+
     fun loadData(exercisePos: Int, fixingPos: Int) {
         if (fixingPos >= fixingLoader.getFixings()[exercisePos].fixings.size) {
             viewState.outOfTest()
@@ -26,6 +28,10 @@ class ExFixTestsPresenter: MvpPresenter<ExFixTestsView>() {
 
         val pairs = fixingLoader.getFixings()[exercisePos].fixings[fixingPos].pairs
 
+        if (firstLoad) {
+            viewState.setSegmentProgressCount(fixingLoader.getFixings()[exercisePos].fixings.size)
+            firstLoad = false
+        }
         val texts: MutableList<String> = mutableListOf()
 
         for (pair in pairs) {

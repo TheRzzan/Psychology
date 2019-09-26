@@ -17,4 +17,8 @@ interface ExFixTestsView: MvpView {
     fun outOfTest()
 
     fun setButtonText(text: String)
+
+    fun setSegmentProgressCount(count: Int)
+
+    fun increaseSegmentProgress()
 }

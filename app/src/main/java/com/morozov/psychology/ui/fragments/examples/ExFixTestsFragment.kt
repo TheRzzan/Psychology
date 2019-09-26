@@ -93,6 +93,8 @@ class ExFixTestsFragment: MvpAppCompatFragment(), ExFixTestsView, OnTextChangeLi
     *
     * */
     override fun showData(description: String, data: List<String>) {
+        increaseSegmentProgress()
+
         recyclerFixTest.layoutManager = LinearLayoutManager(context)
         recyclerFixTest.adapter = adapterTest
         adapterTest.setData(data)
@@ -165,5 +167,13 @@ class ExFixTestsFragment: MvpAppCompatFragment(), ExFixTestsView, OnTextChangeLi
 
     override fun setButtonText(text: String) {
         buttonFixFinishTest.text = text
+    }
+
+    override fun setSegmentProgressCount(count: Int) {
+        segmProgressFixTest.setSegmentCount(count)
+    }
+
+    override fun increaseSegmentProgress() {
+        segmProgressFixTest.incrementCompletedSegments()
     }
 }
