@@ -21,10 +21,20 @@
                     android:layout_margin="@dimen/activity_horizontal_margin"
                     android:text="Проверка"/>
 
+            <TextView
+                    android:text="Убедиться, что мысли влияют на эмоции"
+                    style="@style/TextView.Secondary"
+                    android:textColor="@color/second_header_text"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:id="@+id/textHeaderSecond"
+                    android:layout_below="@+id/textHeader"/>
+
             <android.support.v7.widget.RecyclerView
                     android:id="@+id/recyclerCardsExper"
                     style="@style/RecyclerViewStyle"
-                    android:layout_below="@+id/textHeader"/>
+                    android:layout_below="@+id/textHeaderSecond"/>
 
             <android.support.v7.widget.RecyclerView
                     android:id="@+id/recyclerCardsFixing"

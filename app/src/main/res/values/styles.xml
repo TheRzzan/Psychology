@@ -16,19 +16,19 @@
 
     <style name="Text.Primary.Header">
         <item name="android:textSize">@dimen/text_header_size</item>
-        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textColor">@color/header_text</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="Text.Primary">
         <item name="android:textSize">@dimen/text_primary_size</item>
-        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColor">@color/primary_text</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="Text.Secondary">
         <item name="android:textSize">@dimen/text_secondary_size</item>
-        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColor">@color/secondary_text</item>
     </style>
 
     <!-- TextView -->

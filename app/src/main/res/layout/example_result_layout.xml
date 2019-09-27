@@ -15,7 +15,7 @@
             <TextView
                     style="@style/TextView.Primary"
                     android:text="Эксперимент №1"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/header_text"
                     android:layout_marginBottom="@dimen/activity_vertical_margin"
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
@@ -41,7 +41,6 @@
             <TextView
                     android:text="Было бы очень печально, если бы мы все были вынуждены реагировать одинаково на одинаковые события. Мы были бы обречены. Человечеству повезло, что у нас есть возможность реагировать по-разному. Спасибо нашим мыслям. Хотите еще раз убедиться в том, что мысли влияют на эмоции? Добро пожаловать в эксперимент №2."
                     style="@style/TextView.Secondary"
-                    android:textColor="@android:color/black"
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
                     android:id="@+id/textResultDescription"

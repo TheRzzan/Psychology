@@ -16,7 +16,7 @@
             <TextView
                     style="@style/TextView.Primary"
                     android:text="Упражнение на закрепление навыка поиска мыслей"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/header_text"
                     android:layout_marginBottom="@dimen/activity_vertical_margin"
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
@@ -36,7 +36,7 @@
             <TextView
                     android:text="Артем очень расстроился, когда ему отказали на собеседовании. Он решил, что недостоин этой работы и в этот день не стал отправлять резюме на другие вакансии."
                     style="@style/TextView.Secondary"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/second_header_text"
                     android:layout_margin="@dimen/activity_horizontal_margin"
                     android:id="@+id/textFixTestDescr"
                     android:layout_below="@+id/segmProgressFixTest"/>

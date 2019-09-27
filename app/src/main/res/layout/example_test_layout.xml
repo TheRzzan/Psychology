@@ -15,7 +15,7 @@
             <TextView
                     style="@style/TextView.Primary"
                     android:text="Эксперимент №1"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/header_text"
                     android:layout_marginBottom="@dimen/activity_vertical_margin"
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
@@ -24,7 +24,7 @@
             <TextView
                     android:text="Друг обещал прийти в 14.00. Уже 15.00, а его все нет. И на звонки он не отвечает."
                     style="@style/TextView.Secondary"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/second_header_text"
                     android:layout_margin="@dimen/activity_horizontal_margin"
                     android:id="@+id/textTestDescr"
                     android:layout_below="@+id/textTestName"/>

@@ -35,7 +35,6 @@
                         android:id="@+id/textDescription"
                         android:layout_below="@+id/imageToolbar"
                         style="@style/TextView.Secondary"
-                        android:textColor="@android:color/black"
                         android:lineSpacingExtra="8dp"
                         android:text="В данном случае AppBarLayout это синяя view, размещенная под исчезающим изображением, она содержит Toolbar, LinearLayout с заголовком и подзаголовком и TabLayout с несколькими вкладками.
 

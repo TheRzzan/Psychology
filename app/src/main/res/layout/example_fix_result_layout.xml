@@ -15,7 +15,7 @@
             <TextView
                     style="@style/TextView.Primary"
                     android:text="Упражнение на закрепление навыка поиска мыслей"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/header_text"
                     android:id="@+id/textFixResultName"
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
@@ -41,7 +41,6 @@
             <TextView
                     android:text="Здорово, что вы справились с этим упражнением. Теперь можно смело приступать к ведению дневника собственных мыслей. (кнопка перехода к ведению дневника мыслей)."
                     style="@style/TextView.Secondary"
-                    android:textColor="@android:color/black"
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
                     android:id="@+id/textFixResultDescription"
