@@ -40,8 +40,8 @@ class DiaryThinkAdapter(private val listener: OnItemClickListener, private val m
         indexOfDeletedItem = position
         notifyItemRemoved(position)
 
-        Snackbar.make(view, "Deleted", Snackbar.LENGTH_LONG)
-            .setAction("Undo") {
+        Snackbar.make(view, "Удалено", Snackbar.LENGTH_LONG)
+            .setAction("Отмена") {
                 mPresenter.addThink(indexOfDeletedItem, justDeletedItem)
                 notifyItemInserted(indexOfDeletedItem)
             }.show()

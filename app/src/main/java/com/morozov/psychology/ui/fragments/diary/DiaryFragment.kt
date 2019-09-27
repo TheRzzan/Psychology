@@ -101,9 +101,9 @@ class DiaryFragment:
     }
 
     /*
-        * OnItemClickListener implementation
-        *
-        * */
+    * OnItemClickListener implementation
+    *
+    * */
     override fun onItemClick(view: View, position: Int) {
         mActivityPresenter.showDiaryViewing(
             mPresenter.lastMonthData[recyclerDiaryDays.currentItem][position].date
