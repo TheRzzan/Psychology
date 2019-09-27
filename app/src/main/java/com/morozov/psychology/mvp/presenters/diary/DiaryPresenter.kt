@@ -95,6 +95,15 @@ class DiaryPresenter: MvpPresenter<DiaryView>() {
         viewState.showDates(dateList)
     }
 
+    fun deleteThink(think: ThinkModel): ThinkModel? {
+        lastMonthData[currentDate].remove(think)
+        return think
+    }
+
+    fun addThink(index: Int, think: ThinkModel) {
+        lastMonthData[currentDate].add(index, think)
+    }
+
     fun calendarDateSelected(date: Date) {
         loadData(date)
     }

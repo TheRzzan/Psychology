@@ -3,6 +3,7 @@ package com.morozov.psychology.ui.fragments.diary
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +19,7 @@ import com.morozov.psychology.ui.adapters.diary.date.DiaryDateAdapter
 import com.morozov.psychology.ui.adapters.diary.date.DiaryDateViewHolder
 import com.morozov.psychology.ui.adapters.diary.think.list.DiaryThinkAdapter
 import com.morozov.psychology.ui.adapters.listeners.OnItemClickListener
+import com.morozov.psychology.utility.ItemTouchHelperClass
 import com.yarolegovich.discretescrollview.DiscreteScrollView
 import com.yarolegovich.discretescrollview.transform.ScaleTransformer
 import kotlinx.android.synthetic.main.diary_cards_layout.*
@@ -42,6 +44,7 @@ class DiaryFragment:
     * */
     lateinit var adapterDate: DiaryDateAdapter
     lateinit var adapterThink: DiaryThinkAdapter
+    lateinit var itemTouchHelper: ItemTouchHelper
 
     /*
     * Calendar
@@ -70,13 +73,17 @@ class DiaryFragment:
                 .setMinScale(0.8f)
                 .build())
 
-        adapterThink = DiaryThinkAdapter(this)
+        adapterThink = DiaryThinkAdapter(this, mPresenter, layoutDiaryCards)
         recyclerDiaryThinks.layoutManager = LinearLayoutManager(context)
         recyclerDiaryThinks.adapter = adapterThink
 
         buttonDiaryAdd.setOnClickListener {
             mActivityPresenter.showDiaryEditor(true, mPresenter.dateList[recyclerDiaryDays.currentItem])
         }
+
+        val callback = ItemTouchHelperClass(adapterThink)
+        itemTouchHelper = ItemTouchHelper(callback)
+        itemTouchHelper.attachToRecyclerView(recyclerDiaryThinks)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
