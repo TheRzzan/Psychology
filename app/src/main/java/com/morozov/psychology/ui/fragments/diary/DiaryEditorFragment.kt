@@ -244,6 +244,8 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView, TextWatcher 
                 imageJoy.setImageDrawable(resources.getDrawable(R.drawable.emotion_active_joy))
                 textJoy.text = "1%"
                 textJoy.visibility = View.VISIBLE
+
+                textDiaryEmotion.text = getString(R.string.joy)
             }
             false -> {
                 removeEmotion(EmotionModel.Emotion.JOY)
@@ -265,6 +267,8 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView, TextWatcher 
                 imageSadness.setImageDrawable(resources.getDrawable(R.drawable.emotion_active_sedness))
                 textSadness.text = "1%"
                 textSadness.visibility = View.VISIBLE
+
+                textDiaryEmotion.text = getString(R.string.sadness)
             }
             false -> {
                 removeEmotion(EmotionModel.Emotion.SADNESS)
@@ -286,6 +290,8 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView, TextWatcher 
                 imageAnnoyance.setImageDrawable(resources.getDrawable(R.drawable.emotion_active_annoyance))
                 textAnnoyance.text = "1%"
                 textAnnoyance.visibility = View.VISIBLE
+
+                textDiaryEmotion.text = getString(R.string.annoyance)
             }
             false -> {
                 removeEmotion(EmotionModel.Emotion.ANNOYANCE)
@@ -307,6 +313,8 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView, TextWatcher 
                 imageAnxiety.setImageDrawable(resources.getDrawable(R.drawable.emotion_active_anxiety))
                 textAnxiety.text = "1%"
                 textAnxiety.visibility = View.VISIBLE
+
+                textDiaryEmotion.text = getString(R.string.anxiety)
             }
             false -> {
                 removeEmotion(EmotionModel.Emotion.ANXIETY)
@@ -328,6 +336,8 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView, TextWatcher 
                 imageDisgust.setImageDrawable(resources.getDrawable(R.drawable.emotion_active_disgust))
                 textDisgust.text = "1%"
                 textDisgust.visibility = View.VISIBLE
+
+                textDiaryEmotion.text = getString(R.string.disgust)
             }
             false -> {
                 removeEmotion(EmotionModel.Emotion.DISGUST)
@@ -349,6 +359,8 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView, TextWatcher 
                 imageInterest.setImageDrawable(resources.getDrawable(R.drawable.emotion_active_interest))
                 textInterest.text = "1%"
                 textInterest.visibility = View.VISIBLE
+
+                textDiaryEmotion.text = getString(R.string.interest)
             }
             false -> {
                 removeEmotion(EmotionModel.Emotion.INTEREST)
@@ -370,6 +382,8 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView, TextWatcher 
                 imageGuilt.setImageDrawable(resources.getDrawable(R.drawable.emotion_active_guilt))
                 textGuilt.text = "1%"
                 textGuilt.visibility = View.VISIBLE
+
+                textDiaryEmotion.text = getString(R.string.guilt)
             }
             false -> {
                 removeEmotion(EmotionModel.Emotion.GUILT)
@@ -391,6 +405,8 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView, TextWatcher 
                 imageResentment.setImageDrawable(resources.getDrawable(R.drawable.emotion_active_resentment))
                 textResentment.text = "1%"
                 textResentment.visibility = View.VISIBLE
+
+                textDiaryEmotion.text = getString(R.string.resentment)
             }
             false -> {
                 removeEmotion(EmotionModel.Emotion.RESENTMENT)

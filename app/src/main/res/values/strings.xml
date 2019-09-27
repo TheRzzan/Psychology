@@ -7,4 +7,14 @@
     <string name="title_tests">Тесты</string>
     <string name="title_mind_change">Изменения</string>
     <string name="title_consultation">Профиль</string>
+
+    <!-- Emotions -->
+    <string name="joy">Радость</string>
+    <string name="sadness">Печаль</string>
+    <string name="annoyance">Досада</string>
+    <string name="anxiety">Тревожность</string>
+    <string name="disgust">Отвращение</string>
+    <string name="interest">Интерес</string>
+    <string name="guilt">Вина</string>
+    <string name="resentment">Обида</string>
 </resources>
