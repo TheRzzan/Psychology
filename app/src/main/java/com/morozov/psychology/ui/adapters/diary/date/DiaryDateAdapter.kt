@@ -5,8 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.morozov.psychology.R
 import com.morozov.psychology.ui.adapters.ListAdapter
+import java.util.*
 
-class DiaryDateAdapter(val listener: View.OnClickListener): ListAdapter<Pair<Int, String>, DiaryDateViewHolder>() {
+class DiaryDateAdapter(val listener: View.OnClickListener): ListAdapter<Date, DiaryDateViewHolder>() {
 
     override fun onCreateViewHolder(container: ViewGroup, p1: Int): DiaryDateViewHolder =
         DiaryDateViewHolder(

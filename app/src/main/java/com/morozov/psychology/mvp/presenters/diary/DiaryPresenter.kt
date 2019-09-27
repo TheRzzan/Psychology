@@ -92,7 +92,7 @@ class DiaryPresenter: MvpPresenter<DiaryView>() {
         if (currentDate < 0 || currentDate >= elements.size)
             currentDate = elements.size - 1
 
-        viewState.showDates(elements)
+        viewState.showDates(dateList)
     }
 
     fun calendarDateSelected(date: Date) {

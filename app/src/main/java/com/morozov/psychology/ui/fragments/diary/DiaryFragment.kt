@@ -120,7 +120,7 @@ class DiaryFragment:
         }
     }
 
-    override fun showDates(elements: List<Pair<Int, String>>) {
+    override fun showDates(elements: List<Date>) {
         adapterDate.setData(elements)
         adapterDate.notifyDataSetChanged()
         recyclerDiaryDays.scrollToPosition(DiaryPresenter.currentDate)

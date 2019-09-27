@@ -22,8 +22,8 @@
                 android:layout_marginTop="24dp">
             <ImageView
                     android:background="@drawable/diary_date_ellipse"
-                    android:layout_width="125dp"
-                    android:layout_height="125dp"/>
+                    android:layout_width="114dp"
+                    android:layout_height="114dp"/>
 
             <TextView
                     android:id="@+id/textDiaryDay"
@@ -36,10 +36,20 @@
         <TextView
                 android:id="@+id/textDiaryMonth"
                 style="@style/TextView.Primary.Header"
-                android:textSize="22sp"
+                android:textSize="20sp"
+                android:layout_centerHorizontal="true"
+                android:layout_above="@id/textDiaryYear"
+                android:layout_marginBottom="7dp"
+                android:text="Сентябрь"/>
+
+        <TextView
+                android:id="@+id/textDiaryYear"
+                style="@style/TextView.Primary.Header"
+                android:textStyle="normal"
+                android:textSize="14sp"
                 android:layout_centerHorizontal="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginBottom="11dp"
-                android:text="сентябрь"/>
+                android:layout_marginBottom="8dp"
+                android:text="2019"/>
     </RelativeLayout>
 </android.support.v7.widget.CardView>
