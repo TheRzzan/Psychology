@@ -125,7 +125,6 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         exDescriptionFragment.arguments = bundle
         exDescriptionFragment.mActivityPresenter = mPresenter
 
-        clearBackStack()
         setFragment(exDescriptionFragment, true)
     }
 
@@ -138,7 +137,6 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         exFixDescriptionFragment.arguments = bundle
         exFixDescriptionFragment.mActivityPresenter = mPresenter
 
-        clearBackStack()
         setFragment(exFixDescriptionFragment, true)
     }
 
@@ -175,6 +173,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         exResultsFragment.arguments = bundle
         exResultsFragment.mActivityPresenter = mPresenter
 
+        clearBackStackForResults()
         setFragment(exResultsFragment, true)
     }
 
@@ -187,6 +186,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         exfixResultsFragment.arguments = bundle
         exfixResultsFragment.mActivityPresenter = mPresenter
 
+        clearBackStackForResults()
         setFragment(exfixResultsFragment, true)
     }
 
@@ -249,5 +249,10 @@ class MainActivity : MvpAppCompatActivity(), MainView {
             i++
             supportFragmentManager.popBackStack()
         }
+    }
+
+    private fun clearBackStackForResults() {
+        supportFragmentManager.popBackStack()
+        supportFragmentManager.popBackStack()
     }
 }

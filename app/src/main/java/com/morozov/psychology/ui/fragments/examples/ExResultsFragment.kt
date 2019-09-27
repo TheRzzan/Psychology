@@ -68,7 +68,7 @@ class ExResultsFragment: MvpAppCompatFragment(), ExResultsView {
         buttonNextTest.text = text
         buttonNextTest.setOnClickListener {
             if (mActivityPresenter != null)
-                mActivityPresenter.showExTest(position)
+                mActivityPresenter.showExDescr(position)
         }
     }
 
