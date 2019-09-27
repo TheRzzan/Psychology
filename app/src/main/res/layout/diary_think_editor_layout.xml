@@ -268,7 +268,8 @@
                 android:layout_margin="@dimen/activity_vertical_margin"
                 android:textColor="@android:color/black"/>
 
-        <RelativeLayout
+        <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -288,14 +289,14 @@
 
             <Button
                     android:id="@+id/buttonDiarySave"
-                    android:layout_width="56dp"
-                    android:layout_height="56dp"
-                    android:background="@drawable/fab_check"
+                    android:text="Сохранить"
+                    style="@style/TextView.Button"
+                    android:background="@drawable/rectangle_button"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginTop="30dp"
                     android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
-        </RelativeLayout>
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

@@ -19,6 +19,7 @@ import com.morozov.psychology.mvp.views.diary.DiaryEditorView
 import com.morozov.psychology.utility.AppConstants
 import com.morozov.psychology.utility.DateConverter
 import kotlinx.android.synthetic.main.diary_think_editor_layout.*
+import kotlinx.android.synthetic.main.example_test_layout.*
 import kotlinx.android.synthetic.main.item_diary_think_card.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -423,10 +424,11 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView, TextWatcher 
     *
     * */
     fun verifyIsReadyToSave() {
-        buttonDiarySave.visibility = when (isReadyToSave()){
-            true -> View.VISIBLE
-            false -> View.GONE
+        when(isReadyToSave()) {
+            true -> buttonDiarySave.setBackgroundResource(R.drawable.rectangle_button)
+            false -> buttonDiarySave.setBackgroundResource(R.drawable.rectangle_button_disable)
         }
+        buttonDiarySave.isEnabled = isReadyToSave()
     }
 
     fun isReadyToSave(): Boolean =
