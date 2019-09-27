@@ -3,4 +3,14 @@
     <color name="colorPrimary">#BD17F8</color>
     <color name="colorPrimaryDark">#810DAD</color>
     <color name="colorAccent">#E69CBA</color>
+
+    <!-- Button -->
+    <color name="grey_color">#8E8E93</color>
+
+    <!-- Progress bar -->
+    <color name="non_active_line">#4D3C3C43</color>
+
+    <!-- Card view -->
+    <color name="card_background">#FCFCFC</color>
+    <color name="card_think_text">#636366</color>
 </resources>

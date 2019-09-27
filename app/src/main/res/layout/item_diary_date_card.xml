@@ -10,6 +10,7 @@
         android:layout_height="wrap_content">
 
     <RelativeLayout
+            android:background="@color/card_background"
             android:layout_width="194dp"
             android:layout_height="207dp">
 

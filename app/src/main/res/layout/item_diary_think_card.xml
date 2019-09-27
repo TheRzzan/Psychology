@@ -8,12 +8,13 @@
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
+            android:background="@color/card_background"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
         <TextView
                 android:text="Встречаю родителей на пироне"
-                android:textColor="@android:color/black"
+                android:textColor="@color/card_think_text"
                 android:layout_margin="@dimen/activity_vertical_margin"
                 android:layout_width="240dp"
                 android:layout_height="70dp"
@@ -27,7 +28,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_margin="@dimen/activity_vertical_margin"
                 android:textStyle="bold"
-                android:textColor="@android:color/black"
+                android:textColor="@color/card_think_text"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:textSize="20sp"

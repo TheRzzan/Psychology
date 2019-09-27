@@ -26,9 +26,10 @@
                     android:id="@+id/segmProgressFixTest"
                     android:layout_below="@+id/textFixTestName"
                     android:layout_width="match_parent"
-                    app:container_color="@color/colorAccent"
+                    app:container_color="@color/non_active_line"
                     app:fill_color="@color/colorPrimary"
                     app:gap_size="@dimen/progressbar_gap"
+                    android:layout_marginEnd="-5dp"
                     app:segment_count="4"
                     android:layout_height="3dp"/>
 

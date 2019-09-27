@@ -30,7 +30,7 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginBottom="24dp"
-                android:textColor="@android:color/black" android:id="@+id/textDiaryViewSituation"/>
+                android:textColor="@color/grey_color" android:id="@+id/textDiaryViewSituation"/>
 
         <TextView
                 android:text="Мысли:"
@@ -45,7 +45,7 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginBottom="24dp"
-                android:textColor="@android:color/black" android:id="@+id/textDiaryViewThink"/>
+                android:textColor="@color/grey_color" android:id="@+id/textDiaryViewThink"/>
 
         <TextView
                 android:text="Эмоции:"
@@ -62,7 +62,6 @@
                 android:layout_height="wrap_content">
 
             <LinearLayout
-                    android:layout_weight="1"
                     android:orientation="vertical"
                     android:layout_marginEnd="@dimen/diary_emotions_margin"
                     android:layout_width="wrap_content"
@@ -83,7 +82,6 @@
             </LinearLayout>
 
             <LinearLayout
-                    android:layout_weight="1"
                     android:orientation="vertical"
                     android:layout_marginEnd="@dimen/diary_emotions_margin"
                     android:layout_width="wrap_content"
@@ -104,7 +102,6 @@
             </LinearLayout>
 
             <LinearLayout
-                    android:layout_weight="1"
                     android:orientation="vertical"
                     android:layout_marginEnd="@dimen/diary_emotions_margin"
                     android:layout_width="wrap_content"
@@ -125,7 +122,6 @@
             </LinearLayout>
 
             <LinearLayout
-                    android:layout_weight="1"
                     android:orientation="vertical"
                     android:layout_marginEnd="@dimen/diary_emotions_margin"
                     android:layout_width="wrap_content"
@@ -146,7 +142,6 @@
             </LinearLayout>
 
             <LinearLayout
-                    android:layout_weight="1"
                     android:orientation="vertical"
                     android:layout_marginEnd="@dimen/diary_emotions_margin"
                     android:layout_width="wrap_content"
@@ -167,7 +162,6 @@
             </LinearLayout>
 
             <LinearLayout
-                    android:layout_weight="1"
                     android:orientation="vertical"
                     android:layout_marginEnd="@dimen/diary_emotions_margin"
                     android:layout_width="wrap_content"
@@ -188,7 +182,6 @@
             </LinearLayout>
 
             <LinearLayout
-                    android:layout_weight="1"
                     android:orientation="vertical"
                     android:layout_marginEnd="@dimen/diary_emotions_margin"
                     android:layout_width="wrap_content"
@@ -209,7 +202,6 @@
             </LinearLayout>
 
             <LinearLayout
-                    android:layout_weight="1"
                     android:orientation="vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
@@ -243,7 +235,7 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginBottom="24dp"
-                android:textColor="@android:color/black" android:id="@+id/textDiaryViewSensation"/>
+                android:textColor="@color/grey_color" android:id="@+id/textDiaryViewSensation"/>
     </LinearLayout>
 
     <Button
