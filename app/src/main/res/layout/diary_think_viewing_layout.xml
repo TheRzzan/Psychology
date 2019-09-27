@@ -27,8 +27,8 @@
         <TextView
                 android:text="Встречаю родителей на пироне"
                 style="@style/TextView.Secondary"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
                 android:layout_marginBottom="24dp"
                 android:textColor="@color/grey_color" android:id="@+id/textDiaryViewSituation"/>
 
@@ -42,8 +42,8 @@
         <TextView
                 android:text="Как же давно я их не видел"
                 style="@style/TextView.Secondary"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
                 android:layout_marginBottom="24dp"
                 android:textColor="@color/grey_color" android:id="@+id/textDiaryViewThink"/>
 
@@ -62,161 +62,169 @@
                 android:layout_height="wrap_content">
 
             <LinearLayout
+                    android:id="@+id/linearJoy"
                     android:orientation="vertical"
-                    android:layout_marginEnd="@dimen/diary_emotions_margin"
+                    android:visibility="gone"
+                    android:layout_marginEnd="21dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
                 <ImageView
                         android:layout_width="36dp"
                         android:layout_height="36dp"
-                        android:visibility="gone"
                         app:srcCompat="@drawable/emotion_active_joy"
                         android:id="@+id/imageJoyViewing"/>
 
                 <TextView
                         android:text="30%"
                         android:layout_gravity="center"
-                        android:layout_width="wrap_content" android:visibility="gone"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:id="@+id/textJoyViewing"/>
             </LinearLayout>
 
             <LinearLayout
+                    android:id="@+id/linearSadness"
                     android:orientation="vertical"
-                    android:layout_marginEnd="@dimen/diary_emotions_margin"
+                    android:visibility="gone"
+                    android:layout_marginEnd="21dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
                 <ImageView
                         android:layout_width="36dp"
                         android:layout_height="36dp"
-                        android:visibility="gone"
                         app:srcCompat="@drawable/emotion_active_sedness"
                         android:id="@+id/imageSadnessViewing"/>
 
                 <TextView
                         android:text="30%"
                         android:layout_gravity="center"
-                        android:layout_width="wrap_content" android:visibility="gone"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:id="@+id/textSadnessViewing"/>
             </LinearLayout>
 
             <LinearLayout
+                    android:id="@+id/linearAnnoyance"
                     android:orientation="vertical"
-                    android:layout_marginEnd="@dimen/diary_emotions_margin"
+                    android:visibility="gone"
+                    android:layout_marginEnd="21dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
                 <ImageView
                         android:layout_width="36dp"
                         android:layout_height="36dp"
-                        android:visibility="gone"
                         app:srcCompat="@drawable/emotion_active_annoyance"
                         android:id="@+id/imageAnnoyanceViewing"/>
 
                 <TextView
                         android:text="30%"
                         android:layout_gravity="center"
-                        android:layout_width="wrap_content" android:visibility="gone"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:id="@+id/textAnnoyanceViewing"/>
             </LinearLayout>
 
             <LinearLayout
+                    android:id="@+id/linearAnxiety"
                     android:orientation="vertical"
-                    android:layout_marginEnd="@dimen/diary_emotions_margin"
+                    android:visibility="gone"
+                    android:layout_marginEnd="21dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
                 <ImageView
                         android:layout_width="36dp"
                         android:layout_height="36dp"
-                        android:visibility="gone"
                         app:srcCompat="@drawable/emotion_active_anxiety"
                         android:id="@+id/imageAnxietyViewing"/>
 
                 <TextView
                         android:text="30%"
                         android:layout_gravity="center"
-                        android:layout_width="wrap_content" android:visibility="gone"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:id="@+id/textAnxietyViewing"/>
             </LinearLayout>
 
             <LinearLayout
+                    android:id="@+id/linearDisgust"
                     android:orientation="vertical"
-                    android:layout_marginEnd="@dimen/diary_emotions_margin"
+                    android:visibility="gone"
+                    android:layout_marginEnd="21dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
                 <ImageView
                         android:layout_width="36dp"
                         android:layout_height="36dp"
-                        android:visibility="gone"
                         app:srcCompat="@drawable/emotion_active_disgust"
                         android:id="@+id/imageDisgustViewing"/>
 
                 <TextView
                         android:text="30%"
                         android:layout_gravity="center"
-                        android:layout_width="wrap_content" android:visibility="gone"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:id="@+id/textDisgustViewing"/>
             </LinearLayout>
 
             <LinearLayout
+                    android:id="@+id/linearInterest"
                     android:orientation="vertical"
-                    android:layout_marginEnd="@dimen/diary_emotions_margin"
+                    android:visibility="gone"
+                    android:layout_marginEnd="21dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
                 <ImageView
                         android:layout_width="36dp"
                         android:layout_height="36dp"
-                        android:visibility="gone"
                         app:srcCompat="@drawable/emotion_active_interest"
                         android:id="@+id/imageInterestViewing"/>
 
                 <TextView
                         android:text="30%"
                         android:layout_gravity="center"
-                        android:layout_width="wrap_content" android:visibility="gone"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:id="@+id/textInterestViewing"/>
             </LinearLayout>
 
             <LinearLayout
+                    android:id="@+id/linearGuilt"
                     android:orientation="vertical"
-                    android:layout_marginEnd="@dimen/diary_emotions_margin"
+                    android:visibility="gone"
+                    android:layout_marginEnd="21dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
                 <ImageView
                         android:layout_width="36dp"
                         android:layout_height="36dp"
-                        android:visibility="gone"
                         app:srcCompat="@drawable/emotion_active_guilt"
                         android:id="@+id/imageGuiltViewing"/>
 
                 <TextView
                         android:text="30%"
                         android:layout_gravity="center"
-                        android:layout_width="wrap_content" android:visibility="gone"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:id="@+id/textGuiltViewing"/>
             </LinearLayout>
 
             <LinearLayout
+                    android:id="@+id/linearResentment"
                     android:orientation="vertical"
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
                 <ImageView
                         android:layout_width="36dp"
                         android:layout_height="36dp"
-                        android:visibility="gone"
                         app:srcCompat="@drawable/emotion_active_resentment"
                         android:id="@+id/imageResentmentViewing"/>
 
                 <TextView
                         android:text="30%"
                         android:layout_gravity="center"
-                        android:layout_width="wrap_content" android:visibility="gone"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:id="@+id/textResentmentViewing"/>
             </LinearLayout>
 
@@ -232,8 +240,8 @@
         <TextView
                 android:text="Хотел обнять. Почувствовал небольшое тепло"
                 style="@style/TextView.Secondary"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
                 android:layout_marginBottom="24dp"
                 android:textColor="@color/grey_color" android:id="@+id/textDiaryViewSensation"/>
     </LinearLayout>

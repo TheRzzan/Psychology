@@ -85,44 +85,36 @@ class DiaryThinkViewingFragment: MvpAppCompatFragment(), DiaryThinkViewingView {
         for (item in emotions) {
             when (item.emotion) {
                 EmotionModel.Emotion.JOY -> {
-                    imageJoyViewing.visibility = View.VISIBLE
+                    linearJoy.visibility = View.VISIBLE
                     textJoyViewing.text = item.percent.toString() + "%"
-                    textJoyViewing.visibility = View.VISIBLE
                 }
                 EmotionModel.Emotion.SADNESS -> {
-                    imageSadnessViewing.visibility = View.VISIBLE
+                    linearSadness.visibility = View.VISIBLE
                     textSadnessViewing.text = item.percent.toString() + "%"
-                    textSadnessViewing.visibility = View.VISIBLE
                 }
                 EmotionModel.Emotion.ANNOYANCE -> {
-                    imageAnnoyanceViewing.visibility = View.VISIBLE
+                    linearAnnoyance.visibility = View.VISIBLE
                     textAnnoyanceViewing.text = item.percent.toString() + "%"
-                    textAnnoyanceViewing.visibility = View.VISIBLE
                 }
                 EmotionModel.Emotion.ANXIETY -> {
-                    imageAnxietyViewing.visibility = View.VISIBLE
+                    linearAnxiety.visibility = View.VISIBLE
                     textAnxietyViewing.text = item.percent.toString() + "%"
-                    textAnxietyViewing.visibility = View.VISIBLE
                 }
                 EmotionModel.Emotion.DISGUST -> {
-                    imageDisgustViewing.visibility = View.VISIBLE
+                    linearDisgust.visibility = View.VISIBLE
                     textDisgustViewing.text = item.percent.toString() + "%"
-                    textDisgustViewing.visibility = View.VISIBLE
                 }
                 EmotionModel.Emotion.INTEREST -> {
-                    imageInterestViewing.visibility = View.VISIBLE
+                    linearInterest.visibility = View.VISIBLE
                     textInterestViewing.text = item.percent.toString() + "%"
-                    textInterestViewing.visibility = View.VISIBLE
                 }
                 EmotionModel.Emotion.GUILT -> {
-                    imageGuiltViewing.visibility = View.VISIBLE
+                    linearGuilt.visibility = View.VISIBLE
                     textGuiltViewing.text = item.percent.toString() + "%"
-                    textGuiltViewing.visibility = View.VISIBLE
                 }
                 EmotionModel.Emotion.RESENTMENT -> {
-                    imageResentmentViewing.visibility = View.VISIBLE
+                    linearResentment.visibility = View.VISIBLE
                     textResentmentViewing.text = item.percent.toString() + "%"
-                    textResentmentViewing.visibility = View.VISIBLE
                 }
             }
         }
