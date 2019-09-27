@@ -10,10 +10,13 @@ import com.morozov.psychology.R
 import com.morozov.psychology.mvp.models.diary.ThinkModel
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.views.MainView
+import com.morozov.psychology.ui.fragments.consultation.ConsultationFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryEditorFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryThinkViewingFragment
 import com.morozov.psychology.ui.fragments.examples.*
+import com.morozov.psychology.ui.fragments.mind.change.MindChangeFragment
+import com.morozov.psychology.ui.fragments.tests.TestsFragment
 import com.morozov.psychology.utility.AppConstants
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
@@ -38,15 +41,15 @@ class MainActivity : MvpAppCompatActivity(), MainView {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_tests -> {
-                //
+                mPresenter.showTestSection()
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_mind_change -> {
-                //
+                mPresenter.showMindChangeSection()
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_consultation -> {
-                //
+                mPresenter.showProfileSection()
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -225,6 +228,30 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         diaryEditorFragment.mActivityPresenter = mPresenter
 
         setFragment(diaryEditorFragment, true)
+    }
+
+    /*
+    * Test section controls
+    *
+    * */
+    override fun showTestSection() {
+        setFragment(TestsFragment())
+    }
+
+    /*
+    * Mind change section controls
+    *
+    * */
+    override fun showMindChangeSection() {
+        setFragment(MindChangeFragment())
+    }
+
+    /*
+    * Profile section controls
+    *
+    * */
+    override fun showProfileSection() {
+        setFragment(ConsultationFragment())
     }
 
     /*

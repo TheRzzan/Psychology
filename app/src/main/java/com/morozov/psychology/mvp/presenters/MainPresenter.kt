@@ -76,4 +76,34 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showBackArrow()
         viewState.showDiaryEditor(isNew, date)
     }
+
+    /*
+    * Test section controls
+    *
+    * */
+    fun showTestSection() {
+        viewState.showBottomNav()
+        viewState.hideBackArrow()
+        viewState.showTestSection()
+    }
+
+    /*
+    * Mind change section controls
+    *
+    * */
+    fun showMindChangeSection() {
+        viewState.showBottomNav()
+        viewState.hideBackArrow()
+        viewState.showMindChangeSection()
+    }
+
+    /*
+    * Profile section controls
+    *
+    * */
+    fun showProfileSection() {
+        viewState.showBottomNav()
+        viewState.hideBackArrow()
+        viewState.showProfileSection()
+    }
 }
