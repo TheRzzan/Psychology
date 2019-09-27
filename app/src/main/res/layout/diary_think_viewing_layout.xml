@@ -250,7 +250,7 @@
             android:id="@+id/buttonDiaryEditThink"
             android:layout_width="56dp"
             android:layout_height="56dp"
-            android:background="@drawable/fab_add"
+            android:background="@drawable/fab_edit"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="@dimen/activity_vertical_margin"
