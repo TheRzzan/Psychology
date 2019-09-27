@@ -179,9 +179,9 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView, TextWatcher 
     }
 
     override fun hideSeekBar() {
-        textDiaryPercent.visibility = View.INVISIBLE
-        textDiaryEmotion.visibility = View.INVISIBLE
-        seekBarDiaryEditor.visibility = View.INVISIBLE
+        textDiaryPercent.visibility = View.GONE
+        textDiaryEmotion.visibility = View.GONE
+        seekBarDiaryEditor.visibility = View.GONE
     }
 
     override fun showThink(think: ThinkModel) {
