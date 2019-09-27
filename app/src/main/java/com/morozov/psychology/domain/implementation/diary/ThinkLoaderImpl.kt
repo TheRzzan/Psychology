@@ -1,5 +1,6 @@
 package com.morozov.psychology.domain.implementation.diary
 
+import com.morozov.psychology.domain.interfaces.diary.ThinkDeleter
 import com.morozov.psychology.domain.interfaces.diary.ThinkLoader
 import com.morozov.psychology.domain.interfaces.diary.ThinkSaver
 import com.morozov.psychology.mvp.models.diary.EmotionModel
@@ -7,7 +8,7 @@ import com.morozov.psychology.mvp.models.diary.ThinkModel
 import java.text.SimpleDateFormat
 import java.util.*
 
-class ThinkLoaderImpl: ThinkLoader, ThinkSaver {
+class ThinkLoaderImpl: ThinkLoader, ThinkSaver, ThinkDeleter {
 
     companion object {
         var dataList: MutableList<ThinkModel> = mutableListOf()
@@ -80,6 +81,17 @@ class ThinkLoaderImpl: ThinkLoader, ThinkSaver {
                 dataList.remove(thinkTmp)
                 dataList.add(think)
 
+                break
+            }
+        }
+    }
+
+    override fun deleteThink(think: ThinkModel) {
+        val smpDtFrm = SimpleDateFormat("dd/MM/yyyy HH:mm")
+
+        for (thinkTmp in dataList) {
+            if (smpDtFrm.format(think.date) == smpDtFrm.format(thinkTmp.date)) {
+                dataList.remove(thinkTmp)
                 break
             }
         }

@@ -3,7 +3,9 @@ package com.morozov.psychology.mvp.presenters.diary
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import com.morozov.psychology.DefaultApplication
+import com.morozov.psychology.domain.interfaces.diary.ThinkDeleter
 import com.morozov.psychology.domain.interfaces.diary.ThinkLoader
+import com.morozov.psychology.domain.interfaces.diary.ThinkSaver
 import com.morozov.psychology.mvp.models.diary.ThinkModel
 import com.morozov.psychology.mvp.views.diary.DiaryView
 import com.morozov.psychology.utility.DateConverter
@@ -16,6 +18,12 @@ class DiaryPresenter: MvpPresenter<DiaryView>() {
 
     @Inject
     lateinit var thinkLoader: ThinkLoader
+
+    @Inject
+    lateinit var thinkSaver: ThinkSaver
+
+    @Inject
+    lateinit var thinkDeleter: ThinkDeleter
 
     init {
         DefaultApplication.diaryComponent.inject(this)
@@ -97,11 +105,13 @@ class DiaryPresenter: MvpPresenter<DiaryView>() {
 
     fun deleteThink(think: ThinkModel): ThinkModel? {
         lastMonthData[currentDate].remove(think)
+        thinkDeleter.deleteThink(think)
         return think
     }
 
     fun addThink(index: Int, think: ThinkModel) {
         lastMonthData[currentDate].add(index, think)
+        thinkSaver.saveNew(think)
     }
 
     fun calendarDateSelected(date: Date) {
