@@ -19,7 +19,7 @@ class TestsQuizFragment: Fragment() {
     lateinit var adapter: TstQuizAdapter
 
     var checked = 0
-    val questionsAmount = 20
+    val questionsAmount = 4
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.tests_quiz_layout, container, false)
@@ -28,6 +28,7 @@ class TestsQuizFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setSegmentProgressCount(questionsAmount)
+        increaseSegmentProgress()
 
         adapter = TstQuizAdapter()
 
@@ -63,13 +64,14 @@ class TestsQuizFragment: Fragment() {
     }
 
     fun increaseSegmentProgress() {
+        segmProgressTestsQuestion.incrementCompletedSegments()
+        checked++
+
         if (checked == questionsAmount) {
+            buttonTestsFinishQuiz.text = "Завершить"
             buttonTestsFinishQuiz.setOnClickListener {
 
             }
-        } else {
-            segmProgressTestsQuestion.incrementCompletedSegments()
-            checked++
         }
     }
 }
