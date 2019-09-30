@@ -87,6 +87,12 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showTestSection()
     }
 
+    fun showTestDescr() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showTestDescr()
+    }
+
     /*
     * Mind change section controls
     *
