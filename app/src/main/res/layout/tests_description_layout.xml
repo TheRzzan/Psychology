@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        android:background="@android:color/white"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:fitsSystemWindows="false">
+
+    <ScrollView
+            android:layout_above="@+id/buttonTestsStart"
+            android:id="@+id/scrollViewTests"
+            style="@style/ScrollViewStyle">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    style="@style/TextView.Primary"
+                    android:text="Шкала дисфункциональных отношений Вейсмана-Бека "
+                    android:textColor="@color/header_text"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:id="@+id/textTestsDescrName"/>
+
+            <TextView
+                    android:id="@+id/textTestsDescription"
+                    android:layout_below="@+id/textTestsDescrName"
+                    style="@style/TextView.Secondary"
+                    android:lineSpacingExtra="8dp"
+                    android:text="Этот опросник содержит ряд мнений, позиций и принципов, которых иногда придерживаются люди. Прочтите, пожалуйста, каждый пункт внимательно и решите затем, в какой степени Вы согласны или не согласны с каждым высказыванием.
+
+Убедитесь, что для каждого высказывания Вы дали только один ответ. Поскольку все люди разные, то здесь не может быть правильных или неправильных ответов. При принятии решения о том, верно ли, с Вашей точки зрения, то или иное утверждение, просто подумайте о том, какой Вы есть или как Вы думаете обычно или чаще всего."
+                    android:padding="@dimen/activity_horizontal_margin"
+            />
+        </RelativeLayout>
+    </ScrollView>
+
+    <Button
+            android:text="Начать"
+            style="@style/TextView.Button"
+            android:background="@drawable/rectangle_button"
+            android:id="@+id/buttonTestsStart"
+            android:layout_alignParentBottom="true"/>
+</RelativeLayout>
