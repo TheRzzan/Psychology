@@ -10,16 +10,20 @@
             </gradient>
         </aapt:attr>
     </path>
-    <path android:fillColor="#212731" android:pathData="M9,18C10.1046,18 11,17.1046 11,16C11,14.8954 10.1046,14 9,14C7.8954,14 7,14.8954 7,16C7,17.1046 7.8954,18 9,18Z"/>
-    <path android:fillColor="#212731" android:pathData="M23,18C24.1046,18 25,17.1046 25,16C25,14.8954 24.1046,14 23,14C21.8954,14 21,14.8954 21,16C21,17.1046 21.8954,18 23,18Z"/>
     <path android:fillColor="#00000000"
-        android:pathData="M21,24.0001C18.789,21.7881 13.211,21.7881 11,24.0001"
-        android:strokeColor="#212731" android:strokeWidth="1.2804"/>
-    <path android:fillColor="#2667C6" android:pathData="M25,27C25,28.104 24.104,29 23,29C21.896,29 21,28.104 21,27C21,25.896 23,23 23,23C23,23 25,25.896 25,27Z"/>
-    <path android:fillColor="#00000000"
-        android:pathData="M27,14C26,12 24,11 22,11"
+        android:pathData="M18,26C17.1156,24.6667 14.8844,24.6667 14,26"
         android:strokeColor="#212731" android:strokeWidth="1"/>
     <path android:fillColor="#00000000"
-        android:pathData="M5,14C6,12 8,11 10,11"
+        android:pathData="M22,11C23,13 25,14 27,14"
         android:strokeColor="#212731" android:strokeWidth="1"/>
+    <path android:fillColor="#00000000"
+        android:pathData="M10,11C9,13 7,14 5,14"
+        android:strokeColor="#212731" android:strokeWidth="1"/>
+    <path android:fillColor="#00000000"
+        android:pathData="M7,17C7.8057,19.6767 12.0923,19.6567 13,17"
+        android:strokeColor="#212731" android:strokeWidth="1"/>
+    <path android:fillColor="#00000000"
+        android:pathData="M19,17C19.8066,19.6767 24.0923,19.6567 25,17"
+        android:strokeColor="#212731" android:strokeWidth="1"/>
+    <path android:fillColor="#FFE7B4" android:pathData="M20.7768,1.7345C19.189,1.2278 17.4932,0.9787 15.7863,1.0014C14.0793,1.0241 12.3946,1.3181 10.8283,1.8666C9.2621,2.4152 7.8449,3.2075 6.6578,4.1985C5.4706,5.1894 4.5367,6.3594 3.9094,7.6419L4.6673,7.8837C5.2552,6.6816 6.1306,5.5849 7.2433,4.6561C8.356,3.7273 9.6844,2.9846 11.1525,2.4704C12.6206,1.9563 14.1997,1.6807 15.7997,1.6595C17.3997,1.6382 18.9891,1.8717 20.4774,2.3466L20.7768,1.7345Z"/>
 </vector>

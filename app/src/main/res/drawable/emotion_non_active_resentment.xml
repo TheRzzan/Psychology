@@ -3,13 +3,18 @@
     <path android:fillColor="#00000000"
         android:pathData="M31.5,16C31.5,24.5604 24.5604,31.5 16,31.5C7.4396,31.5 0.5,24.5604 0.5,16C0.5,7.4396 7.4396,0.5 16,0.5C24.5604,0.5 31.5,7.4396 31.5,16Z"
         android:strokeColor="#212731" android:strokeWidth="1"/>
-    <path android:fillColor="#212731" android:pathData="M9,15C10.1046,15 11,13.6569 11,12C11,10.3431 10.1046,9 9,9C7.8954,9 7,10.3431 7,12C7,13.6569 7.8954,15 9,15Z"/>
-    <path android:fillColor="#212731" android:pathData="M23,15C24.1046,15 25,13.6569 25,12C25,10.3431 24.1046,9 23,9C21.8954,9 21,10.3431 21,12C21,13.6569 21.8954,15 23,15Z"/>
-    <path android:fillColor="#212731" android:pathData="M16,29C18.7614,29 21,26.0899 21,22.5C21,18.9101 18.7614,16 16,16C13.2386,16 11,18.9101 11,22.5C11,26.0899 13.2386,29 16,29Z"/>
     <path android:fillColor="#00000000"
-        android:pathData="M7,4C8,2 11,2 12,4"
+        android:pathData="M22,7C23,9 25,10 27,10"
         android:strokeColor="#212731" android:strokeWidth="1"/>
     <path android:fillColor="#00000000"
-        android:pathData="M20,4C21,2 24,2 25,4"
+        android:pathData="M10,7C9,9 7,10 5,10"
+        android:strokeColor="#212731" android:strokeWidth="1"/>
+    <path android:fillColor="#212731" android:pathData="M9,17C10.1046,17 11,15.6569 11,14C11,12.3431 10.1046,11 9,11C7.8954,11 7,12.3431 7,14C7,15.6569 7.8954,17 9,17Z"/>
+    <path android:fillColor="#212731" android:pathData="M23,17C24.1046,17 25,15.6569 25,14C25,12.3431 24.1046,11 23,11C21.8954,11 21,12.3431 21,14C21,15.6569 21.8954,17 23,17Z"/>
+    <path android:fillColor="#00000000"
+        android:pathData="M11,25.6589C13.211,23.4469 18.789,23.4469 21,25.6589"
+        android:strokeColor="#212731" android:strokeWidth="1.2804"/>
+    <path android:fillColor="#00000000"
+        android:pathData="M25.6837,20.1874C25.658,20.7781 25.1582,21.2367 24.5665,21.2115L24.5664,21.2115C23.976,21.1857 23.5172,20.685 23.5424,20.0943C23.5469,19.9911 23.614,19.7729 23.7741,19.4476C23.9243,19.1425 24.1256,18.803 24.3317,18.4806C24.4623,18.2764 24.5928,18.0824 24.7101,17.9127C24.8121,18.092 24.9253,18.2966 25.0376,18.5114C25.215,18.8504 25.386,19.2061 25.5091,19.5231C25.6403,19.8611 25.6882,20.0842 25.6837,20.1874Z"
         android:strokeColor="#212731" android:strokeWidth="1"/>
 </vector>
