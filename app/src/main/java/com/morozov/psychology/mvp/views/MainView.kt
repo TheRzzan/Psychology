@@ -57,6 +57,8 @@ interface MainView: MvpView {
 
     fun showTestDescr()
 
+    fun showTestQuiz()
+
     /*
     * Mind change section controls
     *

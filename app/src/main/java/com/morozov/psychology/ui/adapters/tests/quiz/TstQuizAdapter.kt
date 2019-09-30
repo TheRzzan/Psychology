@@ -1,5 +1,6 @@
 package com.morozov.psychology.ui.adapters.tests.quiz
 
+import android.arch.lifecycle.MutableLiveData
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +10,7 @@ import com.morozov.psychology.ui.adapters.listeners.OnItemClickListener
 
 class TstQuizAdapter: ListAdapter<String, TstQuizViewHolder>(), OnItemClickListener {
 
-    var selectedPosition = -1
+    var selectedPosition : MutableLiveData<Int> = MutableLiveData()
 
     override fun onCreateViewHolder(container: ViewGroup, p1: Int): TstQuizViewHolder =
         TstQuizViewHolder(
@@ -21,7 +22,7 @@ class TstQuizAdapter: ListAdapter<String, TstQuizViewHolder>(), OnItemClickListe
         )
 
     override fun onBindViewHolder(holder: TstQuizViewHolder, position: Int) {
-        holder.populate(data()[position], position, position == selectedPosition, this)
+        holder.populate(data()[position], position, position == selectedPosition.value, this)
     }
 
     /*
@@ -29,7 +30,6 @@ class TstQuizAdapter: ListAdapter<String, TstQuizViewHolder>(), OnItemClickListe
     *
     * */
     override fun onItemClick(view: View, position: Int) {
-        selectedPosition = position
-        notifyDataSetChanged()
+        selectedPosition.value = position
     }
 }

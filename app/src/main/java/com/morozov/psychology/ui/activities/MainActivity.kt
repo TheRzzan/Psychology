@@ -18,6 +18,7 @@ import com.morozov.psychology.ui.fragments.examples.*
 import com.morozov.psychology.ui.fragments.mind.change.MindChangeFragment
 import com.morozov.psychology.ui.fragments.tests.TestsDescriptionFragment
 import com.morozov.psychology.ui.fragments.tests.TestsFragment
+import com.morozov.psychology.ui.fragments.tests.TestsQuizFragment
 import com.morozov.psychology.utility.AppConstants
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
@@ -244,7 +245,19 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     }
 
     override fun showTestDescr() {
-        setFragment(TestsDescriptionFragment(), true)
+        val testsDescriptionFragment = TestsDescriptionFragment()
+
+        testsDescriptionFragment.mActivityPresenter = mPresenter
+
+        setFragment(testsDescriptionFragment, true)
+    }
+
+    override fun showTestQuiz() {
+        val testsQuizFragment = TestsQuizFragment()
+
+        testsQuizFragment.mActivityPresenter = mPresenter
+
+        setFragment(testsQuizFragment, true)
     }
 
     /*

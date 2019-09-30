@@ -9,7 +9,7 @@ class TstQuizViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
     fun populate(text: String, position: Int, b: Boolean, listener: OnItemClickListener) {
         itemView.radioButtonQuiz.text = text
-        itemView.radioButtonQuiz.isSelected = b
+        itemView.radioButtonQuiz.isChecked = b
         itemView.radioButtonQuiz.setOnClickListener{
             listener.onItemClick(itemView, position)
         }

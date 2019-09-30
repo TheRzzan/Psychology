@@ -53,7 +53,8 @@
             <Button
                     android:text="Далее"
                     style="@style/TextView.Button"
-                    android:background="@drawable/rectangle_button"
+                    android:background="@drawable/rectangle_button_disable"
+                    android:enabled="false"
                     android:id="@+id/buttonTestsFinishQuiz"
                     android:layout_below="@+id/recyclerTestsQuestion"/>
         </RelativeLayout>
