@@ -9,8 +9,6 @@
             android:id="@+id/textQuizResultMark"
             android:layout_below="@+id/textResultName"
             android:layout_marginBottom="12dp"
-            android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:layout_marginEnd="@dimen/activity_horizontal_margin"
             android:textColor="@android:color/black"
             android:textStyle="bold"
             android:textSize="17sp"
@@ -19,9 +17,7 @@
 
     <TextView
             android:id="@+id/textQuizResultDescription"
-            android:layout_marginBottom="12dp"
-            android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="24dp"
             android:textColor="@android:color/black"
             android:text="Поздравляем, у вас очень мало ошибок мышления."
             style="@style/TextView.Secondary"/>

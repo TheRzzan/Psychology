@@ -70,7 +70,7 @@ class TestsQuizFragment: Fragment() {
         if (checked == questionsAmount) {
             buttonTestsFinishQuiz.text = "Завершить"
             buttonTestsFinishQuiz.setOnClickListener {
-
+                mActivityPresenter.showTestQuizResults()
             }
         }
     }
