@@ -6,21 +6,28 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.arellomobile.mvp.MvpAppCompatFragment
+import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
+import com.morozov.psychology.mvp.models.tests.QuestionModel
 import com.morozov.psychology.mvp.presenters.MainPresenter
+import com.morozov.psychology.mvp.presenters.tests.TestsQuizPresenter
+import com.morozov.psychology.mvp.views.tests.TestsQuizView
 import com.morozov.psychology.ui.adapters.tests.quiz.TstQuizAdapter
 import com.morozov.psychology.utility.AppConstants
 import kotlinx.android.synthetic.main.example_fix_test_layout.*
 import kotlinx.android.synthetic.main.tests_quiz_layout.*
 
-class TestsQuizFragment: Fragment() {
+class TestsQuizFragment: MvpAppCompatFragment(), TestsQuizView {
 
+    @InjectPresenter
+    lateinit var mPresenter: TestsQuizPresenter
     lateinit var mActivityPresenter: MainPresenter
 
     lateinit var adapter: TstQuizAdapter
 
     var checked = 0
-    val questionsAmount = 4
+    var questionsAmount = -1
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.tests_quiz_layout, container, false)
@@ -28,16 +35,16 @@ class TestsQuizFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val bundle = this.arguments ?: return
+        val name = bundle.getString(AppConstants.TEST_NAME) ?: return
+
+        questionsAmount = mPresenter.getQuestionsAmount(name)
+
         setSegmentProgressCount(questionsAmount)
-        increaseSegmentProgress()
 
         adapter = TstQuizAdapter()
-
         recyclerTestsQuestion.layoutManager = LinearLayoutManager(context)
         recyclerTestsQuestion.adapter = adapter
-
-        adapter.setData(listOf("Полностью согласен", "В основном согласен",
-            "Скорее согласен", "Трудно определить", "Скорее не согласен"))
 
         adapter.selectedPosition.observeForever {
             if (it == null)
@@ -53,18 +60,29 @@ class TestsQuizFragment: Fragment() {
         }
 
         buttonTestsFinishQuiz.setOnClickListener {
-            adapter.setData(listOf("Полностью согласен", "В основном согласен",
-                "Скорее согласен", "Трудно определить", "Скорее не согласен"))
-            adapter.selectedPosition.value = -1
-            increaseSegmentProgress()
+            mPresenter.selectedAnswers.add(adapter.selectedPosition.value!!)
+            mPresenter.showQuestion(name, checked)
         }
     }
 
-    fun setSegmentProgressCount(count: Int) {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        val bundle = this.arguments ?: return
+        val name = bundle.getString(AppConstants.TEST_NAME) ?: return
+
+        mPresenter.showQuestion(name, checked)
+    }
+
+    /*
+    * TestsQuizView implementation
+    *
+    * */
+    override fun setSegmentProgressCount(count: Int) {
         segmProgressTestsQuestion.setSegmentCount(count)
     }
 
-    fun increaseSegmentProgress() {
+    override fun increaseSegmentProgress() {
         segmProgressTestsQuestion.incrementCompletedSegments()
         checked++
 
@@ -72,11 +90,22 @@ class TestsQuizFragment: Fragment() {
             buttonTestsFinishQuiz.text = "Завершить"
             buttonTestsFinishQuiz.setOnClickListener {
                 val bundle = this.arguments ?: return@setOnClickListener
-
                 val name = bundle.getString(AppConstants.TEST_NAME) ?: return@setOnClickListener
-                
+
+                mPresenter.generateResult()
                 mActivityPresenter.showTestQuizResults(name)
             }
         }
+    }
+
+    override fun setQuestionNumber(position: Int) {
+        textTestsQuestionName.text = "Вопрос ${position + 1}"
+    }
+
+    override fun showQuestion(question: QuestionModel) {
+        textTestsQuestionDescr.text = question.question
+        adapter.setData(question.answers)
+        adapter.selectedPosition.value = -1
+        adapter.notifyDataSetChanged()
     }
 }
