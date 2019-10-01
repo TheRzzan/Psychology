@@ -6,5 +6,5 @@ interface ResultsLoader {
 
     fun getAllResults(testName: String): List<ResultModel>
 
-    fun getLastResult(testName: String): ResultModel
+    fun getLastResult(testName: String): ResultModel?
 }
