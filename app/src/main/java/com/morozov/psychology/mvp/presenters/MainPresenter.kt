@@ -87,22 +87,22 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showTestSection()
     }
 
-    fun showTestDescr() {
+    fun showTestDescr(testName: String) {
         viewState.hideBottomNav()
         viewState.showBackArrow()
-        viewState.showTestDescr()
+        viewState.showTestDescr(testName)
     }
 
-    fun showTestQuiz() {
+    fun showTestQuiz(testName: String) {
         viewState.hideBottomNav()
         viewState.showBackArrow()
-        viewState.showTestQuiz()
+        viewState.showTestQuiz(testName)
     }
 
-    fun showTestQuizResults() {
+    fun showTestQuizResults(testName: String) {
         viewState.hideBottomNav()
         viewState.showBackArrow()
-        viewState.showTestQuizResults()
+        viewState.showTestQuizResults(testName)
     }
 
     fun showTestAbout() {
@@ -117,10 +117,10 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showTestAllResults()
     }
 
-    fun showTestAllResultsCards() {
+    fun showTestAllResultsCards(testName: String) {
         viewState.hideBottomNav()
         viewState.showBackArrow()
-        viewState.showTestAllResultsCards()
+        viewState.showTestAllResultsCards(testName)
     }
 
     /*

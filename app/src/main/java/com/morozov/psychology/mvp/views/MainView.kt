@@ -55,17 +55,17 @@ interface MainView: MvpView {
     * */
     fun showTestSection()
 
-    fun showTestDescr()
+    fun showTestDescr(testName: String)
 
-    fun showTestQuiz()
+    fun showTestQuiz(testName: String)
 
-    fun showTestQuizResults()
+    fun showTestQuizResults(testName: String)
 
     fun showTestAbout()
 
     fun showTestAllResults()
 
-    fun showTestAllResultsCards()
+    fun showTestAllResultsCards(testName: String)
 
     /*
     * Mind change section controls

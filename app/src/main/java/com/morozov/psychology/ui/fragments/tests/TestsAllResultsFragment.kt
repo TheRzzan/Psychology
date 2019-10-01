@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
+import com.morozov.psychology.utility.AppConstants
 import kotlinx.android.synthetic.main.tests_all_results_layout.*
 
 class TestsAllResultsFragment: Fragment() {
@@ -28,25 +29,25 @@ class TestsAllResultsFragment: Fragment() {
     * */
     private fun setCardsOnClick() {
         cardWeismanBack.setOnClickListener {
-            mActivityPresenter.showTestAllResultsCards()
+            mActivityPresenter.showTestAllResultsCards(AppConstants.WEISMAN_BACK_TEST)
         }
         cardEllis.setOnClickListener {
-            mActivityPresenter.showTestAllResultsCards()
+            mActivityPresenter.showTestAllResultsCards(AppConstants.ELLIS_TEST)
         }
         cardHospitalScale.setOnClickListener {
-            mActivityPresenter.showTestAllResultsCards()
+            mActivityPresenter.showTestAllResultsCards(AppConstants.HOSPITAL_SCALE_TEST)
         }
         cardIntegrative.setOnClickListener {
-            mActivityPresenter.showTestAllResultsCards()
+            mActivityPresenter.showTestAllResultsCards(AppConstants.INTEGRATIVE_TEST)
         }
         cardLazarusQuestionnaire.setOnClickListener {
-            mActivityPresenter.showTestAllResultsCards()
+            mActivityPresenter.showTestAllResultsCards(AppConstants.LAZARUS_QUESTIONNAIRE_TEST)
         }
         cardSelfAttitude.setOnClickListener {
-            mActivityPresenter.showTestAllResultsCards()
+            mActivityPresenter.showTestAllResultsCards(AppConstants.SELF_ATTITUDE_TEST)
         }
         cardStyleIndex.setOnClickListener {
-            mActivityPresenter.showTestAllResultsCards()
+            mActivityPresenter.showTestAllResultsCards(AppConstants.STYLE_INDEX_TEST)
         }
     }
 }

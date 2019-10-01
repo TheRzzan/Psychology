@@ -243,25 +243,37 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         setFragment(testsFragment)
     }
 
-    override fun showTestDescr() {
+    override fun showTestDescr(testName: String) {
         val testsDescriptionFragment = TestsDescriptionFragment()
 
+        val bundle = Bundle()
+        bundle.putString(AppConstants.TEST_NAME, testName)
+
+        testsDescriptionFragment.arguments = bundle
         testsDescriptionFragment.mActivityPresenter = mPresenter
 
         setFragment(testsDescriptionFragment, true)
     }
 
-    override fun showTestQuiz() {
+    override fun showTestQuiz(testName: String) {
         val testsQuizFragment = TestsQuizFragment()
 
+        val bundle = Bundle()
+        bundle.putString(AppConstants.TEST_NAME, testName)
+
+        testsQuizFragment.arguments = bundle
         testsQuizFragment.mActivityPresenter = mPresenter
 
         setFragment(testsQuizFragment, true)
     }
 
-    override fun showTestQuizResults() {
+    override fun showTestQuizResults(testName: String) {
         val testsResultsFragment = TestsResultsFragment()
 
+        val bundle = Bundle()
+        bundle.putString(AppConstants.TEST_NAME, testName)
+
+        testsResultsFragment.arguments = bundle
         testsResultsFragment.mActivityPresenter = mPresenter
 
         setFragment(testsResultsFragment, true)
@@ -283,9 +295,13 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         setFragment(testsAllResultsFragment, true)
     }
 
-    override fun showTestAllResultsCards() {
+    override fun showTestAllResultsCards(testName: String) {
         val testsAllResultsCardsFragment = TestsAllResultsCardsFragment()
 
+        val bundle = Bundle()
+        bundle.putString(AppConstants.TEST_NAME, testName)
+
+        testsAllResultsCardsFragment.arguments = bundle
         testsAllResultsCardsFragment.mActivityPresenter = mPresenter
 
         setFragment(testsAllResultsCardsFragment, true)

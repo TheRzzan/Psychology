@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.ui.adapters.tests.results.TstResultsAdapter
+import com.morozov.psychology.utility.AppConstants
 import kotlinx.android.synthetic.main.tests_quiz_results_layout.*
 
 class TestsResultsFragment: Fragment() {
@@ -31,7 +32,11 @@ class TestsResultsFragment: Fragment() {
         adapter.setData(loadData())
 
         buttonNextQuiz.setOnClickListener {
-            mActivityPresenter.showTestQuiz()
+            val bundle = this.arguments ?: return@setOnClickListener
+
+            val name = bundle.getString(AppConstants.TEST_NAME) ?: return@setOnClickListener
+
+            mActivityPresenter.showTestQuiz(name)
         }
 
         buttonChoseAnotherQuiz.setOnClickListener {

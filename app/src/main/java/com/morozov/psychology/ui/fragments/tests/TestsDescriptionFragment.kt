@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
+import com.morozov.psychology.utility.AppConstants
 import kotlinx.android.synthetic.main.tests_description_layout.*
 
 class TestsDescriptionFragment: Fragment() {
@@ -20,7 +21,11 @@ class TestsDescriptionFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         buttonTestsStart.setOnClickListener {
-            mActivityPresenter.showTestQuiz()
+            val bundle = this.arguments ?: return@setOnClickListener
+
+            val name = bundle.getString(AppConstants.TEST_NAME) ?: return@setOnClickListener
+
+            mActivityPresenter.showTestQuiz(name)
         }
     }
 }

@@ -11,6 +11,7 @@ class AppConstants {
         const val DIARY_SELECTED_DAY ="diary_selected_day"
 
         // Tests section
+        const val TEST_NAME = "test_name"
         const val WEISMAN_BACK_TEST = "weisman_back_test"
         const val ELLIS_TEST = "ellis_test"
         const val HOSPITAL_SCALE_TEST = "hospital_scale_test"

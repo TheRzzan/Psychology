@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.ui.adapters.tests.quiz.TstQuizAdapter
+import com.morozov.psychology.utility.AppConstants
 import kotlinx.android.synthetic.main.example_fix_test_layout.*
 import kotlinx.android.synthetic.main.tests_quiz_layout.*
 
@@ -70,7 +71,11 @@ class TestsQuizFragment: Fragment() {
         if (checked == questionsAmount) {
             buttonTestsFinishQuiz.text = "Завершить"
             buttonTestsFinishQuiz.setOnClickListener {
-                mActivityPresenter.showTestQuizResults()
+                val bundle = this.arguments ?: return@setOnClickListener
+
+                val name = bundle.getString(AppConstants.TEST_NAME) ?: return@setOnClickListener
+                
+                mActivityPresenter.showTestQuizResults(name)
             }
         }
     }
