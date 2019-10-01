@@ -57,6 +57,8 @@ class TestsAllImpl: DescriptionLoader, QuestionsLoader, ResultsLoader, ResultSav
             val test7 = TestModel("Методика исследования самоотношения", "Вам предлагается перечень суждений, характеризующих отношение человека к себе, к своим поступкам и действиям. Внимательно прочитайте каждое суждение. Если Вы согласны с содержанием суждения, то выберите да, если несогласны - нет. Работайте быстро и внимательно, не пропускайте ни одного суждения. Возможно, что некоторые суждения покажутся вам излишне личными, затрагивающими интимные стороны вашей личности. Постарайтесь определить их соответствие себе как можно искренне. Ваши ответы никому не будут демонстрироваться.",
                 listOf(questionModel, questionModel, questionModel, questionModel),
                 mutableListOf())
+
+            testsList = mutableListOf(test1, test2, test3, test4, test5, test6, test7)
         }
     }
 
@@ -91,10 +93,10 @@ class TestsAllImpl: DescriptionLoader, QuestionsLoader, ResultsLoader, ResultSav
         AppConstants.WEISMAN_BACK_TEST -> testsList[0]
         AppConstants.ELLIS_TEST -> testsList[1]
         AppConstants.HOSPITAL_SCALE_TEST -> testsList[2]
-        AppConstants.LAZARUS_QUESTIONNAIRE_TEST -> testsList[3]
-        AppConstants.SELF_ATTITUDE_TEST -> testsList[4]
+        AppConstants.LAZARUS_QUESTIONNAIRE_TEST -> testsList[4]
+        AppConstants.SELF_ATTITUDE_TEST -> testsList[6]
         AppConstants.STYLE_INDEX_TEST -> testsList[5]
-        AppConstants.INTEGRATIVE_TEST -> testsList[6]
+        AppConstants.INTEGRATIVE_TEST -> testsList[3]
         else -> null
     }
 }
