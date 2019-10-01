@@ -85,7 +85,7 @@ class DiaryPresenter: MvpPresenter<DiaryView>() {
                 listTmp.add(item)
         }
 
-        if (dayMtYrFormat.format(todayDate) != dayMtYrFormat.format(dateList[dateList.size - 1])) {
+        if (dateList.isEmpty() || dayMtYrFormat.format(todayDate) != dayMtYrFormat.format(dateList[dateList.size - 1])) {
             elements.add(
                 Pair(
                     dayFormat.format(todayDate).toInt(),

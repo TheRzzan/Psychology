@@ -23,6 +23,10 @@ class TestsFragment: Fragment() {
             mActivityPresenter.showTestAbout()
         }
 
+        buttonTestResults.setOnClickListener {
+            mActivityPresenter.showTestAllResults()
+        }
+
         setCardsOnClick()
     }
 

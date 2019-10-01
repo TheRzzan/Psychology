@@ -63,6 +63,8 @@ interface MainView: MvpView {
 
     fun showTestAbout()
 
+    fun showTestAllResults()
+
     /*
     * Mind change section controls
     *
