@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="true">
+
+    <ScrollView
+            android:id="@+id/scrollMain"
+            style="@style/ScrollViewStyle">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <TextView
+                    android:id="@+id/textHeader"
+                    style="@style/TextView.Primary.Header"
+                    android:layout_margin="@dimen/activity_horizontal_margin"
+                    android:text="Результаты тестирования"/>
+
+            <android.support.v7.widget.CardView
+                    android:id="@+id/cardWeismanBack"
+                    android:layout_below="@+id/textHeader"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <RelativeLayout
+                        android:background="@color/card_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="98dp">
+
+                    <TextView
+                            android:id="@+id/textWeismanBack"
+                            android:layout_alignParentTop="true"
+                            android:textStyle="bold"
+                            style="@style/TextView.Secondary"
+                            android:text="Шкала дисфункциональных отношений Вейсмана-Бека"
+                            android:layout_margin="12dp"/>
+
+                    <View
+                            android:layout_marginTop="64dp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@color/colorPrimaryDark"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"/>
+
+                    <TextView
+                            android:id="@+id/textWeismanBackDescr"
+                            android:layout_alignParentBottom="true"
+                            style="@style/TextView.Secondary"
+                            android:textSize="11sp"
+                            android:text="Насколько выражены ваши ошибки мышления, приводящие к негативным эмоциям"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:layout_marginBottom="4dp"/>
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                    android:id="@+id/cardEllis"
+                    android:layout_below="@+id/cardWeismanBack"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <RelativeLayout
+                        android:background="@color/card_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="98dp">
+
+                    <TextView
+                            android:id="@+id/textEllis"
+                            android:layout_alignParentTop="true"
+                            android:textStyle="bold"
+                            style="@style/TextView.Secondary"
+                            android:text="Тест Эллиса"
+                            android:layout_margin="12dp"/>
+
+                    <View
+                            android:layout_marginTop="64dp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@color/colorPrimaryDark"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"/>
+
+                    <TextView
+                            android:id="@+id/textEllisDescr"
+                            android:layout_alignParentBottom="true"
+                            style="@style/TextView.Secondary"
+                            android:textSize="11sp"
+                            android:text="Позволит выявить, какие именно ошибки мышления для вас характерны"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:layout_marginBottom="4dp"/>
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                    android:id="@+id/cardHospitalScale"
+                    android:layout_below="@+id/cardEllis"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <RelativeLayout
+                        android:background="@color/card_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="98dp">
+
+                    <TextView
+                            android:id="@+id/textHospitalScale"
+                            android:layout_alignParentTop="true"
+                            android:textStyle="bold"
+                            style="@style/TextView.Secondary"
+                            android:text="Госпитальная шкала тревоги и депрессии"
+                            android:layout_margin="12dp"/>
+
+                    <View
+                            android:layout_marginTop="64dp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@color/colorPrimaryDark"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"/>
+
+                    <TextView
+                            android:id="@+id/textHospitalScaleDescr"
+                            android:layout_alignParentBottom="true"
+                            style="@style/TextView.Secondary"
+                            android:textSize="11sp"
+                            android:text="Позволит определить уровень тревоги и депрессии"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:layout_marginBottom="4dp"/>
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                    android:id="@+id/cardIntegrative"
+                    android:layout_below="@+id/cardHospitalScale"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <RelativeLayout
+                        android:background="@color/card_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="98dp">
+
+                    <TextView
+                            android:id="@+id/textIntegrative"
+                            android:layout_alignParentTop="true"
+                            android:textStyle="bold"
+                            style="@style/TextView.Secondary"
+                            android:text="Интегративный тест тревожности"
+                            android:layout_margin="12dp"/>
+
+                    <View
+                            android:layout_marginTop="64dp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@color/colorPrimaryDark"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"/>
+
+                    <TextView
+                            android:id="@+id/textIntegrativeDescr"
+                            android:layout_alignParentBottom="true"
+                            style="@style/TextView.Secondary"
+                            android:textSize="11sp"
+                            android:text="Позволит понять, что в большей степени вас тревожит"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:layout_marginBottom="4dp"/>
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                    android:id="@+id/cardLazarusQuestionnaire"
+                    android:layout_below="@+id/cardIntegrative"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <RelativeLayout
+                        android:background="@color/card_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="98dp">
+
+                    <TextView
+                            android:id="@+id/textLazarusQuestionnaire"
+                            android:layout_alignParentTop="true"
+                            android:textStyle="bold"
+                            style="@style/TextView.Secondary"
+                            android:text="Опросник «Способы совладающего поведения» Лазаруса"
+                            android:layout_margin="12dp"/>
+
+                    <View
+                            android:layout_marginTop="64dp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@color/colorPrimaryDark"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"/>
+
+                    <TextView
+                            android:id="@+id/textLazarusQuestionnaireDescr"
+                            android:layout_alignParentBottom="true"
+                            style="@style/TextView.Secondary"
+                            android:textSize="11sp"
+                            android:text="Позволит понять, как вы справляетесь со стрессами"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:layout_marginBottom="4dp"/>
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                    android:id="@+id/cardStyleIndex"
+                    android:layout_below="@+id/cardLazarusQuestionnaire"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <RelativeLayout
+                        android:background="@color/card_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="98dp">
+
+                    <TextView
+                            android:id="@+id/textStyleIndex"
+                            android:layout_alignParentTop="true"
+                            android:textStyle="bold"
+                            style="@style/TextView.Secondary"
+                            android:text="Индекс жизненного стиля"
+                            android:layout_margin="12dp"/>
+
+                    <View
+                            android:layout_marginTop="64dp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@color/colorPrimaryDark"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"/>
+
+                    <TextView
+                            android:id="@+id/textStyleIndexDescr"
+                            android:layout_alignParentBottom="true"
+                            style="@style/TextView.Secondary"
+                            android:textSize="11sp"
+                            android:text="Позволит выявить бессознательные механизмы, которые позволяют вам справляться со стрессами"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:layout_marginBottom="4dp"/>
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                    android:id="@+id/cardSelfAttitude"
+                    android:layout_below="@+id/cardStyleIndex"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <RelativeLayout
+                        android:background="@color/card_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="98dp">
+
+                    <TextView
+                            android:id="@+id/textSelfAttitude"
+                            android:layout_alignParentTop="true"
+                            android:textStyle="bold"
+                            style="@style/TextView.Secondary"
+                            android:text="Методика исследования самоотношения"
+                            android:layout_margin="12dp"/>
+
+                    <View
+                            android:layout_marginTop="64dp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@color/colorPrimaryDark"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"/>
+
+                    <TextView
+                            android:id="@+id/textSelfAttitudeDescr"
+                            android:layout_alignParentBottom="true"
+                            style="@style/TextView.Secondary"
+                            android:textSize="11sp"
+                            android:text="Позволит вам увидеть, как вы относитесь к самому себе"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:layout_marginBottom="4dp"/>
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>
