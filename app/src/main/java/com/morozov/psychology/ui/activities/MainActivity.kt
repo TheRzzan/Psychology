@@ -239,6 +239,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
         testsFragment.mActivityPresenter = mPresenter
 
+        clearBackStack()
         setFragment(testsFragment)
     }
 
