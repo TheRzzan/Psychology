@@ -8,12 +8,16 @@ import com.morozov.psychology.di.examples.DaggerExamplesComponent
 import com.morozov.psychology.di.examples.ExamplesComponent
 import com.morozov.psychology.di.examples.ExamplesModule
 import com.morozov.psychology.di.examples.FixingModule
+import com.morozov.psychology.di.tests.DaggerTestsComponent
+import com.morozov.psychology.di.tests.TestsComponent
+import com.morozov.psychology.di.tests.TestsModule
 
 class DefaultApplication: Application() {
 
     companion object {
         lateinit var examplesComponent: ExamplesComponent
         lateinit var diaryComponent: DiaryComponent
+        lateinit var testsComponent: TestsComponent
     }
 
     override fun onCreate() {
@@ -28,6 +32,11 @@ class DefaultApplication: Application() {
         diaryComponent = DaggerDiaryComponent
                             .builder()
                             .thinkModule(ThinkModule())
+                            .build()
+
+        testsComponent = DaggerTestsComponent
+                            .builder()
+                            .testsModule(TestsModule())
                             .build()
     }
 }
