@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+        android:id="@+id/diaryDateCard"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:cardCornerRadius="@dimen/card_corner_radius"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <RelativeLayout
+            android:background="@color/card_background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:id="@+id/textTestResultDate"
+                android:text="25.06.2019"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="16dp"
+                style="@style/TextView.Secondary"/>
+
+        <View
+                android:visibility="gone"
+                android:id="@+id/viewSeparator"
+                android:layout_marginTop="-8dp"
+                android:layout_below="@+id/textTestResultDate"
+                android:background="@color/colorPrimaryDark"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"/>
+
+        <android.support.v7.widget.RecyclerView
+                android:visibility="gone"
+                android:id="@+id/recyclerTestsResults"
+                style="@style/RecyclerViewStyle"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_below="@+id/viewSeparator"/>
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

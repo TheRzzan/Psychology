@@ -21,7 +21,7 @@ class TstResultsViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         animRotLeft.isFillEnabled = true
 
         var b = true
-        itemView.imageArrowOpening.setOnClickListener{
+        itemView.relativeQuizResult.setOnClickListener{
             when (b) {
                 true -> {
                     itemView.textQuizResultDescription.visibility = View.VISIBLE
