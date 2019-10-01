@@ -89,10 +89,12 @@ class TestsQuizFragment: MvpAppCompatFragment(), TestsQuizView {
         if (checked == questionsAmount) {
             buttonTestsFinishQuiz.text = "Завершить"
             buttonTestsFinishQuiz.setOnClickListener {
+                mPresenter.selectedAnswers.add(adapter.selectedPosition.value!!)
+
                 val bundle = this.arguments ?: return@setOnClickListener
                 val name = bundle.getString(AppConstants.TEST_NAME) ?: return@setOnClickListener
 
-                mPresenter.generateResult()
+                mPresenter.generateResult(name)
                 mActivityPresenter.showTestQuizResults(name)
             }
         }

@@ -6,17 +6,27 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.morozov.psychology.DefaultApplication
 import com.morozov.psychology.R
+import com.morozov.psychology.domain.interfaces.tests.ResultsLoader
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.ui.adapters.tests.results.TstResultsAdapter
 import com.morozov.psychology.utility.AppConstants
 import kotlinx.android.synthetic.main.tests_quiz_results_layout.*
+import javax.inject.Inject
 
 class TestsResultsFragment: Fragment() {
+
+    @Inject
+    lateinit var resultsLoader: ResultsLoader
 
     lateinit var mActivityPresenter: MainPresenter
 
     lateinit var adapter: TstResultsAdapter
+
+    init {
+        DefaultApplication.testsComponent.inject(this)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.tests_quiz_results_layout, container, false)
@@ -50,6 +60,9 @@ class TestsResultsFragment: Fragment() {
     }
 
     private fun loadData(): List<Pair<String, String>> {
-        return listOf(Pair("Вы набрали 36 баллов по шкале катастрофизации ", "Вы склоны в некоторой степени преувеливать степень негативных последствий ситуаций. Порой неблагоприятные события кажутся вам ужасными и невыносимыми. Это может повышать уровень тревоги. Во время работы с собственными мыслями, рекомендуем вам обратить внимание на проработку ошибки мышления «катастрофизация»."))
+        val bundle = this.arguments ?: return listOf()
+        val name = bundle.getString(AppConstants.TEST_NAME) ?: return listOf()
+
+        return resultsLoader.getLastResult(name)!!.items
     }
 }
