@@ -117,6 +117,12 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showTestAllResults()
     }
 
+    fun showTestAllResultsCards() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showTestAllResultsCards()
+    }
+
     /*
     * Mind change section controls
     *

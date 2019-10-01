@@ -283,6 +283,14 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         setFragment(testsAllResultsFragment, true)
     }
 
+    override fun showTestAllResultsCards() {
+        val testsAllResultsCardsFragment = TestsAllResultsCardsFragment()
+
+        testsAllResultsCardsFragment.mActivityPresenter = mPresenter
+
+        setFragment(testsAllResultsCardsFragment, true)
+    }
+
     /*
     * Mind change section controls
     *
