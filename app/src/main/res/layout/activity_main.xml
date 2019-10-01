@@ -24,7 +24,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             <TextView
-                    android:text="Вернуться"
+                    android:text="Назад"
                     android:layout_gravity="center"
                     android:textColor="@color/colorPrimary"
                     android:layout_width="wrap_content"

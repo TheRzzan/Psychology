@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="true">
+
+    <ScrollView
+            android:id="@+id/scrollTestsAbout"
+            style="@style/ScrollViewStyle">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:id="@+id/textTestsAboutHeader"
+                    style="@style/TextView.Primary"
+                    android:textColor="@color/header_text"
+                    android:layout_marginBottom="31dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:text="Немного о вас"/>
+
+            <TextView
+                    android:text="Пол"
+                    style="@style/TextView.Secondary"
+                    android:textColor="@color/second_header_text"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                <Button
+                        android:id="@+id/buttonTestsAboutManSex"
+                        android:textAllCaps="false"
+                        android:drawableStart="@drawable/ic_sex_man"
+                        android:background="@drawable/rectangle_button_white"
+                        android:textColor="@color/man_color"
+                        android:text="Мужчина"
+                        android:layout_marginEnd="24dp"
+                        android:paddingEnd="24dp"
+                        android:paddingStart="10dp"
+                        android:textSize="@dimen/button_font_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="44dp"/>
+
+                <Button
+                        android:id="@+id/buttonTestsAboutWomanSex"
+                        android:textAllCaps="false"
+                        android:drawableStart="@drawable/ic_sex_woman"
+                        android:background="@drawable/rectangle_button_white"
+                        android:textColor="@color/woman_color"
+                        android:textSize="@dimen/button_font_size"
+                        android:text="Женщина"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="24dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="44dp"/>
+            </LinearLayout>
+
+            <TextView
+                    android:text="Возраст"
+                    style="@style/TextView.Secondary"
+                    android:textColor="@color/second_header_text"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rectangle_button_white"
+                        android:inputType="numberSigned"
+                        android:ems="3"
+                />
+
+                <TextView
+                        android:text="Лет"
+                        style="@style/TextView.Secondary"
+                        android:textColor="@color/second_header_text"
+                        android:layout_marginStart="8dp"/>
+            </LinearLayout>
+
+            <TextView
+                    android:text="Семейное положение"
+                    style="@style/TextView.Secondary"
+                    android:textColor="@color/second_header_text"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:minWidth="155dp"
+                    android:minHeight="44dp"/>
+
+            <TextView
+                    android:text="Образование"
+                    style="@style/TextView.Secondary"
+                    android:textColor="@color/second_header_text"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:minWidth="155dp"
+                    android:minHeight="44dp"/>
+
+            <TextView
+                    android:text="Время пользования приложением"
+                    style="@style/TextView.Secondary"
+                    android:textColor="@color/second_header_text"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rectangle_button_white"
+                        android:inputType="numberSigned"
+                        android:ems="3"/>
+
+                <TextView
+                        android:text="Месяцев"
+                        style="@style/TextView.Secondary"
+                        android:textColor="@color/second_header_text"
+                        android:layout_marginStart="8dp"/>
+            </LinearLayout>
+
+            <TextView
+                    android:text="Частота использования этого приложения"
+                    style="@style/TextView.Secondary"
+                    android:textColor="@color/second_header_text"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:minWidth="155dp"
+                    android:minHeight="44dp"/>
+
+            <TextView
+                    android:text="Получаете ли вы одновременно помощь психотерапевта?"
+                    style="@style/TextView.Secondary"
+                    android:textColor="@color/second_header_text"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                <Button
+                        android:textAllCaps="false"
+                        android:background="@drawable/rectangle_button_white"
+                        android:textColor="@color/man_color"
+                        android:text="Да"
+                        android:layout_marginEnd="24dp"
+                        android:textSize="@dimen/button_font_size"
+                        android:layout_width="54dp"
+                        android:layout_height="44dp"/>
+
+                <Button
+                        android:textAllCaps="false"
+                        android:background="@drawable/rectangle_button_white"
+                        android:textColor="@color/woman_color"
+                        android:textSize="@dimen/button_font_size"
+                        android:text="Нет"
+                        android:layout_width="54dp"
+                        android:layout_height="44dp"/>
+            </LinearLayout>
+
+            <TextView
+                    android:text="Насколько часто вы получаете консультации у специалиста?"
+                    style="@style/TextView.Secondary"
+                    android:textColor="@color/second_header_text"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:minWidth="155dp"
+                    android:minHeight="44dp"/>
+
+            <TextView
+                    android:text="Применяете ли вы в настоящий момент медикаменты для восстановления психического здоровья? Можно выбрать несколько вариантов."
+                    style="@style/TextView.Secondary"
+                    android:textColor="@color/second_header_text"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+
+            <CheckBox
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:text="Нет"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            <CheckBox
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:text="Принимаю антидепрессанты"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            <CheckBox
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:text="Принимаю транквизаторы"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            <CheckBox
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:text="Принимаю нейролептики"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            <CheckBox
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:text="Принимаю нормотимики"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            <CheckBox
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:text="Принимаю другие лекарства"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:inputType="textPersonName|textMultiLine"
+                    android:maxLines="4"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:hint="Уточните какие"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:ems="10"
+                    style="@style/EditTextStyle"
+                    android:background="@drawable/rectangle_edit_text_white"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

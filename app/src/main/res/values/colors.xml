@@ -19,4 +19,8 @@
     <color name="second_header_text">#3A3A3C</color>
     <color name="primary_text">#FFFFFF</color>
     <color name="secondary_text">#636366</color>
+
+    <!-- Sex colors -->
+    <color name="man_color">#59CFE3</color>
+    <color name="woman_color">#BD17F8</color>
 </resources>
