@@ -283,7 +283,7 @@
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
                     android:text="Нет"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" android:id="@+id/checkNo"/>
 
             <CheckBox
                     android:layout_marginBottom="@dimen/activity_vertical_margin"
@@ -291,7 +291,7 @@
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
                     android:text="Принимаю антидепрессанты"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" android:id="@+id/checkAnt"/>
 
             <CheckBox
                     android:layout_marginBottom="@dimen/activity_vertical_margin"
@@ -299,7 +299,7 @@
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
                     android:text="Принимаю транквизаторы"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" android:id="@+id/checkTrank"/>
 
             <CheckBox
                     android:layout_marginBottom="@dimen/activity_vertical_margin"
@@ -307,7 +307,7 @@
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
                     android:text="Принимаю нейролептики"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" android:id="@+id/checkNeiro"/>
 
             <CheckBox
                     android:layout_marginBottom="@dimen/activity_vertical_margin"
@@ -315,7 +315,7 @@
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
                     android:text="Принимаю нормотимики"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" android:id="@+id/checkNormo"/>
 
             <CheckBox
                     android:layout_marginBottom="@dimen/activity_vertical_margin"
@@ -323,9 +323,10 @@
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
                     android:text="Принимаю другие лекарства"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" android:id="@+id/checkAnother"/>
 
             <EditText
+                    android:visibility="gone"
                     android:textColor="@color/grey_color"
                     android:textSize="17sp"
                     android:layout_width="match_parent"
@@ -341,7 +342,7 @@
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
                     android:ems="10"
                     style="@style/EditTextStyle"
-                    android:background="@drawable/rectangle_edit_text_white"/>
+                    android:background="@drawable/rectangle_edit_text_white" android:id="@+id/editClarification"/>
 
             <Button
                     android:id="@+id/buttonTestsAboutSave"

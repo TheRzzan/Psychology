@@ -57,7 +57,8 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
         mAboutModel = AboutModel(null, null, null,
             null, null, null,
             null, null, null,
-            null)
+            Pair(mutableListOf(), mutableListOf())
+        )
 
         mPresenter.loadData()
     }
@@ -118,10 +119,16 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
     *
     * */
     private fun checkIsReadyToSave() {
-        val isReady: Boolean = mAboutModel.sex != null && mAboutModel.age != null &&
+        var isReady: Boolean = mAboutModel.sex != null && mAboutModel.age != null &&
                 mAboutModel.maritalStatus != null && mAboutModel.education != null &&
                 mAboutModel.timeOfUse != null && mAboutModel.frequencyOfUse != null &&
                 mAboutModel.isVisitTherapy != null
+
+        if (!checkNo.isChecked) {
+            val medicines = mAboutModel.medicines
+            if (medicines != null)
+                isReady = isReady && medicines.first.isNotEmpty()
+        }
 
         when(isReady) {
             true -> buttonTestsAboutSave.setBackgroundResource(R.drawable.rectangle_button)
@@ -181,6 +188,8 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
         initOnClicks()
 
         initOnTextChange()
+
+        initOnCheckSelect()
     }
 
     private fun initSpinner(data: List<String>, spinner: Spinner, runnable: Runnable) {
@@ -289,5 +298,73 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
                 checkIsReadyToSave()
             }
         })
+    }
+
+    private fun initOnCheckSelect() {
+        checkNo.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                mAboutModel.medicines = null
+                checkAnt.isChecked = false
+                checkTrank.isChecked = false
+                checkNeiro.isChecked = false
+                checkNormo.isChecked = false
+                checkAnother.isChecked = false
+            }
+
+            checkIsReadyToSave()
+        }
+
+        checkAnt.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                mAboutModel.medicines?.first?.add(MedicinesEnum.ANTIDEPRESSANTS)
+                checkNo.isChecked = false
+            } else
+                mAboutModel.medicines?.first?.remove(MedicinesEnum.ANTIDEPRESSANTS)
+
+            checkIsReadyToSave()
+        }
+
+        checkTrank.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                mAboutModel.medicines?.first?.add(MedicinesEnum.TRANQUILIZERS)
+                checkNo.isChecked = false
+            } else
+                mAboutModel.medicines?.first?.remove(MedicinesEnum.TRANQUILIZERS)
+
+            checkIsReadyToSave()
+        }
+
+        checkNeiro.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                mAboutModel.medicines?.first?.add(MedicinesEnum.ANTIPSYCHOTICS)
+                checkNo.isChecked = false
+            }else
+                mAboutModel.medicines?.first?.remove(MedicinesEnum.ANTIPSYCHOTICS)
+
+            checkIsReadyToSave()
+        }
+
+        checkNormo.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                mAboutModel.medicines?.first?.add(MedicinesEnum.NORMOTIMICS)
+                checkNo.isChecked = false
+            } else
+                mAboutModel.medicines?.first?.remove(MedicinesEnum.NORMOTIMICS)
+
+            checkIsReadyToSave()
+        }
+
+        checkAnother.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                mAboutModel.medicines?.second?.add(0, "")
+                editClarification.visibility = View.VISIBLE
+                checkNo.isChecked = false
+            } else {
+                mAboutModel.medicines?.second?.removeAt(0)
+                editClarification.visibility = View.GONE
+            }
+
+            checkIsReadyToSave()
+        }
     }
 }

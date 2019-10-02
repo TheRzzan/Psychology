@@ -6,4 +6,4 @@ data class AboutModel(var sex: SexEnum?, var age: Int?, var maritalStatus: Marit
                       var education: EducationEnum?, var timeOfUse: Int?, var frequencyOfUse: FrequencyOfUseEnum?,
                       var isVisitTherapy: Boolean?,
                       var timeOfPsychologistVisit: Int?, var frequencyOfTherapy: FrequencyOfTherapyEnum?,
-                      var medicines: Pair<MutableList<MedicinesEnum>, String>?)
+                      var medicines: Pair<MutableList<MedicinesEnum>, MutableList<String>>?)
