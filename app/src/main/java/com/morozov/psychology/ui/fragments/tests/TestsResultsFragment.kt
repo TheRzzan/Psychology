@@ -6,20 +6,26 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.arellomobile.mvp.MvpAppCompatFragment
+import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.DefaultApplication
 import com.morozov.psychology.R
 import com.morozov.psychology.domain.interfaces.tests.ResultsLoader
 import com.morozov.psychology.mvp.presenters.MainPresenter
+import com.morozov.psychology.mvp.presenters.tests.TestsResultsPresenter
+import com.morozov.psychology.mvp.views.tests.TestsResultsView
 import com.morozov.psychology.ui.adapters.tests.results.TstResultsAdapter
 import com.morozov.psychology.utility.AppConstants
 import kotlinx.android.synthetic.main.tests_quiz_results_layout.*
 import javax.inject.Inject
 
-class TestsResultsFragment: Fragment() {
+class TestsResultsFragment: MvpAppCompatFragment(), TestsResultsView {
 
     @Inject
     lateinit var resultsLoader: ResultsLoader
 
+    @InjectPresenter
+    lateinit var mPresenter: TestsResultsPresenter
     lateinit var mActivityPresenter: MainPresenter
 
     lateinit var adapter: TstResultsAdapter
@@ -65,4 +71,9 @@ class TestsResultsFragment: Fragment() {
 
         return resultsLoader.getLastResult(name)!!.items
     }
+
+    /*
+    * TestsResultsView implementation
+    *
+    * */
 }

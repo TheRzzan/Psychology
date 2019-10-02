@@ -5,13 +5,19 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.arellomobile.mvp.MvpAppCompatFragment
+import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
+import com.morozov.psychology.mvp.presenters.tests.TestsAllResultsPresenter
+import com.morozov.psychology.mvp.views.tests.TestsAllResultsView
 import com.morozov.psychology.utility.AppConstants
 import kotlinx.android.synthetic.main.tests_all_results_layout.*
 
-class TestsAllResultsFragment: Fragment() {
+class TestsAllResultsFragment: MvpAppCompatFragment(), TestsAllResultsView {
 
+    @InjectPresenter
+    lateinit var mPresenter: TestsAllResultsPresenter
     lateinit var mActivityPresenter: MainPresenter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
@@ -50,4 +56,9 @@ class TestsAllResultsFragment: Fragment() {
             mActivityPresenter.showTestAllResultsCards(AppConstants.STYLE_INDEX_TEST)
         }
     }
+
+    /*
+    * TestsAllResultsView implementation
+    *
+    * */
 }
