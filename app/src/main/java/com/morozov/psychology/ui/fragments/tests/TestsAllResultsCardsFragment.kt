@@ -21,18 +21,11 @@ import javax.inject.Inject
 
 class TestsAllResultsCardsFragment: MvpAppCompatFragment(), TestsAllResultsCardsView {
 
-    @Inject
-    lateinit var resultsLoader: ResultsLoader
-
     @InjectPresenter
     lateinit var mPresenter: TestsAllResultsCardsPresenter
     lateinit var mActivityPresenter: MainPresenter
 
     lateinit var adapter: TstAllResultsAdapter
-
-    init {
-        DefaultApplication.testsComponent.inject(this)
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.tests_all_results_cards_layout, container, false)

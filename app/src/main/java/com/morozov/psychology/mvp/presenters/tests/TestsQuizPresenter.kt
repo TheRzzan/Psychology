@@ -7,6 +7,7 @@ import com.morozov.psychology.domain.interfaces.tests.QuestionsLoader
 import com.morozov.psychology.domain.interfaces.tests.ResultSaver
 import com.morozov.psychology.mvp.models.tests.ResultModel
 import com.morozov.psychology.mvp.views.tests.TestsQuizView
+import com.morozov.psychology.utility.TestsResultsGenerator
 import java.util.*
 import javax.inject.Inject
 
@@ -32,7 +33,7 @@ class TestsQuizPresenter: MvpPresenter<TestsQuizView>() {
     }
 
     fun generateResult(testName: String) {
-        resultSaver.saveResult(testName, ResultModel(Date(), listOf(Pair(testName, "Some description ${selectedAnswers.size}"))))
+        resultSaver.saveResult(testName, TestsResultsGenerator().getResult(testName, selectedAnswers))
     }
 
     fun getQuestionsAmount(testName: String): Int {
