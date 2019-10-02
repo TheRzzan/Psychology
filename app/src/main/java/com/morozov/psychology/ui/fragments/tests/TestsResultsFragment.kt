@@ -41,18 +41,11 @@ class TestsResultsFragment: MvpAppCompatFragment(), TestsResultsView {
         super.onViewCreated(view, savedInstanceState)
 
         adapter = TstResultsAdapter()
-
         recyclerTestQuiz.layoutManager = LinearLayoutManager(context)
         recyclerTestQuiz.adapter = adapter
 
-        adapter.setData(loadData())
-
         buttonNextQuiz.setOnClickListener {
-            val bundle = this.arguments ?: return@setOnClickListener
-
-            val name = bundle.getString(AppConstants.TEST_NAME) ?: return@setOnClickListener
-
-            mActivityPresenter.showTestQuiz(name)
+            mPresenter.showNextQuiz()
         }
 
         buttonChoseAnotherQuiz.setOnClickListener {
@@ -65,15 +58,31 @@ class TestsResultsFragment: MvpAppCompatFragment(), TestsResultsView {
 
     }
 
-    private fun loadData(): List<Pair<String, String>> {
-        val bundle = this.arguments ?: return listOf()
-        val name = bundle.getString(AppConstants.TEST_NAME) ?: return listOf()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
-        return resultsLoader.getLastResult(name).second!!.items
+        val bundle = this.arguments ?: return
+        val name = bundle.getString(AppConstants.TEST_NAME) ?: return
+
+        mPresenter.loadData(name)
     }
 
     /*
     * TestsResultsView implementation
     *
     * */
+    override fun showResult(data: List<Pair<String, String>>) {
+        adapter.setData(data)
+    }
+
+    override fun showNext(testName: String) {
+        mActivityPresenter.showTestQuiz(testName)
+    }
+
+    override fun setVisibilityNextButton(b: Boolean) {
+        buttonNextQuiz.visibility = when (b) {
+            true -> View.VISIBLE
+            false -> View.GONE
+        }
+    }
 }
