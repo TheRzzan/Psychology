@@ -125,20 +125,49 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
     }
 
     private fun prepareFragment() {
-        initSpinner(maritalStatusArr, spinerMaritalStatus)
+        initSpinner(maritalStatusArr, spinerMaritalStatus, Runnable {
+            when (spinerMaritalStatus.selectedItemId) {
+                2L -> mAboutModel.maritalStatus = MaritalStatusEnum.DIVORCED
+                1L -> mAboutModel.maritalStatus = MaritalStatusEnum.MARRIED
+                0L -> mAboutModel.maritalStatus = MaritalStatusEnum.SINGLE
+                3L -> mAboutModel.maritalStatus = MaritalStatusEnum.WIDOWER
+            }
+        })
 
-        initSpinner(educationArr, spinnerEducation)
+        initSpinner(educationArr, spinnerEducation, Runnable {
+            when (spinnerEducation.selectedItemId) {
+                3L -> mAboutModel.education = EducationEnum.HIGHER_VOCATIONAL
+                0L -> mAboutModel.education = EducationEnum.PRIMARY
+                1L -> mAboutModel.education = EducationEnum.SECONDARY
+                2L -> mAboutModel.education = EducationEnum.SECONDARY_VOCATIONAL
+            }
+        })
 
-        initSpinner(freqOfUseArr, spinnerFreqOfUs)
+        initSpinner(freqOfUseArr, spinnerFreqOfUs, Runnable {
+            when (spinnerFreqOfUs.selectedItemId) {
+                0L -> mAboutModel.frequencyOfUse = FrequencyOfUseEnum.EVERYDAY
+                2L -> mAboutModel.frequencyOfUse = FrequencyOfUseEnum.EVERYMONTH
+                1L -> mAboutModel.frequencyOfUse = FrequencyOfUseEnum.EVERYWEEK
+                3L -> mAboutModel.frequencyOfUse = FrequencyOfUseEnum.LESS_OFTEN
+            }
+        })
 
-        initSpinner(freqOfTherapyArr, spinnerFreqOfTherapy)
+        initSpinner(freqOfTherapyArr, spinnerFreqOfTherapy, Runnable {
+            when (spinnerFreqOfTherapy.selectedItemId) {
+                0L -> mAboutModel.frequencyOfTherapy = FrequencyOfTherapyEnum.DONT_APPEAL
+                3L -> mAboutModel.frequencyOfTherapy = FrequencyOfTherapyEnum.FEW_TIMES_A_MONTH
+                1L -> mAboutModel.frequencyOfTherapy = FrequencyOfTherapyEnum.FEW_TIMES_A_WEEK
+                4L -> mAboutModel.frequencyOfTherapy = FrequencyOfTherapyEnum.LESS_OFTEN
+                2L -> mAboutModel.frequencyOfTherapy = FrequencyOfTherapyEnum.ONE_TIME_A_WEEK
+            }
+        })
 
         initOnClicks()
 
         initOnTextChange()
     }
 
-    private fun initSpinner(data: List<String>, spinner: Spinner) {
+    private fun initSpinner(data: List<String>, spinner: Spinner, runnable: Runnable) {
         val adapter1 = ArrayAdapter<String>(activity, android.R.layout.simple_spinner_item)
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         adapter1.clear()
@@ -151,6 +180,7 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
             }
 
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                runnable.run()
                 checkIsReadyToSave()
             }
         }
