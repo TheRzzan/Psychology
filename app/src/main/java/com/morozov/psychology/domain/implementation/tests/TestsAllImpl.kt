@@ -70,15 +70,15 @@ class TestsAllImpl: DescriptionLoader, QuestionsLoader, ResultsLoader, ResultSav
         return getTestByName(testName)!!.questions
     }
 
-    override fun getAllResults(testName: String): List<ResultModel> {
-        return getTestByName(testName)!!.results
+    override fun getAllResults(testName: String): Pair<String, List<ResultModel>> {
+        return Pair(getTestByName(testName)!!.name, getTestByName(testName)!!.results)
     }
 
-    override fun getLastResult(testName: String): ResultModel? {
+    override fun getLastResult(testName: String): Pair<String, ResultModel?> {
         if (getTestByName(testName)!!.results.isEmpty())
-            return null
+            return Pair(getTestByName(testName)!!.name, null)
         else
-            return getTestByName(testName)!!.results[getTestByName(testName)!!.results.size - 1]
+            return Pair(getTestByName(testName)!!.name, getTestByName(testName)!!.results[getTestByName(testName)!!.results.size - 1])
     }
 
     override fun saveResult(testName: String, result: ResultModel) {

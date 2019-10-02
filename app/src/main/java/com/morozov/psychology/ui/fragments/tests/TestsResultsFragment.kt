@@ -69,7 +69,7 @@ class TestsResultsFragment: MvpAppCompatFragment(), TestsResultsView {
         val bundle = this.arguments ?: return listOf()
         val name = bundle.getString(AppConstants.TEST_NAME) ?: return listOf()
 
-        return resultsLoader.getLastResult(name)!!.items
+        return resultsLoader.getLastResult(name).second!!.items
     }
 
     /*

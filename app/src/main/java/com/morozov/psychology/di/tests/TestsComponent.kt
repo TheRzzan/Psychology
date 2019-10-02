@@ -1,5 +1,6 @@
 package com.morozov.psychology.di.tests
 
+import com.morozov.psychology.mvp.presenters.tests.TestsAllResultsCardsPresenter
 import com.morozov.psychology.mvp.presenters.tests.TestsDescriptionPresenter
 import com.morozov.psychology.mvp.presenters.tests.TestsQuizPresenter
 import com.morozov.psychology.ui.fragments.tests.TestsAllResultsCardsFragment
@@ -16,4 +17,6 @@ interface TestsComponent {
     fun inject(fragment: TestsResultsFragment)
 
     fun inject(fragment: TestsAllResultsCardsFragment)
+
+    fun inject(presenter: TestsAllResultsCardsPresenter)
 }

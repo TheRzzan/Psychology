@@ -43,27 +43,23 @@ class TestsAllResultsCardsFragment: MvpAppCompatFragment(), TestsAllResultsCards
         adapter = TstAllResultsAdapter()
         recyclerAllTestsResultsDays.layoutManager = LinearLayoutManager(context)
         recyclerAllTestsResultsDays.adapter = adapter
-        adapter.setData(getData())
     }
 
-    private fun getData(): List<Pair<String, List<Pair<String, String>>>> {
-        val bundle = this.arguments ?: return listOf()
-        val name = bundle.getString(AppConstants.TEST_NAME) ?: return listOf()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
-        val allResults = resultsLoader.getAllResults(name)
-        var listTmp = mutableListOf<Pair<String, List<Pair<String, String>>>>()
+        val bundle = this.arguments ?: return
+        val name = bundle.getString(AppConstants.TEST_NAME) ?: return
 
-        val dayMtYrFormat = SimpleDateFormat("dd.MM.yyyy")
-
-        for (item in allResults) {
-            listTmp.add(Pair(dayMtYrFormat.format(item.date), item.items))
-        }
-
-        return listTmp
+        mPresenter.loadData(name)
     }
 
     /*
     * TestsAllResultsCardsView implementation
     *
     * */
+    override fun showData(name: String, data: List<Pair<String, List<Pair<String, String>>>>) {
+        textAllResultsTestName.text = name
+        adapter.setData(data)
+    }
 }
