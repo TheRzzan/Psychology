@@ -33,12 +33,15 @@ class TestsResultsFragment: MvpAppCompatFragment(), TestsResultsView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val bundle = this.arguments ?: return
+        val name = bundle.getString(AppConstants.TEST_NAME) ?: return
+
         adapter = TstResultsAdapter()
         recyclerTestQuiz.layoutManager = LinearLayoutManager(context)
         recyclerTestQuiz.adapter = adapter
 
         buttonNextQuiz.setOnClickListener {
-            mPresenter.showNextQuiz()
+            mPresenter.showNextQuiz(name)
         }
 
         buttonChoseAnotherQuiz.setOnClickListener {

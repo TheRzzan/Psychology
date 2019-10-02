@@ -8,7 +8,6 @@ import com.morozov.psychology.mvp.models.tests.QuestionModel
 import com.morozov.psychology.mvp.models.tests.ResultModel
 import com.morozov.psychology.mvp.models.tests.TestModel
 import com.morozov.psychology.utility.AppConstants
-import java.util.*
 
 class TestsAllImpl: DescriptionLoader, QuestionsLoader, ResultsLoader, ResultSaver {
 
@@ -66,6 +65,10 @@ class TestsAllImpl: DescriptionLoader, QuestionsLoader, ResultsLoader, ResultSav
         return Pair(getTestByName(testName)!!.name, getTestByName(testName)!!.description)
     }
 
+    override fun nextTest(testName: String): String? {
+        return getNextTestByName(testName)
+    }
+
     override fun getQuestions(testName: String): List<QuestionModel> {
         return getTestByName(testName)!!.questions
     }
@@ -97,6 +100,16 @@ class TestsAllImpl: DescriptionLoader, QuestionsLoader, ResultsLoader, ResultSav
         AppConstants.SELF_ATTITUDE_TEST -> testsList[6]
         AppConstants.STYLE_INDEX_TEST -> testsList[5]
         AppConstants.INTEGRATIVE_TEST -> testsList[3]
+        else -> null
+    }
+
+    private fun getNextTestByName(testName: String): String? = when (testName) {
+        AppConstants.WEISMAN_BACK_TEST -> AppConstants.ELLIS_TEST
+        AppConstants.ELLIS_TEST -> AppConstants.HOSPITAL_SCALE_TEST
+        AppConstants.HOSPITAL_SCALE_TEST -> AppConstants.INTEGRATIVE_TEST
+        AppConstants.LAZARUS_QUESTIONNAIRE_TEST -> AppConstants.STYLE_INDEX_TEST
+        AppConstants.STYLE_INDEX_TEST -> AppConstants.SELF_ATTITUDE_TEST
+        AppConstants.INTEGRATIVE_TEST -> AppConstants.LAZARUS_QUESTIONNAIRE_TEST
         else -> null
     }
 }
