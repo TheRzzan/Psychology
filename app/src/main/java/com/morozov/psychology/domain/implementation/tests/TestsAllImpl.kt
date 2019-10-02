@@ -11,7 +11,7 @@ class TestsAllImpl: DescriptionLoader, QuestionsLoader, ResultsLoader, ResultSav
 
     companion object {
         var testsList: MutableList<TestModel> = mutableListOf()
-        lateinit var aboutModel: AboutModel
+        var aboutModel: AboutModel? = null
     }
 
     init {
