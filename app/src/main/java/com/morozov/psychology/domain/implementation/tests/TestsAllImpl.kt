@@ -1,18 +1,17 @@
 package com.morozov.psychology.domain.implementation.tests
 
-import com.morozov.psychology.domain.interfaces.tests.DescriptionLoader
-import com.morozov.psychology.domain.interfaces.tests.QuestionsLoader
-import com.morozov.psychology.domain.interfaces.tests.ResultSaver
-import com.morozov.psychology.domain.interfaces.tests.ResultsLoader
+import com.morozov.psychology.domain.interfaces.tests.*
 import com.morozov.psychology.mvp.models.tests.QuestionModel
 import com.morozov.psychology.mvp.models.tests.ResultModel
 import com.morozov.psychology.mvp.models.tests.TestModel
+import com.morozov.psychology.mvp.models.tests.about.AboutModel
 import com.morozov.psychology.utility.AppConstants
 
-class TestsAllImpl: DescriptionLoader, QuestionsLoader, ResultsLoader, ResultSaver {
+class TestsAllImpl: DescriptionLoader, QuestionsLoader, ResultsLoader, ResultSaver, AboutLoader, AboutSaver {
 
     companion object {
         var testsList: MutableList<TestModel> = mutableListOf()
+        lateinit var aboutModel: AboutModel
     }
 
     init {
@@ -86,6 +85,14 @@ class TestsAllImpl: DescriptionLoader, QuestionsLoader, ResultsLoader, ResultSav
 
     override fun saveResult(testName: String, result: ResultModel) {
         getTestByName(testName)!!.results.add(result)
+    }
+
+    override fun getAboutModel(): AboutModel? {
+        return aboutModel
+    }
+
+    override fun saveAboutModel(about: AboutModel) {
+        aboutModel = about
     }
 
     /*

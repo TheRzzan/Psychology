@@ -1,10 +1,7 @@
 package com.morozov.psychology.di.tests
 
 import com.morozov.psychology.domain.implementation.tests.TestsAllImpl
-import com.morozov.psychology.domain.interfaces.tests.DescriptionLoader
-import com.morozov.psychology.domain.interfaces.tests.QuestionsLoader
-import com.morozov.psychology.domain.interfaces.tests.ResultSaver
-import com.morozov.psychology.domain.interfaces.tests.ResultsLoader
+import com.morozov.psychology.domain.interfaces.tests.*
 import dagger.Module
 import dagger.Provides
 
@@ -22,4 +19,10 @@ class TestsModule {
 
     @Provides
     fun resultsLoader(): ResultsLoader = TestsAllImpl()
+
+    @Provides
+    fun aboutLoader(): AboutLoader = TestsAllImpl()
+
+    @Provides
+    fun aboutSaver(): AboutSaver = TestsAllImpl()
 }
