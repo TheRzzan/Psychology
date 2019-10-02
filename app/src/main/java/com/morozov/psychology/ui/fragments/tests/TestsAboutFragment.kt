@@ -170,6 +170,12 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
                 4L -> mAboutModel.frequencyOfTherapy = FrequencyOfTherapyEnum.LESS_OFTEN
                 2L -> mAboutModel.frequencyOfTherapy = FrequencyOfTherapyEnum.ONE_TIME_A_WEEK
             }
+
+            if (mAboutModel.frequencyOfTherapy == FrequencyOfTherapyEnum.DONT_APPEAL) {
+                buttonNo.callOnClick()
+            } else {
+                buttonYes.callOnClick()
+            }
         })
 
         initOnClicks()
@@ -221,6 +227,9 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
             buttonYes.background = resources.getDrawable(R.drawable.rectangle_edit_text_white)
             buttonNo.background = resources.getDrawable(R.drawable.rectangle_button_white)
 
+            if (spinnerFreqOfTherapy.selectedItemId == 0L)
+                spinnerFreqOfTherapy.setSelection(4)
+
             checkIsReadyToSave()
         }
 
@@ -229,6 +238,8 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
 
             buttonYes.background = resources.getDrawable(R.drawable.rectangle_button_white)
             buttonNo.background = resources.getDrawable(R.drawable.rectangle_edit_text_white)
+
+            spinnerFreqOfTherapy.setSelection(0)
 
             checkIsReadyToSave()
         }
