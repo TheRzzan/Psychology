@@ -41,7 +41,8 @@ class TestsResultsFragment: MvpAppCompatFragment(), TestsResultsView {
         recyclerTestQuiz.adapter = adapter
 
         buttonNextQuiz.setOnClickListener {
-            mPresenter.showNextQuiz(name)
+            val nextTest = mPresenter.descriptionLoader.nextTest(name) ?: return@setOnClickListener
+            showNext(nextTest)
         }
 
         buttonChoseAnotherQuiz.setOnClickListener {
@@ -72,7 +73,7 @@ class TestsResultsFragment: MvpAppCompatFragment(), TestsResultsView {
     }
 
     override fun showNext(testName: String) {
-        mActivityPresenter.showTestQuiz(testName)
+        mActivityPresenter.showTestDescr(testName)
     }
 
     override fun setVisibilityNextButton(b: Boolean) {

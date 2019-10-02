@@ -276,6 +276,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         testsResultsFragment.arguments = bundle
         testsResultsFragment.mActivityPresenter = mPresenter
 
+        clearBackStackForResults()
         setFragment(testsResultsFragment, true)
     }
 

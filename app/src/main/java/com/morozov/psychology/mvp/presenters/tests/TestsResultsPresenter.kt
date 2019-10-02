@@ -29,9 +29,4 @@ class TestsResultsPresenter: MvpPresenter<TestsResultsView>() {
     private fun setShowNext(name: String?) {
         viewState.setVisibilityNextButton(name != null)
     }
-
-    fun showNextQuiz(testName: String) {
-        val nextTest = descriptionLoader.nextTest(testName) ?: return
-        viewState.showNext(nextTest)
-    }
 }
