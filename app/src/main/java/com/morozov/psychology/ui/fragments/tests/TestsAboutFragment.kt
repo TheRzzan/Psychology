@@ -17,6 +17,7 @@ import com.morozov.psychology.mvp.models.tests.about.enums.*
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.tests.TestsAboutPresenter
 import com.morozov.psychology.mvp.views.tests.TestsAboutView
+import kotlinx.android.synthetic.main.diary_think_editor_layout.*
 import kotlinx.android.synthetic.main.tests_about_layout.*
 
 class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
@@ -53,9 +54,9 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        mAboutModel = AboutModel(SexEnum.MAN, 0, MaritalStatusEnum.WIDOWER,
-            EducationEnum.SECONDARY_VOCATIONAL, 1, FrequencyOfUseEnum.LESS_OFTEN,
-            true, 1, FrequencyOfTherapyEnum.ONE_TIME_A_WEEK,
+        mAboutModel = AboutModel(null, null, null,
+            null, null, null,
+            null, null, null,
             null)
 
         mPresenter.loadData()
@@ -117,7 +118,16 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
     *
     * */
     private fun checkIsReadyToSave() {
+        val isReady: Boolean = mAboutModel.sex != null && mAboutModel.age != null &&
+                mAboutModel.maritalStatus != null && mAboutModel.education != null &&
+                mAboutModel.timeOfUse != null && mAboutModel.frequencyOfUse != null &&
+                mAboutModel.isVisitTherapy != null
 
+        when(isReady) {
+            true -> buttonTestsAboutSave.setBackgroundResource(R.drawable.rectangle_button)
+            false -> buttonTestsAboutSave.setBackgroundResource(R.drawable.rectangle_button_disable)
+        }
+        buttonTestsAboutSave.isEnabled = isReady
     }
 
     private fun getAboutModel(): AboutModel {
@@ -238,7 +248,11 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
                 if (s != null) {
                     if (s.isNotEmpty())
                         mAboutModel.age = s.toString().toInt()
-                }
+                    else
+                        mAboutModel.age = null
+                } else
+                    mAboutModel.age = null
+
                 checkIsReadyToSave()
             }
         })
@@ -256,7 +270,11 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
                 if (s != null) {
                     if (s.isNotEmpty())
                         mAboutModel.timeOfUse = s.toString().toInt()
-                }
+                    else
+                        mAboutModel.timeOfUse = null
+                }else
+                    mAboutModel.timeOfUse = null
+
                 checkIsReadyToSave()
             }
         })
