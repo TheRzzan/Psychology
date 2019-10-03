@@ -342,7 +342,8 @@
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
                     android:ems="10"
                     style="@style/EditTextStyle"
-                    android:background="@drawable/rectangle_edit_text_white" android:id="@+id/editClarification"/>
+                    android:background="@drawable/rectangle_edit_text_white"
+                    android:id="@+id/editClarification"/>
 
             <Button
                     android:id="@+id/buttonTestsAboutSave"

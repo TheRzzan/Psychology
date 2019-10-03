@@ -126,8 +126,17 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
 
         if (!checkNo.isChecked) {
             val medicines = mAboutModel.medicines
-            if (medicines != null)
-                isReady = isReady && medicines.first.isNotEmpty()
+            if (medicines == null)
+                isReady = false
+            else{
+                if (medicines.first.isEmpty())
+                    isReady = false
+
+                if (checkAnother.isChecked) {
+                    if (medicines.second[0].isEmpty())
+                        isReady = false
+                }
+            }
         }
 
         when(isReady) {
@@ -298,26 +307,50 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
                 checkIsReadyToSave()
             }
         })
+
+        editClarification.addTextChangedListener(object : TextWatcher{
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (s != null) {
+                    if (s.isNotEmpty())
+                        mAboutModel.medicines?.second?.set(0, s.toString())
+                    else
+                        mAboutModel.medicines?.second?.set(0, "")
+                }else
+                    mAboutModel.medicines?.second?.set(0, "")
+
+                checkIsReadyToSave()
+            }
+        })
     }
 
     private fun initOnCheckSelect() {
-        checkNo.setOnCheckedChangeListener { buttonView, isChecked ->
+        checkNo.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                mAboutModel.medicines = null
                 checkAnt.isChecked = false
                 checkTrank.isChecked = false
                 checkNeiro.isChecked = false
                 checkNormo.isChecked = false
                 checkAnother.isChecked = false
-            }
+
+                mAboutModel.medicines = null
+            } else
+                mAboutModel.medicines = Pair(mutableListOf(), mutableListOf(""))
 
             checkIsReadyToSave()
         }
 
         checkAnt.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                mAboutModel.medicines?.first?.add(MedicinesEnum.ANTIDEPRESSANTS)
                 checkNo.isChecked = false
+                mAboutModel.medicines?.first?.add(MedicinesEnum.ANTIDEPRESSANTS)
             } else
                 mAboutModel.medicines?.first?.remove(MedicinesEnum.ANTIDEPRESSANTS)
 
@@ -326,8 +359,8 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
 
         checkTrank.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                mAboutModel.medicines?.first?.add(MedicinesEnum.TRANQUILIZERS)
                 checkNo.isChecked = false
+                mAboutModel.medicines?.first?.add(MedicinesEnum.TRANQUILIZERS)
             } else
                 mAboutModel.medicines?.first?.remove(MedicinesEnum.TRANQUILIZERS)
 
@@ -336,8 +369,8 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
 
         checkNeiro.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                mAboutModel.medicines?.first?.add(MedicinesEnum.ANTIPSYCHOTICS)
                 checkNo.isChecked = false
+                mAboutModel.medicines?.first?.add(MedicinesEnum.ANTIPSYCHOTICS)
             }else
                 mAboutModel.medicines?.first?.remove(MedicinesEnum.ANTIPSYCHOTICS)
 
@@ -346,8 +379,8 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
 
         checkNormo.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                mAboutModel.medicines?.first?.add(MedicinesEnum.NORMOTIMICS)
                 checkNo.isChecked = false
+                mAboutModel.medicines?.first?.add(MedicinesEnum.NORMOTIMICS)
             } else
                 mAboutModel.medicines?.first?.remove(MedicinesEnum.NORMOTIMICS)
 
@@ -356,9 +389,9 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
 
         checkAnother.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
+                checkNo.isChecked = false
                 mAboutModel.medicines?.second?.add(0, "")
                 editClarification.visibility = View.VISIBLE
-                checkNo.isChecked = false
             } else {
                 mAboutModel.medicines?.second?.removeAt(0)
                 editClarification.visibility = View.GONE
