@@ -32,10 +32,10 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
     * Spinner data
     *
     * */
-    private val maritalStatusArr = listOf("холост", "в браке", "разведен", "вдовец")
-    private val educationArr = listOf("начальное", "среднее", "среднее профессиональное", "высшее профессиональное", "другое")
-    private val freqOfUseArr = listOf("ежедневно", "1 или несколько раз в неделю", "1 или несколько раз в месяц", "реже")
-    private val freqOfTherapyArr = listOf("не обращаюсь", "несколько раз в неделю", "1 раз в неделю", "2-3 раза в месяц", "реже")
+    private val maritalStatusArr = listOf("Холост", "В браке", "Разведен", "Вдовец")
+    private val educationArr = listOf("Начальное", "Среднее", "Среднее профессиональное", "Высшее профессиональное", "Другое")
+    private val freqOfUseArr = listOf("Ежедневно", "1 или несколько раз в неделю", "1 или несколько раз в месяц", "Реже")
+    private val freqOfTherapyArr = listOf("Не обращаюсь", "Несколько раз в неделю", "1 раз в неделю", "2-3 раза в месяц", "Реже")
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.tests_about_layout, container, false)
@@ -84,8 +84,8 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
         mAboutModel.medicines = Pair(tmpMedicines1, mutableListOf(tmpStr))
 
         when (about.sex) {
-            SexEnum.MAN -> buttonTestsAboutManSex.background = resources.getDrawable(R.drawable.rectangle_edit_text_white)
-            SexEnum.WOMAN ->buttonTestsAboutWomanSex.background = resources.getDrawable(R.drawable.rectangle_edit_text_white)
+            SexEnum.MAN -> buttonTestsAboutManSex.background = resources.getDrawable(R.drawable.rectangle_edit_text_with_shadow)
+            SexEnum.WOMAN ->buttonTestsAboutWomanSex.background = resources.getDrawable(R.drawable.rectangle_edit_text_with_shadow)
         }
 
         when (about.isVisitTherapy) {
@@ -266,7 +266,7 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
     }
 
     private fun initSpinner(data: List<String>, spinner: Spinner, runnable: Runnable) {
-        val adapter1 = ArrayAdapter<String>(activity, android.R.layout.simple_spinner_item)
+        val adapter1 = ArrayAdapter<String>(activity, R.layout.custom_spinner_item)
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         adapter1.clear()
         adapter1.addAll(data)
@@ -404,7 +404,19 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
 
         editMonthOfTherapy.addTextChangedListener(object : TextWatcher{
             override fun afterTextChanged(s: Editable?) {
+                var sStr = s.toString()
+                val length = sStr.length
 
+                if(length == 2) {
+                    if(sStr[0] == '0') {
+                        s?.delete(0, 1)
+                    }
+                } else if(length == 3) {
+                    if(sStr.toInt() > 100)
+                        s?.delete(length - 1, length)
+                } else if (length > 3) {
+                    s?.delete(length - 1, length)
+                }
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
