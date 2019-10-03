@@ -68,7 +68,20 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
     *
     * */
     override fun showAbout(about: AboutModel) {
-        mAboutModel = about
+        mAboutModel = about.copy()
+
+        val tmpMedicines1: MutableList<MedicinesEnum> = mutableListOf()
+        var tmpStr = ""
+        if (about.medicines != null) {
+            for (item in about.medicines!!.first) {
+                tmpMedicines1.add(item)
+            }
+
+            if (about.medicines!!.second.isNotEmpty() && about.medicines!!.second[0].isNotEmpty())
+                tmpStr = about.medicines!!.second[0]
+        }
+
+        mAboutModel.medicines = Pair(tmpMedicines1, mutableListOf(tmpStr))
 
         when (about.sex) {
             SexEnum.MAN -> buttonTestsAboutManSex.background = resources.getDrawable(R.drawable.rectangle_edit_text_white)
@@ -135,7 +148,7 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
                 }
             }
 
-            if (medicines.second.isNotEmpty()) {
+            if (medicines.second.isNotEmpty() && medicines.second[0].isNotEmpty()) {
                 editClarification.setText(medicines.second[0])
                 checkAnother.isChecked = true
             }
