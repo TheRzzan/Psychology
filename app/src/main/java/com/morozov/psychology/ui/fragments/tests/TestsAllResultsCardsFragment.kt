@@ -52,6 +52,11 @@ class TestsAllResultsCardsFragment: MvpAppCompatFragment(), TestsAllResultsCards
     *
     * */
     override fun showData(name: String, data: List<Pair<String, List<Pair<String, String>>>>) {
+        if (data.isEmpty())
+            textAllResultsCardsEmpty.visibility = View.VISIBLE
+        else
+            textAllResultsCardsEmpty.visibility = View.GONE
+
         textAllResultsTestName.text = name
         adapter.setData(data)
     }
