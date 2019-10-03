@@ -337,7 +337,18 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
     private fun initOnTextChange() {
         editAge.addTextChangedListener(object : TextWatcher{
             override fun afterTextChanged(s: Editable?) {
+                val sStr = s.toString()
+                val length = sStr.length
 
+                if (length == 1) {
+                    if (sStr[0] == '0')
+                        s?.clear()
+                } else if(length == 3) {
+                    if(sStr.toInt() > 120)
+                        s?.delete(length - 1, length)
+                } else if (length > 3) {
+                    s?.delete(length - 1, length)
+                }
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -359,7 +370,18 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
 
         editMonthOfUse.addTextChangedListener(object : TextWatcher{
             override fun afterTextChanged(s: Editable?) {
+                val sStr = s.toString()
+                val length = sStr.length
 
+                if (length == 1) {
+                    if (sStr[0] == '0')
+                        s?.clear()
+                } else if(length == 3) {
+                    if(sStr.toInt() > 100)
+                        s?.delete(length - 1, length)
+                } else if (length > 3) {
+                    s?.delete(length - 1, length)
+                }
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
