@@ -7,49 +7,55 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <ScrollView
-            style="@style/ScrollViewStyle">
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <ScrollView
+                android:layout_alignParentTop="true"
+                android:layout_above="@+id/buttonNextQuiz"
+                style="@style/ScrollViewStyle">
 
-        <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            <TextView
-                    style="@style/TextView.Primary"
-                    android:text="Результат"
-                    android:textColor="@color/header_text"
-                    android:layout_marginBottom="31dp"
-                    android:layout_marginStart="@dimen/activity_horizontal_margin"
-                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:id="@+id/textResultName"/>
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <TextView
+                        style="@style/TextView.Primary"
+                        android:text="Результат"
+                        android:textColor="@color/header_text"
+                        android:layout_marginBottom="31dp"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                        android:id="@+id/textResultName"/>
 
-            <android.support.v7.widget.RecyclerView
-                    android:id="@+id/recyclerTestQuiz"
-                    style="@style/RecyclerViewStyle"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"
-                    android:layout_marginStart="@dimen/activity_horizontal_margin"
-                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:layout_below="@+id/textResultName"/>
+                <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclerTestQuiz"
+                        style="@style/RecyclerViewStyle"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                        android:layout_below="@+id/textResultName"/>
+            </RelativeLayout>
+        </ScrollView>
 
-            <Button
-                    android:text="Следующий тест"
-                    style="@style/TextView.Button"
-                    android:background="@drawable/rectangle_button"
-                    android:id="@+id/buttonNextQuiz"
-                    android:layout_below="@+id/recyclerTestQuiz"/>
+        <Button
+                android:text="Следующий тест"
+                style="@style/TextView.Button"
+                android:background="@drawable/rectangle_button"
+                android:id="@+id/buttonNextQuiz"
+                android:layout_above="@+id/buttonChoseAnotherQuiz"/>
 
-            <Button
-                    android:text="Выбрать тест"
-                    style="@style/TextView.Button"
-                    android:background="@drawable/rectangle_button"
-                    android:id="@+id/buttonChoseAnotherQuiz"
-                    android:layout_below="@+id/buttonNextQuiz"/>
+        <Button
+                android:text="Выбрать тест"
+                style="@style/TextView.Button"
+                android:background="@drawable/rectangle_button"
+                android:id="@+id/buttonChoseAnotherQuiz"
+                android:layout_above="@+id/buttonDiary"/>
 
-            <Button
-                    android:text="Дневник мыслей"
-                    style="@style/TextView.Button"
-                    android:background="@drawable/rectangle_button"
-                    android:id="@+id/buttonDiary"
-                    android:layout_below="@+id/buttonChoseAnotherQuiz"/>
-        </RelativeLayout>
-    </ScrollView>
+        <Button
+                android:text="Дневник мыслей"
+                style="@style/TextView.Button"
+                android:background="@drawable/rectangle_button"
+                android:id="@+id/buttonDiary"
+                android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
 </LinearLayout>
