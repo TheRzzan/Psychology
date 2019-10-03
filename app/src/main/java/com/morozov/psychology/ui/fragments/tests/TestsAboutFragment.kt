@@ -112,6 +112,32 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
             FrequencyOfTherapyEnum.LESS_OFTEN -> spinnerFreqOfTherapy.setSelection(4)
             FrequencyOfTherapyEnum.ONE_TIME_A_WEEK -> spinnerFreqOfTherapy.setSelection(2)
         }
+
+        val medicines = about.medicines
+        if (medicines != null) {
+            if (medicines.first.isNotEmpty()) {
+                val tmpMedicines: MutableList<MedicinesEnum> = mutableListOf()
+
+                for (item in medicines.first) {
+                    tmpMedicines.add(item)
+                }
+
+                for (item in tmpMedicines) {
+                    when (item) {
+                        MedicinesEnum.NORMOTIMICS -> checkNormo.isChecked = true
+                        MedicinesEnum.ANTIPSYCHOTICS -> checkNeiro.isChecked = true
+                        MedicinesEnum.TRANQUILIZERS -> checkTrank.isChecked = true
+                        MedicinesEnum.ANTIDEPRESSANTS -> checkAnt.isChecked = true
+                    }
+                }
+            }
+
+            if (medicines.second.isNotEmpty()) {
+                editClarification.setText(medicines.second[0])
+                checkAnother.isChecked = true
+            }
+        } else
+            checkNo.isChecked = true
     }
 
     /*
@@ -129,13 +155,11 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
             if (medicines == null)
                 isReady = false
             else{
-                if (medicines.first.isEmpty())
-                    isReady = false
-
                 if (checkAnother.isChecked) {
-                    if (medicines.second[0].isEmpty())
+                    if (editClarification.text.isEmpty())
                         isReady = false
-                }
+                } else if (medicines.first.isEmpty())
+                    isReady = false
             }
         }
 
@@ -147,6 +171,26 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
     }
 
     private fun getAboutModel(): AboutModel {
+        if (checkNo.isChecked)
+            mAboutModel.medicines = null
+        else {
+            val tmpList = mutableListOf<MedicinesEnum>()
+            if (checkNormo.isChecked)
+                tmpList.add(MedicinesEnum.NORMOTIMICS)
+            if (checkAnt.isChecked)
+                tmpList.add(MedicinesEnum.ANTIDEPRESSANTS)
+            if (checkTrank.isChecked)
+                tmpList.add(MedicinesEnum.TRANQUILIZERS)
+            if (checkNeiro.isChecked)
+                tmpList.add(MedicinesEnum.ANTIPSYCHOTICS)
+
+            var s = ""
+            if (checkAnother.isChecked)
+                s = editClarification.text.toString()
+
+            mAboutModel.medicines = Pair(tmpList, mutableListOf(s))
+        }
+
         return mAboutModel
     }
 
@@ -318,14 +362,6 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (s != null) {
-                    if (s.isNotEmpty())
-                        mAboutModel.medicines?.second?.set(0, s.toString())
-                    else
-                        mAboutModel.medicines?.second?.set(0, "")
-                }else
-                    mAboutModel.medicines?.second?.set(0, "")
-
                 checkIsReadyToSave()
             }
         })
@@ -350,6 +386,7 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
         checkAnt.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 checkNo.isChecked = false
+                mAboutModel.medicines?.first?.remove(MedicinesEnum.ANTIDEPRESSANTS)
                 mAboutModel.medicines?.first?.add(MedicinesEnum.ANTIDEPRESSANTS)
             } else
                 mAboutModel.medicines?.first?.remove(MedicinesEnum.ANTIDEPRESSANTS)
@@ -360,6 +397,7 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
         checkTrank.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 checkNo.isChecked = false
+                mAboutModel.medicines?.first?.remove(MedicinesEnum.TRANQUILIZERS)
                 mAboutModel.medicines?.first?.add(MedicinesEnum.TRANQUILIZERS)
             } else
                 mAboutModel.medicines?.first?.remove(MedicinesEnum.TRANQUILIZERS)
@@ -370,6 +408,7 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
         checkNeiro.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 checkNo.isChecked = false
+                mAboutModel.medicines?.first?.remove(MedicinesEnum.ANTIPSYCHOTICS)
                 mAboutModel.medicines?.first?.add(MedicinesEnum.ANTIPSYCHOTICS)
             }else
                 mAboutModel.medicines?.first?.remove(MedicinesEnum.ANTIPSYCHOTICS)
@@ -380,6 +419,7 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
         checkNormo.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 checkNo.isChecked = false
+                mAboutModel.medicines?.first?.remove(MedicinesEnum.NORMOTIMICS)
                 mAboutModel.medicines?.first?.add(MedicinesEnum.NORMOTIMICS)
             } else
                 mAboutModel.medicines?.first?.remove(MedicinesEnum.NORMOTIMICS)
@@ -390,10 +430,8 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
         checkAnother.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 checkNo.isChecked = false
-                mAboutModel.medicines?.second?.add(0, "")
                 editClarification.visibility = View.VISIBLE
             } else {
-                mAboutModel.medicines?.second?.removeAt(0)
                 editClarification.visibility = View.GONE
             }
 
