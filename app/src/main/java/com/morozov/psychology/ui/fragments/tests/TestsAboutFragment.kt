@@ -370,12 +370,13 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
 
         editMonthOfUse.addTextChangedListener(object : TextWatcher{
             override fun afterTextChanged(s: Editable?) {
-                val sStr = s.toString()
+                var sStr = s.toString()
                 val length = sStr.length
 
-                if (length == 1) {
-                    if (sStr[0] == '0')
-                        s?.clear()
+                if(length == 2) {
+                    if(sStr[0] == '0') {
+                        s?.delete(0, 1)
+                    }
                 } else if(length == 3) {
                     if(sStr.toInt() > 100)
                         s?.delete(length - 1, length)
