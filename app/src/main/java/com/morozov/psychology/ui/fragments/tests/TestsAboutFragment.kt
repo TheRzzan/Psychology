@@ -288,7 +288,7 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
         buttonTestsAboutManSex.setOnClickListener {
             mAboutModel.sex = SexEnum.MAN
 
-            buttonTestsAboutManSex.background = resources.getDrawable(R.drawable.rectangle_edit_text_white)
+            buttonTestsAboutManSex.background = resources.getDrawable(R.drawable.rectangle_edit_text_with_shadow)
             buttonTestsAboutWomanSex.background = resources.getDrawable(R.drawable.rectangle_button_white)
 
             checkIsReadyToSave()
@@ -298,7 +298,7 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
             mAboutModel.sex = SexEnum.WOMAN
 
             buttonTestsAboutManSex.background = resources.getDrawable(R.drawable.rectangle_button_white)
-            buttonTestsAboutWomanSex.background = resources.getDrawable(R.drawable.rectangle_edit_text_white)
+            buttonTestsAboutWomanSex.background = resources.getDrawable(R.drawable.rectangle_edit_text_with_shadow)
 
             checkIsReadyToSave()
         }
@@ -306,7 +306,7 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
         buttonYes.setOnClickListener {
             mAboutModel.isVisitTherapy = true
 
-            buttonYes.background = resources.getDrawable(R.drawable.rectangle_edit_text_white)
+            buttonYes.background = resources.getDrawable(R.drawable.rectangle_edit_text_with_shadow)
             buttonNo.background = resources.getDrawable(R.drawable.rectangle_button_white)
 
             if (spinnerFreqOfTherapy.selectedItemId == 0L)
@@ -322,7 +322,7 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
             mAboutModel.isVisitTherapy = false
 
             buttonYes.background = resources.getDrawable(R.drawable.rectangle_button_white)
-            buttonNo.background = resources.getDrawable(R.drawable.rectangle_edit_text_white)
+            buttonNo.background = resources.getDrawable(R.drawable.rectangle_edit_text_with_shadow)
 
             spinnerFreqOfTherapy.setSelection(0)
 

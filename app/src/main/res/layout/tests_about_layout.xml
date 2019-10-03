@@ -94,11 +94,14 @@
                     android:layout_height="wrap_content">
 
                 <EditText
+                        android:paddingLeft="@dimen/activity_horizontal_margin"
+                        android:paddingRight="@dimen/activity_horizontal_margin"
+                        style="@style/EditTextStyle"
                         android:textColor="@color/grey_color"
                         android:textSize="17sp"
                         android:layout_width="74dp"
                         android:layout_height="43dp"
-                        android:background="@drawable/rectangle_edit_text_white"
+                        android:background="@drawable/rectangle_edit_text_with_shadow"
                         android:inputType="number"
                         android:ems="3"
                         android:id="@+id/editAge"/>
@@ -169,11 +172,14 @@
                     android:layout_height="wrap_content">
 
                 <EditText
+                        android:paddingLeft="@dimen/activity_horizontal_margin"
+                        android:paddingRight="@dimen/activity_horizontal_margin"
+                        style="@style/EditTextStyle"
                         android:textColor="@color/grey_color"
                         android:textSize="17sp"
                         android:layout_width="74dp"
                         android:layout_height="43dp"
-                        android:background="@drawable/rectangle_edit_text_white"
+                        android:background="@drawable/rectangle_edit_text_with_shadow"
                         android:inputType="number"
                         android:ems="3" android:id="@+id/editMonthOfUse"/>
 
@@ -268,11 +274,14 @@
                     android:layout_height="wrap_content">
 
                 <EditText
+                        android:paddingLeft="@dimen/activity_horizontal_margin"
+                        android:paddingRight="@dimen/activity_horizontal_margin"
+                        style="@style/EditTextStyle"
                         android:textColor="@color/grey_color"
                         android:textSize="17sp"
                         android:layout_width="74dp"
                         android:layout_height="43dp"
-                        android:background="@drawable/rectangle_edit_text_white"
+                        android:background="@drawable/rectangle_edit_text_with_shadow"
                         android:inputType="number"
                         android:ems="3" android:id="@+id/editMonthOfTherapy"/>
 
@@ -378,7 +387,7 @@
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
                     android:ems="10"
                     style="@style/EditTextStyle"
-                    android:background="@drawable/rectangle_edit_text_white"
+                    android:background="@drawable/rectangle_long_edit_text_with_shadow"
                     android:id="@+id/editClarification"/>
 
             <Button
