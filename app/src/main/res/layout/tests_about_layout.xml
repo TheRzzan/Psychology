@@ -249,6 +249,42 @@
             </LinearLayout>
 
             <TextView
+                    android:id="@+id/textTherapyMonths"
+                    android:text="Сколько месяцев вы занимаетесь с психологом или психотерапевтом?"
+                    android:textStyle="bold"
+                    style="@style/TextView.Secondary"
+                    android:textColor="@color/second_header_text"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+
+            <LinearLayout
+                    android:id="@+id/linearTherapyMonths"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                <EditText
+                        android:textColor="@color/grey_color"
+                        android:textSize="17sp"
+                        android:layout_width="74dp"
+                        android:layout_height="43dp"
+                        android:background="@drawable/rectangle_edit_text_white"
+                        android:inputType="number"
+                        android:ems="3" android:id="@+id/editMonthOfTherapy"/>
+
+                <TextView
+                        android:text="Месяцев"
+                        android:textStyle="bold"
+                        style="@style/TextView.Secondary"
+                        android:textColor="@color/second_header_text"
+                        android:layout_marginStart="8dp"/>
+            </LinearLayout>
+
+            <TextView
                     android:text="Насколько часто вы получаете консультации у специалиста?"
                     android:textStyle="bold"
                     style="@style/TextView.Secondary"

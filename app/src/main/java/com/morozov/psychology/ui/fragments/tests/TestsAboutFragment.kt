@@ -76,7 +76,10 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
         }
 
         when (about.isVisitTherapy) {
-            true -> buttonYes.background = resources.getDrawable(R.drawable.rectangle_edit_text_white)
+            true -> {
+                buttonYes.background = resources.getDrawable(R.drawable.rectangle_edit_text_white)
+                editMonthOfTherapy.setText(about.timeOfPsychologistVisit.toString())
+            }
             false ->buttonNo.background = resources.getDrawable(R.drawable.rectangle_edit_text_white)
         }
 
@@ -149,6 +152,10 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
                 mAboutModel.maritalStatus != null && mAboutModel.education != null &&
                 mAboutModel.timeOfUse != null && mAboutModel.frequencyOfUse != null &&
                 mAboutModel.isVisitTherapy != null
+
+        if (mAboutModel.isVisitTherapy == true)
+            if (mAboutModel.timeOfPsychologistVisit == null)
+                isReady = false
 
         if (!checkNo.isChecked) {
             val medicines = mAboutModel.medicines
@@ -292,6 +299,9 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
             if (spinnerFreqOfTherapy.selectedItemId == 0L)
                 spinnerFreqOfTherapy.setSelection(4)
 
+            textTherapyMonths.visibility = View.VISIBLE
+            linearTherapyMonths.visibility = View.VISIBLE
+
             checkIsReadyToSave()
         }
 
@@ -302,6 +312,10 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
             buttonNo.background = resources.getDrawable(R.drawable.rectangle_edit_text_white)
 
             spinnerFreqOfTherapy.setSelection(0)
+
+            textTherapyMonths.visibility = View.GONE
+            linearTherapyMonths.visibility = View.GONE
+            editMonthOfTherapy.text.clear()
 
             checkIsReadyToSave()
         }
@@ -347,6 +361,28 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
                         mAboutModel.timeOfUse = null
                 }else
                     mAboutModel.timeOfUse = null
+
+                checkIsReadyToSave()
+            }
+        })
+
+        editMonthOfTherapy.addTextChangedListener(object : TextWatcher{
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (s != null) {
+                    if (s.isNotEmpty())
+                        mAboutModel.timeOfPsychologistVisit = s.toString().toInt()
+                    else
+                        mAboutModel.timeOfPsychologistVisit = null
+                }else
+                    mAboutModel.timeOfPsychologistVisit = null
 
                 checkIsReadyToSave()
             }
@@ -432,6 +468,7 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
                 checkNo.isChecked = false
                 editClarification.visibility = View.VISIBLE
             } else {
+                editClarification.text.clear()
                 editClarification.visibility = View.GONE
             }
 
