@@ -1,5 +1,6 @@
 package com.morozov.psychology.domain.implementation.tests
 
+import android.content.Context
 import com.morozov.psychology.domain.interfaces.tests.*
 import com.morozov.psychology.mvp.models.tests.QuestionModel
 import com.morozov.psychology.mvp.models.tests.ResultModel
@@ -7,7 +8,7 @@ import com.morozov.psychology.mvp.models.tests.TestModel
 import com.morozov.psychology.mvp.models.tests.about.AboutModel
 import com.morozov.psychology.utility.AppConstants
 
-class TestsAllImpl: DescriptionLoader, QuestionsLoader, ResultsLoader, ResultSaver, AboutLoader, AboutSaver {
+class TestsAllImpl(private val context: Context): DescriptionLoader, QuestionsLoader, ResultsLoader, ResultSaver, AboutLoader, AboutSaver {
 
     companion object {
         var testsList: MutableList<TestModel> = mutableListOf()
@@ -27,11 +28,11 @@ class TestsAllImpl: DescriptionLoader, QuestionsLoader, ResultsLoader, ResultSav
             val test1 = TestModel("Шкала дисфункциональных отношений Вейсмана – Бека", "Этот  опросник  содержит  ряд  мнений,  позиций  и  принципов,  которых  иногда  придерживаются  люди.  Прочтите,  пожалуйста,  каждый  пункт  внимательно  и  решите  затем,  в  какой  степени  Вы  согласны  или  не  согласны  с  каждым  высказыванием.  \n" +
                     "\n" +
                     "Убедитесь,  что  для  каждого  высказывания  Вы  дали  только  один  ответ.  Поскольку  все  люди  разные,  то  здесь  не  может  быть  правильных  или  неправильных  ответов.  При  принятии  решения  о  том,  верно  ли,  с  Вашей  точки  зрения,  то  или  иное  утверждение,  просто  подумайте  о  том,  какой  Вы  есть  или  как  Вы  думаете  обычно  или  чаще  всего.\n",
-                listOf(questionModel, questionModel, questionModel),
+                loadWeismanBackQuestions(),
                 mutableListOf())
 
             val test2 = TestModel("Тест Эллиса", "У людей бывают разные убеждения. Нас интересует Ваше мнение относительно утверждений, приведенных ниже. Пожалуйста, оцените степень своего согласия с данными утверждениями. Помните, что правильных ответов не существует.",
-                listOf(questionModel, questionModel),
+                loadEllisQuestions(),
                 mutableListOf())
 
             val test3 = TestModel("Госпитальная шкала тревоги и депрессии", "Прочитайте внимательно каждое утверждение, и выберите ответ, который в наибольшей степени соответствует тому, как Вы себя чувствовали на прошлой неделе. Не раздумывайте слишком долго над каждым утверждением. Ваша первая реакция всегда будет более верной.",
@@ -118,5 +119,49 @@ class TestsAllImpl: DescriptionLoader, QuestionsLoader, ResultsLoader, ResultSav
         AppConstants.STYLE_INDEX_TEST -> AppConstants.SELF_ATTITUDE_TEST
         AppConstants.INTEGRATIVE_TEST -> AppConstants.LAZARUS_QUESTIONNAIRE_TEST
         else -> null
+    }
+
+    /*
+    * Tests loader helpers
+    *
+    * */
+    private fun loadWeismanBackQuestions(): List<QuestionModel> {
+        val answers = listOf("Полностью согласен", "В основном согласен",
+            "Скорее согласен", "Трудно определить", "Скорее не согласен", "В  основном  не  согласен",
+            "Полностью  не  согласен")
+
+        val fileName = "tests_weisman_back"
+        val content = context.assets.open(fileName).bufferedReader().use {
+            it.readText()
+        }
+
+        val contentQuestions = content.split(" !END!")
+        val questionList = mutableListOf<QuestionModel>()
+
+        for (item in contentQuestions) {
+            questionList.add(QuestionModel(item, answers))
+        }
+
+        return questionList
+    }
+
+    private fun loadEllisQuestions(): List<QuestionModel> {
+        val answers = listOf("Полностью согласен", "В основном согласен",
+            "Слегка согласен", "Слегка не согласен", "В  основном  не  согласен",
+            "Полностью  не  согласен")
+
+        val fileName = "tests_ellis"
+        val content = context.assets.open(fileName).bufferedReader().use {
+            it.readText()
+        }
+
+        val contentQuestions = content.split(" !END!")
+        val questionList = mutableListOf<QuestionModel>()
+
+        for (item in contentQuestions) {
+            questionList.add(QuestionModel(item, answers))
+        }
+
+        return questionList
     }
 }

@@ -36,7 +36,7 @@ class DefaultApplication: Application() {
 
         testsComponent = DaggerTestsComponent
                             .builder()
-                            .testsModule(TestsModule())
+                            .testsModule(TestsModule(this))
                             .build()
     }
 }
