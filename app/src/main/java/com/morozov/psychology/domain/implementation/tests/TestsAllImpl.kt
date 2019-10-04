@@ -45,7 +45,7 @@ class TestsAllImpl(private val context: Context): DescriptionLoader, QuestionsLo
                 mutableListOf())
 
             val test5 = TestModel("Опросник «Способы совладающего поведения» Лазаруса", "Прочитайте утверждения и определите, насколько часто вы поступаете так, как описано, оказавшись в трудной ситуации.",
-                listOf(questionModel, questionModel, questionModel, questionModel),
+                loadLazarusQuestionnaireQuestions(),
                 mutableListOf())
 
             val test6 = TestModel("Индекс жизненного стиля", "Прочтите следующие утверждения. Эти утверждения описывают чувства,\n" +
@@ -258,6 +258,25 @@ class TestsAllImpl(private val context: Context): DescriptionLoader, QuestionsLo
 
         for (item in contentQuestions) {
             questionList.add(QuestionModel(item, answers2))
+        }
+
+        return questionList
+    }
+
+    private fun loadLazarusQuestionnaireQuestions(): List<QuestionModel> {
+        val answers = listOf("Никогда", "Редко",
+            "Иногда", "Часто")
+
+        val fileName = "tests_lazarus_questionnaire"
+        val content = context.assets.open(fileName).bufferedReader().use {
+            it.readText()
+        }
+
+        val contentQuestions = content.split(" !END!")
+        val questionList = mutableListOf<QuestionModel>()
+
+        for (item in contentQuestions) {
+            questionList.add(QuestionModel(item, answers))
         }
 
         return questionList
