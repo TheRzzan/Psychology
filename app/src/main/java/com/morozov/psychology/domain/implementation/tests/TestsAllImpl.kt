@@ -51,7 +51,7 @@ class TestsAllImpl(private val context: Context): DescriptionLoader, QuestionsLo
             val test6 = TestModel("Индекс жизненного стиля", "Прочтите следующие утверждения. Эти утверждения описывают чувства,\n" +
                     "которые человек ОБЫЧНО испытывает, или действия, которые он ОБЫЧНО\n" +
                     "совершает. Ответьте, соответствует вам утверждение или нет. \n",
-                listOf(questionModel, questionModel, questionModel, questionModel),
+                loadStyleIndexQuestions(),
                 mutableListOf())
 
             val test7 = TestModel("Методика исследования самоотношения", "Вам предлагается перечень суждений, характеризующих отношение человека к себе, к своим поступкам и действиям. Внимательно прочитайте каждое суждение. Если Вы согласны с содержанием суждения, то выберите да, если несогласны - нет. Работайте быстро и внимательно, не пропускайте ни одного суждения. Возможно, что некоторые суждения покажутся вам излишне личными, затрагивающими интимные стороны вашей личности. Постарайтесь определить их соответствие себе как можно искренне. Ваши ответы никому не будут демонстрироваться.",
@@ -268,6 +268,24 @@ class TestsAllImpl(private val context: Context): DescriptionLoader, QuestionsLo
             "Иногда", "Часто")
 
         val fileName = "tests_lazarus_questionnaire"
+        val content = context.assets.open(fileName).bufferedReader().use {
+            it.readText()
+        }
+
+        val contentQuestions = content.split("\n")
+        val questionList = mutableListOf<QuestionModel>()
+
+        for (item in contentQuestions) {
+            questionList.add(QuestionModel(item, answers))
+        }
+
+        return questionList
+    }
+
+    private fun loadStyleIndexQuestions(): List<QuestionModel> {
+        val answers = listOf("Да", "Нет")
+
+        val fileName = "tests_style_index"
         val content = context.assets.open(fileName).bufferedReader().use {
             it.readText()
         }
