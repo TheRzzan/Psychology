@@ -39,8 +39,9 @@ class TestsAllImpl(private val context: Context): DescriptionLoader, QuestionsLo
                 loadHospitalScaleQuestions(),
                 mutableListOf())
 
-            val test4 = TestModel("Интегративный тест тревожности", "Вам будут предложены несколько утверждений, касающихся Вашего эмоционального состояния. В отношении каждого из них нужно решить – насколько данное состояние выражено именно сейчас, в данный момент, сегодня. Выберите степень выраженности.",
-                listOf(questionModel, questionModel, questionModel, questionModel),
+            val test4 = TestModel("Интегративный тест тревожности", "Вам будут предложены несколько утверждений, касающихся Вашего эмоционального состояния. В отношении каждого из них нужно решить – насколько данное состояние выражено именно сейчас, в данный момент, сегодня. Выберите степень выраженности. Далее Вам будут предложены еще несколько утверждений, касающихся Вашего эмоционального состояния. \n" +
+                    "В отношении каждого из них нужно решить – как часто на протяжении последнего года Вы испытывали это. \n",
+                loadIntegrativeQuestions(),
                 mutableListOf())
 
             val test5 = TestModel("Опросник «Способы совладающего поведения» Лазаруса", "Прочитайте утверждения и определите, насколько часто вы поступаете так, как описано, оказавшись в трудной ситуации.",
@@ -232,6 +233,32 @@ class TestsAllImpl(private val context: Context): DescriptionLoader, QuestionsLo
         questionList.add(question12)
         questionList.add(question13)
         questionList.add(question14)
+
+        return questionList
+    }
+
+    private fun loadIntegrativeQuestions(): List<QuestionModel> {
+        val answers1 = listOf("Совсем нет", "Слабо выражено",
+            "Выражено", "Очень выражено")
+
+        val answers2 = listOf("Никогда", "Редко",
+            "Часто", "Почти всё время")
+
+        val fileName = "tests_integrative"
+        val content = context.assets.open(fileName).bufferedReader().use {
+            it.readText()
+        }
+
+        val contentQuestions = content.split(" !END!")
+        val questionList = mutableListOf<QuestionModel>()
+
+        for (item in contentQuestions) {
+            questionList.add(QuestionModel(item, answers1))
+        }
+
+        for (item in contentQuestions) {
+            questionList.add(QuestionModel(item, answers2))
+        }
 
         return questionList
     }
