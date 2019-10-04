@@ -136,7 +136,7 @@ class TestsAllImpl(private val context: Context): DescriptionLoader, QuestionsLo
             it.readText()
         }
 
-        val contentQuestions = content.split(" !END!")
+        val contentQuestions = content.split("\n")
         val questionList = mutableListOf<QuestionModel>()
 
         for (item in contentQuestions) {
@@ -156,7 +156,7 @@ class TestsAllImpl(private val context: Context): DescriptionLoader, QuestionsLo
             it.readText()
         }
 
-        val contentQuestions = content.split(" !END!")
+        val contentQuestions = content.split("\n")
         val questionList = mutableListOf<QuestionModel>()
 
         for (item in contentQuestions) {
@@ -249,7 +249,7 @@ class TestsAllImpl(private val context: Context): DescriptionLoader, QuestionsLo
             it.readText()
         }
 
-        val contentQuestions = content.split(" !END!")
+        val contentQuestions = content.split("\n")
         val questionList = mutableListOf<QuestionModel>()
 
         for (item in contentQuestions) {
@@ -272,7 +272,7 @@ class TestsAllImpl(private val context: Context): DescriptionLoader, QuestionsLo
             it.readText()
         }
 
-        val contentQuestions = content.split(" !END!")
+        val contentQuestions = content.split("\n")
         val questionList = mutableListOf<QuestionModel>()
 
         for (item in contentQuestions) {
