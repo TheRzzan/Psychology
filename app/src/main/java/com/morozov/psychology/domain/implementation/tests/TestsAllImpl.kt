@@ -36,7 +36,7 @@ class TestsAllImpl(private val context: Context): DescriptionLoader, QuestionsLo
                 mutableListOf())
 
             val test3 = TestModel("Госпитальная шкала тревоги и депрессии", "Прочитайте внимательно каждое утверждение, и выберите ответ, который в наибольшей степени соответствует тому, как Вы себя чувствовали на прошлой неделе. Не раздумывайте слишком долго над каждым утверждением. Ваша первая реакция всегда будет более верной.",
-                listOf(questionModel, questionModel, questionModel, questionModel),
+                loadHospitalScaleQuestions(),
                 mutableListOf())
 
             val test4 = TestModel("Интегративный тест тревожности", "Вам будут предложены несколько утверждений, касающихся Вашего эмоционального состояния. В отношении каждого из них нужно решить – насколько данное состояние выражено именно сейчас, в данный момент, сегодня. Выберите степень выраженности.",
@@ -161,6 +161,77 @@ class TestsAllImpl(private val context: Context): DescriptionLoader, QuestionsLo
         for (item in contentQuestions) {
             questionList.add(QuestionModel(item, answers))
         }
+
+        return questionList
+    }
+
+    private fun loadHospitalScaleQuestions(): List<QuestionModel> {
+        val questionList = mutableListOf<QuestionModel>()
+
+        val question1 = QuestionModel("Я напряжен. Мне не по себе.",
+            listOf("все время", "часто", "время от времени, иногда", "совсем не испытываю"))
+
+        val question2 = QuestionModel("То, что приносило мне большое удовольствие, и сейчас вызывает такое же чувство.",
+            listOf( "определенно это так", "наверное, это так",
+                "лишь в очень малой степени это так", "это совсем не так"))
+
+        val question3 = QuestionModel("Мне страшно. Кажется, будто что-то ужасное может вот-вот случиться.",
+            listOf( "определенно это так, и страх очень сильный", "да, это так, но страх не очень сильный",
+                "иногда, но это меня не беспокоит", "совсем не испытываю"))
+
+        val question4 = QuestionModel("Я способен рассмеяться и увидеть в том или ином событии смешное.",
+            listOf( "определенно, это так", "наверное, это так",
+                "лишь в очень малой степени это так", "совсем не способен"))
+
+        val question5 = QuestionModel("Беспокойные мысли крутятся у меня в голове.",
+            listOf( "постоянно", "большую часть времени",
+                "время от времени", "только иногда"))
+
+        val question6 = QuestionModel("Я чувствую себя бодрым.",
+            listOf( "совсем не чувствую", "очень редко", "иногда", "практически все время"))
+
+        val question7 = QuestionModel("Я легко могу сесть и расслабиться.",
+            listOf( "определенно, это так", "наверное, это так", "лишь изредка это так", "совсем не могу"))
+
+        val question8 = QuestionModel("Мне кажется, что я стал все делать очень медленно.",
+            listOf( "практически все время", "часто", "иногда", "совсем нет"))
+
+        val question9 = QuestionModel("Я испытываю внутренне напряжение или дрожь.",
+            listOf( "совсем не испытываю", "иногда", "часто", "очень часто"))
+
+        val question10 = QuestionModel("Я не слежу за своей внешностью.",
+            listOf( "определенно это так", "я не уделяю этому столько времени, сколько нужно",
+                "может быть, я стал меньше уделять этому внимания", "я слежу за собой так же, как и раньше"))
+
+        val question11 = QuestionModel("Я не могу усидеть на месте, словно мне постоянно нужно двигаться.",
+            listOf( "определенно, это так", "наверное, это так",
+                "лишь в очень малой степени это так", "совсем не способен"))
+
+        val question12 = QuestionModel("Я считаю, что мои дела (занятия, увлечения) могут принести мне чувство удовлетворения.",
+            listOf( "точно так, как и обычно", "да, но не в той степени, как раньше",
+                "значительно меньше, чем раньше", "совсем не считаю"))
+
+        val question13 = QuestionModel("У меня бывает внезапное чувство паники.",
+            listOf( "действительно, очень часто", "довольно часто",
+                "не так уж часто", "совсем не бывает"))
+
+        val question14 = QuestionModel("Я могу получить удовольствие от хорошей книги, фильма, радио- или телепрограммы.",
+            listOf( "часто", "иногда", "редко", "очень редко"))
+
+        questionList.add(question1)
+        questionList.add(question2)
+        questionList.add(question3)
+        questionList.add(question4)
+        questionList.add(question5)
+        questionList.add(question6)
+        questionList.add(question7)
+        questionList.add(question8)
+        questionList.add(question9)
+        questionList.add(question10)
+        questionList.add(question11)
+        questionList.add(question12)
+        questionList.add(question13)
+        questionList.add(question14)
 
         return questionList
     }
