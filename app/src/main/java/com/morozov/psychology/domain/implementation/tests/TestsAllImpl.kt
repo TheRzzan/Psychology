@@ -55,7 +55,7 @@ class TestsAllImpl(private val context: Context): DescriptionLoader, QuestionsLo
                 mutableListOf())
 
             val test7 = TestModel("Методика исследования самоотношения", "Вам предлагается перечень суждений, характеризующих отношение человека к себе, к своим поступкам и действиям. Внимательно прочитайте каждое суждение. Если Вы согласны с содержанием суждения, то выберите да, если несогласны - нет. Работайте быстро и внимательно, не пропускайте ни одного суждения. Возможно, что некоторые суждения покажутся вам излишне личными, затрагивающими интимные стороны вашей личности. Постарайтесь определить их соответствие себе как можно искренне. Ваши ответы никому не будут демонстрироваться.",
-                listOf(questionModel, questionModel, questionModel, questionModel),
+                loadSelfAttitudeQuestions(),
                 mutableListOf())
 
             testsList = mutableListOf(test1, test2, test3, test4, test5, test6, test7)
@@ -286,6 +286,24 @@ class TestsAllImpl(private val context: Context): DescriptionLoader, QuestionsLo
         val answers = listOf("Да", "Нет")
 
         val fileName = "tests_style_index"
+        val content = context.assets.open(fileName).bufferedReader().use {
+            it.readText()
+        }
+
+        val contentQuestions = content.split("\n")
+        val questionList = mutableListOf<QuestionModel>()
+
+        for (item in contentQuestions) {
+            questionList.add(QuestionModel(item, answers))
+        }
+
+        return questionList
+    }
+
+    private fun loadSelfAttitudeQuestions(): List<QuestionModel> {
+        val answers = listOf("Да", "Нет")
+
+        val fileName = "tests_self_attitude"
         val content = context.assets.open(fileName).bufferedReader().use {
             it.readText()
         }
