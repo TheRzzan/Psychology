@@ -320,7 +320,9 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     *
     * */
     override fun showSettingsSection() {
-        setFragment(SettingsFragment())
+        val settingsFragment = SettingsFragment()
+        settingsFragment.mActivityPresenter = mPresenter
+        setFragment(settingsFragment)
     }
 
     /*
