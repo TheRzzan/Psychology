@@ -33,23 +33,38 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_examples -> {
-                mPresenter.showExCards()
+                val exCardsFragment = ExCardsFragment()
+                exCardsFragment.mActivityPresenter = mPresenter
+
+                clearBackStack()
+                setFragment(exCardsFragment)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_diary -> {
-                mPresenter.showDiaryCards()
+                val diaryFragment = DiaryFragment()
+                diaryFragment.mActivityPresenter = mPresenter
+
+                clearBackStack()
+                setFragment(diaryFragment)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_tests -> {
-                mPresenter.showTestSection()
+                val testsFragment = TestsFragment()
+
+                testsFragment.mActivityPresenter = mPresenter
+
+                clearBackStack()
+                setFragment(testsFragment)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_mind_change -> {
-                mPresenter.showMindChangeSection()
+                setFragment(MindChangeFragment())
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_settings -> {
-                mPresenter.showSettingsSection()
+                val settingsFragment = SettingsFragment()
+                settingsFragment.mActivityPresenter = mPresenter
+                setFragment(settingsFragment)
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -112,11 +127,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     * (MainView impl)
     * */
     override fun showExCards() {
-        val exCardsFragment = ExCardsFragment()
-        exCardsFragment.mActivityPresenter = mPresenter
-
-        clearBackStack()
-        setFragment(exCardsFragment)
+        navigation.selectedItemId = R.id.navigation_examples
     }
 
     override fun showExDescr(position: Int) {
@@ -198,11 +209,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     * (MainView impl)
     * */
     override fun showDiaryCards() {
-        val diaryFragment = DiaryFragment()
-        diaryFragment.mActivityPresenter = mPresenter
-
-        clearBackStack()
-        setFragment(diaryFragment)
+        navigation.selectedItemId = R.id.navigation_diary
     }
 
     override fun showDiaryViewing(date: Date) {
@@ -235,12 +242,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     *
     * */
     override fun showTestSection() {
-        val testsFragment = TestsFragment()
-
-        testsFragment.mActivityPresenter = mPresenter
-
-        clearBackStack()
-        setFragment(testsFragment)
+        navigation.selectedItemId = R.id.navigation_tests
     }
 
     override fun showTestDescr(testName: String) {
@@ -313,7 +315,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     *
     * */
     override fun showMindChangeSection() {
-        setFragment(MindChangeFragment())
+        navigation.selectedItemId = R.id.navigation_mind_change
     }
 
     /*
@@ -321,9 +323,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     *
     * */
     override fun showSettingsSection() {
-        val settingsFragment = SettingsFragment()
-        settingsFragment.mActivityPresenter = mPresenter
-        setFragment(settingsFragment)
+        navigation.selectedItemId = R.id.navigation_settings
     }
 
     override fun showSettingsStylesSection() {
