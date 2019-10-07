@@ -27,5 +27,9 @@ class SettingsFragment: MvpAppCompatFragment(), SettingsView {
         relativeStyle.setOnClickListener {
             mActivityPresenter.showSettingsStylesSection()
         }
+
+        relativeWallpaper.setOnClickListener {
+            mActivityPresenter.showSettingsWallpaper()
+        }
     }
 }

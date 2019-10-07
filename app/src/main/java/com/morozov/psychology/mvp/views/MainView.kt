@@ -78,6 +78,8 @@ interface MainView: MvpView {
     *
     * */
     fun showSettingsSection()
-    
+
     fun showSettingsStylesSection()
+
+    fun showSettingsWallpaper()
 }
