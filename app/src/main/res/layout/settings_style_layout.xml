@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        android:background="@android:color/white"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:fitsSystemWindows="false">
+
+    <RelativeLayout
+            android:layout_above="@+id/buttonStyleSave"
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+                style="@style/TextView.Primary"
+                android:text="Выбор темы"
+                android:textColor="@color/header_text"
+                android:layout_marginBottom="44dp"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:id="@+id/textStyleSectionName"/>
+
+        <android.support.v7.widget.RecyclerView
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:layout_below="@+id/textStyleSectionName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+    </RelativeLayout>
+
+    <Button
+            android:text="Сохранить"
+            style="@style/TextView.Button"
+            android:background="@drawable/rectangle_button"
+            android:id="@+id/buttonStyleSave"
+            android:layout_alignParentBottom="true"/>
+</RelativeLayout>
