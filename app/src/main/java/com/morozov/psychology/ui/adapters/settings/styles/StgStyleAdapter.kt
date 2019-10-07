@@ -12,6 +12,10 @@ class StgStyleAdapter: ListAdapter<Pair<String, Int>, StgStyleViewHolder>(), OnI
 
     var selectedPosition : MutableLiveData<Int> = MutableLiveData()
 
+    init {
+        selectedPosition.value = 0
+    }
+
     override fun onCreateViewHolder(container: ViewGroup, p1: Int): StgStyleViewHolder =
         StgStyleViewHolder(
             LayoutInflater.from(container.context).inflate(
@@ -31,5 +35,6 @@ class StgStyleAdapter: ListAdapter<Pair<String, Int>, StgStyleViewHolder>(), OnI
     * */
     override fun onItemClick(view: View, position: Int) {
         selectedPosition.value = position
+        notifyDataSetChanged()
     }
 }

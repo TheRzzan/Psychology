@@ -23,4 +23,12 @@
     <!-- Sex colors -->
     <color name="man_color">#59CFE3</color>
     <color name="woman_color">#BD17F8</color>
+
+    <!-- Theme colors -->
+    <color name="green">#32D74B</color>
+    <color name="turquoise">#64D2FF</color>
+    <color name="blue">#0A84FF</color>
+    <color name="yellow">#FFD60A</color>
+    <color name="orange">#FF9F0A</color>
+    <color name="red">#FF453A</color>
 </resources>

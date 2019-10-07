@@ -22,11 +22,9 @@
                 android:id="@+id/textStyleSectionName"/>
 
         <android.support.v7.widget.RecyclerView
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:layout_marginEnd="@dimen/activity_horizontal_margin"
                 android:layout_below="@+id/textStyleSectionName"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                style="@style/RecyclerViewStyle"
+                android:id="@+id/recyclerStyles"/>
 
     </RelativeLayout>
 
