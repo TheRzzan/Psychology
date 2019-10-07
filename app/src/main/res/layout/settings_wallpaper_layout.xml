@@ -6,11 +6,29 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+    <LinearLayout
+            android:id="@+id/linearBack"
+            android:layout_marginTop="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        <ImageView
+                android:background="@drawable/arrow_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <TextView
+                android:text="Назад"
+                android:layout_gravity="center"
+                android:textColor="@color/colorPrimary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+    </LinearLayout>
+
     <TextView
             style="@style/TextView.Primary"
             android:text="Выбор обоев"
             android:textColor="@color/header_text"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_below="@+id/linearBack"
             android:layout_marginBottom="44dp"
             android:layout_marginStart="@dimen/activity_horizontal_margin"
             android:layout_marginEnd="@dimen/activity_horizontal_margin"
@@ -27,10 +45,9 @@
             android:layout_height="wrap_content"/>
 
     <Button
-            android:enabled="false"
             android:text="Сохранить"
             style="@style/TextView.Button"
-            android:background="@drawable/rectangle_button_disable"
+            android:background="@drawable/rectangle_button"
             android:id="@+id/buttonStyleWallpaperSave"
             android:layout_alignParentBottom="true"/>
 </RelativeLayout>

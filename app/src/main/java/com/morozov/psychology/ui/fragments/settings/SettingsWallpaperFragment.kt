@@ -36,6 +36,10 @@ class SettingsWallpaperFragment: MvpAppCompatFragment(), SettingsWallpaperView,
         recyclerStylesWallpaper.setSlideOnFling(true)
         recyclerStylesWallpaper.addOnItemChangedListener(this)
         recyclerStylesWallpaper.adapter = adapter
+
+        linearBack.setOnClickListener {
+            activity?.onBackPressed()
+        }
     }
 
     override fun onStart() {
