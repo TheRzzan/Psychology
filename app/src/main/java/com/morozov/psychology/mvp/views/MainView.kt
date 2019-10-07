@@ -77,5 +77,5 @@ interface MainView: MvpView {
     * Profile section controls
     *
     * */
-    fun showProfileSection()
+    fun showSettingsSection()
 }

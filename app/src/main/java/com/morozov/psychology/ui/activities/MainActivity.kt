@@ -7,10 +7,9 @@ import android.view.View
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
-import com.morozov.psychology.mvp.models.diary.ThinkModel
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.views.MainView
-import com.morozov.psychology.ui.fragments.consultation.ConsultationFragment
+import com.morozov.psychology.ui.fragments.settings.SettingsFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryEditorFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryThinkViewingFragment
@@ -48,8 +47,8 @@ class MainActivity : MvpAppCompatActivity(), MainView {
                 mPresenter.showMindChangeSection()
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.navigation_consultation -> {
-                mPresenter.showProfileSection()
+            R.id.navigation_settings -> {
+                mPresenter.showSettingsSection()
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -317,11 +316,11 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     }
 
     /*
-    * Profile section controls
+    * Settings section controls
     *
     * */
-    override fun showProfileSection() {
-        setFragment(ConsultationFragment())
+    override fun showSettingsSection() {
+        setFragment(SettingsFragment())
     }
 
     /*

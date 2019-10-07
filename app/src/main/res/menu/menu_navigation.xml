@@ -22,8 +22,8 @@
             android:title="@string/title_mind_change"/>
 
     <item
-            android:id="@+id/navigation_consultation"
-            android:icon="@drawable/bar_icon_profile"
-            android:title="@string/title_consultation"/>
+            android:id="@+id/navigation_settings"
+            android:icon="@drawable/bar_icon_settings"
+            android:title="@string/title_settings"/>
 
 </menu>

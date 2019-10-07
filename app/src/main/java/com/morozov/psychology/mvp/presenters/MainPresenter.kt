@@ -2,7 +2,6 @@ package com.morozov.psychology.mvp.presenters
 
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
-import com.morozov.psychology.mvp.models.diary.ThinkModel
 import com.morozov.psychology.mvp.views.MainView
 import java.util.*
 
@@ -134,12 +133,12 @@ class MainPresenter:MvpPresenter<MainView>() {
     }
 
     /*
-    * Profile section controls
+    * Settings section controls
     *
     * */
-    fun showProfileSection() {
+    fun showSettingsSection() {
         viewState.showBottomNav()
         viewState.hideBackArrow()
-        viewState.showProfileSection()
+        viewState.showSettingsSection()
     }
 }
