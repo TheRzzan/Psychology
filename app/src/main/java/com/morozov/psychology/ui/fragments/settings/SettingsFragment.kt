@@ -10,5 +10,5 @@ import com.morozov.psychology.R
 class SettingsFragment: Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-        inflater.inflate(R.layout.fragment_section_in_development, container, false)
+        inflater.inflate(R.layout.settings_main_layout, container, false)
 }

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="true"
+        android:layout_marginBottom="57dp">
+
+    <TextView
+            android:id="@+id/textHeader"
+            style="@style/TextView.Primary.Header"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginBottom="50dp"
+            android:text="@string/title_settings"/>
+
+    <RelativeLayout
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/relativeConsult">
+
+        <ImageView
+                android:id="@+id/imageConsult"
+                android:background="@drawable/ic_settings_consult"
+                android:layout_width="24dp"
+                android:layout_height="24dp"/>
+
+        <TextView
+                android:layout_toEndOf="@+id/imageConsult"
+                android:layout_toStartOf="@+id/imageConsultArrow"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:text="Записаться на консультацию"
+                android:textStyle="bold"
+                android:textColor="@color/second_header_text"
+                style="@style/TextView.Secondary" android:id="@+id/textConsult"/>
+
+        <ImageView
+                android:layout_centerVertical="true"
+                android:id="@+id/imageConsultArrow"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/arrow_next"
+                android:layout_width="8dp"
+                android:layout_height="14dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/relativeEstimate">
+
+        <ImageView
+                android:id="@+id/imageEstimate"
+                android:background="@drawable/ic_settings_star"
+                android:layout_width="24dp"
+                android:layout_height="24dp"/>
+
+        <TextView
+                android:layout_toEndOf="@+id/imageEstimate"
+                android:layout_toStartOf="@+id/imageEstimateArrow"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:text="Оценить приложение"
+                android:textStyle="bold"
+                android:textColor="@color/second_header_text"
+                style="@style/TextView.Secondary" android:id="@+id/textEstimate"/>
+
+        <ImageView
+                android:layout_centerVertical="true"
+                android:id="@+id/imageEstimateArrow"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/arrow_next"
+                android:layout_width="8dp"
+                android:layout_height="14dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/relativeAbout">
+
+        <ImageView
+                android:id="@+id/imageAbout"
+                android:background="@drawable/ic_settings_about"
+                android:layout_width="24dp"
+                android:layout_height="24dp"/>
+
+        <TextView
+                android:layout_toEndOf="@+id/imageAbout"
+                android:layout_toStartOf="@+id/imageAboutArrow"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:text="Об этом преложении"
+                android:textStyle="bold"
+                android:textColor="@color/second_header_text"
+                style="@style/TextView.Secondary" android:id="@+id/textAbout"/>
+
+        <ImageView
+                android:layout_centerVertical="true"
+                android:id="@+id/imageAboutArrow"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/arrow_next"
+                android:layout_width="8dp"
+                android:layout_height="14dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/relativeStyle">
+
+        <ImageView
+                android:id="@+id/imageStyle"
+                android:background="@drawable/ic_settings_style"
+                android:layout_width="24dp"
+                android:layout_height="24dp"/>
+
+        <TextView
+                android:layout_toEndOf="@+id/imageStyle"
+                android:layout_toStartOf="@+id/imageStyleArrow"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:text="Выбрать тему"
+                android:textStyle="bold"
+                android:textColor="@color/second_header_text"
+                style="@style/TextView.Secondary" android:id="@+id/textStyle"/>
+
+        <ImageView
+                android:layout_centerVertical="true"
+                android:id="@+id/imageStyleArrow"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/arrow_next"
+                android:layout_width="8dp"
+                android:layout_height="14dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/relativeWallpaper">
+
+        <ImageView
+                android:id="@+id/imageWallpaper"
+                android:background="@drawable/ic_settings_wallpaper"
+                android:layout_width="24dp"
+                android:layout_height="24dp"/>
+
+        <TextView
+                android:layout_toEndOf="@+id/imageWallpaper"
+                android:layout_toStartOf="@+id/imageWallpaperArrow"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:text="Выбрать обои"
+                android:textStyle="bold"
+                android:textColor="@color/second_header_text"
+                style="@style/TextView.Secondary" android:id="@+id/textWallpaper"/>
+
+        <ImageView
+                android:layout_centerVertical="true"
+                android:id="@+id/imageWallpaperArrow"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/arrow_next"
+                android:layout_width="8dp"
+                android:layout_height="14dp"/>
+    </RelativeLayout>
+</LinearLayout>
