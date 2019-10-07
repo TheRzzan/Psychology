@@ -173,8 +173,45 @@ class TestsResultsGenerator {
         return ResultModel(Date(), listOf(p1, p2, p3, p4, p5))
     }
 
+    /*
+    * HospitalScale functions
+    *
+    * */
     private fun getHospitalScaleRes(testName: String, answers: List<Int>): ResultModel {
-        return ResultModel(Date(), listOf(Pair(testName, "Some description ${answers.size}")))
+        val maxAnswers = 2
+
+        var anxietyScore = 0
+        var depressionScore = 0
+
+        for ((index, item) in answers.withIndex()) {
+            if ( ((index + 1) % 2) == 0)
+                depressionScore += item
+            else
+                anxietyScore += reverceInt(item, maxAnswers)
+        }
+
+        return getHSResStr(anxietyScore, depressionScore)
+    }
+
+    private fun getHSResStr(anxietyScore: Int, depressionScore: Int): ResultModel {
+
+        val pA1 = "Вы набрали $anxietyScore баллов по шкале тревоги."
+        val pA2: String = when {
+            anxietyScore <= 7 -> "У вас нет достоверно выраженных симптомов тревоги."
+            anxietyScore in 8..10 -> "У вас присутствуют достоверно выраженные симптомы тревоги, но их выраженность не достигает состояния болезни. Рекомендуем обратиться к специалисту для профилактики заболевания и продолжить работу в данном приложении."
+            anxietyScore >= 11 -> "У вас присутствуют выраженные симптомы тревоги, их выраженность достигает состояния болезни. Рекомендуем обратиться к психотерапевту на консультацию и продолжить работу в данном приложении."
+            else -> ""
+        }
+
+        val pD1 = "Вы набрали $depressionScore баллов по шкале депрессии."
+        val pD2: String = when {
+            depressionScore <= 7 -> "У вас нет достоверно выраженных симптомов депрессии."
+            depressionScore in 8..10 -> "У вас присутствуют достоверно выраженные симптомы депрессии, но их выраженность не достигает состояния болезни. Рекомендуем обратиться к специалисту для профилактики заболевания и продолжить работу в данном приложении."
+            depressionScore >= 11 -> "У вас присутствуют выраженные симптомы депрессии, их выраженность достигает состояния болезни. Рекомендуем обратиться к психотерапевту на консультацию и продолжить работу в данном приложении. "
+            else -> ""
+        }
+
+        return ResultModel(Date(), listOf(Pair(pA1, pA2), Pair(pD1, pD2)))
     }
 
     private fun getIntegrativeRes(testName: String, answers: List<Int>): ResultModel {
