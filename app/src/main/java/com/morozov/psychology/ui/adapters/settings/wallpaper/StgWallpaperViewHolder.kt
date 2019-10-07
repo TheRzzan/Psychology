@@ -8,15 +8,11 @@ import kotlinx.android.synthetic.main.item_settings_wallpaper.view.*
 
 class StgWallpaperViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
-    fun populate(drawable: Drawable, position: Int, b: Boolean, listener: OnItemClickListener) {
+    fun populate(drawable: Drawable, position: Int, b: Boolean) {
         itemView.relativeWallpaperImage.background = drawable
         if (b)
             itemView.relativeWallpaperIsSelected.visibility = View.VISIBLE
         else
             itemView.relativeWallpaperIsSelected.visibility = View.GONE
-
-        itemView.relativeWallpaperImage.setOnClickListener {
-            listener.onItemClick(itemView, position)
-        }
     }
 }

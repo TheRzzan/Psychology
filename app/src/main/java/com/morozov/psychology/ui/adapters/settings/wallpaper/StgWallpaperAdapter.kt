@@ -9,7 +9,7 @@ import com.morozov.psychology.R
 import com.morozov.psychology.ui.adapters.ListAdapter
 import com.morozov.psychology.ui.adapters.listeners.OnItemClickListener
 
-class StgWallpaperAdapter: ListAdapter<Drawable, StgWallpaperViewHolder>(), OnItemClickListener {
+class StgWallpaperAdapter: ListAdapter<Drawable, StgWallpaperViewHolder>() {
 
     var selectedPosition : MutableLiveData<Int> = MutableLiveData()
 
@@ -23,18 +23,6 @@ class StgWallpaperAdapter: ListAdapter<Drawable, StgWallpaperViewHolder>(), OnIt
         )
 
     override fun onBindViewHolder(holder: StgWallpaperViewHolder, position: Int) {
-        if (selectedPosition.value == null)
-            holder.populate(data()[position], position, position == 0, this)
-        else
-            holder.populate(data()[position], position, position == selectedPosition.value, this)
-    }
-
-    /*
-    * OnItemClickListener implementation
-    *
-    * */
-    override fun onItemClick(view: View, position: Int) {
-        selectedPosition.value = position
-        notifyDataSetChanged()
+        holder.populate(data()[position], position, position == selectedPosition.value)
     }
 }
