@@ -14,15 +14,15 @@ class SettingsWallpaperPresenter: MvpPresenter<SettingsWallpaperView>() {
 
     fun loadImages(context: Context) {
         if (data.isEmpty()) {
-            data = listOf(context.getDrawable(R.drawable.image_test_1),
-                context.getDrawable(R.drawable.image_test_2),
-                context.getDrawable(R.drawable.image_test_2))
+            data = listOf(context.getDrawable(R.drawable.wallpaper_1),
+                context.getDrawable(R.drawable.wallpaper_2),
+                context.getDrawable(R.drawable.wallpaper_3))
         }
 
         viewState.showImages(data)
     }
 
     fun showImage(position: Int) {
-        viewState.showMainImage(data[position], position)
+        viewState.showMainImage(data[position].constantState.newDrawable().mutate(), position)
     }
 }
