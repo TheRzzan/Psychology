@@ -15,6 +15,7 @@ import com.morozov.psychology.ui.fragments.diary.DiaryFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryThinkViewingFragment
 import com.morozov.psychology.ui.fragments.examples.*
 import com.morozov.psychology.ui.fragments.mind.change.MindChangeFragment
+import com.morozov.psychology.ui.fragments.settings.SettingsStyleFragment
 import com.morozov.psychology.ui.fragments.tests.*
 import com.morozov.psychology.utility.AppConstants
 import kotlinx.android.synthetic.main.activity_main.*
@@ -323,6 +324,12 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         val settingsFragment = SettingsFragment()
         settingsFragment.mActivityPresenter = mPresenter
         setFragment(settingsFragment)
+    }
+
+    override fun showSettingsStylesSection() {
+        val settingsStyleFragment = SettingsStyleFragment()
+        settingsStyleFragment.mActivityPresenter = mPresenter
+        setFragment(settingsStyleFragment, true)
     }
 
     /*

@@ -10,6 +10,7 @@ import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.settings.SettingsPresenter
 import com.morozov.psychology.mvp.views.settings.SettingsView
+import kotlinx.android.synthetic.main.settings_main_layout.*
 
 class SettingsFragment: MvpAppCompatFragment(), SettingsView {
 
@@ -19,4 +20,12 @@ class SettingsFragment: MvpAppCompatFragment(), SettingsView {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.settings_main_layout, container, false)
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        relativeStyle.setOnClickListener {
+            mActivityPresenter.showSettingsStylesSection()
+        }
+    }
 }

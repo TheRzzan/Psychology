@@ -141,4 +141,10 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.hideBackArrow()
         viewState.showSettingsSection()
     }
+
+    fun showSettingsStylesSection() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showSettingsStylesSection()
+    }
 }
