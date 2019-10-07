@@ -31,6 +31,14 @@ class SettingsStyleFragment: MvpAppCompatFragment(), SettingsStyleView {
         adapter = StgStyleAdapter()
         recyclerStyles.layoutManager = LinearLayoutManager(context)
         recyclerStyles.adapter = adapter
+
+        adapter.selectedPosition.observeForever {
+            if (it == null)
+                return@observeForever
+
+            buttonStyleSave.setBackgroundResource(R.drawable.rectangle_button)
+            buttonStyleSave.isEnabled = true
+        }
     }
 
     override fun onStart() {

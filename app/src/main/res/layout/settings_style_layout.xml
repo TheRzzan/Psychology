@@ -29,9 +29,10 @@
     </RelativeLayout>
 
     <Button
+            android:enabled="false"
             android:text="Сохранить"
             style="@style/TextView.Button"
-            android:background="@drawable/rectangle_button"
+            android:background="@drawable/rectangle_button_disable"
             android:id="@+id/buttonStyleSave"
             android:layout_alignParentBottom="true"/>
 </RelativeLayout>
