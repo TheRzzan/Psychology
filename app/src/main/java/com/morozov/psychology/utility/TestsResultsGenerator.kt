@@ -214,20 +214,218 @@ class TestsResultsGenerator {
         return ResultModel(Date(), listOf(Pair(pA1, pA2), Pair(pD1, pD2)))
     }
 
+    /*
+    * Integrative functions
+    *
+    * */
     private fun getIntegrativeRes(testName: String, answers: List<Int>): ResultModel {
         return ResultModel(Date(), listOf(Pair(testName, "Some description ${answers.size}")))
     }
 
+    /*
+    * LazarusQuestionnaire functions
+    *
+    * */
     private fun getLazarusQuestionnaireRes(testName: String, answers: List<Int>): ResultModel {
         return ResultModel(Date(), listOf(Pair(testName, "Some description ${answers.size}")))
     }
 
+    /*
+    * StyleIndex functions
+    *
+    * */
     private fun getStyleIndexRes(testName: String, answers: List<Int>): ResultModel {
         return ResultModel(Date(), listOf(Pair(testName, "Some description ${answers.size}")))
     }
 
+    /*
+    * SelfAttitude functions
+    *
+    * */
     private fun getSelfAttitudeRes(testName: String, answers: List<Int>): ResultModel {
-        return ResultModel(Date(), listOf(Pair(testName, "Some description ${answers.size}")))
+        var sc1 = 0
+        var sc2 = 0
+        var sc3 = 0
+        var sc4 = 0
+        var sc5 = 0
+        var sc6 = 0
+        var sc7 = 0
+        var sc8 = 0
+        var sc9 = 0
+
+        val lsTr1 = listOf(1,3,9,48,53,56,65)
+        val lsTr2 = listOf(7,24,30,35,36,51,52,58,61,73,82)
+        val lsTr3 = listOf(43,44,45,74,76,84,90,105,106,108,110)
+        val lsTr4 = listOf(2,5,29,41,42,50,102)
+        val lsTr5 = listOf(8,16,39,54,57,68,70,75,100)
+        val lsTr6 = listOf(10,12,17,28,40,49,63,72,77,79,88,97)
+        val lsTr7 = listOf(6,32,33,55,89,93,95,101,104)
+        val lsTr8 = listOf(4,11,22,23,27,38,47,59,64,67,69,81,91,94,99)
+        val lsTr9 = listOf(14,19,25,37,60,66,71,78,87,92)
+
+        val lsFl1 = listOf(21,62,86,98)
+        val lsFl2 = listOf(20,80,103)
+        val lsFl3 = listOf(109)
+        val lsFl4 = listOf(13,18,34,85)
+        val lsFl5 = listOf(15,26,31,46,83)
+        val lsFl7 = listOf(96,11)
+
+        for ((index, item) in answers.withIndex()) {
+            if (item == 0) {
+                val i = index + 1
+
+                when {
+                    lsTr1.contains(i) -> sc1++
+                    lsTr2.contains(i) -> sc2++
+                    lsTr3.contains(i) -> sc3++
+                    lsTr4.contains(i) -> sc4++
+                    lsTr5.contains(i) -> sc5++
+                    lsTr6.contains(i) -> sc6++
+                    lsTr7.contains(i) -> sc7++
+                    lsTr8.contains(i) -> sc8++
+                    lsTr9.contains(i) -> sc9++
+                }
+            }
+        }
+
+        for ((index, item) in answers.withIndex()) {
+            if (item == 1) {
+                val i = index + 1
+
+                when {
+                    lsFl1.contains(i) -> sc1++
+                    lsFl2.contains(i) -> sc2++
+                    lsFl3.contains(i) -> sc3++
+                    lsFl4.contains(i) -> sc4++
+                    lsFl5.contains(i) -> sc5++
+                    lsFl7.contains(i) -> sc7++
+                }
+            }
+        }
+
+        return getSAResStr(sc1, sc2, sc3,
+                sc4, sc5, sc6,
+                sc7, sc8, sc9)
+    }
+
+    private fun getSAResStr (sc1: Int, sc2: Int, sc3: Int,
+                             sc4: Int, sc5: Int, sc6: Int,
+                             sc7: Int, sc8: Int, sc9: Int): ResultModel {
+        var scSten1 = when (sc1) {
+            0 -> 2
+            1 -> 3
+            in 2..3 -> 4
+            in 4..5 -> 5
+            in 6..7 -> 6
+            8 -> 7
+            9 -> 8
+            10 -> 9
+            11 -> 10
+            else -> 0
+        }
+        var scSten2 = when (sc2) {
+            in 0..1 -> 1
+            2 -> 2
+            in 3..4 -> 3
+            in 5..6 -> 4
+            in 7..8 -> 5
+            9 -> 6
+            in 10..11 -> 7
+            12 -> 8
+            13 -> 9
+            14 -> 10
+            else -> 0
+        }
+        var scSten3 = when (sc3) {
+            in 0..1 -> 1
+            2 -> 2
+            3 -> 3
+            in 4..5 -> 4
+            6 -> 5
+            7 -> 6
+            8 -> 7
+            in 9..10 -> 8
+            11 -> 9
+            12 -> 10
+            else -> 0
+        }
+        var scSten4 = when (sc4) {
+            0 -> 1
+            1 -> 2
+            2 -> 3
+            in 3..4 -> 4
+            5 -> 5
+            in 6..7 -> 6
+            8 -> 7
+            9 -> 8
+            10 -> 9
+            11 -> 10
+            else -> 0
+        }
+        var scSten5 = when (sc5) {
+            in 0..1 -> 1
+            2 -> 2
+            3 -> 3
+            in 4..5 -> 4
+            in 6..7 -> 5
+            8 -> 6
+            in 9..10 -> 7
+            11 -> 8
+            12 -> 9
+            in 13..14 -> 10
+            else -> 0
+        }
+        var scSten6 = when (sc6) {
+            in 0..1 -> 1
+            2 -> 2
+            in 3..4 -> 3
+            5 -> 4
+            in 6..7 -> 5
+            8 -> 6
+            9 -> 7
+            10 -> 8
+            11 -> 9
+            12 -> 10
+            else -> 0
+        }
+        var scSten7 = when (sc7) {
+            0 -> 1
+            1 -> 2
+            2 -> 3
+            3 -> 4
+            in 4..5 -> 5
+            6 -> 6
+            in 7..8 -> 7
+            9 -> 8
+            10 -> 9
+            11 -> 10
+            else -> 0
+        }
+        var scSten8 = when (sc8) {
+            0 -> 1
+            1 -> 2
+            2 -> 3
+            in 3..4 -> 4
+            in 5..7 -> 5
+            in 8..10 -> 6
+            in 11..12 -> 7
+            13 -> 8
+            14 -> 9
+            15 -> 10
+            else -> 0
+        }
+        var scSten9 = when (sc4) {
+            0 -> 1
+            1 -> 2
+            2 -> 3
+            in 3..4 -> 4
+            5 -> 5
+            in 6..7 -> 6
+            8 -> 7
+            9 -> 8
+            10 -> 10
+            else -> 0
+        }
     }
 
     /*
