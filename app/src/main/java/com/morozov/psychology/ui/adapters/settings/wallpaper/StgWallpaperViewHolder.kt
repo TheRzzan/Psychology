@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.item_settings_wallpaper.view.*
 class StgWallpaperViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
     fun populate(drawable: Drawable, position: Int, b: Boolean) {
-        itemView.relativeWallpaperImage.background = drawable
+        itemView.imageItemStyleWallpaper.setImageDrawable(drawable)
         if (b)
             itemView.relativeWallpaperIsSelected.visibility = View.VISIBLE
         else

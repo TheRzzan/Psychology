@@ -53,7 +53,7 @@ class SettingsWallpaperFragment: MvpAppCompatFragment(), SettingsWallpaperView,
     *
     * */
     override fun showMainImage(drawable: Drawable, position: Int) {
-        relativeStyleWallpaper.background = drawable
+        imageStyleWallpaper.setImageDrawable(drawable)
         adapter.selectedPosition.value = position
         recyclerStylesWallpaper.post {
             adapter.notifyDataSetChanged()

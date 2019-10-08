@@ -16,6 +16,13 @@
             android:layout_width="100dp"
             android:layout_height="100dp">
 
+        <ImageView
+                android:id="@+id/imageItemStyleWallpaper"
+                android:src="@android:color/white"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
         <RelativeLayout
                 android:id="@+id/relativeWallpaperIsSelected"
                 android:layout_width="match_parent"
