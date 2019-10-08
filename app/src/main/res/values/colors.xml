@@ -4,6 +4,9 @@
     <color name="colorPrimaryDark">#810DAD</color>
     <color name="colorAccent">#E69CBA</color>
 
+    <!-- Fragments background -->
+    <color name="fragment_background">#00000000</color>
+
     <!-- Button -->
     <color name="grey_color">#8E8E93</color>
 

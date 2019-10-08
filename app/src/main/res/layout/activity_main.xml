@@ -13,6 +13,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+        <ImageView
+                android:id="@+id/imageMainBack"
+                android:alpha="0.5"
+                android:background="@drawable/wallpaper_1"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
         <LinearLayout
                 android:id="@+id/linearBack"
                 android:layout_marginTop="12dp"

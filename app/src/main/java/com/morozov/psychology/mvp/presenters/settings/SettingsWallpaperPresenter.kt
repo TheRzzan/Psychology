@@ -14,7 +14,8 @@ class SettingsWallpaperPresenter: MvpPresenter<SettingsWallpaperView>() {
 
     fun loadImages(context: Context) {
         if (data.isEmpty()) {
-            data = listOf(context.getDrawable(R.drawable.wallpaper_1),
+            data = listOf(
+                context.getDrawable(R.drawable.wallpaper_1),
                 context.getDrawable(R.drawable.wallpaper_2),
                 context.getDrawable(R.drawable.wallpaper_3))
         }

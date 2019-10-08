@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
-        android:background="@android:color/white"
+        android:background="@color/fragment_background"
         xmlns:app="http://schemas.android.com/apk/res-auto" style="@style/ScrollViewStyle"
         xmlns:android="http://schemas.android.com/apk/res/android">
 
