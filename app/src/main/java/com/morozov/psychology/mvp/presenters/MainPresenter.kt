@@ -1,5 +1,6 @@
 package com.morozov.psychology.mvp.presenters
 
+import android.graphics.drawable.Drawable
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import com.morozov.psychology.mvp.views.MainView
@@ -7,6 +8,10 @@ import java.util.*
 
 @InjectViewState
 class MainPresenter:MvpPresenter<MainView>() {
+
+    fun setBackground(drawable: Drawable) {
+        viewState.setBackground(drawable)
+    }
 
     /*
     * Experiments section controls

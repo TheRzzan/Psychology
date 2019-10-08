@@ -1,5 +1,7 @@
 package com.morozov.psychology.ui.activities
 
+import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
@@ -19,6 +21,7 @@ import com.morozov.psychology.ui.fragments.settings.SettingsStyleFragment
 import com.morozov.psychology.ui.fragments.settings.SettingsWallpaperFragment
 import com.morozov.psychology.ui.fragments.tests.*
 import com.morozov.psychology.utility.AppConstants
+import com.morozov.psychology.utility.MySharedPreferences
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -76,6 +79,16 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val preferenceWallp = MySharedPreferences.getPreference(applicationContext, AppConstants.PREF_WALLPAPER)
+
+        when (preferenceWallp) {
+            AppConstants.EMPTY_PREF -> imageMainBack.setImageDrawable(ColorDrawable(resources.getColor(R.color.white)))
+            AppConstants.PREF_WALLP_DEF -> imageMainBack.setImageDrawable(ColorDrawable(resources.getColor(R.color.white)))
+            AppConstants.PREF_WALLP_1 -> imageMainBack.setImageDrawable(getDrawable(R.drawable.wallpaper_1))
+            AppConstants.PREF_WALLP_2 -> imageMainBack.setImageDrawable(getDrawable(R.drawable.wallpaper_2))
+            AppConstants.PREF_WALLP_3 -> imageMainBack.setImageDrawable(getDrawable(R.drawable.wallpaper_3))
+        }
+
         mPresenter.showExCards()
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         linearBack.setOnClickListener {
@@ -123,10 +136,14 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         linearBack.visibility = View.GONE
     }
 
+    override fun setBackground(drawable: Drawable) {
+        imageMainBack.setImageDrawable(drawable)
+    }
+
     /*
-    * Experiments section controls
-    * (MainView impl)
-    * */
+        * Experiments section controls
+        * (MainView impl)
+        * */
     override fun showExCards() {
         navigation.selectedItemId = R.id.navigation_examples
     }

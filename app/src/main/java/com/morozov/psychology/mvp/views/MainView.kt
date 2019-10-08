@@ -1,5 +1,6 @@
 package com.morozov.psychology.mvp.views
 
+import android.graphics.drawable.Drawable
 import com.arellomobile.mvp.MvpView
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
@@ -20,6 +21,8 @@ interface MainView: MvpView {
     fun showBackArrow()
 
     fun hideBackArrow()
+
+    fun setBackground(drawable: Drawable)
 
     /*
     * Experiments section controls

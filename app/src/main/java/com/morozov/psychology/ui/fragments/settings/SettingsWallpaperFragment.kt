@@ -14,6 +14,8 @@ import com.morozov.psychology.mvp.presenters.settings.SettingsWallpaperPresenter
 import com.morozov.psychology.mvp.views.settings.SettingsWallpaperView
 import com.morozov.psychology.ui.adapters.settings.wallpaper.StgWallpaperAdapter
 import com.morozov.psychology.ui.adapters.settings.wallpaper.StgWallpaperViewHolder
+import com.morozov.psychology.utility.AppConstants
+import com.morozov.psychology.utility.MySharedPreferences
 import com.yarolegovich.discretescrollview.DiscreteScrollView
 import kotlinx.android.synthetic.main.settings_wallpaper_layout.*
 
@@ -38,6 +40,17 @@ class SettingsWallpaperFragment: MvpAppCompatFragment(), SettingsWallpaperView,
         recyclerStylesWallpaper.adapter = adapter
 
         linearBack.setOnClickListener {
+            activity?.onBackPressed()
+        }
+
+        buttonStyleWallpaperSave.setOnClickListener {
+            when (mPresenter.selectedPos) {
+                0 -> context?.let { it1 -> MySharedPreferences.setPreference(it1, AppConstants.PREF_WALLPAPER, AppConstants.PREF_WALLP_DEF) }
+                1 -> context?.let { it1 -> MySharedPreferences.setPreference(it1, AppConstants.PREF_WALLPAPER, AppConstants.PREF_WALLP_1) }
+                2 -> context?.let { it1 -> MySharedPreferences.setPreference(it1, AppConstants.PREF_WALLPAPER, AppConstants.PREF_WALLP_2) }
+                3 -> context?.let { it1 -> MySharedPreferences.setPreference(it1, AppConstants.PREF_WALLPAPER, AppConstants.PREF_WALLP_3) }
+            }
+            mActivityPresenter.setBackground(mPresenter.data[mPresenter.selectedPos])
             activity?.onBackPressed()
         }
     }

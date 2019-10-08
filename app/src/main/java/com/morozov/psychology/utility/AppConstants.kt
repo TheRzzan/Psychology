@@ -19,5 +19,13 @@ class AppConstants {
         const val LAZARUS_QUESTIONNAIRE_TEST = "lazarus_questionnaire_test"
         const val STYLE_INDEX_TEST = "style_index_test"
         const val SELF_ATTITUDE_TEST = "self_attitude_test"
+
+        // Shared Preference
+        const val EMPTY_PREF = "empty_pref"
+        const val PREF_WALLPAPER = "pref_wallpaper"
+        const val PREF_WALLP_DEF = "pref_wallp_DEF"
+        const val PREF_WALLP_1 = "pref_wallp_1"
+        const val PREF_WALLP_2 = "pref_wallp_2"
+        const val PREF_WALLP_3 = "pref_wallp_3"
     }
 }

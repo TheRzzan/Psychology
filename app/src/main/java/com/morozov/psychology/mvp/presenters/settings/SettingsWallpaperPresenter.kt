@@ -11,7 +11,8 @@ import com.morozov.psychology.mvp.views.settings.SettingsWallpaperView
 @InjectViewState
 class SettingsWallpaperPresenter: MvpPresenter<SettingsWallpaperView>() {
 
-    private var data: List<Drawable> = listOf()
+    var data: List<Drawable> = listOf()
+    var selectedPos = 0
 
     fun loadImages(context: Context) {
         if (data.isEmpty()) {
@@ -26,6 +27,7 @@ class SettingsWallpaperPresenter: MvpPresenter<SettingsWallpaperView>() {
     }
 
     fun showImage(position: Int) {
+        selectedPos = position
         viewState.showMainImage(data[position].constantState.newDrawable().mutate(), position)
     }
 }
