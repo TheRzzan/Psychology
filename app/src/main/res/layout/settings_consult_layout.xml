@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        android:background="@color/fragment_background"
+        android:orientation="vertical"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="true">
+
+    <ScrollView
+            android:id="@+id/scrollSettingsConsult"
+            style="@style/ScrollViewStyle">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:id="@+id/textSettingsConsultHeader"
+                    style="@style/TextView.Primary"
+                    android:textColor="@color/header_text"
+                    android:layout_marginBottom="27dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:text="Запись на консультацию"/>
+
+            <TextView
+                    android:text="Ответьте, пожалуйста, на следующие вопросы:"
+                    android:textStyle="bold"
+                    style="@style/TextView.Secondary"
+                    android:textColor="@color/second_header_text"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+
+            <TextView
+                    android:text="Как к вам обращаться?"
+                    android:textStyle="bold"
+                    style="@style/TextView.Secondary"
+                    android:textColor="@color/second_header_text"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+
+            <EditText
+                    android:textColor="@color/grey_color"
+                    android:textSize="17sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:inputType="textPersonName|textMultiLine"
+                    android:maxLines="4"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:hint="Ваше имя"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:ems="10"
+                    style="@style/EditTextStyle"
+                    android:background="@drawable/rectangle_long_edit_text_with_shadow"
+                    android:id="@+id/editName"/>
+
+            <TextView
+                    android:text="Напишите электронный адрес или страницу в ВК, чтобы с вами связаться."
+                    android:textStyle="bold"
+                    style="@style/TextView.Secondary"
+                    android:textColor="@color/second_header_text"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+
+            <EditText
+                    android:textColor="@color/grey_color"
+                    android:textSize="17sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:inputType="textPersonName|textMultiLine"
+                    android:maxLines="4"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:hint="E-mail или vk id"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:ems="10"
+                    style="@style/EditTextStyle"
+                    android:background="@drawable/rectangle_long_edit_text_with_shadow"
+                    android:id="@+id/editEmailVk"/>
+
+            <TextView
+                    android:text="С каким вопросом вы хотите обратиться?"
+                    android:textStyle="bold"
+                    style="@style/TextView.Secondary"
+                    android:textColor="@color/second_header_text"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+
+            <EditText
+                    android:textColor="@color/grey_color"
+                    android:textSize="17sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:inputType="textPersonName|textMultiLine"
+                    android:maxLines="4"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:hint="Ваш вопрос"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:ems="10"
+                    style="@style/EditTextStyle"
+                    android:background="@drawable/rectangle_long_edit_text_with_shadow"
+                    android:id="@+id/editQuestion"/>
+
+            <TextView
+                    android:text="В какие дни недели и в какое время вам удобнее получить консультацию?"
+                    android:textStyle="bold"
+                    style="@style/TextView.Secondary"
+                    android:textColor="@color/second_header_text"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+
+            <RelativeLayout
+                    android:id="@+id/relativeDayMonthYear"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <TextView
+                        android:id="@+id/textDayMonthYear"
+                        android:text="ДД.ММ.ГГГГ"
+                        android:textStyle="bold"
+                        style="@style/TextView.Secondary"
+                        android:textSize="20sp"
+                        android:textColor="@color/secondary_text"
+                        android:layout_marginEnd="8dp"/>
+                
+                <ImageView
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/textDayMonthYear"
+                        android:src="@drawable/ic_calendar"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"/>
+            </RelativeLayout>
+
+            <TextView
+                    android:text="Выберите формат консультации:"
+                    android:textStyle="bold"
+                    style="@style/TextView.Secondary"
+                    android:textColor="@color/second_header_text"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+
+            <Spinner
+                    style="@style/SpinnerStyle"
+                    android:textColor="@color/grey_color"
+                    android:textSize="17sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:minWidth="280dp"
+                    android:minHeight="44dp" android:id="@+id/spinerConsultFormat"/>
+
+            <TextView
+                    android:text="Я обязательно свяжусь с вами и согласую время консультации."
+                    android:textStyle="bold"
+                    style="@style/TextView.Secondary"
+                    android:textColor="@color/second_header_text"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+
+            <Button
+                    android:id="@+id/buttonSendRequest"
+                    android:text="Отправить"
+                    style="@style/TextView.Button"
+                    android:background="@drawable/rectangle_button"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
