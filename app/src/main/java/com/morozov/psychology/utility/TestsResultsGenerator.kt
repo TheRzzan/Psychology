@@ -249,6 +249,56 @@ class TestsResultsGenerator {
             Pair(11,  listOf(0, 43, 86, 129))
         )
 
+        var scoreED_LT = 0
+        var scoreAST_LT = 0
+        var scoreFOB_LT = 0
+        var scoreOP_LT = 0
+        var scoreSZ_LT = 0
+
+        var scoreED_ST = 0
+        var scoreAST_ST = 0
+        var scoreFOB_ST = 0
+        var scoreOP_ST = 0
+        var scoreSZ_ST = 0
+
+        for ((index, item) in answers.withIndex()) {
+            for (itTmp in lstED) {
+                if ((index + 1) == itTmp.first) {
+                    scoreED_LT += itTmp.second[answers[index]]
+                } else if ((index + 1) == (itTmp.first + 15)) {
+                    scoreED_ST += itTmp.second[answers[index]]
+                }
+            }
+            for (itTmp in lstAST) {
+                if ((index + 1) == itTmp.first) {
+                    scoreAST_LT += itTmp.second[answers[index]]
+                } else if ((index + 1) == (itTmp.first + 15)) {
+                    scoreAST_ST += itTmp.second[answers[index]]
+                }
+            }
+            for (itTmp in lstFOB) {
+                if ((index + 1) == itTmp.first) {
+                    scoreFOB_LT += itTmp.second[answers[index]]
+                } else if ((index + 1) == (itTmp.first + 15)) {
+                    scoreFOB_ST += itTmp.second[answers[index]]
+                }
+            }
+            for (itTmp in lstOP) {
+                if ((index + 1) == itTmp.first) {
+                    scoreOP_LT += itTmp.second[answers[index]]
+                } else if ((index + 1) == (itTmp.first + 15)) {
+                    scoreOP_ST += itTmp.second[answers[index]]
+                }
+            }
+            for (itTmp in lstSZ) {
+                if ((index + 1) == itTmp.first) {
+                    scoreSZ_LT += itTmp.second[answers[index]]
+                } else if ((index + 1) == (itTmp.first + 15)) {
+                    scoreSZ_ST += itTmp.second[answers[index]]
+                }
+            }
+        }
+
         return ResultModel(Date(), listOf(Pair(testName, "Some description ${answers.size}")))
     }
 
