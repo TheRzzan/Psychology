@@ -219,6 +219,36 @@ class TestsResultsGenerator {
     *
     * */
     private fun getIntegrativeRes(testName: String, answers: List<Int>): ResultModel {
+        val lstED = listOf(
+            Pair(1, listOf(0, 25, 49, 74)),
+            Pair(2, listOf(0, 24, 49, 73)),
+            Pair(4, listOf(0, 27, 53, 80)),
+            Pair(6, listOf(0, 24, 49, 73))
+        )
+
+        val lstAST = listOf(
+            Pair(8,  listOf(0, 30, 61, 91)),
+            Pair(13, listOf(0, 41, 81, 122)),
+            Pair(14, listOf(0, 29, 58, 87))
+        )
+
+        val lstFOB = listOf(
+            Pair(7,  listOf(0, 37, 74, 111)),
+            Pair(9,  listOf(0, 28, 56, 85)),
+            Pair(12, listOf(0, 29, 58, 87))
+        )
+
+        val lstOP = listOf(
+            Pair(3,  listOf(0, 37, 74, 110)),
+            Pair(5,  listOf(0, 32, 65, 98)),
+            Pair(15, listOf(0, 31, 61, 92))
+        )
+
+        val lstSZ = listOf(
+            Pair(10,  listOf(0, 57, 114, 171)),
+            Pair(11,  listOf(0, 43, 86, 129))
+        )
+
         return ResultModel(Date(), listOf(Pair(testName, "Some description ${answers.size}")))
     }
 
