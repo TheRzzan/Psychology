@@ -1,6 +1,7 @@
 package com.morozov.psychology.mvp.presenters.settings
 
 import android.content.Context
+import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
@@ -15,6 +16,7 @@ class SettingsWallpaperPresenter: MvpPresenter<SettingsWallpaperView>() {
     fun loadImages(context: Context) {
         if (data.isEmpty()) {
             data = listOf(
+                ColorDrawable(context.resources.getColor(R.color.white)),
                 context.getDrawable(R.drawable.wallpaper_1),
                 context.getDrawable(R.drawable.wallpaper_2),
                 context.getDrawable(R.drawable.wallpaper_3))
