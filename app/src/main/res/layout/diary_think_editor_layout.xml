@@ -263,6 +263,7 @@
         <SeekBar
                 android:id="@+id/seekBarDiaryEditor"
                 android:layout_marginBottom="24dp"
+                android:theme="@style/SeekBarStyle"
                 android:min="1"
                 android:max="100"
                 android:layout_width="match_parent"
