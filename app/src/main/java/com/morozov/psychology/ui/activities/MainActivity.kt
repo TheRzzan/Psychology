@@ -17,6 +17,7 @@ import com.morozov.psychology.ui.fragments.diary.DiaryFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryThinkViewingFragment
 import com.morozov.psychology.ui.fragments.examples.*
 import com.morozov.psychology.ui.fragments.mind.change.MindChangeFragment
+import com.morozov.psychology.ui.fragments.settings.SettingsConsultFragment
 import com.morozov.psychology.ui.fragments.settings.SettingsStyleFragment
 import com.morozov.psychology.ui.fragments.settings.SettingsWallpaperFragment
 import com.morozov.psychology.ui.fragments.tests.*
@@ -354,6 +355,12 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         val settingsWallpaperFragment = SettingsWallpaperFragment()
         settingsWallpaperFragment.mActivityPresenter = mPresenter
         setFragment(settingsWallpaperFragment, true)
+    }
+
+    override fun showSettingsConsult() {
+        val settingsConsultFragment = SettingsConsultFragment()
+        settingsConsultFragment.mActivityPresenter = mPresenter
+        setFragment(settingsConsultFragment, true)
     }
 
     /*
