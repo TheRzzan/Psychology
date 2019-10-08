@@ -299,7 +299,16 @@ class TestsResultsGenerator {
             }
         }
 
-        return ResultModel(Date(), listOf(Pair(testName, "Some description ${answers.size}")))
+        return getIResStr(scoreED_LT, scoreAST_LT, scoreFOB_LT, scoreOP_LT, scoreSZ_LT,
+            scoreED_ST, scoreAST_ST, scoreFOB_ST, scoreOP_ST, scoreSZ_ST)
+    }
+
+    private fun getIResStr(scoreED_LT: Int, scoreAST_LT: Int, scoreFOB_LT: Int, scoreOP_LT: Int,
+                            scoreSZ_LT: Int, scoreED_ST: Int, scoreAST_ST: Int, scoreFOB_ST: Int,
+                            scoreOP_ST: Int, scoreSZ_ST: Int): ResultModel {
+
+
+        return ResultModel(Date(), listOf())
     }
 
     /*
