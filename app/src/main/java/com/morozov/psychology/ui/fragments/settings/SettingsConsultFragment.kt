@@ -91,7 +91,7 @@ class SettingsConsultFragment: MvpAppCompatFragment(), SettingsConsultView {
 
     private fun checkIsReadyToSave() {
         val isReady = editName.text.toString().isNotEmpty() && editEmailVk.text.toString().isNotEmpty() &&
-                editQuestion.text.toString().isNotEmpty() && spinerConsultFormat.isSelected &&
+                editQuestion.text.toString().isNotEmpty() &&
                 textDayMonthYear.text != "ДД.ММ.ГГГГ"
 
         when(isReady) {
