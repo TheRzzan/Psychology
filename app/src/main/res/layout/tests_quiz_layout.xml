@@ -8,9 +8,8 @@
         android:layout_height="match_parent">
 
     <RelativeLayout
-            android:layout_marginBottom="@dimen/activity_vertical_margin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
         <ScrollView
                 android:layout_alignParentTop="true"
                 android:layout_above="@+id/buttonTestsFinishQuiz"
@@ -59,6 +58,7 @@
                 android:background="@drawable/rectangle_button_disable"
                 android:enabled="false"
                 android:id="@+id/buttonTestsFinishQuiz"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
                 android:layout_alignParentBottom="true"/>
     </RelativeLayout>
 </LinearLayout>
