@@ -14,6 +14,7 @@ import com.morozov.psychology.mvp.views.MainView
 import com.morozov.psychology.ui.fragments.settings.SettingsFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryEditorFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryFragment
+import com.morozov.psychology.ui.fragments.diary.DiaryMainFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryThinkViewingFragment
 import com.morozov.psychology.ui.fragments.examples.*
 import com.morozov.psychology.ui.fragments.mind.change.MindChangeFragment
@@ -46,7 +47,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_diary -> {
-                val diaryFragment = DiaryFragment()
+                val diaryFragment = DiaryMainFragment()
                 diaryFragment.mActivityPresenter = mPresenter
 
                 clearBackStack()
