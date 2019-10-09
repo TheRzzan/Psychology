@@ -20,7 +20,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="24dp">
-            <ImageView
+            <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/imageDiaryCircle"
                     android:background="@drawable/diary_date_ellipse"
                     android:layout_width="114dp"
                     android:layout_height="114dp"/>

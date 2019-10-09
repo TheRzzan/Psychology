@@ -35,4 +35,13 @@
     <color name="orange">#FF9F0A</color>
     <color name="red">#FF453A</color>
     <color name="white">#FFFFFF</color>
+
+    <!-- Day of week -->
+    <color name="sunday">#FFD60A</color>
+    <color name="monday">#64D2FF</color>
+    <color name="tuesday">#32D74B</color>
+    <color name="wednesday">#FF9F0A</color>
+    <color name="thursday">#0A84FF</color>
+    <color name="friday">#BF5AF2</color>
+    <color name="saturday">#FF453A</color>
 </resources>
