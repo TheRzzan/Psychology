@@ -55,9 +55,10 @@
             android:layout_below="@+id/recyclerDiaryDays"
             android:id="@+id/textDiaryEmptyDay"/>
 
-    <ImageView
+    <com.caverock.androidsvg.SVGImageView
+            xmlns:svg="http://schemas.android.com/apk/res-auto"
             android:id="@+id/arrowEmpty"
-            android:background="@drawable/arrow_empty_date"
+            svg:svg="arrow_empty_date_new.svg"
             android:layout_toStartOf="@+id/buttonDiaryAdd"
             android:layout_alignBottom="@+id/buttonDiaryAdd"
             android:layout_below="@+id/textDiaryEmptyDay"

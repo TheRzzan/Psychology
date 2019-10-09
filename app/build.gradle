@@ -55,6 +55,9 @@ dependencies {
     // Segmented progress bar
     implementation 'com.github.carlosmuvi:SegmentedProgressBar:0.7.0'
 
-    // Jota time
+    // Joda time
     implementation 'net.danlew:android.joda:2.10.3'
+
+    // Svg images
+    implementation 'com.caverock:androidsvg-aar:1.4'
 }
