@@ -6,6 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.morozov.psychology.R
 import com.morozov.psychology.ui.adapters.ListAdapter
+import org.joda.time.DateTime
+import org.joda.time.Days
+import org.joda.time.MutableDateTime
 import java.time.Instant
 import java.time.temporal.ChronoUnit
 import java.util.*
@@ -39,9 +42,11 @@ class DiaryMainDateAdapter: ListAdapter<Date, DiaryDateViewHolder>(), View.OnCli
 
     }
 
-    override fun getItemCount(): Int =
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-            ChronoUnit.DAYS.between(Instant.EPOCH, Date().toInstant()).toInt()
-        else
-            15828
+    override fun getItemCount(): Int {
+        val epoch = MutableDateTime()
+        epoch.setDate(0)
+        val now = DateTime()
+
+        return Days.daysBetween(epoch, now).days + 1
+    }
 }
