@@ -23,16 +23,10 @@
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
                     android:id="@+id/textFixTestName"/>
 
-            <com.carlosmuvi.segmentedprogressbar.SegmentedProgressBar
-                    android:id="@+id/segmProgressFixTest"
+            <ProgressBar
                     android:layout_below="@+id/textFixTestName"
-                    android:layout_width="match_parent"
-                    app:container_color="@color/non_active_line"
-                    app:fill_color="@color/colorPrimary"
-                    app:gap_size="@dimen/progressbar_gap"
-                    android:layout_marginEnd="-5dp"
-                    app:segment_count="4"
-                    android:layout_height="3dp"/>
+                    style="@style/ProgressBarStyle"
+                    android:id="@+id/progressBarFixHorizontal"/>
 
             <TextView
                     android:text="Артем очень расстроился, когда ему отказали на собеседовании. Он решил, что недостоин этой работы и в этот день не стал отправлять резюме на другие вакансии."
@@ -40,7 +34,7 @@
                     android:textColor="@color/second_header_text"
                     android:layout_margin="@dimen/activity_horizontal_margin"
                     android:id="@+id/textFixTestDescr"
-                    android:layout_below="@+id/segmProgressFixTest"/>
+                    android:layout_below="@+id/progressBarFixHorizontal"/>
 
             <TextView
                     android:visibility="visible"

@@ -102,4 +102,9 @@
     <style name="SeekBarStyle" parent="Widget.AppCompat.SeekBar">
         <item name="colorAccent">@color/colorPrimaryDark</item>
     </style>
+
+    <style name="ProgressBarStyle" parent="Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">2dp</item>
+    </style>
 </resources>

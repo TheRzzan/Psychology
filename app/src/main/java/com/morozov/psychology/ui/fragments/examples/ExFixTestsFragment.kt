@@ -170,10 +170,10 @@ class ExFixTestsFragment: MvpAppCompatFragment(), ExFixTestsView, OnTextChangeLi
     }
 
     override fun setSegmentProgressCount(count: Int) {
-        segmProgressFixTest.setSegmentCount(count)
+        progressBarFixHorizontal.max = count
     }
 
     override fun increaseSegmentProgress() {
-        segmProgressFixTest.incrementCompletedSegments()
+        progressBarFixHorizontal.incrementProgressBy(1)
     }
 }
