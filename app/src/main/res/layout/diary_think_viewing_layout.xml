@@ -73,14 +73,26 @@
                 <ImageView
                         android:layout_width="36dp"
                         android:layout_height="36dp"
+                        android:layout_gravity="center"
                         app:srcCompat="@drawable/emotion_active_joy"
                         android:id="@+id/imageJoyViewing"/>
 
                 <TextView
+                        android:text="@string/joy"
+                        style="@style/TextView.Secondary"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="4dp"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/second_header_text"/>
+
+                <TextView
                         android:text="30%"
                         android:layout_gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:id="@+id/textJoyViewing"/>
+                        style="@style/TextView.Secondary"
+                        android:textSize="11sp"
+                        android:textColor="@color/second_header_text"
+                        android:id="@+id/textJoyViewing"/>
             </LinearLayout>
 
             <LinearLayout
@@ -94,14 +106,26 @@
                 <ImageView
                         android:layout_width="36dp"
                         android:layout_height="36dp"
+                        android:layout_gravity="center"
                         app:srcCompat="@drawable/emotion_active_sedness"
                         android:id="@+id/imageSadnessViewing"/>
 
                 <TextView
+                        android:text="@string/sadness"
+                        style="@style/TextView.Secondary"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="4dp"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/second_header_text"/>
+
+                <TextView
                         android:text="30%"
                         android:layout_gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:id="@+id/textSadnessViewing"/>
+                        style="@style/TextView.Secondary"
+                        android:textSize="11sp"
+                        android:textColor="@color/second_header_text"
+                        android:id="@+id/textSadnessViewing"/>
             </LinearLayout>
 
             <LinearLayout
@@ -115,14 +139,26 @@
                 <ImageView
                         android:layout_width="36dp"
                         android:layout_height="36dp"
+                        android:layout_gravity="center"
                         app:srcCompat="@drawable/emotion_active_annoyance"
                         android:id="@+id/imageAnnoyanceViewing"/>
 
                 <TextView
+                        android:text="@string/annoyance"
+                        style="@style/TextView.Secondary"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="4dp"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/second_header_text"/>
+
+                <TextView
                         android:text="30%"
                         android:layout_gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:id="@+id/textAnnoyanceViewing"/>
+                        style="@style/TextView.Secondary"
+                        android:textSize="11sp"
+                        android:textColor="@color/second_header_text"
+                        android:id="@+id/textAnnoyanceViewing"/>
             </LinearLayout>
 
             <LinearLayout
@@ -136,14 +172,26 @@
                 <ImageView
                         android:layout_width="36dp"
                         android:layout_height="36dp"
+                        android:layout_gravity="center"
                         app:srcCompat="@drawable/emotion_active_anxiety"
                         android:id="@+id/imageAnxietyViewing"/>
 
                 <TextView
+                        android:text="@string/anxiety"
+                        style="@style/TextView.Secondary"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="4dp"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/second_header_text"/>
+
+                <TextView
                         android:text="30%"
                         android:layout_gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:id="@+id/textAnxietyViewing"/>
+                        style="@style/TextView.Secondary"
+                        android:textSize="11sp"
+                        android:textColor="@color/second_header_text"
+                        android:id="@+id/textAnxietyViewing"/>
             </LinearLayout>
 
             <LinearLayout
@@ -157,14 +205,26 @@
                 <ImageView
                         android:layout_width="36dp"
                         android:layout_height="36dp"
+                        android:layout_gravity="center"
                         app:srcCompat="@drawable/emotion_active_disgust"
                         android:id="@+id/imageDisgustViewing"/>
 
                 <TextView
+                        android:text="@string/disgust"
+                        style="@style/TextView.Secondary"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="4dp"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/second_header_text"/>
+
+                <TextView
                         android:text="30%"
                         android:layout_gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:id="@+id/textDisgustViewing"/>
+                        style="@style/TextView.Secondary"
+                        android:textSize="11sp"
+                        android:textColor="@color/second_header_text"
+                        android:id="@+id/textDisgustViewing"/>
             </LinearLayout>
 
             <LinearLayout
@@ -178,14 +238,26 @@
                 <ImageView
                         android:layout_width="36dp"
                         android:layout_height="36dp"
+                        android:layout_gravity="center"
                         app:srcCompat="@drawable/emotion_active_interest"
                         android:id="@+id/imageInterestViewing"/>
 
                 <TextView
+                        android:text="@string/interest"
+                        style="@style/TextView.Secondary"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="4dp"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/second_header_text"/>
+
+                <TextView
                         android:text="30%"
                         android:layout_gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:id="@+id/textInterestViewing"/>
+                        style="@style/TextView.Secondary"
+                        android:textSize="11sp"
+                        android:textColor="@color/second_header_text"
+                        android:id="@+id/textInterestViewing"/>
             </LinearLayout>
 
             <LinearLayout
@@ -199,14 +271,26 @@
                 <ImageView
                         android:layout_width="36dp"
                         android:layout_height="36dp"
+                        android:layout_gravity="center"
                         app:srcCompat="@drawable/emotion_active_guilt"
                         android:id="@+id/imageGuiltViewing"/>
 
                 <TextView
+                        android:text="@string/guilt"
+                        style="@style/TextView.Secondary"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="4dp"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/second_header_text"/>
+
+                <TextView
                         android:text="30%"
                         android:layout_gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:id="@+id/textGuiltViewing"/>
+                        style="@style/TextView.Secondary"
+                        android:textSize="11sp"
+                        android:textColor="@color/second_header_text"
+                        android:id="@+id/textGuiltViewing"/>
             </LinearLayout>
 
             <LinearLayout
@@ -219,14 +303,26 @@
                 <ImageView
                         android:layout_width="36dp"
                         android:layout_height="36dp"
+                        android:layout_gravity="center"
                         app:srcCompat="@drawable/emotion_active_resentment"
                         android:id="@+id/imageResentmentViewing"/>
 
                 <TextView
+                        android:text="@string/resentment"
+                        style="@style/TextView.Secondary"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="4dp"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/second_header_text"/>
+
+                <TextView
                         android:text="30%"
                         android:layout_gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:id="@+id/textResentmentViewing"/>
+                        style="@style/TextView.Secondary"
+                        android:textSize="11sp"
+                        android:textColor="@color/second_header_text"
+                        android:id="@+id/textResentmentViewing"/>
             </LinearLayout>
 
         </LinearLayout>
