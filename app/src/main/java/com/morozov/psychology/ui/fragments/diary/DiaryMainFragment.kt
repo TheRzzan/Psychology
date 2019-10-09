@@ -1,11 +1,13 @@
 package com.morozov.psychology.ui.fragments.diary
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.DatePicker
 import com.arellomobile.mvp.MvpAppCompatFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
@@ -22,6 +24,10 @@ import com.morozov.psychology.utility.ItemTouchHelperClass
 import com.yarolegovich.discretescrollview.DiscreteScrollView
 import com.yarolegovich.discretescrollview.transform.ScaleTransformer
 import kotlinx.android.synthetic.main.diary_cards_layout.*
+import org.joda.time.DateTime
+import org.joda.time.Days
+import org.joda.time.MutableDateTime
+import java.text.SimpleDateFormat
 import java.util.*
 
 class DiaryMainFragment:MvpAppCompatFragment(), DiaryMainView,
@@ -42,6 +48,27 @@ class DiaryMainFragment:MvpAppCompatFragment(), DiaryMainView,
     lateinit var adapterDate: DiaryMainDateAdapter
     lateinit var adapterThink: DiaryMainThinkAdapter
     lateinit var itemTouchHelper: ItemTouchHelper
+
+    /*
+    * Calendar
+    *
+    * */
+    var calendar = Calendar.getInstance()
+    val calendarListener = DatePickerDialog.OnDateSetListener{ datePicker: DatePicker, year: Int, month: Int, day: Int ->
+        val epoch = MutableDateTime()
+        epoch.setDate(0)
+
+        val now = MutableDateTime()
+        now.year = year
+        now.monthOfYear = month + 1
+        now.dayOfMonth = day
+
+        mPresenter.showThinkList(Days.daysBetween(epoch, now).days)
+        if (DiaryMainPresenter.currentDate == -1)
+            recyclerDiaryDays.scrollToPosition(adapterDate.itemCount - 1)
+        else
+            recyclerDiaryDays.scrollToPosition(DiaryMainPresenter.currentDate)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.diary_cards_layout, container, false)
@@ -77,6 +104,10 @@ class DiaryMainFragment:MvpAppCompatFragment(), DiaryMainView,
             calendar.add(Calendar.DATE, recyclerDiaryDays.currentItem)
             mActivityPresenter.showDiaryEditor(true, calendar.time)
         }
+
+        imageDiaryCalendar.setOnClickListener {
+            showCalendar()
+        }
     }
 
     /*
@@ -102,7 +133,19 @@ class DiaryMainFragment:MvpAppCompatFragment(), DiaryMainView,
     }
 
     override fun showCalendar() {
+        val dialog = DatePickerDialog(
+            context, calendarListener,
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH)
+        )
 
+        val dayMtYrFormat = SimpleDateFormat("dd/MM/yyyy")
+        val dateCal = dayMtYrFormat
+            .parse("${calendar.get(Calendar.DAY_OF_MONTH)}/${calendar.get(Calendar.MONTH) + 1}/${calendar.get(Calendar.YEAR)}")
+
+        dialog.datePicker.maxDate = dateCal.time
+        dialog.show()
     }
 
     /*
