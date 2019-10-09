@@ -79,11 +79,11 @@ class TestsQuizFragment: MvpAppCompatFragment(), TestsQuizView {
     *
     * */
     override fun setSegmentProgressCount(count: Int) {
-        segmProgressTestsQuestion.setSegmentCount(count)
+        progressBarHorizontal.max = count
     }
 
     override fun increaseSegmentProgress() {
-        segmProgressTestsQuestion.incrementCompletedSegments()
+        progressBarHorizontal.incrementProgressBy(1)
         checked++
 
         if (checked == questionsAmount) {

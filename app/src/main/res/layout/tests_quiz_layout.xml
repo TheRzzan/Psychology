@@ -11,53 +11,49 @@
             android:layout_marginBottom="@dimen/activity_vertical_margin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-    <ScrollView
-            android:layout_alignParentTop="true"
-            android:layout_above="@+id/buttonTestsFinishQuiz"
-            android:layout_height="wrap_content"
-            android:id="@+id/scrollTestsQuestion"
-            style="@style/ScrollViewStyle">
+        <ScrollView
+                android:layout_alignParentTop="true"
+                android:layout_above="@+id/buttonTestsFinishQuiz"
+                android:layout_height="wrap_content"
+                android:id="@+id/scrollTestsQuestion"
+                style="@style/ScrollViewStyle">
 
-        <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            <TextView
-                    style="@style/TextView.Primary"
-                    android:text="Вопрос 1"
-                    android:textColor="@color/header_text"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"
-                    android:layout_marginStart="@dimen/activity_horizontal_margin"
-                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:id="@+id/textTestsQuestionName"/>
-
-            <com.carlosmuvi.segmentedprogressbar.SegmentedProgressBar
-                    android:id="@+id/segmProgressTestsQuestion"
-                    android:layout_below="@+id/textTestsQuestionName"
+            <RelativeLayout
                     android:layout_width="match_parent"
-                    app:container_color="@color/non_active_line"
-                    app:fill_color="@color/colorPrimary"
-                    app:gap_size="2dp"
-                    android:layout_marginEnd="-2dp"
-                    app:segment_count="20"
-                    android:layout_height="3dp"/>
+                    android:layout_height="wrap_content">
+                <TextView
+                        style="@style/TextView.Primary"
+                        android:text="Вопрос 1"
+                        android:textColor="@color/header_text"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                        android:id="@+id/textTestsQuestionName"/>
 
-            <TextView
-                    android:text="Трудно быть счастливым, если ты не красив, не интеллигентен, не богат и не имеешь творческих способностей."
-                    style="@style/TextView.Secondary"
-                    android:textColor="@color/second_header_text"
-                    android:layout_margin="@dimen/activity_horizontal_margin"
-                    android:id="@+id/textTestsQuestionDescr"
-                    android:layout_below="@+id/segmProgressTestsQuestion"/>
+                <ProgressBar
+                        android:layout_below="@+id/textTestsQuestionName"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:id="@+id/progressBarHorizontal"/>
 
-            <android.support.v7.widget.RecyclerView
-                    android:id="@+id/recyclerTestsQuestion"
-                    style="@style/RecyclerViewStyle"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"
-                    android:layout_marginStart="@dimen/activity_horizontal_margin"
-                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:layout_below="@+id/textTestsQuestionDescr"/>
-        </RelativeLayout>
-    </ScrollView>
+                <TextView
+                        android:text="Трудно быть счастливым, если ты не красив, не интеллигентен, не богат и не имеешь творческих способностей."
+                        style="@style/TextView.Secondary"
+                        android:textColor="@color/second_header_text"
+                        android:layout_margin="@dimen/activity_horizontal_margin"
+                        android:id="@+id/textTestsQuestionDescr"
+                        android:layout_below="@+id/progressBarHorizontal"/>
+
+                <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclerTestsQuestion"
+                        style="@style/RecyclerViewStyle"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                        android:layout_below="@+id/textTestsQuestionDescr"/>
+            </RelativeLayout>
+        </ScrollView>
 
         <Button
                 android:text="Далее"

@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#BD17F8</color>
     <color name="colorPrimaryDark">#810DAD</color>
-    <color name="colorAccent">#E69CBA</color>
+    <color name="colorAccent">#810DAD</color>
 
     <!-- Fragments background -->
     <color name="fragment_background">#00000000</color>
