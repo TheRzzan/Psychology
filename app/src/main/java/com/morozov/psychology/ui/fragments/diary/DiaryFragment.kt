@@ -159,9 +159,9 @@ class DiaryFragment:
     }
 
     /*
-        * OnItemChangedListener implementation
-        *
-        * */
+    * OnItemChangedListener implementation
+    *
+    * */
     override fun onCurrentItemChanged(viewHolder: DiaryDateViewHolder?, adapterPosition: Int) {
         mPresenter.selectDay(adapterPosition)
     }

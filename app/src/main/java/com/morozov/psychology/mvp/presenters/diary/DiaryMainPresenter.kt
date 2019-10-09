@@ -32,6 +32,8 @@ class DiaryMainPresenter: MvpPresenter<DiaryMainView>() {
         var currentDate = -1
     }
 
+    lateinit var tmpThinkList: List<ThinkModel>
+
     fun showThinkList(position: Int) {
         currentDate = position
 
@@ -50,6 +52,8 @@ class DiaryMainPresenter: MvpPresenter<DiaryMainView>() {
                 thinksByDate.add(think)
         }
 
+        tmpThinkList = thinksByDate
+        viewState.showIsEmptyMessage(thinksByDate.isEmpty())
         viewState.showThinkList(thinksByDate)
     }
 
