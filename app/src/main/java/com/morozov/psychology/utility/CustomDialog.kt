@@ -14,6 +14,7 @@ class CustomDialog: DialogFragment() {
 
     private lateinit var title: String
     private lateinit var description: String
+    private var ok = "OK"
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.dialog_layout, container, false)
@@ -24,6 +25,7 @@ class CustomDialog: DialogFragment() {
 
         textDialogHeader.text = title
         textDialogDescription.text = description
+        textDialogOK.text = ok
 
         textDialogOK.setOnClickListener {
             dialog.dismiss()
@@ -38,5 +40,9 @@ class CustomDialog: DialogFragment() {
 
     fun setDescription(description: String) {
         this.description = description
+    }
+
+    fun setOk(text: String) {
+        ok = text
     }
 }

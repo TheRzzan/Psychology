@@ -111,6 +111,16 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         linearBack.setOnClickListener {
             onBackPressed()
         }
+
+        if (!MySharedPreferences.getBoolPreference(applicationContext, AppConstants.PREF_DIALOG_FIRST_HELLO)) {
+            MySharedPreferences.setPreference(applicationContext, AppConstants.PREF_DIALOG_FIRST_HELLO, true)
+
+            val customDialog = CustomDialog()
+            customDialog.setTitle(getString(R.string.dialog_first_hello_title))
+            customDialog.setDescription(getString(R.string.dialog_first_hello_description))
+            customDialog.setOk(getString(R.string.dialog_first_hello_ok))
+            customDialog.show(supportFragmentManager, CustomDialog::class.simpleName)
+        }
     }
 
     override fun onBackPressed() {

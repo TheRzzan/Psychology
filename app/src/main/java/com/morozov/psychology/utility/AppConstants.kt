@@ -36,5 +36,6 @@ class AppConstants {
         // Dialogs
         const val PREF_DIALOG_TESTS = "pref_dialog_tests"
         const val PREF_DIALOG_ALL_RESULTS = "pref_dialog_all_results"
+        const val PREF_DIALOG_FIRST_HELLO = "pref_dialog_first_hello"
     }
 }
