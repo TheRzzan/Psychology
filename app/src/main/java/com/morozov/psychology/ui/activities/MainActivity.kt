@@ -1,5 +1,9 @@
 package com.morozov.psychology.ui.activities
 
+import android.app.AlarmManager
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -13,7 +17,6 @@ import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.views.MainView
 import com.morozov.psychology.ui.fragments.settings.SettingsFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryEditorFragment
-import com.morozov.psychology.ui.fragments.diary.DiaryFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryMainFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryThinkViewingFragment
 import com.morozov.psychology.ui.fragments.examples.*
@@ -24,6 +27,7 @@ import com.morozov.psychology.ui.fragments.settings.SettingsWallpaperFragment
 import com.morozov.psychology.ui.fragments.tests.*
 import com.morozov.psychology.utility.AppConstants
 import com.morozov.psychology.utility.MySharedPreferences
+import com.morozov.psychology.utility.ShowQuizNotification
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -81,7 +85,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val preferenceWallp = MySharedPreferences.getPreference(applicationContext, AppConstants.PREF_WALLPAPER)
+        val preferenceWallp = MySharedPreferences.getStrPreference(applicationContext, AppConstants.PREF_WALLPAPER)
 
         when (preferenceWallp) {
             AppConstants.EMPTY_PREF -> imageMainBack.setImageDrawable(ColorDrawable(resources.getColor(R.color.white)))
@@ -290,6 +294,22 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     }
 
     override fun showTestQuizResults(testName: String) {
+        if (!MySharedPreferences.getBoolPreference(applicationContext, AppConstants.PREF_QUIZ_MONTH)) {
+            MySharedPreferences.setPreference(applicationContext, AppConstants.PREF_QUIZ_MONTH, true)
+
+            setNotification(AlarmManager.INTERVAL_DAY * 30)
+        }
+        if (!MySharedPreferences.getBoolPreference(applicationContext, AppConstants.PREF_QUIZ_HALF_YEAR)) {
+            MySharedPreferences.setPreference(applicationContext, AppConstants.PREF_QUIZ_HALF_YEAR, true)
+
+            setNotification(AlarmManager.INTERVAL_DAY * 30 * 6)
+        }
+        if (!MySharedPreferences.getBoolPreference(applicationContext, AppConstants.PREF_QUIZ_YEAR)) {
+            MySharedPreferences.setPreference(applicationContext, AppConstants.PREF_QUIZ_YEAR, true)
+
+            setNotification(AlarmManager.INTERVAL_DAY * 30 * 12)
+        }
+
         val testsResultsFragment = TestsResultsFragment()
 
         val bundle = Bundle()
@@ -368,6 +388,20 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     *  Helper methods
     *
     *  */
+    private fun setNotification(delay: Long) {
+        val notificationIntent = Intent(applicationContext, ShowQuizNotification::class.java)
+        val contentIntent = PendingIntent.getService(
+            applicationContext, 0, notificationIntent,
+            PendingIntent.FLAG_CANCEL_CURRENT
+        )
+
+        val am = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        am.cancel(contentIntent)
+        am.set(
+            AlarmManager.RTC_WAKEUP,
+            System.currentTimeMillis() + delay, contentIntent
+        )
+    }
 
     private fun setFragment(fragment: Fragment, b: Boolean = false) {
         val transaction = supportFragmentManager

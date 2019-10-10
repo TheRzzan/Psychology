@@ -27,5 +27,10 @@ class AppConstants {
         const val PREF_WALLP_1 = "pref_wallp_1"
         const val PREF_WALLP_2 = "pref_wallp_2"
         const val PREF_WALLP_3 = "pref_wallp_3"
+
+        // Notifications
+        const val PREF_QUIZ_MONTH = "pref_quiz_month"
+        const val PREF_QUIZ_HALF_YEAR = "pref_quiz_half_year"
+        const val PREF_QUIZ_YEAR = "pref_quiz_year"
     }
 }
