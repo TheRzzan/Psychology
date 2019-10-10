@@ -23,6 +23,7 @@ import com.morozov.psychology.utility.ItemTouchHelperClass
 import com.yarolegovich.discretescrollview.DiscreteScrollView
 import com.yarolegovich.discretescrollview.transform.ScaleTransformer
 import kotlinx.android.synthetic.main.diary_cards_layout.*
+import kotlinx.android.synthetic.main.item_diary_date_card.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -105,9 +106,13 @@ class DiaryFragment:
     *
     * */
     override fun onItemClick(view: View, position: Int) {
-        mActivityPresenter.showDiaryViewing(
-            mPresenter.lastMonthData[recyclerDiaryDays.currentItem][position].date
-        )
+        if (view.id == diaryDateCard.id) {
+            showCalendar()
+        } else {
+            mActivityPresenter.showDiaryViewing(
+                mPresenter.lastMonthData[recyclerDiaryDays.currentItem][position].date
+            )
+        }
     }
 
     /*

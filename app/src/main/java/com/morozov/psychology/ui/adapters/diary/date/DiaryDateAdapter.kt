@@ -5,9 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.morozov.psychology.R
 import com.morozov.psychology.ui.adapters.ListAdapter
+import com.morozov.psychology.ui.adapters.listeners.OnItemClickListener
 import java.util.*
 
-class DiaryDateAdapter(val listener: View.OnClickListener): ListAdapter<Date, DiaryDateViewHolder>() {
+class DiaryDateAdapter(val listener: OnItemClickListener): ListAdapter<Date, DiaryDateViewHolder>() {
 
     override fun onCreateViewHolder(container: ViewGroup, p1: Int): DiaryDateViewHolder =
         DiaryDateViewHolder(
@@ -19,6 +20,6 @@ class DiaryDateAdapter(val listener: View.OnClickListener): ListAdapter<Date, Di
         )
 
     override fun onBindViewHolder(holder: DiaryDateViewHolder, position: Int) {
-        holder.populate(data()[position], listener)
+        holder.populate(data()[position], position, listener)
     }
 }

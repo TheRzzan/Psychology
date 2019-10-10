@@ -1,19 +1,17 @@
 package com.morozov.psychology.ui.adapters.diary.date
 
-import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.morozov.psychology.R
 import com.morozov.psychology.ui.adapters.ListAdapter
+import com.morozov.psychology.ui.adapters.listeners.OnItemClickListener
 import org.joda.time.DateTime
 import org.joda.time.Days
 import org.joda.time.MutableDateTime
-import java.time.Instant
-import java.time.temporal.ChronoUnit
 import java.util.*
 
-class DiaryMainDateAdapter: ListAdapter<Date, DiaryDateViewHolder>(), View.OnClickListener {
+class DiaryMainDateAdapter(private val listener: OnItemClickListener): ListAdapter<Date, DiaryDateViewHolder>() {
 
     override fun onCreateViewHolder(container: ViewGroup, p1: Int): DiaryDateViewHolder =
         DiaryDateViewHolder(
@@ -31,15 +29,7 @@ class DiaryMainDateAdapter: ListAdapter<Date, DiaryDateViewHolder>(), View.OnCli
 
         val date = calendar.time
 
-        holder.populate(date, this)
-    }
-
-    /*
-    * OnClickListener implementation
-    *
-    * */
-    override fun onClick(v: View?) {
-
+        holder.populate(date, position, listener)
     }
 
     override fun getItemCount(): Int {

@@ -24,6 +24,7 @@ import com.morozov.psychology.utility.ItemTouchHelperClass
 import com.yarolegovich.discretescrollview.DiscreteScrollView
 import com.yarolegovich.discretescrollview.transform.ScaleTransformer
 import kotlinx.android.synthetic.main.diary_cards_layout.*
+import kotlinx.android.synthetic.main.item_diary_date_card.*
 import org.joda.time.DateTime
 import org.joda.time.Days
 import org.joda.time.MutableDateTime
@@ -76,7 +77,7 @@ class DiaryMainFragment:MvpAppCompatFragment(), DiaryMainView,
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapterDate = DiaryMainDateAdapter()
+        adapterDate = DiaryMainDateAdapter(this)
         recyclerDiaryDays.setSlideOnFling(true)
         recyclerDiaryDays.adapter = adapterDate
         recyclerDiaryDays.addOnItemChangedListener(this)
@@ -153,9 +154,13 @@ class DiaryMainFragment:MvpAppCompatFragment(), DiaryMainView,
     *
     * */
     override fun onItemClick(view: View, position: Int) {
-        mActivityPresenter.showDiaryViewing(
-            mPresenter.tmpThinkList[position].date
-        )
+        if (view.id == diaryDateCard.id) {
+            recyclerDiaryDays.smoothScrollToPosition(position)
+        } else {
+            mActivityPresenter.showDiaryViewing(
+                mPresenter.tmpThinkList[position].date
+            )
+        }
     }
 
     /*
