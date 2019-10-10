@@ -60,4 +60,5 @@ dependencies {
 
     // Svg images
     implementation 'com.caverock:androidsvg-aar:1.4'
+    compile "org.jetbrains.kotlin:kotlin-reflect:1.3.41"
 }

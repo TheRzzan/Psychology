@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/dialogCard"
+        android:background="@drawable/dialog_background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+                android:id="@+id/textDialogHeader"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="15sp"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"
+                android:text="Раздел Тестирование"
+                style="@style/TextView.Primary.Header"/>
+
+        <TextView
+                android:id="@+id/textDialogDescription"
+                android:layout_below="@+id/textDialogHeader"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:text="Тесты в этом разделе направлены на то, чтобы оценить выраженность тревоги, депрессии и возможных других симптомов. Вы обнаружите свои ошибки мышления, а также психологические механизмы, которые помогают вам справляться с различными сложностями в своей жизни.
+Рекомендую пройти тестирование в начале использования этого приложения и через 1-2 месяца. Вы можете пройти тестирование столько раз, сколько захотите. Так вы сами сможете контролировать эффект своей работы. Приступая к тестированию, вы даете согласие на участие в анонимном исследовании эффективности приложения, что позволит улучшать его.
+"
+                android:textSize="12sp"
+                style="@style/TextView.Secondary"/>
+
+        <TextView
+                android:id="@+id/textDialogOK"
+                android:layout_below="@+id/textDialogDescription"
+                android:text="OK"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="17sp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                style="@style/TextView.Primary.Header"/>
+</RelativeLayout>

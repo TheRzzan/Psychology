@@ -26,6 +26,7 @@ import com.morozov.psychology.ui.fragments.settings.SettingsStyleFragment
 import com.morozov.psychology.ui.fragments.settings.SettingsWallpaperFragment
 import com.morozov.psychology.ui.fragments.tests.*
 import com.morozov.psychology.utility.AppConstants
+import com.morozov.psychology.utility.CustomDialog
 import com.morozov.psychology.utility.MySharedPreferences
 import com.morozov.psychology.utility.ShowQuizNotification
 import kotlinx.android.synthetic.main.activity_main.*
@@ -65,6 +66,16 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
                 clearBackStack()
                 setFragment(testsFragment)
+
+                if (!MySharedPreferences.getBoolPreference(applicationContext, AppConstants.PREF_DIALOG_TESTS)) {
+                    val customDialog = CustomDialog()
+                    customDialog.setTitle(getString(R.string.dialog_tests_title))
+                    customDialog.setDescription(getString(R.string.dialog_tests_description))
+                    customDialog.show(supportFragmentManager, CustomDialog::class.simpleName)
+
+                    MySharedPreferences.setPreference(applicationContext, AppConstants.PREF_DIALOG_TESTS, true)
+                }
+
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_mind_change -> {
@@ -336,6 +347,15 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         testsAllResultsFragment.mActivityPresenter = mPresenter
 
         setFragment(testsAllResultsFragment, true)
+
+        if (!MySharedPreferences.getBoolPreference(applicationContext, AppConstants.PREF_DIALOG_ALL_RESULTS)) {
+            val customDialog = CustomDialog()
+            customDialog.setTitle(getString(R.string.dialog_tests_all_results_title))
+            customDialog.setDescription(getString(R.string.dialog_tests_all_results_description))
+            customDialog.show(supportFragmentManager, CustomDialog::class.simpleName)
+
+            MySharedPreferences.setPreference(applicationContext, AppConstants.PREF_DIALOG_ALL_RESULTS, true)
+        }
     }
 
     override fun showTestAllResultsCards(testName: String) {
