@@ -325,27 +325,27 @@ class TestsResultsGenerator {
 
         val aboutModel = aboutLoader.getAboutModel()
 
-        val listEd = listOf(
+        val mListEd = listOf(
             Range(0, 34), Range(35, 48), Range(49, 62),
             Range(63, 76), Range(77, 100), Range(101, 137),
             Range(138, 173), Range(174, 209), Range(210, 400)
         )
-        val listAST = listOf(
+        val mListAST = listOf(
             Range(0, 26), Range(27, 36), Range(37, 47),
             Range(48, 57), Range(58, 82), Range(83, 122),
             Range(123, 161), Range(162, 201), Range(202, 400)
         )
-        val listFOB = listOf(
+        val mListFOB = listOf(
             Range(0, 13), Range(14, 19), Range(20, 24),
             Range(25, 29), Range(30, 54), Range(55, 99),
             Range(100, 144), Range(145, 188), Range(189, 400)
         )
-        val listOP = listOf(
+        val mListOP = listOf(
             Range(0, 44), Range(45, 62), Range(63, 80),
             Range(81, 97), Range(98, 122), Range(123, 155),
             Range(156, 187), Range(188, 219), Range(220, 400)
         )
-        val listSZ = listOf(
+        val mListSZ = listOf(
             Range(0, 50), Range(51, 70), Range(71, 90),
             Range(91, 110), Range(111, 135), Range(136, 165),
             Range(167, 195), Range(196, 225), Range(226, 400)
@@ -354,7 +354,17 @@ class TestsResultsGenerator {
         if (aboutModel != null) {
             when {
                 aboutModel.sex == SexEnum.MAN -> {
+                    sScoreED_LT = tmpIRes_1(mListEd, scoreED_LT)
+                    sScoreAST_LT = tmpIRes_1(mListAST, scoreAST_LT)
+                    sScoreFOB_LT = tmpIRes_1(mListFOB, scoreFOB_LT)
+                    sScoreOP_LT = tmpIRes_1(mListOP, scoreOP_LT)
+                    sScoreSZ_LT = tmpIRes_1(mListSZ, scoreSZ_LT)
 
+                    sScoreED_ST = tmpIRes_1(mListEd, scoreED_LT)
+                    sScoreAST_ST = tmpIRes_1(mListAST, scoreAST_ST)
+                    sScoreFOB_ST = tmpIRes_1(mListFOB, scoreFOB_ST)
+                    sScoreOP_ST = tmpIRes_1(mListOP, scoreOP_ST)
+                    sScoreSZ_ST = tmpIRes_1(mListSZ, scoreSZ_ST)
                 }
                 aboutModel.sex == SexEnum.WOMAN -> {
 
@@ -362,8 +372,18 @@ class TestsResultsGenerator {
             }
         }
 
-        return getIResStr(scoreED_LT, scoreAST_LT, scoreFOB_LT, scoreOP_LT, scoreSZ_LT,
-            scoreED_ST, scoreAST_ST, scoreFOB_ST, scoreOP_ST, scoreSZ_ST)
+        return getIResStr(sScoreED_LT, sScoreAST_LT, sScoreFOB_LT, sScoreOP_LT, sScoreSZ_LT,
+            sScoreED_ST, sScoreAST_ST, sScoreFOB_ST, sScoreOP_ST, sScoreSZ_ST)
+    }
+
+    private fun tmpIRes_1(list: List<Range<Int>>, value: Int): Int {
+        for ((index, item) in list.withIndex()) {
+            if (item.contains(value)) {
+                return index
+            }
+        }
+
+        return 0
     }
 
     private fun getIResStr(scoreED_LT: Int, scoreAST_LT: Int, scoreFOB_LT: Int, scoreOP_LT: Int,
