@@ -36,7 +36,7 @@ class ExResultsFragment: MvpAppCompatFragment(), ExResultsView {
 
         buttonConsolidateScill.setOnClickListener {
             if (mActivityPresenter != null)
-                mActivityPresenter.showExFixDescr(0)
+                mActivityPresenter.showExFixDescr(null, 0)
         }
     }
 

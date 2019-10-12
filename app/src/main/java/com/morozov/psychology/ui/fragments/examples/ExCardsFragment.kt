@@ -19,7 +19,7 @@ import com.morozov.psychology.ui.adapters.listeners.OnImageClickListener
 import com.morozov.psychology.ui.adapters.listeners.OnItemClickListener
 import kotlinx.android.synthetic.main.example_cards_layout.*
 
-class ExCardsFragment: MvpAppCompatFragment(), ExCardsView, OnItemClickListener {
+class ExCardsFragment: MvpAppCompatFragment(), ExCardsView {
 
     /*
     * Moxy presenters
@@ -48,7 +48,12 @@ class ExCardsFragment: MvpAppCompatFragment(), ExCardsView, OnItemClickListener 
                 mActivityPresenter.showExDescr(image, position)
             }
         })
-        adapterFix = ExFixCardsAdapter(this)
+        adapterFix = ExFixCardsAdapter(object : OnImageClickListener {
+            override fun onImageClicked(image: ImageView, position: Int) {
+                exitTransition = Fade()
+                mActivityPresenter.showExFixDescr(image, position)
+            }
+        })
 
         recyclerCardsExper.layoutManager = LinearLayoutManager(context)
         recyclerCardsExper.adapter = adapterExp
@@ -62,21 +67,6 @@ class ExCardsFragment: MvpAppCompatFragment(), ExCardsView, OnItemClickListener 
 
         mPresenter.loadDataExperiments()
         mPresenter.loadDataFixing()
-    }
-
-    /*
-    * OnItemClickListener implementation
-    *
-    * */
-    override fun onItemClick(view: View, position: Int) {
-        if (view.id == R.id.imageCard && mActivityPresenter != null) {
-            exitTransition = Fade()
-            mActivityPresenter.showExDescr(view as ImageView, position)
-        }
-
-        if (view.id == R.id.imageCardFixing && mActivityPresenter != null) {
-            mActivityPresenter.showExFixDescr(position)
-        }
     }
 
     /*

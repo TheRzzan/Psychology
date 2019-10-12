@@ -30,10 +30,10 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showExDescr(image, position)
     }
 
-    fun showExFixDescr(position: Int) {
+    fun showExFixDescr(image: ImageView?, position: Int) {
         viewState.hideBottomNav()
         viewState.hideBackArrow()
-        viewState.showExFixDescr(position)
+        viewState.showExFixDescr(image, position)
     }
 
     fun showExTest(position: Int) {

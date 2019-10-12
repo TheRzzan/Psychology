@@ -13,6 +13,7 @@ import android.support.v4.app.Fragment
 import android.transition.Fade
 import android.view.View
 import android.widget.ImageView
+import android.widget.Toast
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
@@ -201,7 +202,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         transaction.commit()
     }
 
-    override fun showExFixDescr(position: Int) {
+    override fun showExFixDescr(image: ImageView?, position: Int) {
         val exFixDescriptionFragment = ExFixDescriptionFragment()
 
         val bundle = Bundle()
@@ -210,7 +211,21 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         exFixDescriptionFragment.arguments = bundle
         exFixDescriptionFragment.mActivityPresenter = mPresenter
 
-        setFragment(exFixDescriptionFragment, true)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            exFixDescriptionFragment.sharedElementEnterTransition = DetailsTransition()
+            exFixDescriptionFragment.enterTransition = Fade()
+            exFixDescriptionFragment.sharedElementReturnTransition = DetailsTransition()
+        }
+
+        val transaction = supportFragmentManager.beginTransaction()
+
+        if (image != null)
+            transaction.addSharedElement(image, "fixingImage")
+
+        transaction.replace(R.id.contentMain, exFixDescriptionFragment)
+            .addToBackStack(null)
+
+        transaction.commit()
     }
 
     override fun showExTest(position: Int) {

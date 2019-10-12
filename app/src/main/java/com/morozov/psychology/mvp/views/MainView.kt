@@ -33,7 +33,7 @@ interface MainView: MvpView {
 
     fun showExDescr(image: ImageView?, position: Int)
 
-    fun showExFixDescr(position: Int)
+    fun showExFixDescr(image: ImageView?, position: Int)
 
     fun showExTest(position: Int)
 
