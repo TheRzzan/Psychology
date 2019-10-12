@@ -1,6 +1,7 @@
 package com.morozov.psychology.mvp.views
 
 import android.graphics.drawable.Drawable
+import android.widget.ImageView
 import com.arellomobile.mvp.MvpView
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
@@ -30,7 +31,7 @@ interface MainView: MvpView {
     * */
     fun showExCards()
 
-    fun showExDescr(position: Int)
+    fun showExDescr(image: ImageView?, position: Int)
 
     fun showExFixDescr(position: Int)
 

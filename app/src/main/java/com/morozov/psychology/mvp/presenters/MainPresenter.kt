@@ -1,6 +1,7 @@
 package com.morozov.psychology.mvp.presenters
 
 import android.graphics.drawable.Drawable
+import android.widget.ImageView
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import com.morozov.psychology.mvp.views.MainView
@@ -23,10 +24,10 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showExCards()
     }
 
-    fun showExDescr(position: Int) {
+    fun showExDescr(image: ImageView?, position: Int) {
         viewState.hideBottomNav()
         viewState.hideBackArrow()
-        viewState.showExDescr(position)
+        viewState.showExDescr(image, position)
     }
 
     fun showExFixDescr(position: Int) {

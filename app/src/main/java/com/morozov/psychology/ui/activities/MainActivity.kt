@@ -6,10 +6,13 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
+import android.os.Build
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
+import android.transition.Fade
 import android.view.View
+import android.widget.ImageView
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
@@ -25,10 +28,7 @@ import com.morozov.psychology.ui.fragments.settings.SettingsConsultFragment
 import com.morozov.psychology.ui.fragments.settings.SettingsStyleFragment
 import com.morozov.psychology.ui.fragments.settings.SettingsWallpaperFragment
 import com.morozov.psychology.ui.fragments.tests.*
-import com.morozov.psychology.utility.AppConstants
-import com.morozov.psychology.utility.CustomDialog
-import com.morozov.psychology.utility.MySharedPreferences
-import com.morozov.psychology.utility.ShowQuizNotification
+import com.morozov.psychology.utility.*
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -175,7 +175,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         navigation.selectedItemId = R.id.navigation_examples
     }
 
-    override fun showExDescr(position: Int) {
+    override fun showExDescr(image: ImageView?, position: Int) {
         val exDescriptionFragment = ExDescriptionFragment()
 
         val bundle = Bundle()
@@ -184,7 +184,21 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         exDescriptionFragment.arguments = bundle
         exDescriptionFragment.mActivityPresenter = mPresenter
 
-        setFragment(exDescriptionFragment, true)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            exDescriptionFragment.sharedElementEnterTransition = DetailsTransition()
+            exDescriptionFragment.enterTransition = Fade()
+            exDescriptionFragment.sharedElementReturnTransition = DetailsTransition()
+        }
+
+        val transaction = supportFragmentManager.beginTransaction()
+
+        if (image != null)
+            transaction.addSharedElement(image, "experimentImage")
+
+        transaction.replace(R.id.contentMain, exDescriptionFragment)
+                   .addToBackStack(null)
+
+        transaction.commit()
     }
 
     override fun showExFixDescr(position: Int) {

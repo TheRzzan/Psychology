@@ -2,9 +2,11 @@ package com.morozov.psychology.ui.fragments.examples
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.transition.Fade
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import com.arellomobile.mvp.MvpAppCompatFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
@@ -13,6 +15,7 @@ import com.morozov.psychology.mvp.presenters.examples.ExCardsPresenter
 import com.morozov.psychology.mvp.views.examples.ExCardsView
 import com.morozov.psychology.ui.adapters.examples.cards.exp.ExCardsAdapter
 import com.morozov.psychology.ui.adapters.examples.cards.fix.ExFixCardsAdapter
+import com.morozov.psychology.ui.adapters.listeners.OnImageClickListener
 import com.morozov.psychology.ui.adapters.listeners.OnItemClickListener
 import kotlinx.android.synthetic.main.example_cards_layout.*
 
@@ -39,7 +42,12 @@ class ExCardsFragment: MvpAppCompatFragment(), ExCardsView, OnItemClickListener 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapterExp = ExCardsAdapter(this)
+        adapterExp = ExCardsAdapter(object : OnImageClickListener {
+            override fun onImageClicked(image: ImageView, position: Int) {
+                exitTransition = Fade()
+                mActivityPresenter.showExDescr(image, position)
+            }
+        })
         adapterFix = ExFixCardsAdapter(this)
 
         recyclerCardsExper.layoutManager = LinearLayoutManager(context)
@@ -62,7 +70,8 @@ class ExCardsFragment: MvpAppCompatFragment(), ExCardsView, OnItemClickListener 
     * */
     override fun onItemClick(view: View, position: Int) {
         if (view.id == R.id.imageCard && mActivityPresenter != null) {
-            mActivityPresenter.showExDescr(position)
+            exitTransition = Fade()
+            mActivityPresenter.showExDescr(view as ImageView, position)
         }
 
         if (view.id == R.id.imageCardFixing && mActivityPresenter != null) {
