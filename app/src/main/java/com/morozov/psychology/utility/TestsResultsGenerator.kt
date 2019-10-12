@@ -1,10 +1,22 @@
 package com.morozov.psychology.utility
 
+import android.util.Range
+import com.morozov.psychology.DefaultApplication
+import com.morozov.psychology.domain.interfaces.tests.AboutLoader
 import com.morozov.psychology.mvp.models.tests.ResultModel
+import com.morozov.psychology.mvp.models.tests.about.enums.SexEnum
 import java.util.*
+import javax.inject.Inject
 import kotlin.math.max
 
 class TestsResultsGenerator {
+
+    @Inject
+    lateinit var aboutLoader: AboutLoader
+
+    init {
+        DefaultApplication.testsComponent.inject(this)
+    }
 
     fun getResult(testName: String, answers: List<Int>): ResultModel = when (testName) {
             AppConstants.WEISMAN_BACK_TEST -> {
@@ -295,6 +307,57 @@ class TestsResultsGenerator {
                     scoreSZ_LT += itTmp.second[answers[index]]
                 } else if ((index + 1) == (itTmp.first + 15)) {
                     scoreSZ_ST += itTmp.second[answers[index]]
+                }
+            }
+        }
+
+        var sScoreED_LT = 0
+        var sScoreAST_LT = 0
+        var sScoreFOB_LT = 0
+        var sScoreOP_LT = 0
+        var sScoreSZ_LT = 0
+
+        var sScoreED_ST = 0
+        var sScoreAST_ST = 0
+        var sScoreFOB_ST = 0
+        var sScoreOP_ST = 0
+        var sScoreSZ_ST = 0
+
+        val aboutModel = aboutLoader.getAboutModel()
+
+        val listEd = listOf(
+            Range(0, 34), Range(35, 48), Range(49, 62),
+            Range(63, 76), Range(77, 100), Range(101, 137),
+            Range(138, 173), Range(174, 209), Range(210, 400)
+        )
+        val listAST = listOf(
+            Range(0, 26), Range(27, 36), Range(37, 47),
+            Range(48, 57), Range(58, 82), Range(83, 122),
+            Range(123, 161), Range(162, 201), Range(202, 400)
+        )
+        val listFOB = listOf(
+            Range(0, 13), Range(14, 19), Range(20, 24),
+            Range(25, 29), Range(30, 54), Range(55, 99),
+            Range(100, 144), Range(145, 188), Range(189, 400)
+        )
+        val listOP = listOf(
+            Range(0, 44), Range(45, 62), Range(63, 80),
+            Range(81, 97), Range(98, 122), Range(123, 155),
+            Range(156, 187), Range(188, 219), Range(220, 400)
+        )
+        val listSZ = listOf(
+            Range(0, 50), Range(51, 70), Range(71, 90),
+            Range(91, 110), Range(111, 135), Range(136, 165),
+            Range(167, 195), Range(196, 225), Range(226, 400)
+        )
+
+        if (aboutModel != null) {
+            when {
+                aboutModel.sex == SexEnum.MAN -> {
+
+                }
+                aboutModel.sex == SexEnum.WOMAN -> {
+
                 }
             }
         }

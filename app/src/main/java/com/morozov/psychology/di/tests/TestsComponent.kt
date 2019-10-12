@@ -18,4 +18,6 @@ interface TestsComponent {
     fun inject(presenter: TestsResultsPresenter)
 
     fun inject(presenter: TestsAboutPresenter)
+
+    fun inject(generator: TestsResultsGenerator)
 }
