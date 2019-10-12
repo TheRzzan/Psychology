@@ -351,6 +351,34 @@ class TestsResultsGenerator {
             Range(167, 195), Range(196, 225), Range(226, 400)
         )
 
+        ///////////
+
+        val wListEd = listOf(
+            Range(0, 42), Range(43, 58), Range(59, 75),
+            Range(76, 92), Range(93, 117), Range(118, 150),
+            Range(151, 183), Range(184, 217), Range(218, 400)
+        )
+        val wListAST = listOf(
+            Range(0, 31), Range(32, 44), Range(45, 57),
+            Range(58, 70), Range(71, 95), Range(96, 132),
+            Range(133, 169), Range(170, 206), Range(207, 400)
+        )
+        val wListFOB = listOf(
+            Range(0, 16), Range(17, 23), Range(24, 29),
+            Range(30, 36), Range(37, 61), Range(62, 104),
+            Range(105, 148), Range(149, 191), Range(192, 400)
+        )
+        val wListOP = listOf(
+            Range(0, 53), Range(54, 75), Range(76, 97),
+            Range(98, 118), Range(119, 143), Range(144, 172),
+            Range(173, 200), Range(201, 228), Range(229, 400)
+        )
+        val wListSZ = listOf(
+            Range(0, 60), Range(61, 85), Range(86, 109),
+            Range(110, 134), Range(135, 159), Range(160, 184),
+            Range(185, 210), Range(211, 235), Range(236, 400)
+        )
+
         if (aboutModel != null) {
             when {
                 aboutModel.sex == SexEnum.MAN -> {
@@ -367,7 +395,17 @@ class TestsResultsGenerator {
                     sScoreSZ_ST = tmpIRes_1(mListSZ, scoreSZ_ST)
                 }
                 aboutModel.sex == SexEnum.WOMAN -> {
+                    sScoreED_LT = tmpIRes_1(wListEd, scoreED_LT)
+                    sScoreAST_LT = tmpIRes_1(wListAST, scoreAST_LT)
+                    sScoreFOB_LT = tmpIRes_1(wListFOB, scoreFOB_LT)
+                    sScoreOP_LT = tmpIRes_1(wListOP, scoreOP_LT)
+                    sScoreSZ_LT = tmpIRes_1(wListSZ, scoreSZ_LT)
 
+                    sScoreED_ST = tmpIRes_1(wListEd, scoreED_LT)
+                    sScoreAST_ST = tmpIRes_1(wListAST, scoreAST_ST)
+                    sScoreFOB_ST = tmpIRes_1(wListFOB, scoreFOB_ST)
+                    sScoreOP_ST = tmpIRes_1(wListOP, scoreOP_ST)
+                    sScoreSZ_ST = tmpIRes_1(wListSZ, scoreSZ_ST)
                 }
             }
         }
@@ -386,12 +424,73 @@ class TestsResultsGenerator {
         return 0
     }
 
-    private fun getIResStr(scoreED_LT: Int, scoreAST_LT: Int, scoreFOB_LT: Int, scoreOP_LT: Int,
-                            scoreSZ_LT: Int, scoreED_ST: Int, scoreAST_ST: Int, scoreFOB_ST: Int,
-                            scoreOP_ST: Int, scoreSZ_ST: Int): ResultModel {
+    private fun getIResStr(scoreED_LT: Int, scoreAST_LT: Int, scoreFOB_LT: Int, scoreOP_LT: Int, scoreSZ_LT: Int,
+                           scoreED_ST: Int, scoreAST_ST: Int, scoreFOB_ST: Int, scoreOP_ST: Int, scoreSZ_ST: Int): ResultModel {
+        val mutableListOf = mutableListOf<Pair<String, String>>()
 
+        when (scoreED_LT) {
+            in 0..3 -> mutableListOf.add(Pair("Личностная тревога", "Тревога не доставляет вам эмоционального дискомфорта."))
+            in 4..6 -> mutableListOf.add(Pair("Личностная тревога", "Тревога доставляет вам умеренный эмоциональны дискомфорт."))
+            in 7..9 -> mutableListOf.add(Pair("Личностная тревога", "Тревога влияет на ваше настроение, снижая его. В результате возникает неудовлетворенность жизненной ситуацией, эмоциональной напряженностью, периодическое беспокойство."))
+        }
 
-        return ResultModel(Date(), listOf())
+        when (scoreAST_LT) {
+            in 0..3 -> mutableListOf.add(Pair("Личностная тревога", "Тревога не сопровождается усталостью и быстрой утомляемостью."))
+            in 4..6 -> mutableListOf.add(Pair("Личностная тревога", "Тревога периодически приводит к возникновению усталости, но вы достаточно хорошо восстанавливаете свои силы."))
+            in 7..9 -> mutableListOf.add(Pair("Личностная тревога", "Тревога влияет на ваше самочувствие. В результате возникает усталость, расстройства сна, вялость и пассивность, быстрая утомляемость."))
+        }
+
+        when (scoreFOB_LT) {
+            in 0..3 -> mutableListOf.add(Pair("Личностная тревога", "У вас низкий уровень тревоги и страхов."))
+            in 4..6 -> mutableListOf.add(Pair("Личностная тревога", "Уровень вашей тревоги и страхов в пределах нормы."))
+            in 7..9 -> mutableListOf.add(Pair("Личностная тревога", "Ваша тревога сопровождается ощущениями непонятной угрозы, неуверенности в себе, собственной бесполезности. Вы не всегда можете сформулировать источник своих тревог, как будто страх это хроническое состояние, периодически возрастающее в зависимости от внутреннего состояния или обострения внешней ситуации."))
+        }
+
+        when (scoreOP_LT) {
+            in 0..3 -> mutableListOf.add(Pair("Личностная тревога", "Представления о будущем не вызывают у вас повышения тревоги."))
+            in 4..6 -> mutableListOf.add(Pair("Личностная тревога", "Вы периодически испытываете тревогу о будущем, но умеете достаточно реалистично оценить степень угрозы."))
+            in 7..9 -> mutableListOf.add(Pair("Личностная тревога", "Ваши страхи направлены не только на текущее положение дел, но и на перспективу. Вы озабочены будущим, что еще больше усиливает тревогу и эмоциональную чувствительность. "))
+        }
+
+        when (scoreSZ_LT) {
+            in 0..3 -> mutableListOf.add(Pair("Личностная тревога", "Взаимодействие с окружающими людьми не вызывает у вас тревогу."))
+            in 4..6 -> mutableListOf.add(Pair("Личностная тревога", "Тревоги, связанные с социальными контактами находятся у вас на уровне нормы."))
+            in 7..9 -> mutableListOf.add(Pair("Личностная тревога", "Основные проявления вашей тревожности находятся в сфере социальных контактов. Окружающие люди могут доставлять вам напряжение и усиливать неуверенность в себе."))
+        }
+
+        //////////
+
+        when (scoreED_ST) {
+            in 0..3 -> mutableListOf.add(Pair("Ситуативная тревога", "Тревога не доставляет вам эмоционального дискомфорта."))
+            in 4..6 -> mutableListOf.add(Pair("Ситуативная тревога", "Тревога доставляет вам умеренный эмоциональны дискомфорт."))
+            in 7..9 -> mutableListOf.add(Pair("Ситуативная тревога", "Тревога влияет на ваше настроение, снижая его. В результате возникает неудовлетворенность жизненной ситуацией, эмоциональной напряженностью, периодическое беспокойство."))
+        }
+
+        when (scoreAST_ST) {
+            in 0..3 -> mutableListOf.add(Pair("Ситуативная тревога", "Тревога не сопровождается усталостью и быстрой утомляемостью."))
+            in 4..6 -> mutableListOf.add(Pair("Ситуативная тревога", "Тревога периодически приводит к возникновению усталости, но вы достаточно хорошо восстанавливаете свои силы."))
+            in 7..9 -> mutableListOf.add(Pair("Ситуативная тревога", "Тревога влияет на ваше самочувствие. В результате возникает усталость, расстройства сна, вялость и пассивность, быстрая утомляемость."))
+        }
+
+        when (scoreFOB_ST) {
+            in 0..3 -> mutableListOf.add(Pair("Ситуативная тревога", "У вас низкий уровень тревоги и страхов."))
+            in 4..6 -> mutableListOf.add(Pair("Ситуативная тревога", "Уровень вашей тревоги и страхов в пределах нормы."))
+            in 7..9 -> mutableListOf.add(Pair("Ситуативная тревога", "Ваша тревога сопровождается ощущениями непонятной угрозы, неуверенности в себе, собственной бесполезности. Вы не всегда можете сформулировать источник своих тревог, как будто страх это хроническое состояние, периодически возрастающее в зависимости от внутреннего состояния или обострения внешней ситуации."))
+        }
+
+        when (scoreOP_ST) {
+            in 0..3 -> mutableListOf.add(Pair("Ситуативная тревога", "Представления о будущем не вызывают у вас повышения тревоги."))
+            in 4..6 -> mutableListOf.add(Pair("Ситуативная тревога", "Вы периодически испытываете тревогу о будущем, но умеете достаточно реалистично оценить степень угрозы."))
+            in 7..9 -> mutableListOf.add(Pair("Ситуативная тревога", "Ваши страхи направлены не только на текущее положение дел, но и на перспективу. Вы озабочены будущим, что еще больше усиливает тревогу и эмоциональную чувствительность. "))
+        }
+
+        when (scoreSZ_ST) {
+            in 0..3 -> mutableListOf.add(Pair("Ситуативная тревога", "Взаимодействие с окружающими людьми не вызывает у вас тревогу."))
+            in 4..6 -> mutableListOf.add(Pair("Ситуативная тревога", "Тревоги, связанные с социальными контактами находятся у вас на уровне нормы."))
+            in 7..9 -> mutableListOf.add(Pair("Ситуативная тревога", "Основные проявления вашей тревожности находятся в сфере социальных контактов. Окружающие люди могут доставлять вам напряжение и усиливать неуверенность в себе."))
+        }
+
+        return ResultModel(Date(), mutableListOf)
     }
 
     /*
