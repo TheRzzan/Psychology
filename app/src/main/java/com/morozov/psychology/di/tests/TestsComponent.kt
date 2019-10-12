@@ -2,6 +2,7 @@ package com.morozov.psychology.di.tests
 
 import com.morozov.psychology.mvp.presenters.tests.*
 import com.morozov.psychology.ui.fragments.tests.TestsAllResultsCardsFragment
+import com.morozov.psychology.ui.fragments.tests.TestsDescriptionFragment
 import com.morozov.psychology.ui.fragments.tests.TestsResultsFragment
 import com.morozov.psychology.utility.TestsResultsGenerator
 import dagger.Component
@@ -20,4 +21,6 @@ interface TestsComponent {
     fun inject(presenter: TestsAboutPresenter)
 
     fun inject(generator: TestsResultsGenerator)
+
+    fun inject(fragment: TestsDescriptionFragment)
 }
