@@ -40,7 +40,7 @@ class TestsDescriptionFragment: MvpAppCompatFragment(), TestsDescriptionView {
         val bundle = this.arguments ?: return
         val name = bundle.getString(AppConstants.TEST_NAME) ?: return
 
-        if (name == AppConstants.INTEGRATIVE_TEST && aboutLoader.getAboutModel() == null) {
+        if ((name == AppConstants.INTEGRATIVE_TEST || name == AppConstants.LAZARUS_QUESTIONNAIRE_TEST) && aboutLoader.getAboutModel() == null) {
             buttonTestsStart.isEnabled = false
             buttonTestsStart.background = resources.getDrawable(R.drawable.rectangle_button_disable)
             Toast.makeText(context, "Перед прохождением этого теста пройдите тест \"Немного о вас\"", Toast.LENGTH_LONG).show()
