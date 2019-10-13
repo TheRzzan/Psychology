@@ -502,7 +502,62 @@ class TestsResultsGenerator {
     *
     * */
     private fun getLazarusQuestionnaireRes(testName: String, answers: List<Int>): ResultModel {
-        return ResultModel(Date(), listOf(Pair(testName, "Some description ${answers.size}")))
+        var rawKonKop = 0
+        var rawDistan = 0
+        var rawSamokt = 0
+        var rawSocHlp = 0
+        var rawPrOtvt = 0
+        var rawBegIzb = 0
+        var rawPlResh = 0
+        var rawPolPer = 0
+
+        val listKonKop = listOf(2, 3, 13, 21, 26, 37)
+        val listDistan = listOf(8, 9, 11, 16, 32, 35)
+        val listSamokt = listOf(6, 10, 27, 34, 44, 49, 50)
+        val listSocHlp = listOf(4, 14, 17, 24, 33, 36)
+        val listPrOtvt = listOf(5, 19, 22, 42)
+        val listBegIzb = listOf(7, 12, 25, 31, 38, 41, 46, 47)
+        val listPlResh = listOf(1, 20, 30, 39, 40, 43)
+        val listPolPer = listOf(15, 18, 23, 28, 29, 45, 48)
+
+        for ((index, item) in answers.withIndex()) {
+            val i = index + 1
+            when {
+                listKonKop.contains(i) -> rawKonKop += item
+                listDistan.contains(i) -> rawDistan += item
+                listSamokt.contains(i) -> rawSamokt += item
+                listSocHlp.contains(i) -> rawSocHlp += item
+                listPrOtvt.contains(i) -> rawPrOtvt += item
+                listBegIzb.contains(i) -> rawBegIzb += item
+                listPlResh.contains(i) -> rawPlResh += item
+                listPolPer.contains(i) -> rawPolPer += item
+            }
+        }
+
+        val aboutModel = aboutLoader.getAboutModel() ?: return ResultModel(Date(), listOf())
+
+        val sexEnum = aboutModel.sex
+        val age = aboutModel.age
+
+        if (sexEnum == null || age == null)
+            return ResultModel(Date(), listOf())
+
+        return getLQResStr(
+            getTBall(getLKonfTable(), getLQColumnIndex(sexEnum, age), rawKonKop),
+            getTBall(getLDisfTable(), getLQColumnIndex(sexEnum, age), rawDistan),
+            getTBall(getSamoTable(), getLQColumnIndex(sexEnum, age), rawSamokt),
+            getTBall(getLSocHelpTable(), getLQColumnIndex(sexEnum, age), rawSocHlp),
+            getTBall(getLPrOtvTable(), getLQColumnIndex(sexEnum, age), rawPrOtvt),
+            getTBall(getLBegIzbTable(), getLQColumnIndex(sexEnum, age), rawBegIzb),
+            getTBall(getLPlanReshPrTable(), getLQColumnIndex(sexEnum, age), rawPlResh),
+            getTBall(getLPolojPereocTable(), getLQColumnIndex(sexEnum, age), rawPolPer)
+        )
+    }
+
+    private fun getLQResStr(tBallKonKop: Int, tBallDistan: Int, tBallSamokt: Int,
+                            tBallSocHlp: Int, tBallPrOtvt: Int, tBallBegIzb: Int,
+                            tBallPlResh: Int, tBallPolPer: Int): ResultModel {
+        return ResultModel(Date(), listOf())
     }
 
     private fun getLKonfTable(): List<List<Int>> {
@@ -615,6 +670,31 @@ class TestsResultsGenerator {
         val l8 = listOf(17,20,22,25,27,30,32,35,37,40,42,45,47,50,52,55,57,60,62,65,67,70)
 
         return listOf(l1,l2,l3,l4,l5,l6,l7,l8)
+    }
+
+    private fun getLQColumnIndex(sex: SexEnum, age: Int): Int {
+        var ind = 0
+
+        when (age) {
+            in 0..20 -> ind = 0
+            in 21..30 -> ind = 1
+            in 31..45 -> ind = 2
+            in 46..120 -> ind = 3
+        }
+
+        when (sex) {
+            SexEnum.MAN -> ind += 0
+            SexEnum.WOMAN -> ind += 4
+        }
+
+        return ind
+    }
+
+    private fun getTBall(table: List<List<Int>>, column: Int, line: Int): Int {
+        return if (column >= table.size || line >= table[column].size)
+            0
+        else
+            table[column][line]
     }
 
     /*
