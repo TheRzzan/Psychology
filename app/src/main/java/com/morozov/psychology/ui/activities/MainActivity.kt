@@ -84,9 +84,10 @@ class MainActivity : MvpAppCompatActivity(), MainView {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_settings -> {
-                val settingsFragment = SettingsFragment()
-                settingsFragment.mActivityPresenter = mPresenter
-                setFragment(settingsFragment)
+//                val settingsFragment = SettingsFragment()
+//                settingsFragment.mActivityPresenter = mPresenter
+//                setFragment(settingsFragment)
+                setFragment(MindChangeFragment())
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -106,6 +107,8 @@ class MainActivity : MvpAppCompatActivity(), MainView {
             AppConstants.PREF_WALLP_2 -> imageMainBack.setImageDrawable(getDrawable(R.drawable.wallpaper_2))
             AppConstants.PREF_WALLP_3 -> imageMainBack.setImageDrawable(getDrawable(R.drawable.wallpaper_3))
         }
+
+        imageMainBack.setImageDrawable(ColorDrawable(resources.getColor(R.color.white)))
 
         mPresenter.showExCards()
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)

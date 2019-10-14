@@ -55,16 +55,28 @@
             android:layout_below="@+id/recyclerDiaryDays"
             android:id="@+id/textDiaryEmptyDay"/>
 
+    <View
+            android:background="@color/grey_color"
+            android:layout_toStartOf="@+id/arrowEmpty"
+            android:layout_above="@+id/arrowEmpty"
+            android:layout_below="@+id/textDiaryEmptyDay"
+            android:layout_width="2dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="-2.5dp"
+            android:layout_marginBottom="-1dp" android:id="@+id/viewEmpty"/>
+
     <com.caverock.androidsvg.SVGImageView
             xmlns:svg="http://schemas.android.com/apk/res-auto"
             android:id="@+id/arrowEmpty"
             svg:svg="arrow_empty_date_new.svg"
+            android:scaleType="fitEnd"
             android:layout_toStartOf="@+id/buttonDiaryAdd"
             android:layout_alignBottom="@+id/buttonDiaryAdd"
-            android:layout_below="@+id/textDiaryEmptyDay"
+
             android:layout_marginBottom="20dp"
-            android:layout_width="114dp"
-            android:layout_height="127dp" android:layout_marginEnd="-12dp"/>
+            android:layout_width="116dp"
+            android:minHeight="128dp"
+            android:layout_height="wrap_content" android:layout_marginEnd="-12dp"/>
 
     <Button
             android:id="@+id/buttonDiaryAdd"

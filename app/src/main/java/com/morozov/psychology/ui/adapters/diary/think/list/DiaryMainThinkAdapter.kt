@@ -39,13 +39,11 @@ class DiaryMainThinkAdapter(private val listener: OnItemClickListener, private v
     override fun onItemRemoved(position: Int) {
         justDeletedItem = mPresenter.deleteThink(data()[position])!!
         indexOfDeletedItem = position
-        notifyItemRemoved(position)
         notifyDataSetChanged()
 
         Snackbar.make(view, "Удалено", Snackbar.LENGTH_LONG)
             .setAction("Отмена") {
                 mPresenter.addThink(indexOfDeletedItem, justDeletedItem)
-                notifyItemInserted(indexOfDeletedItem)
                 notifyDataSetChanged()
             }.show()
     }

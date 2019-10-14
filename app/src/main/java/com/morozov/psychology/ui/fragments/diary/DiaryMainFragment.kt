@@ -120,10 +120,12 @@ class DiaryMainFragment:MvpAppCompatFragment(), DiaryMainView,
             true -> {
                 textDiaryEmptyDay.visibility = View.GONE
                 arrowEmpty.visibility = View.GONE
+                viewEmpty.visibility = View.GONE
             }
             false -> {
                 textDiaryEmptyDay.visibility = View.VISIBLE
                 arrowEmpty.visibility = View.VISIBLE
+                viewEmpty.visibility = View.VISIBLE
             }
         }
     }

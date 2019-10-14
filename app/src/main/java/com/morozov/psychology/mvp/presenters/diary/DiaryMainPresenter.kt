@@ -32,11 +32,17 @@ class DiaryMainPresenter: MvpPresenter<DiaryMainView>() {
         var currentDate = -1
     }
 
-    lateinit var tmpThinkList: List<ThinkModel>
+    lateinit var tmpThinkList: MutableList<ThinkModel>
 
     fun showThinkList(position: Int) {
         currentDate = position
 
+        tmpThinkList = loadThinkList(position)
+        viewState.showIsEmptyMessage(tmpThinkList.isEmpty())
+        viewState.showThinkList(tmpThinkList)
+    }
+
+    private fun loadThinkList(position: Int): MutableList<ThinkModel> {
         val calendar = Calendar.getInstance()
         calendar.time = Date(0)
         calendar.add(Calendar.DATE, position)
@@ -52,17 +58,17 @@ class DiaryMainPresenter: MvpPresenter<DiaryMainView>() {
                 thinksByDate.add(think)
         }
 
-        tmpThinkList = thinksByDate
-        viewState.showIsEmptyMessage(thinksByDate.isEmpty())
-        viewState.showThinkList(thinksByDate)
+        return thinksByDate
     }
 
     fun deleteThink(think: ThinkModel): ThinkModel? {
         thinkDeleter.deleteThink(think)
+        tmpThinkList.remove(think)
         return think
     }
 
     fun addThink(index: Int, think: ThinkModel) {
         thinkSaver.saveNew(think)
+        tmpThinkList.add(index, think)
     }
 }
