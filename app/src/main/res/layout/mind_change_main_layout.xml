@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        android:background="@color/fragment_background"
+        android:focusableInTouchMode="true"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TextView
+            android:id="@+id/textMindChangeHeader"
+            style="@style/TextView.Primary.Header"
+            android:layout_marginBottom="24dp"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:text="Изменение мыслей"/>
+
+    <RelativeLayout
+            android:id="@+id/relativeDayMonthYear"
+            android:layout_below="@+id/textMindChangeHeader"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:id="@+id/textDayMonthYear"
+                android:text="ДД.ММ.ГГГГ"
+                android:textStyle="bold"
+                style="@style/TextView.Secondary"
+                android:textSize="20sp"
+                android:textColor="@color/secondary_text"
+                android:layout_marginEnd="8dp"/>
+
+        <ImageView
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/textDayMonthYear"
+                android:src="@drawable/ic_calendar"
+                android:layout_width="24dp"
+                android:layout_height="24dp"/>
+    </RelativeLayout>
+
+    <LinearLayout
+            android:id="@+id/linearArrow"
+            android:orientation="vertical"
+            android:layout_below="@+id/relativeDayMonthYear"
+            android:layout_above="@+id/textMindChangeNonSelectedDay"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        <ImageView
+                android:background="@drawable/triangle_shape"
+                android:layout_width="10dp"
+                android:layout_height="5dp"/>
+        <View
+                android:layout_gravity="center"
+                android:background="@color/grey_color"
+                android:layout_width="2dp"
+                android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <TextView
+            android:visibility="gone"
+            android:text="В этот день вы не делали никаких записей"
+            android:textColor="@color/grey_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginEnd="35dp"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:id="@+id/textMindChangeEmptyDay"/>
+
+    <TextView
+            android:text="Укажите дату, чтобы увидеть ваши записи"
+            android:textColor="@color/grey_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginEnd="35dp"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:id="@+id/textMindChangeNonSelectedDay"/>
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerMindChangeThinks"
+            android:layout_below="@+id/relativeDayMonthYear"
+            android:layout_marginTop="24dp"
+            style="@style/RecyclerViewStyle"/>
+
+</RelativeLayout>
