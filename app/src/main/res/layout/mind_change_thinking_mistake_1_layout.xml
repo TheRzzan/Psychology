@@ -27,7 +27,7 @@
                 android:textColor="@color/second_header_text"/>
 
         <android.support.v7.widget.RecyclerView
-                style="@style/RecyclerViewStyle"/>
+                style="@style/RecyclerViewStyle" android:id="@+id/recyclerThinkMistake"/>
     </LinearLayout>
 
     <Button
