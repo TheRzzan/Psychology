@@ -26,6 +26,7 @@ import com.morozov.psychology.ui.fragments.diary.DiaryThinkViewingFragment
 import com.morozov.psychology.ui.fragments.examples.*
 import com.morozov.psychology.ui.fragments.mind.change.MindChangeFragment
 import com.morozov.psychology.ui.fragments.mind.change.MindChangeThinkTestFragment
+import com.morozov.psychology.ui.fragments.mind.change.think.mistake.MCThinkMistake_1_Fragment
 import com.morozov.psychology.ui.fragments.settings.SettingsConsultFragment
 import com.morozov.psychology.ui.fragments.settings.SettingsStyleFragment
 import com.morozov.psychology.ui.fragments.settings.SettingsWallpaperFragment
@@ -439,10 +440,22 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         setFragment(mindChangeThinkTestFragment, true)
     }
 
+    override fun showMCThinkMistake_1(date: Date) {
+        val mcThinkMistake_1_Fragment = MCThinkMistake_1_Fragment()
+
+        val bundle = Bundle()
+        bundle.putSerializable(AppConstants.DIARY_SELECTED_DAY, date)
+
+        mcThinkMistake_1_Fragment.arguments = bundle
+        mcThinkMistake_1_Fragment.mActivityPresenter = mPresenter
+
+        setFragment(mcThinkMistake_1_Fragment, true)
+    }
+
     /*
-    * Settings section controls
-    *
-    * */
+        * Settings section controls
+        *
+        * */
     override fun showSettingsSection() {
         navigation.selectedItemId = R.id.navigation_settings
     }

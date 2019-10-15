@@ -79,6 +79,8 @@ interface MainView: MvpView {
 
     fun showMindChangeThinkTest(date: Date)
 
+    fun showMCThinkMistake_1(date: Date)
+
     /*
     * Profile section controls
     *

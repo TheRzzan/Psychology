@@ -35,6 +35,8 @@ class MindChangeThinkTestFragment: MvpAppCompatFragment(), MindChangeThinkTestVi
 
     private val selectedEmotion = MutableLiveData<Int>()
 
+    lateinit var mDate: Date
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.mind_change_think_test_layout, container, false)
 
@@ -109,7 +111,7 @@ class MindChangeThinkTestFragment: MvpAppCompatFragment(), MindChangeThinkTestVi
 
         val bundle = this.arguments
 
-        val mDate = if (bundle != null) {
+        mDate = if (bundle != null) {
             bundle.getSerializable(AppConstants.DIARY_SELECTED_DAY) as Date
         } else {
             Date()
@@ -144,7 +146,7 @@ class MindChangeThinkTestFragment: MvpAppCompatFragment(), MindChangeThinkTestVi
         scrollMindChange.scrollTo(0, 0)
 
         buttonMindChangeMindChange.setOnClickListener {
-
+            mActivityPresenter.showMCThinkMistake_1(mDate)
         }
     }
 

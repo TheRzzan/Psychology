@@ -144,6 +144,12 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showMindChangeThinkTest(date)
     }
 
+    fun showMCThinkMistake_1(date: Date) {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showMCThinkMistake_1(date)
+    }
+
     /*
     * Settings section controls
     *
