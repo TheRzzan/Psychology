@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
+        android:id="@+id/scrollMindChange"
         android:background="@color/fragment_background"
         xmlns:app="http://schemas.android.com/apk/res-auto" style="@style/ScrollViewStyle"
         xmlns:android="http://schemas.android.com/apk/res/android">
@@ -37,6 +38,7 @@
                 android:layout_marginEnd="@dimen/activity_horizontal_margin"
                 android:backgroundTint="@color/colorPrimary"
                 android:hint="Ситуация"
+                android:enabled="false"
                 android:ems="10"
                 android:id="@+id/editMindChangeFirstText"/>
 
@@ -61,6 +63,7 @@
                 android:layout_marginEnd="@dimen/activity_horizontal_margin"
                 android:backgroundTint="@color/colorPrimary"
                 android:hint="Мысли"
+                android:enabled="false"
                 android:ems="10"
                 android:id="@+id/editMindChangeSecondText"/>
 
@@ -312,7 +315,7 @@
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
 
             <Button
-                    android:id="@+id/buttonMindChangeHomeWork"
+                    android:id="@+id/buttonMindChangeMain"
                     android:text="Проработать другую мысль"
                     style="@style/TextView.Button"
                     android:background="@drawable/rectangle_button"
