@@ -77,6 +77,8 @@ interface MainView: MvpView {
     * */
     fun showMindChangeSection()
 
+    fun showMindChangeThinkTest(date: Date)
+
     /*
     * Profile section controls
     *

@@ -64,16 +64,6 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView, TextWatcher 
 
         val bundle = this.arguments
 
-        buttonDiaryMindChange.setOnClickListener {
-
-        }
-        buttonDiaryHomeWork.setOnClickListener {
-
-        }
-        buttonDiaryThinks.setOnClickListener {
-            mActivityPresenter.showDiaryCards()
-        }
-
         if (bundle != null) {
             when (bundle.getBoolean(AppConstants.DIARY_THINK_EDITOR_SHOW_BUTTONS)) {
                 true -> {
@@ -153,6 +143,16 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView, TextWatcher 
         }
 
         currentEmotion.value = -1
+
+        buttonDiaryMindChange.setOnClickListener {
+            mActivityPresenter.showMindChangeThinkTest(mDate)
+        }
+        buttonDiaryHomeWork.setOnClickListener {
+
+        }
+        buttonDiaryThinks.setOnClickListener {
+            mActivityPresenter.showDiaryCards()
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
