@@ -13,7 +13,9 @@ import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.mind.change.think.mintake.MCThinkMistake_1_Presenter
 import com.morozov.psychology.mvp.views.mind.change.think.mintake.MCThinkMistake_1_View
 import com.morozov.psychology.ui.adapters.mind.change.think.mistake.MCThinkMistakeAdapter
+import com.morozov.psychology.utility.AppConstants
 import kotlinx.android.synthetic.main.mind_change_thinking_mistake_1_layout.*
+import java.util.*
 
 class MCThinkMistake_1_Fragment: MvpAppCompatFragment(), MCThinkMistake_1_View {
 
@@ -29,12 +31,20 @@ class MCThinkMistake_1_Fragment: MvpAppCompatFragment(), MCThinkMistake_1_View {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val bundle = this.arguments
+
+        val mDate = if (bundle != null) {
+            bundle.getSerializable(AppConstants.DIARY_SELECTED_DAY) as Date
+        } else {
+            Date()
+        }
+
         buttonChoseAnother.setOnClickListener {
             mActivityPresenter.showMindChangeSection()
         }
 
         buttonReadyToChoose.setOnClickListener {
-
+            mActivityPresenter.showMCThinkMistake_2(mDate)
         }
 
         adapter = MCThinkMistakeAdapter()

@@ -81,6 +81,8 @@ interface MainView: MvpView {
 
     fun showMCThinkMistake_1(date: Date)
 
+    fun showMCThinkMistake_2(date: Date)
+
     /*
     * Profile section controls
     *

@@ -27,6 +27,7 @@ import com.morozov.psychology.ui.fragments.examples.*
 import com.morozov.psychology.ui.fragments.mind.change.MindChangeFragment
 import com.morozov.psychology.ui.fragments.mind.change.MindChangeThinkTestFragment
 import com.morozov.psychology.ui.fragments.mind.change.think.mistake.MCThinkMistake_1_Fragment
+import com.morozov.psychology.ui.fragments.mind.change.think.mistake.MCThinkMistake_2_Fragment
 import com.morozov.psychology.ui.fragments.settings.SettingsConsultFragment
 import com.morozov.psychology.ui.fragments.settings.SettingsStyleFragment
 import com.morozov.psychology.ui.fragments.settings.SettingsWallpaperFragment
@@ -450,6 +451,18 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         mcThinkMistake_1_Fragment.mActivityPresenter = mPresenter
 
         setFragment(mcThinkMistake_1_Fragment, true)
+    }
+
+    override fun showMCThinkMistake_2(date: Date) {
+        val mcThinkMistake_2_Fragment = MCThinkMistake_2_Fragment()
+
+        val bundle = Bundle()
+        bundle.putSerializable(AppConstants.DIARY_SELECTED_DAY, date)
+
+        mcThinkMistake_2_Fragment.arguments = bundle
+        mcThinkMistake_2_Fragment.mActivityPresenter = mPresenter
+
+        setFragment(mcThinkMistake_2_Fragment, true)
     }
 
     /*
