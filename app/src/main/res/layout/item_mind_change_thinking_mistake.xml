@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        android:background="@color/fragment_background"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_marginBottom="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ImageView
+            android:id="@+id/imageThinkMistake"
+            android:background="@color/colorPrimaryDark"
+            android:layout_width="24dp"
+            android:layout_height="24dp"/>
+
+    <TextView
+            android:id="@+id/textThinkMistakeDescr"
+            android:layout_toEndOf="@+id/imageThinkMistake"
+            android:text="Катастрофизация – будущее предсказывается негативым. Даже если вероятность ужасного последствия минимальна, возникает мысль «а что, если…»."
+            android:textSize="13sp"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            style="@style/TextView.Secondary"/>
+
+    <TextView
+            android:id="@+id/textThinkMistakeExmplTmp"
+            android:layout_below="@+id/textThinkMistakeDescr"
+            android:layout_toEndOf="@+id/imageThinkMistake"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="8dp"
+            android:text="Пример: "
+            android:textSize="13sp"
+            android:textStyle="bold"
+            style="@style/TextView.Secondary"/>
+
+    <TextView
+            android:id="@+id/textThinkMistakeExmpl"
+            android:layout_below="@+id/textThinkMistakeExmplTmp"
+            android:layout_toEndOf="@+id/imageThinkMistake"
+            android:text="Если я провалю экзамен, это будет ужасно!"
+            android:textSize="13sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            style="@style/TextView.Secondary"/>
+</RelativeLayout>

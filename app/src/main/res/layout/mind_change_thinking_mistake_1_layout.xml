@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        android:background="@color/fragment_background"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+            android:id="@+id/linearThinkMistake"
+            android:layout_alignParentTop="true"
+            android:layout_above="@+id/buttonReadyToChoose"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+                style="@style/TextView.Primary.Header"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:text="Определите ошибку мышления"/>
+
+        <TextView
+                android:text="Ознакомьтесь с типичными ошибками мышления:"
+                style="@style/TextView.Secondary"
+                android:textStyle="bold"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:textColor="@color/second_header_text"/>
+
+        <android.support.v7.widget.RecyclerView
+                style="@style/RecyclerViewStyle"/>
+    </LinearLayout>
+
+    <Button
+            android:id="@+id/buttonReadyToChoose"
+            android:text="Готов выбрать ошибку мышления"
+            style="@style/TextView.Button"
+            android:background="@drawable/rectangle_button"
+            android:layout_above="@+id/buttonChoseAnother"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+
+    <Button
+            android:id="@+id/buttonChoseAnother"
+            android:text="Проработать другую мысль"
+            style="@style/TextView.Button"
+            android:background="@drawable/rectangle_button"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+</RelativeLayout>
