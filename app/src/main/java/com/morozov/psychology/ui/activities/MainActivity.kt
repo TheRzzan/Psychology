@@ -80,7 +80,11 @@ class MainActivity : MvpAppCompatActivity(), MainView {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_mind_change -> {
-                setFragment(MindChangeFragment())
+                val mindChangeFragment = MindChangeFragment()
+                mindChangeFragment.mActivityPresenter = mPresenter
+
+                clearBackStack()
+                setFragment(mindChangeFragment)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_settings -> {
