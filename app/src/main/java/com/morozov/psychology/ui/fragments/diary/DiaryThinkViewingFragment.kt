@@ -39,8 +39,11 @@ class DiaryThinkViewingFragment: MvpAppCompatFragment(), DiaryThinkViewingView {
         val bundle = this.arguments
         if (bundle != null)
             buttonDiaryEditThink.setOnClickListener {
-                mActivityPresenter.showDiaryEditor(false,
-                    bundle.getSerializable(AppConstants.DIARY_SELECTED_DAY) as Date)
+                mActivityPresenter.showDiaryEditor(
+                    false,
+                    bundle.getSerializable(AppConstants.DIARY_SELECTED_DAY) as Date,
+                    null
+                )
             }
     }
 

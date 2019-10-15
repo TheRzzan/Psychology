@@ -20,12 +20,14 @@ class MindChangePresenter:MvpPresenter<MindChangeView>() {
         DefaultApplication.diaryComponent.inject(this)
     }
 
-    fun showThinkList(day: Int) {
-        val thinkList = loadThinkList(day)
+    lateinit var tmpThinkList: MutableList<ThinkModel>
 
-        viewState.showEmptyDate(thinkList.isEmpty())
+    fun showThinkList(day: Int) {
+        tmpThinkList = loadThinkList(day)
+
+        viewState.showEmptyDate(tmpThinkList.isEmpty())
         viewState.showSelectDate(false)
-        viewState.showThinkList(thinkList)
+        viewState.showThinkList(tmpThinkList)
     }
 
     private fun loadThinkList(position: Int): MutableList<ThinkModel> {

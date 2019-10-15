@@ -51,7 +51,7 @@ interface MainView: MvpView {
 
     fun showDiaryViewing(date: Date)
 
-    fun showDiaryEditor(isNew: Boolean, date: Date)
+    fun showDiaryEditor(isNew: Boolean, date: Date, showButtons: Boolean?)
 
     /*
     * Test section controls

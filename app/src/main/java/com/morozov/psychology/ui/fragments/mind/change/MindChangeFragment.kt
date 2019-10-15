@@ -120,6 +120,10 @@ class MindChangeFragment: MvpAppCompatFragment(), MindChangeView, OnItemClickLis
     *
     * */
     override fun onItemClick(view: View, position: Int) {
-
+        mActivityPresenter.showDiaryEditor(
+            false,
+            mPresenter.tmpThinkList[position].date,
+            true
+        )
     }
 }

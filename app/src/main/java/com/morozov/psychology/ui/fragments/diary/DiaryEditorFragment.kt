@@ -64,6 +64,41 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView, TextWatcher 
 
         val bundle = this.arguments
 
+        buttonDiaryMindChange.setOnClickListener {
+
+        }
+        buttonDiaryHomeWork.setOnClickListener {
+
+        }
+        buttonDiaryThinks.setOnClickListener {
+            mActivityPresenter.showDiaryCards()
+        }
+
+        if (bundle != null) {
+            when (bundle.getBoolean(AppConstants.DIARY_THINK_EDITOR_SHOW_BUTTONS)) {
+                true -> {
+                    buttonDiaryMindChange.visibility = View.VISIBLE
+                    buttonDiaryHomeWork.visibility = View.VISIBLE
+                    buttonDiaryThinks.visibility = View.VISIBLE
+                    buttonDiarySave.visibility = View.GONE
+
+                    editTextDiarySituation.isEnabled = false
+                    editTextDiarySensation.isEnabled = false
+                    editTextDiaryThink.isEnabled = false
+
+                    setEmotionsOnClick(false)
+                }
+                false -> {
+                    buttonDiaryMindChange.visibility = View.GONE
+                    buttonDiaryHomeWork.visibility = View.GONE
+                    buttonDiaryThinks.visibility = View.GONE
+                    buttonDiarySave.visibility = View.VISIBLE
+
+                    setEmotionsOnClick(true)
+                }
+            }
+        }
+
         buttonDiarySave.setOnClickListener {
             if (bundle != null) {
                 if (bundle.getBoolean(AppConstants.DIARY_IS_NEW_ITEM))
@@ -118,8 +153,6 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView, TextWatcher 
         }
 
         currentEmotion.value = -1
-
-        setEmotionsOnClick()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -514,8 +547,11 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView, TextWatcher 
         return 0
     }
 
-    private fun setEmotionsOnClick() {
+    private fun setEmotionsOnClick(b: Boolean) {
         setEmotionsObservers()
+
+        if (!b)
+            return
 
         imageJoy.setOnClickListener {
             joy.value = !joy.value!!

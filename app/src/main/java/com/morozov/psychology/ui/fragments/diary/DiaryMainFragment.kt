@@ -103,7 +103,7 @@ class DiaryMainFragment:MvpAppCompatFragment(), DiaryMainView,
             val calendar = Calendar.getInstance()
             calendar.time = Date(0)
             calendar.add(Calendar.DATE, recyclerDiaryDays.currentItem)
-            mActivityPresenter.showDiaryEditor(true, calendar.time)
+            mActivityPresenter.showDiaryEditor(true, calendar.time, null)
         }
 
         imageDiaryCalendar.setOnClickListener {

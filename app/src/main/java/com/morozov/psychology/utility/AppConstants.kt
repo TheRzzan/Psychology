@@ -9,6 +9,7 @@ class AppConstants {
         // Diary section
         const val DIARY_IS_NEW_ITEM = "diary_is_new_item"
         const val DIARY_SELECTED_DAY ="diary_selected_day"
+        const val DIARY_THINK_EDITOR_SHOW_BUTTONS = "diary_think_editor_show_buttons"
 
         // Tests section
         const val TEST_NAME = "test_name"

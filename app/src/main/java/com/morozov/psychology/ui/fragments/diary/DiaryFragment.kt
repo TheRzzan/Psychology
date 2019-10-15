@@ -79,7 +79,7 @@ class DiaryFragment:
         recyclerDiaryThinks.adapter = adapterThink
 
         buttonDiaryAdd.setOnClickListener {
-            mActivityPresenter.showDiaryEditor(true, mPresenter.dateList[recyclerDiaryDays.currentItem])
+            mActivityPresenter.showDiaryEditor(true, mPresenter.dateList[recyclerDiaryDays.currentItem], null)
         }
 
         val callback = ItemTouchHelperClass(adapterThink)

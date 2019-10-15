@@ -76,10 +76,10 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showDiaryViewing(date)
     }
 
-    fun showDiaryEditor(isNew: Boolean, date: Date) {
+    fun showDiaryEditor(isNew: Boolean, date: Date, showButtons: Boolean?) {
         viewState.hideBottomNav()
         viewState.showBackArrow()
-        viewState.showDiaryEditor(isNew, date)
+        viewState.showDiaryEditor(isNew, date, showButtons)
     }
 
     /*

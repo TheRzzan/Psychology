@@ -299,12 +299,40 @@
                     android:id="@+id/editTextDiarySensation"/>
 
             <Button
+                    android:id="@+id/buttonDiaryMindChange"
+                    android:text="Начать проработку мыслей"
+                    style="@style/TextView.Button"
+                    android:background="@drawable/rectangle_button"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:visibility="gone"/>
+
+            <Button
+                    android:id="@+id/buttonDiaryHomeWork"
+                    android:text="Выполнить домашнее задание"
+                    style="@style/TextView.Button"
+                    android:background="@drawable/rectangle_button"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:visibility="gone"/>
+
+            <Button
+                    android:id="@+id/buttonDiaryThinks"
+                    android:text="Дневник мыслей"
+                    style="@style/TextView.Button"
+                    android:background="@drawable/rectangle_button"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:visibility="gone"/>
+
+            <Button
                     android:id="@+id/buttonDiarySave"
                     android:text="Сохранить"
                     style="@style/TextView.Button"
                     android:background="@drawable/rectangle_button"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
                     android:layout_marginBottom="@dimen/activity_vertical_margin"
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
