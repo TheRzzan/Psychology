@@ -146,6 +146,7 @@ class MindChangeThinkTestFragment: MvpAppCompatFragment(), MindChangeThinkTestVi
         scrollMindChange.scrollTo(0, 0)
 
         buttonMindChangeMindChange.setOnClickListener {
+            MindChangeThinkTestView.newThink = editMindChangeTmp.text.toString()
             mActivityPresenter.showMCThinkMistake_1(mDate)
         }
     }

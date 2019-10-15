@@ -8,6 +8,10 @@ import com.morozov.psychology.mvp.models.diary.ThinkModel
 @StateStrategyType(value = AddToEndSingleStrategy::class)
 interface MindChangeThinkTestView: MvpView {
 
+    companion object {
+        var newThink: String? = null
+    }
+
     fun showProfitability(think: ThinkModel)
 
     fun showCredibility(newThink: String)
