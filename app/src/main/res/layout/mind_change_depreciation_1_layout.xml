@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        android:background="@color/fragment_background"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ScrollView
+            android:layout_alignParentTop="true"
+            android:layout_above="@+id/buttonNext"
+            style="@style/ScrollViewStyle">
+
+        <LinearLayout
+                android:id="@+id/linearDis"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+                    style="@style/TextView.Primary.Header"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:text="Обесценивание позитивного"/>
+
+            <TextView
+                    android:text="Ситуация:"
+                    style="@style/TextView.Secondary"
+                    android:textStyle="bold"
+                    android:layout_margin="@dimen/activity_vertical_margin"
+                    android:textColor="@color/second_header_text"/>
+
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:inputType="textPersonName|textMultiLine"
+                    android:maxLines="4"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:hint="Ситуация"
+                    android:enabled="false"
+                    android:ems="10"
+                    android:id="@+id/editDepSituation"/>
+
+            <TextView
+                    android:text="Новая мысль:"
+                    style="@style/TextView.Secondary"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:textColor="@color/second_header_text"/>
+
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:inputType="textPersonName|textMultiLine"
+                    android:maxLines="4"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:hint="Мысли"
+                    android:enabled="false"
+                    android:ems="10"
+                    android:id="@+id/editDepThink"/>
+
+            <TextView
+                    android:text="Как изначально вы относились к этим достижениям? Каковы были ваши ожидания? Было ли важно для вас получить эти достижения?"
+                    style="@style/TextView.Secondary"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:textStyle="bold"
+                    android:textColor="@color/second_header_text"/>
+
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:inputType="textPersonName|textMultiLine"
+                    android:maxLines="4"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:hint="Введите ответ"
+                    android:ems="10"
+                    style="@style/EditTextStyle"
+                    android:id="@+id/editDepAns1"/>
+
+            <TextView
+                    android:text="Связывали ли вы получение этих достижений с возможными кардинальными изменениями в своей жизни? Логичными ли были такие ожидания?"
+                    style="@style/TextView.Secondary"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:textStyle="bold"
+                    android:textColor="@color/second_header_text"/>
+
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:inputType="textPersonName|textMultiLine"
+                    android:maxLines="4"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:hint="Введите ответ"
+                    android:ems="10"
+                    style="@style/EditTextStyle"
+                    android:id="@+id/editDepAns2"/>
+
+            <TextView
+                    android:text="Можно ли было реально выполнить то, что запланировано в указанные сроки?"
+                    style="@style/TextView.Secondary"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:textStyle="bold"
+                    android:textColor="@color/second_header_text"/>
+
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:inputType="textPersonName|textMultiLine"
+                    android:maxLines="4"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:hint="Введите ответ"
+                    android:ems="10"
+                    style="@style/EditTextStyle"
+                    android:id="@+id/editDepAns3"/>
+
+            <TextView
+                    android:text="Как теперь вы оцениваете эти достижения?"
+                    style="@style/TextView.Secondary"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:textStyle="bold"
+                    android:textColor="@color/second_header_text"/>
+
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:inputType="textPersonName|textMultiLine"
+                    android:maxLines="4"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:hint="Введите ответ"
+                    android:ems="10"
+                    style="@style/EditTextStyle"
+                    android:id="@+id/editDepAns4"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+            android:id="@+id/buttonNext"
+            android:text="Далее"
+            style="@style/TextView.Button"
+            android:background="@drawable/rectangle_button"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+
+</RelativeLayout>
