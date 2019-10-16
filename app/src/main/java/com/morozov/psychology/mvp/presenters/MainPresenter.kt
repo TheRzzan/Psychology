@@ -252,6 +252,18 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showMCCommitment_4()
     }
 
+    fun showMCPersonalization() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showMCPersonalization()
+    }
+
+    fun showMCTunnel() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showMCTunnel()
+    }
+
     /*
     * Settings section controls
     *

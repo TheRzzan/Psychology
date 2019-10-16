@@ -65,18 +65,18 @@ class MCThinkMistake_1_Presenter: MvpPresenter<MCThinkMistake_1_View>() {
         val pair_9_1 = Pair(resources.getDrawable(R.drawable.ic_commitment), pair_9_2)
 
         val pair_10_2 = Pair(
-            "",
-            ""
+            "Туннельное мышление – восприятие только негативных аспектов ситуации. ",
+            "Ты совсем не справляешься с домашними заданиями, посмотри, вот тут помарки, тут ошибка. "
         )
-        val pair_10_1 = Pair(resources.getDrawable(R.drawable.ic_disastrous), pair_10_2)
+        val pair_10_1 = Pair(resources.getDrawable(R.drawable.ic_tunnel_thinking), pair_10_2)
 
         val pair_11_2 = Pair(
-            "",
-            ""
+            "Персонализация – привычка считать себя причиной негативного поведения других людей без учета других вариантов объяснений. Считать, что окружающие замечают ваши ошибки или просчеты, как будто вы находитесь в центре внимания.",
+            "Они наверняка шепчутся обо мне."
         )
-        val pair_11_1 = Pair(resources.getDrawable(R.drawable.ic_disastrous), pair_11_2)
+        val pair_11_1 = Pair(resources.getDrawable(R.drawable.ic_personalization), pair_11_2)
 
         viewState.showThinkMistakes(listOf(pair_1_1, pair_2_1, pair_3_1, pair_4_1,
-            pair_5_1, pair_6_1, pair_7_1, pair_8_1, pair_9_1))
+            pair_5_1, pair_6_1, pair_7_1, pair_8_1, pair_9_1, pair_10_1, pair_11_1))
     }
 }

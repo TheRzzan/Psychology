@@ -115,6 +115,10 @@ interface MainView: MvpView {
 
     fun showMCCommitment_4()
 
+    fun showMCPersonalization()
+
+    fun showMCTunnel()
+
     /*
     * Profile section controls
     *

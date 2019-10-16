@@ -41,8 +41,10 @@ import com.morozov.psychology.ui.fragments.mind.change.labeling.MCLabelingFragme
 import com.morozov.psychology.ui.fragments.mind.change.mind.reading.MCMindReadingFragment
 import com.morozov.psychology.ui.fragments.mind.change.minimalism.MCMinimalismFragment
 import com.morozov.psychology.ui.fragments.mind.change.overgeneration.MCOvergenerationFragment
+import com.morozov.psychology.ui.fragments.mind.change.personalization.MCPersonalizationFragment
 import com.morozov.psychology.ui.fragments.mind.change.think.mistake.MCThinkMistake_1_Fragment
 import com.morozov.psychology.ui.fragments.mind.change.think.mistake.MCThinkMistake_2_Fragment
+import com.morozov.psychology.ui.fragments.mind.change.tunnel.MCTunnelFragment
 import com.morozov.psychology.ui.fragments.settings.SettingsConsultFragment
 import com.morozov.psychology.ui.fragments.settings.SettingsStyleFragment
 import com.morozov.psychology.ui.fragments.settings.SettingsWallpaperFragment
@@ -602,6 +604,22 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showMCCommitment_4() {
         val fragment = MCCommitment_4_Fragment()
+
+        fragment.mActivityPresenter = mPresenter
+
+        setFragment(fragment, true)
+    }
+
+    override fun showMCPersonalization() {
+        val fragment = MCPersonalizationFragment()
+
+        fragment.mActivityPresenter = mPresenter
+
+        setFragment(fragment, true)
+    }
+
+    override fun showMCTunnel() {
+        val fragment = MCTunnelFragment()
 
         fragment.mActivityPresenter = mPresenter
 
