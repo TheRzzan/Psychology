@@ -216,6 +216,12 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showMCOvergeneration()
     }
 
+    fun showMCMinimalism() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showMCMinimalism()
+    }
+
     /*
     * Settings section controls
     *

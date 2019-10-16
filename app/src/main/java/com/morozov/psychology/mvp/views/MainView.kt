@@ -103,6 +103,8 @@ interface MainView: MvpView {
 
     fun showMCOvergeneration()
 
+    fun showMCMinimalism()
+
     /*
     * Profile section controls
     *

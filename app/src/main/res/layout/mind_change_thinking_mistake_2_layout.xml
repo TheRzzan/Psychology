@@ -123,6 +123,13 @@
                         android:id="@+id/imageOvergeneration"
                         android:src="@drawable/ic_overgeneration"
                         android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="24dp"/>
+
+                <ImageView
+                        android:id="@+id/imageMinimalism"
+                        android:src="@drawable/ic_minimalism"
+                        android:layout_width="24dp"
                         android:layout_height="24dp"/>
             </LinearLayout>
         </LinearLayout>

@@ -47,11 +47,23 @@ class MCThinkMistake_1_Presenter: MvpPresenter<MCThinkMistake_1_View>() {
         val pair_6_1 = Pair(resources.getDrawable(R.drawable.ic_overgeneration), pair_6_2)
 
         val pair_7_2 = Pair(
+            "Минимализм / максимализм – привычка преувеличивать негативное и преуменьшать позитивное. Стремление к тому, чтобы сделать все по максимуму, на высший балл. То, что не достигает идеала, не засчитывается в достижения.",
+            "Четверка говорит о том, что я неспособный. Оценка 5 не говорит о том, что я умный."
+        )
+        val pair_7_1 = Pair(resources.getDrawable(R.drawable.ic_minimalism), pair_7_2)
+
+        val pair_8_2 = Pair(
             "",
             ""
         )
-        val pair_7_1 = Pair(resources.getDrawable(R.drawable.ic_disastrous), pair_7_2)
+        val pair_8_1 = Pair(resources.getDrawable(R.drawable.ic_disastrous), pair_8_2)
 
-        viewState.showThinkMistakes(listOf(pair_1_1, pair_2_1, pair_3_1, pair_4_1, pair_5_1, pair_6_1))
+        val pair_9_2 = Pair(
+            "",
+            ""
+        )
+        val pair_9_1 = Pair(resources.getDrawable(R.drawable.ic_disastrous), pair_9_2)
+
+        viewState.showThinkMistakes(listOf(pair_1_1, pair_2_1, pair_3_1, pair_4_1, pair_5_1, pair_6_1, pair_7_1))
     }
 }
