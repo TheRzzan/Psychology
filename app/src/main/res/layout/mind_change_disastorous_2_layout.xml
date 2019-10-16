@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        android:background="@color/fragment_background"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+            android:id="@+id/linearDis"
+            android:layout_alignParentTop="true"
+            android:layout_above="@+id/buttonReadyToChoose"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+                style="@style/TextView.Primary.Header"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:text="Идеал катастрофы"/>
+
+        <TextView
+                android:text="Опишите самую максимальную катастрофу, какую только можете себе представить.  Самое ужасное, что только можете себе вообразить."
+                style="@style/TextView.Secondary"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:textStyle="bold"
+                android:textColor="@color/second_header_text"/>
+
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:inputType="textPersonName|textMultiLine"
+                android:maxLines="4"
+                android:layout_marginBottom="24dp"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:hint="Ваш идеал катастрофы"
+                android:ems="10"
+                style="@style/EditTextStyle"
+                android:id="@+id/editDisIdeal"/>
+    </LinearLayout>
+
+    <Button
+            android:id="@+id/buttonNext"
+            android:text="Далее"
+            style="@style/TextView.Button"
+            android:background="@drawable/rectangle_button"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+
+</RelativeLayout>
