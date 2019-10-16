@@ -99,6 +99,10 @@ interface MainView: MvpView {
 
     fun showMCEmotional()
 
+    fun showMCMindReading()
+
+    fun showMCOvergeneration()
+
     /*
     * Profile section controls
     *

@@ -109,6 +109,20 @@
                         android:id="@+id/imageEmotional"
                         android:src="@drawable/ic_emotional_rationale"
                         android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="24dp"/>
+
+                <ImageView
+                        android:id="@+id/imageMindReading"
+                        android:src="@drawable/ic_mind_reading"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="24dp"/>
+
+                <ImageView
+                        android:id="@+id/imageOvergeneration"
+                        android:src="@drawable/ic_overgeneration"
+                        android:layout_width="24dp"
                         android:layout_height="24dp"/>
             </LinearLayout>
         </LinearLayout>

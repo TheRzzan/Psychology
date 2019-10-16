@@ -204,6 +204,18 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showMCEmotional()
     }
 
+    fun showMCMindReading() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showMCMindReading()
+    }
+
+    fun showMCOvergeneration() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showMCOvergeneration()
+    }
+
     /*
     * Settings section controls
     *
