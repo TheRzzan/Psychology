@@ -88,6 +88,13 @@
                         android:id="@+id/imageDisastrous"
                         android:src="@drawable/ic_disastrous"
                         android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="24dp"/>
+
+                <ImageView
+                        android:id="@+id/imageDepreciation"
+                        android:src="@drawable/ic_depreciation"
+                        android:layout_width="24dp"
                         android:layout_height="24dp"/>
             </LinearLayout>
         </LinearLayout>

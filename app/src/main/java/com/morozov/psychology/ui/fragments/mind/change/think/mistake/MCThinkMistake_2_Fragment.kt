@@ -42,6 +42,13 @@ class MCThinkMistake_2_Fragment: MvpAppCompatFragment(), MCThinkMistake_2_View {
                 selectedMistake.value = 0
         }
 
+        imageDepreciation.setOnClickListener {
+            if (selectedMistake.value == 1)
+                selectedMistake.value = null
+            else
+                selectedMistake.value = 1
+        }
+
         selectedMistake.observeForever {
             if (it == null) {
                 buttonThinkMining.setBackgroundResource(R.drawable.rectangle_button_disable)
@@ -52,6 +59,7 @@ class MCThinkMistake_2_Fragment: MvpAppCompatFragment(), MCThinkMistake_2_View {
             }
 
             selectMistake(imageDisastrous, 0 == it)
+            selectMistake(imageDepreciation, 1 == it)
         }
 
         selectedMistake.value = null
@@ -59,6 +67,7 @@ class MCThinkMistake_2_Fragment: MvpAppCompatFragment(), MCThinkMistake_2_View {
         buttonThinkMining.setOnClickListener {
             when (selectedMistake.value) {
                 0 -> mActivityPresenter.showMCDisastorous_1()
+                1 -> mActivityPresenter.showMCDeprecation_1()
             }
         }
 

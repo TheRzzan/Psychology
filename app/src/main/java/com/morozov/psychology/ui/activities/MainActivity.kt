@@ -13,7 +13,6 @@ import android.support.v4.app.Fragment
 import android.transition.Fade
 import android.view.View
 import android.widget.ImageView
-import android.widget.Toast
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
@@ -26,6 +25,9 @@ import com.morozov.psychology.ui.fragments.diary.DiaryThinkViewingFragment
 import com.morozov.psychology.ui.fragments.examples.*
 import com.morozov.psychology.ui.fragments.mind.change.MindChangeFragment
 import com.morozov.psychology.ui.fragments.mind.change.MindChangeThinkTestFragment
+import com.morozov.psychology.ui.fragments.mind.change.deprecation.MCDeprecation_1_Fragment
+import com.morozov.psychology.ui.fragments.mind.change.deprecation.MCDeprecation_2_Fragment
+import com.morozov.psychology.ui.fragments.mind.change.deprecation.MCDeprecation_3_Fragment
 import com.morozov.psychology.ui.fragments.mind.change.disastorous.MCDisastorous_1_Fragment
 import com.morozov.psychology.ui.fragments.mind.change.disastorous.MCDisastorous_2_Fragment
 import com.morozov.psychology.ui.fragments.mind.change.disastorous.MCDisastorous_3_Fragment
@@ -492,10 +494,34 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         setFragment(fragment, true)
     }
 
+    override fun showMCDeprecation_1() {
+        val fragment = MCDeprecation_1_Fragment()
+
+        fragment.mActivityPresenter = mPresenter
+
+        setFragment(fragment, true)
+    }
+
+    override fun showMCDeprecation_2() {
+        val fragment = MCDeprecation_2_Fragment()
+
+        fragment.mActivityPresenter = mPresenter
+
+        setFragment(fragment, true)
+    }
+
+    override fun showMCDeprecation_3() {
+        val fragment = MCDeprecation_3_Fragment()
+
+        fragment.mActivityPresenter = mPresenter
+
+        setFragment(fragment, true)
+    }
+
     /*
-        * Settings section controls
-        *
-        * */
+            * Settings section controls
+            *
+            * */
     override fun showSettingsSection() {
         navigation.selectedItemId = R.id.navigation_settings
     }

@@ -174,6 +174,24 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showMCDisastorous_3()
     }
 
+    fun showMCDeprecation_1(){
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showMCDeprecation_1()
+    }
+
+    fun showMCDeprecation_2(){
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showMCDeprecation_2()
+    }
+
+    fun showMCDeprecation_3(){
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showMCDeprecation_3()
+    }
+
     /*
     * Settings section controls
     *

@@ -89,6 +89,12 @@ interface MainView: MvpView {
 
     fun showMCDisastorous_3()
 
+    fun showMCDeprecation_1()
+
+    fun showMCDeprecation_2()
+
+    fun showMCDeprecation_3()
+
     /*
     * Profile section controls
     *
