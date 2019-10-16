@@ -95,6 +95,8 @@ interface MainView: MvpView {
 
     fun showMCDeprecation_3()
 
+    fun showMCBlackWhite()
+
     /*
     * Profile section controls
     *

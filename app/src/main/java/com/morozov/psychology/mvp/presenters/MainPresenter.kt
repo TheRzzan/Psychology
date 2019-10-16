@@ -192,6 +192,12 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showMCDeprecation_3()
     }
 
+    fun showMCBlackWhite() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showMCBlackWhite()
+    }
+
     /*
     * Settings section controls
     *

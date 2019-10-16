@@ -25,6 +25,7 @@ import com.morozov.psychology.ui.fragments.diary.DiaryThinkViewingFragment
 import com.morozov.psychology.ui.fragments.examples.*
 import com.morozov.psychology.ui.fragments.mind.change.MindChangeFragment
 import com.morozov.psychology.ui.fragments.mind.change.MindChangeThinkTestFragment
+import com.morozov.psychology.ui.fragments.mind.change.black.white.MCBlackWhiteFragment
 import com.morozov.psychology.ui.fragments.mind.change.deprecation.MCDeprecation_1_Fragment
 import com.morozov.psychology.ui.fragments.mind.change.deprecation.MCDeprecation_2_Fragment
 import com.morozov.psychology.ui.fragments.mind.change.deprecation.MCDeprecation_3_Fragment
@@ -518,10 +519,18 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         setFragment(fragment, true)
     }
 
+    override fun showMCBlackWhite() {
+        val fragment = MCBlackWhiteFragment()
+
+        fragment.mActivityPresenter = mPresenter
+
+        setFragment(fragment, true)
+    }
+
     /*
-            * Settings section controls
-            *
-            * */
+        * Settings section controls
+        *
+        * */
     override fun showSettingsSection() {
         navigation.selectedItemId = R.id.navigation_settings
     }

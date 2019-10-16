@@ -23,11 +23,17 @@ class MCThinkMistake_1_Presenter: MvpPresenter<MCThinkMistake_1_View>() {
         val pair_2_1 = Pair(resources.getDrawable(R.drawable.ic_depreciation), pair_2_2)
 
         val pair_3_2 = Pair(
+            "Черно-белое мышление – привычка оценивать контрастно, либо плохой, либо хороший, среднего не дано. ",
+            "Если я не добьюсь успеха во всем, то я неудачник."
+        )
+        val pair_3_1 = Pair(resources.getDrawable(R.drawable.ic_black_and_white), pair_3_2)
+
+        val pair_4_2 = Pair(
             "",
             ""
         )
-        val pair_3_1 = Pair(resources.getDrawable(R.drawable.ic_disastrous), pair_3_2)
+        val pair_4_1 = Pair(resources.getDrawable(R.drawable.ic_disastrous), pair_4_2)
 
-        viewState.showThinkMistakes(listOf(pair_1_1, pair_2_1))
+        viewState.showThinkMistakes(listOf(pair_1_1, pair_2_1, pair_3_1))
     }
 }

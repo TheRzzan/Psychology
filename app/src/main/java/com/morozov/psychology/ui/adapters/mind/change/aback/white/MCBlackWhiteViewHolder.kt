@@ -9,7 +9,7 @@ class MCBlackWhiteViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) 
 
     fun populate(str: String, textWatcher: TextWatcher) {
         itemView.textTestQuestion.visibility = View.GONE
-        itemView.editTextAnswer.setText(str)
+        itemView.editTextAnswer.hint = str
         itemView.editTextAnswer.addTextChangedListener(textWatcher)
     }
 }
