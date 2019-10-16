@@ -29,11 +29,17 @@ class MCThinkMistake_1_Presenter: MvpPresenter<MCThinkMistake_1_View>() {
         val pair_3_1 = Pair(resources.getDrawable(R.drawable.ic_black_and_white), pair_3_2)
 
         val pair_4_2 = Pair(
+            "Эмоциональное обоснование – обоснование вывода на чувствах и интуитивной вере, игнорирование или обесценивание доказательств обратного.",
+            "Да, он мне совсем не помогает, но я верю, что он хочет заботиться обо мне."
+        )
+        val pair_4_1 = Pair(resources.getDrawable(R.drawable.ic_emotional_rationale), pair_4_2)
+
+        val pair_5_2 = Pair(
             "",
             ""
         )
-        val pair_4_1 = Pair(resources.getDrawable(R.drawable.ic_disastrous), pair_4_2)
+        val pair_5_1 = Pair(resources.getDrawable(R.drawable.ic_disastrous), pair_5_2)
 
-        viewState.showThinkMistakes(listOf(pair_1_1, pair_2_1, pair_3_1))
+        viewState.showThinkMistakes(listOf(pair_1_1, pair_2_1, pair_3_1, pair_4_1))
     }
 }

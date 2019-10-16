@@ -198,6 +198,12 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showMCBlackWhite()
     }
 
+    fun showMCEmotional() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showMCEmotional()
+    }
+
     /*
     * Settings section controls
     *

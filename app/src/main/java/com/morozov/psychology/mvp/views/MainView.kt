@@ -97,6 +97,8 @@ interface MainView: MvpView {
 
     fun showMCBlackWhite()
 
+    fun showMCEmotional()
+
     /*
     * Profile section controls
     *

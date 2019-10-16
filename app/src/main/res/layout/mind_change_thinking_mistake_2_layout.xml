@@ -102,6 +102,13 @@
                         android:id="@+id/imageBlackWhite"
                         android:src="@drawable/ic_black_and_white"
                         android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="24dp"/>
+
+                <ImageView
+                        android:id="@+id/imageEmotional"
+                        android:src="@drawable/ic_emotional_rationale"
+                        android:layout_width="24dp"
                         android:layout_height="24dp"/>
             </LinearLayout>
         </LinearLayout>

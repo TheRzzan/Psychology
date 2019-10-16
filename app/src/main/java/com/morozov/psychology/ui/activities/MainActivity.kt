@@ -32,6 +32,7 @@ import com.morozov.psychology.ui.fragments.mind.change.deprecation.MCDeprecation
 import com.morozov.psychology.ui.fragments.mind.change.disastorous.MCDisastorous_1_Fragment
 import com.morozov.psychology.ui.fragments.mind.change.disastorous.MCDisastorous_2_Fragment
 import com.morozov.psychology.ui.fragments.mind.change.disastorous.MCDisastorous_3_Fragment
+import com.morozov.psychology.ui.fragments.mind.change.emotional.MCEmotionalFragment
 import com.morozov.psychology.ui.fragments.mind.change.think.mistake.MCThinkMistake_1_Fragment
 import com.morozov.psychology.ui.fragments.mind.change.think.mistake.MCThinkMistake_2_Fragment
 import com.morozov.psychology.ui.fragments.settings.SettingsConsultFragment
@@ -527,10 +528,18 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         setFragment(fragment, true)
     }
 
+    override fun showMCEmotional() {
+        val fragment = MCEmotionalFragment()
+
+        fragment.mActivityPresenter = mPresenter
+
+        setFragment(fragment, true)
+    }
+
     /*
-        * Settings section controls
-        *
-        * */
+            * Settings section controls
+            *
+            * */
     override fun showSettingsSection() {
         navigation.selectedItemId = R.id.navigation_settings
     }
