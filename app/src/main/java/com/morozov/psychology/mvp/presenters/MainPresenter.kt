@@ -222,6 +222,12 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showMCMinimalism()
     }
 
+    fun showMCLabeling() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showMCLabeling()
+    }
+
     /*
     * Settings section controls
     *

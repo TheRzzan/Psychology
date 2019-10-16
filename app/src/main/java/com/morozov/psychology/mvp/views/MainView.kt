@@ -105,6 +105,8 @@ interface MainView: MvpView {
 
     fun showMCMinimalism()
 
+    fun showMCLabeling()
+
     /*
     * Profile section controls
     *

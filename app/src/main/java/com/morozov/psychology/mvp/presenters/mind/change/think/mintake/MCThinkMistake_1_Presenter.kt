@@ -53,10 +53,10 @@ class MCThinkMistake_1_Presenter: MvpPresenter<MCThinkMistake_1_View>() {
         val pair_7_1 = Pair(resources.getDrawable(R.drawable.ic_minimalism), pair_7_2)
 
         val pair_8_2 = Pair(
-            "",
-            ""
+            "Навешивание ярлыков – привычка давать оценку личности по отдельному поступку или чертам человека. Без учета доказательств, смягчающих эту оценку.",
+            "Она не знает, что такое интеграл, да она тупица."
         )
-        val pair_8_1 = Pair(resources.getDrawable(R.drawable.ic_disastrous), pair_8_2)
+        val pair_8_1 = Pair(resources.getDrawable(R.drawable.ic_labeling), pair_8_2)
 
         val pair_9_2 = Pair(
             "",
@@ -64,6 +64,7 @@ class MCThinkMistake_1_Presenter: MvpPresenter<MCThinkMistake_1_View>() {
         )
         val pair_9_1 = Pair(resources.getDrawable(R.drawable.ic_disastrous), pair_9_2)
 
-        viewState.showThinkMistakes(listOf(pair_1_1, pair_2_1, pair_3_1, pair_4_1, pair_5_1, pair_6_1, pair_7_1))
+        viewState.showThinkMistakes(listOf(pair_1_1, pair_2_1, pair_3_1, pair_4_1,
+            pair_5_1, pair_6_1, pair_7_1, pair_8_1))
     }
 }

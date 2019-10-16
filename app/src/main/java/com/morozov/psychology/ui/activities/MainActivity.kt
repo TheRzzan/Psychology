@@ -33,6 +33,7 @@ import com.morozov.psychology.ui.fragments.mind.change.disastorous.MCDisastorous
 import com.morozov.psychology.ui.fragments.mind.change.disastorous.MCDisastorous_2_Fragment
 import com.morozov.psychology.ui.fragments.mind.change.disastorous.MCDisastorous_3_Fragment
 import com.morozov.psychology.ui.fragments.mind.change.emotional.MCEmotionalFragment
+import com.morozov.psychology.ui.fragments.mind.change.labeling.MCLabelingFragment
 import com.morozov.psychology.ui.fragments.mind.change.mind.reading.MCMindReadingFragment
 import com.morozov.psychology.ui.fragments.mind.change.minimalism.MCMinimalismFragment
 import com.morozov.psychology.ui.fragments.mind.change.overgeneration.MCOvergenerationFragment
@@ -557,6 +558,14 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showMCMinimalism() {
         val fragment = MCMinimalismFragment()
+
+        fragment.mActivityPresenter = mPresenter
+
+        setFragment(fragment, true)
+    }
+
+    override fun showMCLabeling() {
+        val fragment = MCLabelingFragment()
 
         fragment.mActivityPresenter = mPresenter
 
