@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        android:background="@color/fragment_background"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+            android:layout_alignParentTop="true"
+            android:layout_above="@+id/buttonAddNewThink"
+            style="@style/ScrollViewStyle">
+
+        <LinearLayout
+                android:id="@+id/linearMin"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+                    style="@style/TextView.Primary.Header"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:text="Максимализм / минимализм "/>
+
+            <TextView
+                    android:text="Ситуация:"
+                    style="@style/TextView.Secondary"
+                    android:textStyle="bold"
+                    android:layout_margin="@dimen/activity_vertical_margin"
+                    android:textColor="@color/second_header_text"/>
+
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:inputType="textPersonName|textMultiLine"
+                    android:maxLines="4"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:hint="Ситуация"
+                    android:enabled="false"
+                    android:ems="10"
+                    android:id="@+id/editMinSituation"/>
+
+            <TextView
+                    android:text="Новая мысль:"
+                    style="@style/TextView.Secondary"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:textColor="@color/second_header_text"/>
+
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:inputType="textPersonName|textMultiLine"
+                    android:maxLines="4"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:hint="Мысли"
+                    android:enabled="false"
+                    android:ems="10"
+                    android:id="@+id/editMinThink"/>
+
+            <TextView
+                    android:text='Стремление к высоким стандартам становится ошибкой, когда доводится до крайности. Посмотрите, так ли важно достичь именно идеала? И стоит ли бросать работу, если она сделана на "5-" или "4", а не на "5+"?'
+                    style="@style/TextView.Secondary"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:textStyle="bold"
+                    android:textColor="@color/second_header_text"/>
+
+            <TextView
+                    android:text="С этого дня нам придется привыкать к тому, что мир несовершенен, в нем возможны допустимые погрешности."
+                    style="@style/TextView.Secondary"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:textStyle="bold"
+                    android:textColor="@color/second_header_text"/>
+
+            <TextView
+                    android:text='Спросите себя честно. У меня (других) хватает ресурсов (времени, денег, сил, здоровья и т.д.), чтобы сделать именно это дело на "5+"? У вас (них) есть все необходимое, чтобы выполнить все именно так, как вы задумали в указанные сроки? Или вы превышаете свои (их) возможности?'
+                    style="@style/TextView.Secondary"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:textStyle="bold"
+                    android:textColor="@color/second_header_text"/>
+
+            <TextView
+                    android:text="Сформулируйте, какую погрешность вы можете допустить, чтобы уложиться в имеющиеся у вас ресурсы? Что сейчас в приоритете, а что можно отложить?"
+                    style="@style/TextView.Secondary"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:textStyle="bold"
+                    android:textColor="@color/second_header_text"/>
+
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:inputType="textPersonName|textMultiLine"
+                    android:maxLines="4"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:hint="Допустимая погрешность"
+                    android:ems="10"
+                    style="@style/EditTextStyle"
+                    android:id="@+id/editAllowableError"/>
+
+            <TextView
+                    android:text="Помните, что в любом деле важно соотности цену, которую вы платите, с тем результатом, котрый получаете. Сфомулируйте новую мысль так, чтобы цена была сопоставима с качеством."
+                    style="@style/TextView.Secondary"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:textStyle="bold"
+                    android:textColor="@color/second_header_text"/>
+
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:inputType="textPersonName|textMultiLine"
+                    android:maxLines="4"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:hint="Новая мысль"
+                    android:ems="10"
+                    style="@style/EditTextStyle"
+                    android:id="@+id/editNewThink"/>
+
+            <TextView
+                    android:text="Какую эмоцию вызывает новая мысль? Насколько она выражена в %?"
+                    style="@style/TextView.Secondary"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:textStyle="bold"
+                    android:textColor="@color/second_header_text"/>
+
+            <LinearLayout
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <LinearLayout
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginEnd="@dimen/diary_emotions_margin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            app:srcCompat="@drawable/emotion_non_active_joy"
+                            android:id="@+id/imageJoy"/>
+
+                    <TextView
+                            android:text="30%"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content" android:visibility="gone"
+                            android:layout_height="wrap_content" android:id="@+id/textJoy"/>
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginEnd="@dimen/diary_emotions_margin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            app:srcCompat="@drawable/emotion_non_active_sedness"
+                            android:id="@+id/imageSadness"/>
+
+                    <TextView
+                            android:text="30%"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content" android:visibility="gone"
+                            android:layout_height="wrap_content" android:id="@+id/textSadness"/>
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginEnd="@dimen/diary_emotions_margin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            app:srcCompat="@drawable/emotion_non_active_annoyance"
+                            android:id="@+id/imageAnnoyance"/>
+
+                    <TextView
+                            android:text="30%"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content" android:visibility="gone"
+                            android:layout_height="wrap_content" android:id="@+id/textAnnoyance"/>
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginEnd="@dimen/diary_emotions_margin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            app:srcCompat="@drawable/emotion_non_active_anxiety"
+                            android:id="@+id/imageAnxiety"/>
+
+                    <TextView
+                            android:text="30%"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content" android:visibility="gone"
+                            android:layout_height="wrap_content" android:id="@+id/textAnxiety"/>
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginEnd="@dimen/diary_emotions_margin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            app:srcCompat="@drawable/emotion_non_active_disgust"
+                            android:id="@+id/imageDisgust"/>
+
+                    <TextView
+                            android:text="30%"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content" android:visibility="gone"
+                            android:layout_height="wrap_content" android:id="@+id/textDisgust"/>
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginEnd="@dimen/diary_emotions_margin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            app:srcCompat="@drawable/emotion_non_active_interest"
+                            android:id="@+id/imageInterest"/>
+
+                    <TextView
+                            android:text="30%"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content" android:visibility="gone"
+                            android:layout_height="wrap_content" android:id="@+id/textInterest"/>
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginEnd="@dimen/diary_emotions_margin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            app:srcCompat="@drawable/emotion_non_active_guilt"
+                            android:id="@+id/imageGuilt"/>
+
+                    <TextView
+                            android:text="30%"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content" android:visibility="gone"
+                            android:layout_height="wrap_content" android:id="@+id/textGuilt"/>
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            app:srcCompat="@drawable/emotion_non_active_resentment"
+                            android:id="@+id/imageResentment"/>
+
+                    <TextView
+                            android:text="30%"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content" android:visibility="gone"
+                            android:layout_height="wrap_content" android:id="@+id/textResentment"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                    android:layout_margin="@dimen/activity_vertical_margin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <TextView
+                        android:id="@+id/textMinEmotion"
+                        android:text="Радость"
+                        style="@style/TextView.Secondary"
+                        android:layout_alignParentStart="true"
+                        android:textColor="@android:color/black"/>
+
+                <TextView
+                        android:id="@+id/textMinEmotionsPercent"
+                        android:text="70%"
+                        android:textStyle="bold"
+                        style="@style/TextView.Secondary"
+                        android:layout_alignParentEnd="true"
+                        android:textColor="@android:color/black"/>
+            </RelativeLayout>
+
+            <SeekBar
+                    android:id="@+id/seekBarMinEmotions"
+                    android:layout_marginBottom="24dp"
+                    android:theme="@style/SeekBarStyle"
+                    android:min="1"
+                    android:max="100"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:text="Повторная запись новой мысли позволит вам лучше её запомнить."
+                    style="@style/TextView.Secondary"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:textStyle="bold"
+                    android:textColor="@color/second_header_text"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+            android:id="@+id/buttonAddNewThink"
+            android:text="Внести новую мысль в дневник"
+            style="@style/TextView.Button"
+            android:background="@drawable/rectangle_button"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+
+</RelativeLayout>
