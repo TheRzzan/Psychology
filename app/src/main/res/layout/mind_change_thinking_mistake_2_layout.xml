@@ -5,90 +5,93 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <LinearLayout
-            android:id="@+id/linearThinkMistake"
+    <ScrollView
             android:layout_alignParentTop="true"
-            android:layout_above="@+id/buttonReadyToChoose"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        <TextView
-                style="@style/TextView.Primary.Header"
-                android:layout_marginBottom="@dimen/activity_vertical_margin"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                android:text="Определите ошибку мышления"/>
-
-        <TextView
-                android:text="Ситуация:"
-                style="@style/TextView.Secondary"
-                android:textStyle="bold"
-                android:layout_margin="@dimen/activity_vertical_margin"
-                android:textColor="@color/second_header_text"/>
-
-        <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:inputType="textPersonName|textMultiLine"
-                android:maxLines="4"
-                android:layout_marginBottom="24dp"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                android:backgroundTint="@color/colorPrimary"
-                android:hint="Ситуация"
-                android:enabled="false"
-                android:ems="10"
-                android:id="@+id/editThinkMistakeFirstText"/>
-
-        <TextView
-                android:text="Новая мысль:"
-                style="@style/TextView.Secondary"
-                android:textStyle="bold"
-                android:layout_marginBottom="@dimen/activity_vertical_margin"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                android:textColor="@color/second_header_text"/>
-
-        <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:inputType="textPersonName|textMultiLine"
-                android:maxLines="4"
-                android:layout_marginBottom="24dp"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                android:backgroundTint="@color/colorPrimary"
-                android:hint="Мысли"
-                android:enabled="false"
-                android:ems="10"
-                android:id="@+id/editThinkMistakeSecondText"/>
-
-        <TextView
-                android:id="@+id/textThinkMistakeTmp"
-                android:text="Выберите, какую ошибку мышления вы нашли в этой мысли, нажав на соответствующий значок:"
-                style="@style/TextView.Secondary"
-                android:textStyle="bold"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                android:layout_marginBottom="@dimen/activity_vertical_margin"
-                android:textColor="@color/second_header_text"/>
-
+            android:layout_above="@+id/buttonThinkMining"
+            style="@style/ScrollViewStyle">
         <LinearLayout
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:id="@+id/linearThinkMistake"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+            <TextView
+                    style="@style/TextView.Primary.Header"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:text="Определите ошибку мышления"/>
 
-            <ImageView
-                    android:id="@+id/imageDisastrous"
-                    android:src="@drawable/ic_disastrous"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"/>
+            <TextView
+                    android:text="Ситуация:"
+                    style="@style/TextView.Secondary"
+                    android:textStyle="bold"
+                    android:layout_margin="@dimen/activity_vertical_margin"
+                    android:textColor="@color/second_header_text"/>
+
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:inputType="textPersonName|textMultiLine"
+                    android:maxLines="4"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:hint="Ситуация"
+                    android:enabled="false"
+                    android:ems="10"
+                    android:id="@+id/editThinkMistakeFirstText"/>
+
+            <TextView
+                    android:text="Новая мысль:"
+                    style="@style/TextView.Secondary"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:textColor="@color/second_header_text"/>
+
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:inputType="textPersonName|textMultiLine"
+                    android:maxLines="4"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:hint="Мысли"
+                    android:enabled="false"
+                    android:ems="10"
+                    android:id="@+id/editThinkMistakeSecondText"/>
+
+            <TextView
+                    android:id="@+id/textThinkMistakeTmp"
+                    android:text="Выберите, какую ошибку мышления вы нашли в этой мысли, нажав на соответствующий значок:"
+                    style="@style/TextView.Secondary"
+                    android:textStyle="bold"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:textColor="@color/second_header_text"/>
+
+            <LinearLayout
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <ImageView
+                        android:id="@+id/imageDisastrous"
+                        android:src="@drawable/ic_disastrous"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"/>
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 
     <Button
             android:id="@+id/buttonThinkMining"

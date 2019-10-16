@@ -6,12 +6,11 @@
         android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_alignParentTop="true"
+            android:layout_above="@+id/buttonAddNewThink"
+            style="@style/ScrollViewStyle">
         <LinearLayout
                 android:id="@+id/linearDis"
-                android:layout_alignParentTop="true"
-                android:layout_above="@+id/buttonReadyToChoose"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">

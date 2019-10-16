@@ -156,6 +156,24 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showMCThinkMistake_2(date)
     }
 
+    fun showMCDisastorous_1() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showMCDisastorous_1()
+    }
+
+    fun showMCDisastorous_2() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showMCDisastorous_2()
+    }
+
+    fun showMCDisastorous_3() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showMCDisastorous_3()
+    }
+
     /*
     * Settings section controls
     *

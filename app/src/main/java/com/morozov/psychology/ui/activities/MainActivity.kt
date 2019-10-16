@@ -26,6 +26,9 @@ import com.morozov.psychology.ui.fragments.diary.DiaryThinkViewingFragment
 import com.morozov.psychology.ui.fragments.examples.*
 import com.morozov.psychology.ui.fragments.mind.change.MindChangeFragment
 import com.morozov.psychology.ui.fragments.mind.change.MindChangeThinkTestFragment
+import com.morozov.psychology.ui.fragments.mind.change.disastorous.MCDisastorous_1_Fragment
+import com.morozov.psychology.ui.fragments.mind.change.disastorous.MCDisastorous_2_Fragment
+import com.morozov.psychology.ui.fragments.mind.change.disastorous.MCDisastorous_3_Fragment
 import com.morozov.psychology.ui.fragments.mind.change.think.mistake.MCThinkMistake_1_Fragment
 import com.morozov.psychology.ui.fragments.mind.change.think.mistake.MCThinkMistake_2_Fragment
 import com.morozov.psychology.ui.fragments.settings.SettingsConsultFragment
@@ -463,6 +466,30 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         mcThinkMistake_2_Fragment.mActivityPresenter = mPresenter
 
         setFragment(mcThinkMistake_2_Fragment, true)
+    }
+
+    override fun showMCDisastorous_1() {
+        val fragment = MCDisastorous_1_Fragment()
+
+        fragment.mActivityPresenter = mPresenter
+
+        setFragment(fragment, true)
+    }
+
+    override fun showMCDisastorous_2() {
+        val fragment = MCDisastorous_2_Fragment()
+
+        fragment.mActivityPresenter = mPresenter
+
+        setFragment(fragment, true)
+    }
+
+    override fun showMCDisastorous_3() {
+        val fragment = MCDisastorous_3_Fragment()
+
+        fragment.mActivityPresenter = mPresenter
+
+        setFragment(fragment, true)
     }
 
     /*

@@ -83,6 +83,12 @@ interface MainView: MvpView {
 
     fun showMCThinkMistake_2(date: Date)
 
+    fun showMCDisastorous_1()
+
+    fun showMCDisastorous_2()
+
+    fun showMCDisastorous_3()
+
     /*
     * Profile section controls
     *

@@ -57,7 +57,9 @@ class MCThinkMistake_2_Fragment: MvpAppCompatFragment(), MCThinkMistake_2_View {
         selectedMistake.value = null
 
         buttonThinkMining.setOnClickListener {
-
+            when (selectedMistake.value) {
+                0 -> mActivityPresenter.showMCDisastorous_1()
+            }
         }
 
         buttonChoseAnother.setOnClickListener {
