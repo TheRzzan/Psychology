@@ -59,12 +59,24 @@ class MCThinkMistake_1_Presenter: MvpPresenter<MCThinkMistake_1_View>() {
         val pair_8_1 = Pair(resources.getDrawable(R.drawable.ic_labeling), pair_8_2)
 
         val pair_9_2 = Pair(
+            "Долженствование - наличие четкой непреложной идеи о том, как должны вести себя другие люди, как надо себя вести и каким обязан быть окружающий мир.",
+            "Я должен заботиться о своей сестре."
+        )
+        val pair_9_1 = Pair(resources.getDrawable(R.drawable.ic_commitment), pair_9_2)
+
+        val pair_10_2 = Pair(
             "",
             ""
         )
-        val pair_9_1 = Pair(resources.getDrawable(R.drawable.ic_disastrous), pair_9_2)
+        val pair_10_1 = Pair(resources.getDrawable(R.drawable.ic_disastrous), pair_10_2)
+
+        val pair_11_2 = Pair(
+            "",
+            ""
+        )
+        val pair_11_1 = Pair(resources.getDrawable(R.drawable.ic_disastrous), pair_11_2)
 
         viewState.showThinkMistakes(listOf(pair_1_1, pair_2_1, pair_3_1, pair_4_1,
-            pair_5_1, pair_6_1, pair_7_1, pair_8_1))
+            pair_5_1, pair_6_1, pair_7_1, pair_8_1, pair_9_1))
     }
 }

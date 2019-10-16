@@ -107,6 +107,14 @@ interface MainView: MvpView {
 
     fun showMCLabeling()
 
+    fun showMCCommitment_1()
+
+    fun showMCCommitment_2()
+
+    fun showMCCommitment_3()
+
+    fun showMCCommitment_4()
+
     /*
     * Profile section controls
     *

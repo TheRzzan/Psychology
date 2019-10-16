@@ -228,6 +228,30 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showMCLabeling()
     }
 
+    fun showMCCommitment_1() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showMCCommitment_1()
+    }
+
+    fun showMCCommitment_2() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showMCCommitment_2()
+    }
+
+    fun showMCCommitment_3() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showMCCommitment_3()
+    }
+
+    fun showMCCommitment_4() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showMCCommitment_4()
+    }
+
     /*
     * Settings section controls
     *

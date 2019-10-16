@@ -26,6 +26,10 @@ import com.morozov.psychology.ui.fragments.examples.*
 import com.morozov.psychology.ui.fragments.mind.change.MindChangeFragment
 import com.morozov.psychology.ui.fragments.mind.change.MindChangeThinkTestFragment
 import com.morozov.psychology.ui.fragments.mind.change.black.white.MCBlackWhiteFragment
+import com.morozov.psychology.ui.fragments.mind.change.commitment.MCCommitment_1_Fragment
+import com.morozov.psychology.ui.fragments.mind.change.commitment.MCCommitment_2_Fragment
+import com.morozov.psychology.ui.fragments.mind.change.commitment.MCCommitment_3_Fragment
+import com.morozov.psychology.ui.fragments.mind.change.commitment.MCCommitment_4_Fragment
 import com.morozov.psychology.ui.fragments.mind.change.deprecation.MCDeprecation_1_Fragment
 import com.morozov.psychology.ui.fragments.mind.change.deprecation.MCDeprecation_2_Fragment
 import com.morozov.psychology.ui.fragments.mind.change.deprecation.MCDeprecation_3_Fragment
@@ -572,10 +576,42 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         setFragment(fragment, true)
     }
 
+    override fun showMCCommitment_1() {
+        val fragment = MCCommitment_1_Fragment()
+
+        fragment.mActivityPresenter = mPresenter
+
+        setFragment(fragment, true)
+    }
+
+    override fun showMCCommitment_2() {
+        val fragment = MCCommitment_2_Fragment()
+
+        fragment.mActivityPresenter = mPresenter
+
+        setFragment(fragment, true)
+    }
+
+    override fun showMCCommitment_3() {
+        val fragment = MCCommitment_3_Fragment()
+
+        fragment.mActivityPresenter = mPresenter
+
+        setFragment(fragment, true)
+    }
+
+    override fun showMCCommitment_4() {
+        val fragment = MCCommitment_4_Fragment()
+
+        fragment.mActivityPresenter = mPresenter
+
+        setFragment(fragment, true)
+    }
+
     /*
-        * Settings section controls
-        *
-        * */
+    * Settings section controls
+    *
+    * */
     override fun showSettingsSection() {
         navigation.selectedItemId = R.id.navigation_settings
     }

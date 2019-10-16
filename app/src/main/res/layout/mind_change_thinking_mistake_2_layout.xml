@@ -145,6 +145,13 @@
                         android:id="@+id/imageLabeling"
                         android:src="@drawable/ic_labeling"
                         android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="24dp"/>
+
+                <ImageView
+                        android:id="@+id/imageCommitment"
+                        android:src="@drawable/ic_commitment"
+                        android:layout_width="24dp"
                         android:layout_height="24dp"/>
             </LinearLayout>
         </LinearLayout>
