@@ -92,7 +92,7 @@
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
                     android:paddingLeft="@dimen/activity_horizontal_margin"
                     android:paddingRight="@dimen/activity_horizontal_margin"
-                    android:hint="Введите ответ"
+                    android:hint="Новая мысль"
                     android:ems="10"
                     style="@style/EditTextStyle"
                     android:id="@+id/editDepAns3"/>

@@ -40,7 +40,7 @@
 
                 <TextView
                         android:id="@+id/textDepPercent1"
-                        android:text="70%"
+                        android:text="1%"
                         android:textStyle="bold"
                         style="@style/TextView.Secondary"
                         android:layout_alignParentEnd="true"
@@ -74,7 +74,7 @@
 
                 <TextView
                         android:id="@+id/textDepPercent2"
-                        android:text="70%"
+                        android:text="1%"
                         android:textStyle="bold"
                         style="@style/TextView.Secondary"
                         android:layout_alignParentEnd="true"
