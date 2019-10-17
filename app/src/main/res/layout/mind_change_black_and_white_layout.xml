@@ -20,7 +20,7 @@
                     android:layout_marginBottom="@dimen/activity_vertical_margin"
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:text="Обесценивание позитивного"/>
+                    android:text="Черно-белое мышление"/>
 
             <TextView
                     android:text="Ситуация:"
@@ -165,10 +165,10 @@
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
                     android:paddingLeft="@dimen/activity_horizontal_margin"
                     android:paddingRight="@dimen/activity_horizontal_margin"
-                    android:hint="Введите ответ"
+                    android:hint="Новая мысль"
                     android:ems="10"
                     style="@style/EditTextStyle"
-                    android:id="@+id/editBWAns3"/>
+                    android:id="@+id/editNewThink"/>
 
             <TextView
                     android:text="Какую эмоцию вызывает новая мысль? Насколько она выражена в %?"
