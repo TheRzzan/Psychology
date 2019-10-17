@@ -7,5 +7,7 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
 @StateStrategyType(value = AddToEndSingleStrategy::class)
 interface MCBlackWhiteView: MvpView {
 
+    fun showThink(situation: String, newThink: String)
+
     fun showRecycler(data: List< String>)
 }

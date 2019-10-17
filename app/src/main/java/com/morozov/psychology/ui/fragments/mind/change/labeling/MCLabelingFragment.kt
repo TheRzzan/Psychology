@@ -28,4 +28,19 @@ class MCLabelingFragment: MvpAppCompatFragment(), MCLabelingView {
             mActivityPresenter.showMindChangeSection()
         }
     }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        mPresenter.loadData()
+    }
+
+    /*
+    * MCLabelingView implementation
+    *
+    * */
+    override fun showThink(situation: String, newThink: String) {
+        editLabelSituation.setText(situation)
+        editLabelThink.setText(newThink)
+    }
 }

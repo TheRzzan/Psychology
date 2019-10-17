@@ -65,4 +65,9 @@ class MCBlackWhiteFragment: MvpAppCompatFragment(), MCBlackWhiteView {
         adapter.setData(data)
         adapter.notifyDataSetChanged()
     }
+
+    override fun showThink(situation: String, newThink: String) {
+        editBWSituation.setText(situation)
+        editBWThink.setText(newThink)
+    }
 }

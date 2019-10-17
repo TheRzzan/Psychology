@@ -28,4 +28,19 @@ class MCTunnelFragment: MvpAppCompatFragment(), MCTunnelView {
             mActivityPresenter.showMindChangeSection()
         }
     }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        mPresenter.loadData()
+    }
+
+    /*
+    * MCTunnelView implementation
+    *
+    * */
+    override fun showThink(situation: String, newThink: String) {
+        editTunnelSituation.setText(situation)
+        editTunnelThink.setText(newThink)
+    }
 }

@@ -28,4 +28,19 @@ class MCPersonalizationFragment: MvpAppCompatFragment(), MCPersonalizationView {
             mActivityPresenter.showMindChangeSection()
         }
     }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        mPresenter.loadData()
+    }
+
+    /*
+    * MCPersonalizationView implementation
+    *
+    * */
+    override fun showThink(situation: String, newThink: String) {
+        editPersSituation.setText(situation)
+        editPersThink.setText(newThink)
+    }
 }

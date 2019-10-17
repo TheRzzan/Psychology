@@ -28,4 +28,19 @@ class MCCommitment_1_Fragment: MvpAppCompatFragment(), MCCommitment_1_View {
             mActivityPresenter.showMCCommitment_2()
         }
     }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        mPresenter.loadData()
+    }
+
+    /*
+    * MCCommitment_1_View implementation
+    *
+    * */
+    override fun showThink(situation: String, newThink: String) {
+        editComSituation.setText(situation)
+        editComThink.setText(newThink)
+    }
 }

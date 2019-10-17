@@ -28,4 +28,19 @@ class MCDisastorous_1_Fragment: MvpAppCompatFragment(), MCDisastorous_1_View {
             mActivityPresenter.showMCDisastorous_2()
         }
     }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        mPresenter.loadData()
+    }
+
+    /*
+    * MCDisastorous_1_View implementation
+    *
+    * */
+    override fun showThink(situation: String, newThink: String) {
+        editDisSituation.setText(situation)
+        editDisThink.setText(newThink)
+    }
 }

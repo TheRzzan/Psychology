@@ -7,4 +7,5 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
 @StateStrategyType(value = AddToEndSingleStrategy::class)
 interface MCOvergenerationView: MvpView {
 
+    fun showThink(situation: String, newThink: String)
 }

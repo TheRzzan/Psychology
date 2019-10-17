@@ -6,4 +6,6 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
 
 @StateStrategyType(value = AddToEndSingleStrategy::class)
 interface MCTunnelView: MvpView {
+
+    fun showThink(situation: String, newThink: String)
 }

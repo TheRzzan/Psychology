@@ -28,4 +28,19 @@ class MCEmotionalFragment: MvpAppCompatFragment(), MCEmotionalView {
             mActivityPresenter.showMindChangeSection()
         }
     }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        mPresenter.loadData()
+    }
+
+    /*
+    * MCEmotionalView implementation
+    *
+    * */
+    override fun showThink(situation: String, newThink: String) {
+        editEmotSituation.setText(situation)
+        editEmotThink.setText(newThink)
+    }
 }

@@ -28,4 +28,19 @@ class MCOvergenerationFragment: MvpAppCompatFragment(), MCOvergenerationView {
             mActivityPresenter.showMindChangeSection()
         }
     }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        mPresenter.loadData()
+    }
+
+    /*
+    * MCOvergenerationView implementation
+    *
+    * */
+    override fun showThink(situation: String, newThink: String) {
+        editOvergSituation.setText(situation)
+        editOvergThink.setText(newThink)
+    }
 }

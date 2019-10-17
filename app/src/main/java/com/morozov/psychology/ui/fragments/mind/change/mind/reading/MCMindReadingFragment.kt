@@ -28,4 +28,19 @@ class MCMindReadingFragment: MvpAppCompatFragment(), MCMindReadingView {
             mActivityPresenter.showMindChangeSection()
         }
     }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        mPresenter.loadData()
+    }
+
+    /*
+    * MCMindReadingView implementation
+    *
+    * */
+    override fun showThink(situation: String, newThink: String) {
+        editMChangeSituation.setText(situation)
+        editMChangeThink.setText(newThink)
+    }
 }

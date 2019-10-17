@@ -28,4 +28,19 @@ class MCDeprecation_1_Fragment: MvpAppCompatFragment(), MCDeprecation_1_View {
             mActivityPresenter.showMCDeprecation_2()
         }
     }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        mPresenter.loadData()
+    }
+
+    /*
+    * MCDeprecation_1_View implementation
+    *
+    * */
+    override fun showThink(situation: String, newThink: String) {
+        editDepSituation.setText(situation)
+        editDepThink.setText(newThink)
+    }
 }

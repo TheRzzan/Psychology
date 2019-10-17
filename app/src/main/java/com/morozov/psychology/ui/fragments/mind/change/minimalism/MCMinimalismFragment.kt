@@ -28,4 +28,19 @@ class MCMinimalismFragment: MvpAppCompatFragment(), MCMinimalismView {
             mActivityPresenter.showMindChangeSection()
         }
     }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        mPresenter.loadData()
+    }
+
+    /*
+    * MCMinimalismView implementation
+    *
+    * */
+    override fun showThink(situation: String, newThink: String) {
+        editMinSituation.setText(situation)
+        editMinThink.setText(newThink)
+    }
 }
