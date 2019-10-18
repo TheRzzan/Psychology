@@ -101,17 +101,19 @@ class MainActivity : MvpAppCompatActivity(), MainView {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_mind_change -> {
-                val mindChangeFragment = MindChangeFragment()
-                mindChangeFragment.mActivityPresenter = mPresenter
-
-                clearBackStack()
-                setFragment(mindChangeFragment)
+//                val mindChangeFragment = MindChangeFragment()
+//                mindChangeFragment.mActivityPresenter = mPresenter
+//
+//                clearBackStack()
+//                setFragment(mindChangeFragment)
+                setFragment(SectionInDevelopFragment())
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_settings -> {
-                val settingsFragment = SettingsFragment()
-                settingsFragment.mActivityPresenter = mPresenter
-                setFragment(settingsFragment)
+//                val settingsFragment = SettingsFragment()
+//                settingsFragment.mActivityPresenter = mPresenter
+//                setFragment(settingsFragment)
+                setFragment(SectionInDevelopFragment())
                 return@OnNavigationItemSelectedListener true
             }
         }

@@ -35,8 +35,8 @@ class AppConstants {
         const val PREF_QUIZ_YEAR = "pref_quiz_year"
 
         // Dialogs
-        const val PREF_DIALOG_TESTS = "pref_dialog_tests"
-        const val PREF_DIALOG_ALL_RESULTS = "pref_dialog_all_results"
-        const val PREF_DIALOG_FIRST_HELLO = "pref_dialog_first_hello_v1.6.3"
+        const val PREF_DIALOG_TESTS = "pref_dialog_tests_v1.2"
+        const val PREF_DIALOG_ALL_RESULTS = "pref_dialog_all_results_v1.2"
+        const val PREF_DIALOG_FIRST_HELLO = "pref_dialog_first_hello_v1.6.7"
     }
 }

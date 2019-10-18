@@ -31,9 +31,9 @@
     <dimen name="arrow_open_height">15dp</dimen>
 
     <!-- Dialog -->
-    <dimen name="dialog_header_size">22</dimen>
-    <dimen name="dialog_descr_size">19</dimen>
-    <dimen name="dialog_ok_size">24</dimen>
+    <dimen name="dialog_header_size">22sp</dimen>
+    <dimen name="dialog_descr_size">19sp</dimen>
+    <dimen name="dialog_ok_size">24sp</dimen>
 
     <!-- Other -->
     <dimen name="card_min_height">105dp</dimen>

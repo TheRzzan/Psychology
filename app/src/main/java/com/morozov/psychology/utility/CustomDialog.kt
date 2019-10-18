@@ -35,7 +35,9 @@ class CustomDialog: DialogFragment() {
         }
 
         dialog.window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog.window.setDimAmount(0f)
+
+        if (run != null)
+            dialog.window.setDimAmount(0f)
     }
 
     fun setTitle(title: String) {

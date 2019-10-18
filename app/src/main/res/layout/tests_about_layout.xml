@@ -333,7 +333,7 @@
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
                     android:text="Нет"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" android:id="@+id/checkNo"/>
 
             <CheckBox
                     style="@style/CheckBoxStyle"
