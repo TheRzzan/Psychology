@@ -6,7 +6,9 @@
     <!-- Text -->
     <dimen name="text_header_size">34sp</dimen>
     <dimen name="text_primary_size">28sp</dimen>
+    <dimen name="text_middle">20sp</dimen>
     <dimen name="text_secondary_size">16sp</dimen>
+    <dimen name="text_little_size">13sp</dimen>
 
     <!-- Button -->
     <dimen name="button_font_size">17sp</dimen>
@@ -19,4 +21,20 @@
 
     <!-- Segmented progress bar -->
     <dimen name="progressbar_gap">5dp</dimen>
+
+    <!-- Icons -->
+    <dimen name="icon_size">24dp</dimen>
+    <dimen name="big_icon_size">56dp</dimen>
+    <dimen name="emotion_icon_size">36dp</dimen>
+
+    <dimen name="arrow_open_width">14dp</dimen>
+    <dimen name="arrow_open_height">8dp</dimen>
+
+    <!-- Dialog -->
+    <dimen name="dialog_header_size">15</dimen>
+    <dimen name="dialog_descr_size">12</dimen>
+    <dimen name="dialog_ok_size">17</dimen>
+
+    <!-- Other -->
+    <dimen name="card_min_height">98dp</dimen>
 </resources>

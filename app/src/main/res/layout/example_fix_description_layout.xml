@@ -70,6 +70,6 @@ LinearLayout который содержит заголовок и подзаг�
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
             android:background="@drawable/close_icon"
-            android:layout_width="26dp"
-            android:layout_height="26dp"/>
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"/>
 </RelativeLayout>

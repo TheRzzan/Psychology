@@ -15,7 +15,7 @@
                 android:id="@+id/textQuizResultMark"
                 android:textColor="@android:color/black"
                 android:textStyle="bold"
-                android:textSize="17sp"
+                android:textSize="@dimen/button_font_size"
                 android:text="Вы набрали 101 балл"
                 android:layout_alignParentStart="true"
                 android:layout_toStartOf="@+id/imageArrowOpening"
@@ -26,15 +26,15 @@
                 android:background="@drawable/arrow_opening"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_width="14dp"
-                android:layout_height="8dp"/>
+                android:layout_width="@dimen/arrow_open_width"
+                android:layout_height="@dimen/arrow_open_height"/>
     </RelativeLayout>
 
     <TextView
             android:id="@+id/textQuizResultDescription"
             android:layout_marginBottom="24dp"
             android:textColor="@android:color/black"
-            android:visibility="gone"
+            android:visibility="visible"
             android:text="Поздравляем, у вас очень мало ошибок мышления."
             style="@style/TextView.Secondary"/>
 </LinearLayout>

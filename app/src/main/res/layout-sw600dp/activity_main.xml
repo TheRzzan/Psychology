@@ -16,7 +16,7 @@
         <ImageView
                 android:id="@+id/imageMainBack"
                 android:alpha="0.5"
-                android:background="@drawable/wallpaper_1"
+                android:src="@drawable/wallpaper_1"
                 android:scaleType="centerCrop"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
@@ -34,6 +34,7 @@
             <TextView
                     android:text="Назад"
                     android:layout_gravity="center"
+                    android:textSize="20sp"
                     android:textColor="@color/colorPrimary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>

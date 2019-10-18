@@ -37,7 +37,8 @@
                 <RelativeLayout
                         android:background="@color/card_background"
                         android:layout_width="match_parent"
-                        android:layout_height="98dp">
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/card_min_height">
 
                     <TextView
                             android:id="@+id/textWeismanBack"
@@ -48,8 +49,9 @@
                             android:layout_margin="12dp"/>
 
                     <View
-                            android:layout_marginTop="64dp"
+                            android:id="@+id/viewTmp1"
                             android:layout_centerHorizontal="true"
+                            android:layout_below="@+id/textWeismanBack"
                             android:background="@color/colorPrimaryDark"
                             android:layout_marginStart="8dp"
                             android:layout_marginEnd="8dp"
@@ -58,9 +60,10 @@
 
                     <TextView
                             android:id="@+id/textWeismanBackDescr"
+                            android:layout_below="@+id/viewTmp1"
                             android:layout_alignParentBottom="true"
                             style="@style/TextView.Secondary"
-                            android:textSize="11sp"
+                            android:textSize="@dimen/text_little_size"
                             android:text="Насколько выражены ваши ошибки мышления, приводящие к негативным эмоциям"
                             android:layout_marginStart="12dp"
                             android:layout_marginEnd="12dp"
@@ -81,7 +84,8 @@
                 <RelativeLayout
                         android:background="@color/card_background"
                         android:layout_width="match_parent"
-                        android:layout_height="98dp">
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/card_min_height">
 
                     <TextView
                             android:id="@+id/textEllis"
@@ -92,8 +96,9 @@
                             android:layout_margin="12dp"/>
 
                     <View
-                            android:layout_marginTop="64dp"
+                            android:id="@+id/viewTmp2"
                             android:layout_centerHorizontal="true"
+                            android:layout_below="@+id/textEllis"
                             android:background="@color/colorPrimaryDark"
                             android:layout_marginStart="8dp"
                             android:layout_marginEnd="8dp"
@@ -103,8 +108,9 @@
                     <TextView
                             android:id="@+id/textEllisDescr"
                             android:layout_alignParentBottom="true"
+                            android:layout_below="@+id/viewTmp2"
                             style="@style/TextView.Secondary"
-                            android:textSize="11sp"
+                            android:textSize="@dimen/text_little_size"
                             android:text="Позволит выявить, какие именно ошибки мышления для вас характерны"
                             android:layout_marginStart="12dp"
                             android:layout_marginEnd="12dp"
@@ -125,7 +131,8 @@
                 <RelativeLayout
                         android:background="@color/card_background"
                         android:layout_width="match_parent"
-                        android:layout_height="98dp">
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/card_min_height">
 
                     <TextView
                             android:id="@+id/textHospitalScale"
@@ -136,8 +143,9 @@
                             android:layout_margin="12dp"/>
 
                     <View
-                            android:layout_marginTop="64dp"
+                            android:id="@+id/viewTmp3"
                             android:layout_centerHorizontal="true"
+                            android:layout_below="@+id/textHospitalScale"
                             android:background="@color/colorPrimaryDark"
                             android:layout_marginStart="8dp"
                             android:layout_marginEnd="8dp"
@@ -147,8 +155,9 @@
                     <TextView
                             android:id="@+id/textHospitalScaleDescr"
                             android:layout_alignParentBottom="true"
+                            android:layout_below="@+id/viewTmp3"
                             style="@style/TextView.Secondary"
-                            android:textSize="11sp"
+                            android:textSize="@dimen/text_little_size"
                             android:text="Позволит определить уровень тревоги и депрессии"
                             android:layout_marginStart="12dp"
                             android:layout_marginEnd="12dp"
@@ -169,7 +178,8 @@
                 <RelativeLayout
                         android:background="@color/card_background"
                         android:layout_width="match_parent"
-                        android:layout_height="98dp">
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/card_min_height">
 
                     <TextView
                             android:id="@+id/textIntegrative"
@@ -180,8 +190,9 @@
                             android:layout_margin="12dp"/>
 
                     <View
-                            android:layout_marginTop="64dp"
+                            android:id="@+id/viewTmp4"
                             android:layout_centerHorizontal="true"
+                            android:layout_below="@+id/textIntegrative"
                             android:background="@color/colorPrimaryDark"
                             android:layout_marginStart="8dp"
                             android:layout_marginEnd="8dp"
@@ -191,8 +202,9 @@
                     <TextView
                             android:id="@+id/textIntegrativeDescr"
                             android:layout_alignParentBottom="true"
+                            android:layout_below="@+id/viewTmp4"
                             style="@style/TextView.Secondary"
-                            android:textSize="11sp"
+                            android:textSize="@dimen/text_little_size"
                             android:text="Позволит понять, что в большей степени вас тревожит"
                             android:layout_marginStart="12dp"
                             android:layout_marginEnd="12dp"
@@ -213,7 +225,8 @@
                 <RelativeLayout
                         android:background="@color/card_background"
                         android:layout_width="match_parent"
-                        android:layout_height="98dp">
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/card_min_height">
 
                     <TextView
                             android:id="@+id/textLazarusQuestionnaire"
@@ -224,8 +237,9 @@
                             android:layout_margin="12dp"/>
 
                     <View
-                            android:layout_marginTop="64dp"
+                            android:id="@+id/viewTmp5"
                             android:layout_centerHorizontal="true"
+                            android:layout_below="@+id/textLazarusQuestionnaire"
                             android:background="@color/colorPrimaryDark"
                             android:layout_marginStart="8dp"
                             android:layout_marginEnd="8dp"
@@ -234,9 +248,10 @@
 
                     <TextView
                             android:id="@+id/textLazarusQuestionnaireDescr"
+                            android:layout_below="@+id/viewTmp5"
                             android:layout_alignParentBottom="true"
                             style="@style/TextView.Secondary"
-                            android:textSize="11sp"
+                            android:textSize="@dimen/text_little_size"
                             android:text="Позволит понять, как вы справляетесь со стрессами"
                             android:layout_marginStart="12dp"
                             android:layout_marginEnd="12dp"
@@ -257,7 +272,8 @@
                 <RelativeLayout
                         android:background="@color/card_background"
                         android:layout_width="match_parent"
-                        android:layout_height="98dp">
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/card_min_height">
 
                     <TextView
                             android:id="@+id/textStyleIndex"
@@ -268,8 +284,9 @@
                             android:layout_margin="12dp"/>
 
                     <View
-                            android:layout_marginTop="64dp"
+                            android:id="@+id/viewTmp6"
                             android:layout_centerHorizontal="true"
+                            android:layout_below="@+id/textStyleIndex"
                             android:background="@color/colorPrimaryDark"
                             android:layout_marginStart="8dp"
                             android:layout_marginEnd="8dp"
@@ -279,8 +296,9 @@
                     <TextView
                             android:id="@+id/textStyleIndexDescr"
                             android:layout_alignParentBottom="true"
+                            android:layout_below="@+id/viewTmp6"
                             style="@style/TextView.Secondary"
-                            android:textSize="11sp"
+                            android:textSize="@dimen/text_little_size"
                             android:text="Позволит выявить бессознательные механизмы, которые позволяют вам справляться со стрессами"
                             android:layout_marginStart="12dp"
                             android:layout_marginEnd="12dp"
@@ -301,7 +319,8 @@
                 <RelativeLayout
                         android:background="@color/card_background"
                         android:layout_width="match_parent"
-                        android:layout_height="98dp">
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/card_min_height">
 
                     <TextView
                             android:id="@+id/textSelfAttitude"
@@ -312,8 +331,9 @@
                             android:layout_margin="12dp"/>
 
                     <View
-                            android:layout_marginTop="64dp"
+                            android:id="@+id/viewTmp7"
                             android:layout_centerHorizontal="true"
+                            android:layout_below="@+id/textSelfAttitude"
                             android:background="@color/colorPrimaryDark"
                             android:layout_marginStart="8dp"
                             android:layout_marginEnd="8dp"
@@ -323,8 +343,9 @@
                     <TextView
                             android:id="@+id/textSelfAttitudeDescr"
                             android:layout_alignParentBottom="true"
+                            android:layout_below="@+id/viewTmp7"
                             style="@style/TextView.Secondary"
-                            android:textSize="11sp"
+                            android:textSize="@dimen/text_little_size"
                             android:text="Позволит вам увидеть, как вы относитесь к самому себе"
                             android:layout_marginStart="12dp"
                             android:layout_marginEnd="12dp"

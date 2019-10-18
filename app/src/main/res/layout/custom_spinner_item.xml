@@ -3,7 +3,7 @@
           android:id="@android:id/text1"
           style="?android:attr/spinnerItemStyle"
           android:textColor="@color/grey_color"
-          android:textSize="17sp"
+          android:textSize="@dimen/button_font_size"
           android:textStyle="bold"
           android:singleLine="true"
           android:layout_width="match_parent"

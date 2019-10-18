@@ -77,7 +77,9 @@
         <item name="android:nestedScrollingEnabled">false</item>
         <item name="android:layout_marginStart">@dimen/activity_horizontal_margin</item>
         <item name="android:layout_marginEnd">@dimen/activity_horizontal_margin</item>
-        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_centerHorizontal">true</item>
         <item name="android:layout_height">match_parent</item>
     </style>
 
@@ -90,6 +92,8 @@
 
     <style name="CheckBoxStyle">
         <item name="android:button">@drawable/checkbox_selector</item>
+        <item name="android:textSize">@dimen/button_font_size</item>
+        <item name="android:textColor">@android:color/black</item>
         <item name="android:paddingStart">8dp</item>
     </style>
 

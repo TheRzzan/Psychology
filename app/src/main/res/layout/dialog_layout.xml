@@ -10,7 +10,7 @@
                 android:id="@+id/textDialogHeader"
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="8dp"
-                android:textSize="15sp"
+                android:textSize="@dimen/dialog_header_size"
                 android:layout_centerHorizontal="true"
                 android:layout_alignParentTop="true"
                 android:text="Раздел Тестирование"
@@ -25,7 +25,7 @@
                 android:text="Тесты в этом разделе направлены на то, чтобы оценить выраженность тревоги, депрессии и возможных других симптомов. Вы обнаружите свои ошибки мышления, а также психологические механизмы, которые помогают вам справляться с различными сложностями в своей жизни.
 Рекомендую пройти тестирование в начале использования этого приложения и через 1-2 месяца. Вы можете пройти тестирование столько раз, сколько захотите. Так вы сами сможете контролировать эффект своей работы. Приступая к тестированию, вы даете согласие на участие в анонимном исследовании эффективности приложения, что позволит улучшать его.
 "
-                android:textSize="12sp"
+                android:textSize="@dimen/dialog_descr_size"
                 style="@style/TextView.Secondary"/>
 
         <TextView
@@ -33,7 +33,7 @@
                 android:layout_below="@+id/textDialogDescription"
                 android:text="OK"
                 android:textColor="@color/colorPrimary"
-                android:textSize="17sp"
+                android:textSize="@dimen/dialog_ok_size"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="@dimen/activity_vertical_margin"
                 style="@style/TextView.Primary.Header"/>
