@@ -3,6 +3,7 @@ package com.morozov.psychology.ui.activities
 import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
@@ -121,17 +122,6 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val preferenceWallp = MySharedPreferences.getStrPreference(applicationContext, AppConstants.PREF_WALLPAPER)
-
-        when (preferenceWallp) {
-            AppConstants.EMPTY_PREF -> imageMainBack.setImageDrawable(ColorDrawable(resources.getColor(R.color.white)))
-            AppConstants.PREF_WALLP_DEF -> imageMainBack.setImageDrawable(ColorDrawable(resources.getColor(R.color.white)))
-            AppConstants.PREF_WALLP_1 -> imageMainBack.setImageDrawable(getDrawable(R.drawable.wallpaper_1))
-            AppConstants.PREF_WALLP_2 -> imageMainBack.setImageDrawable(getDrawable(R.drawable.wallpaper_2))
-            AppConstants.PREF_WALLP_3 -> imageMainBack.setImageDrawable(getDrawable(R.drawable.wallpaper_3))
-        }
-
-        mPresenter.showExCards()
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         linearBack.setOnClickListener {
             onBackPressed()
@@ -139,12 +129,9 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
         if (!MySharedPreferences.getBoolPreference(applicationContext, AppConstants.PREF_DIALOG_FIRST_HELLO)) {
             MySharedPreferences.setPreference(applicationContext, AppConstants.PREF_DIALOG_FIRST_HELLO, true)
-
-            val customDialog = CustomDialog()
-            customDialog.setTitle(getString(R.string.dialog_first_hello_title))
-            customDialog.setDescription(getString(R.string.dialog_first_hello_description))
-            customDialog.setOk(getString(R.string.dialog_first_hello_ok))
-            customDialog.show(supportFragmentManager, CustomDialog::class.simpleName)
+            showHelloDialog()
+        } else {
+            startCustomActivity()
         }
     }
 
@@ -172,6 +159,37 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     * Interface controls
     * (MainView impl)
     * */
+    override fun showHelloDialog() {
+        hideBottomNav()
+        hideBackArrow()
+        imageMainBack.setImageDrawable(getDrawable(R.drawable.wallpaper_3))
+        imageMainBack.alpha = 1f
+
+        val customDialog = CustomDialog()
+        customDialog.setTitle(getString(R.string.dialog_first_hello_title))
+        customDialog.setDescription(getString(R.string.dialog_first_hello_description))
+        customDialog.setOk(getString(R.string.dialog_first_hello_ok), Runnable {
+            showBottomNav()
+            hideBackArrow()
+            imageMainBack.alpha = 0.5f
+            startCustomActivity()
+        })
+        customDialog.show(supportFragmentManager, CustomDialog::class.simpleName)
+    }
+
+    override fun startCustomActivity() {
+        when (MySharedPreferences.getStrPreference(applicationContext, AppConstants.PREF_WALLPAPER)) {
+            AppConstants.EMPTY_PREF -> imageMainBack.setImageDrawable(ColorDrawable(resources.getColor(R.color.white)))
+            AppConstants.PREF_WALLP_DEF -> imageMainBack.setImageDrawable(ColorDrawable(resources.getColor(R.color.white)))
+            AppConstants.PREF_WALLP_1 -> imageMainBack.setImageDrawable(getDrawable(R.drawable.wallpaper_1))
+            AppConstants.PREF_WALLP_2 -> imageMainBack.setImageDrawable(getDrawable(R.drawable.wallpaper_2))
+            AppConstants.PREF_WALLP_3 -> imageMainBack.setImageDrawable(getDrawable(R.drawable.wallpaper_3))
+            else -> imageMainBack.setImageDrawable(ColorDrawable(resources.getColor(R.color.white)))
+        }
+
+        mPresenter.showExCards()
+    }
+
     override fun showBottomNav() {
         navigation.visibility = View.VISIBLE
     }

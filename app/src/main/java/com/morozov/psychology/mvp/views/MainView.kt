@@ -15,6 +15,10 @@ interface MainView: MvpView {
     * Interface controls
     *
     * */
+    fun showHelloDialog()
+
+    fun startCustomActivity()
+
     fun showBottomNav()
 
     fun hideBottomNav()

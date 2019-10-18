@@ -1,5 +1,6 @@
 package com.morozov.psychology.utility
 
+import android.content.DialogInterface
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -15,6 +16,7 @@ class CustomDialog: DialogFragment() {
     private lateinit var title: String
     private lateinit var description: String
     private var ok = "OK"
+    private var run: Runnable? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.dialog_layout, container, false)
@@ -28,10 +30,12 @@ class CustomDialog: DialogFragment() {
         textDialogOK.text = ok
 
         textDialogOK.setOnClickListener {
+            run?.run()
             dialog.dismiss()
         }
 
         dialog.window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.window.setDimAmount(0f)
     }
 
     fun setTitle(title: String) {
@@ -42,7 +46,13 @@ class CustomDialog: DialogFragment() {
         this.description = description
     }
 
-    fun setOk(text: String) {
+    fun setOk(text: String, runnable: Runnable? = null) {
         ok = text
+        run = runnable
+    }
+
+    override fun onDismiss(dialog: DialogInterface?) {
+        run?.run()
+        super.onDismiss(dialog)
     }
 }
