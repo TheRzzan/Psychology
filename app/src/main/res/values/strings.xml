@@ -11,8 +11,8 @@
     <!-- Emotions -->
     <string name="joy">Радость</string>
     <string name="sadness">Печаль</string>
-    <string name="annoyance">Досада</string>
-    <string name="anxiety">Тревожность</string>
+    <string name="annoyance">Раздражение</string>
+    <string name="anxiety">Тревога</string>
     <string name="disgust">Отвращение</string>
     <string name="interest">Интерес</string>
     <string name="guilt">Вина</string>

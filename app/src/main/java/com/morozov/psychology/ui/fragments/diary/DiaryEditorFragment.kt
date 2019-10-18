@@ -19,8 +19,6 @@ import com.morozov.psychology.mvp.views.diary.DiaryEditorView
 import com.morozov.psychology.utility.AppConstants
 import com.morozov.psychology.utility.DateConverter
 import kotlinx.android.synthetic.main.diary_think_editor_layout.*
-import kotlinx.android.synthetic.main.example_test_layout.*
-import kotlinx.android.synthetic.main.item_diary_think_card.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -232,7 +230,7 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView, TextWatcher 
 
         val dateStr =
                     dayFormat.format(date) + " " +
-                    DateConverter.getStringMonth(monthFormat.format(date)) + " ," +
+                    DateConverter.getStringMonth(monthFormat.format(date)) + ", " +
                     yearFormat.format(date)
 
         textDiaryEditorTime.text = dateStr

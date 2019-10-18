@@ -23,12 +23,23 @@
                     android:id="@+id/textTestName"/>
 
             <TextView
+                    android:text="Ситуация:"
+                    style="@style/TextView.Secondary"
+                    android:textColor="@color/second_header_text"
+                    android:textStyle="bold"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:id="@+id/textTmp"
+                    android:layout_below="@+id/textTestName"/>
+
+            <TextView
                     android:text="Друг обещал прийти в 14.00. Уже 15.00, а его все нет. И на звонки он не отвечает."
                     style="@style/TextView.Secondary"
                     android:textColor="@color/second_header_text"
                     android:layout_margin="@dimen/activity_horizontal_margin"
                     android:id="@+id/textTestDescr"
-                    android:layout_below="@+id/textTestName"/>
+                    android:layout_below="@+id/textTmp"/>
 
             <android.support.v7.widget.CardView
                     android:id="@+id/testCardView"
@@ -47,11 +58,22 @@
                         android:background="@drawable/image_test_2"/>
             </android.support.v7.widget.CardView>
 
+            <TextView
+                    android:text="Реакции разных людей на эту ситуацию:"
+                    style="@style/TextView.Secondary"
+                    android:textColor="@color/second_header_text"
+                    android:textStyle="bold"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:id="@+id/textTmp2"
+                    android:layout_below="@+id/testCardView"/>
+
             <android.support.v7.widget.RecyclerView
                     android:id="@+id/recyclerTest"
                     style="@style/RecyclerViewStyle"
                     android:layout_margin="@dimen/activity_horizontal_margin"
-                    android:layout_below="@+id/testCardView"/>
+                    android:layout_below="@+id/textTmp2"/>
 
             <Button
                     android:text="Завершить"

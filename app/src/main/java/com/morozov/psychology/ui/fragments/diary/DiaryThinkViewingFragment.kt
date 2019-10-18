@@ -14,11 +14,9 @@ import com.morozov.psychology.mvp.presenters.diary.DiaryThinkViewingPresenter
 import com.morozov.psychology.mvp.views.diary.DiaryThinkViewingView
 import com.morozov.psychology.utility.AppConstants
 import com.morozov.psychology.utility.DateConverter
-import kotlinx.android.synthetic.main.diary_think_editor_layout.*
 import kotlinx.android.synthetic.main.diary_think_viewing_layout.*
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 class DiaryThinkViewingFragment: MvpAppCompatFragment(), DiaryThinkViewingView {
 
@@ -78,7 +76,7 @@ class DiaryThinkViewingFragment: MvpAppCompatFragment(), DiaryThinkViewingView {
 
         val dateStr =
             dayFormat.format(date) + " " +
-                    DateConverter.getStringMonth(monthFormat.format(date)) + " ," +
+                    DateConverter.getStringMonth(monthFormat.format(date)) + ", " +
                     yearFormat.format(date)
 
         textDiaryViewingTime.text = dateStr

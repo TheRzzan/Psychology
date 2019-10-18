@@ -19,11 +19,14 @@
             <TextView
                     android:id="@+id/textHeader"
                     style="@style/TextView.Primary.Header"
-                    android:layout_margin="@dimen/activity_horizontal_margin"
-                    android:text="Проверка"/>
+                    android:text="Проверка силы влияния мыслей"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_horizontal_margin"/>
 
             <TextView
-                    android:text="Убедиться, что мысли влияют на эмоции"
+                    android:text="В этом разделе вы сможете убедиться в том, что мысли влияют на эмоции, поведение и даже на то, что человек чувствует в своем теле."
                     style="@style/TextView.Secondary"
                     android:textColor="@color/second_header_text"
                     android:layout_marginBottom="@dimen/activity_vertical_margin"
