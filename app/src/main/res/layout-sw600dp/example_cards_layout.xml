@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        android:background="@color/fragment_background"
+        android:orientation="vertical"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="true"
+        android:layout_marginBottom="57dp">
+
+    <ScrollView
+            android:id="@+id/scrollMain"
+            style="@style/ScrollViewStyle">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <TextView
+                    android:id="@+id/textHeader"
+                    style="@style/TextView.Primary.Header"
+                    android:text="Проверка силы влияния мыслей"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_horizontal_margin"/>
+
+            <TextView
+                    android:text="В этом разделе вы сможете убедиться в том, что мысли влияют на эмоции, поведение и даже на то, что человек чувствует в своем теле."
+                    style="@style/TextView.Secondary"
+                    android:textColor="@color/second_header_text"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:id="@+id/textHeaderSecond"
+                    android:layout_below="@+id/textHeader"/>
+
+            <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerCardsExper"
+                    style="@style/RecyclerViewStyle"
+                    android:layout_below="@+id/textHeaderSecond"/>
+
+            <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerCardsFixing"
+                    android:layout_marginStart="384dp"
+                    style="@style/RecyclerViewStyle"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>
