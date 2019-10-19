@@ -14,7 +14,7 @@
     <dimen name="button_font_size">24sp</dimen>
 
     <!-- Card View -->
-    <dimen name="card_corner_radius">21dp</dimen>
+    <dimen name="card_corner_radius">14dp</dimen>
 
     <!-- Emotions -->
     <dimen name="diary_emotions_margin">13dp</dimen>

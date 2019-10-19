@@ -12,12 +12,10 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
 import com.morozov.psychology.mvp.models.diary.ThinkModel
 import com.morozov.psychology.mvp.presenters.MainPresenter
-import com.morozov.psychology.mvp.presenters.diary.DiaryMainPresenter
 import com.morozov.psychology.mvp.presenters.mind.change.MindChangePresenter
 import com.morozov.psychology.mvp.views.mind.change.MindChangeView
 import com.morozov.psychology.ui.adapters.listeners.OnItemClickListener
 import com.morozov.psychology.ui.adapters.mind.change.MindChangeThinkAdapter
-import kotlinx.android.synthetic.main.diary_cards_layout.*
 import kotlinx.android.synthetic.main.mind_change_main_layout.*
 import org.joda.time.Days
 import org.joda.time.MutableDateTime
