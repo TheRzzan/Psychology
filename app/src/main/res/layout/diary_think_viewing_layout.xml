@@ -84,6 +84,7 @@
                         android:layout_marginBottom="4dp"
                         android:textSize="12sp"
                         android:textStyle="bold"
+                        android:gravity="center"
                         android:textColor="@color/second_header_text"/>
 
                 <TextView
@@ -117,6 +118,7 @@
                         android:layout_marginBottom="4dp"
                         android:textSize="12sp"
                         android:textStyle="bold"
+                        android:gravity="center"
                         android:textColor="@color/second_header_text"/>
 
                 <TextView
@@ -150,6 +152,7 @@
                         android:layout_marginBottom="4dp"
                         android:textSize="12sp"
                         android:textStyle="bold"
+                        android:gravity="center"
                         android:textColor="@color/second_header_text"/>
 
                 <TextView
@@ -183,6 +186,7 @@
                         android:layout_marginBottom="4dp"
                         android:textSize="12sp"
                         android:textStyle="bold"
+                        android:gravity="center"
                         android:textColor="@color/second_header_text"/>
 
                 <TextView
@@ -216,6 +220,7 @@
                         android:layout_marginBottom="4dp"
                         android:textSize="12sp"
                         android:textStyle="bold"
+                        android:gravity="center"
                         android:textColor="@color/second_header_text"/>
 
                 <TextView
@@ -249,6 +254,7 @@
                         android:layout_marginBottom="4dp"
                         android:textSize="12sp"
                         android:textStyle="bold"
+                        android:gravity="center"
                         android:textColor="@color/second_header_text"/>
 
                 <TextView
@@ -282,6 +288,7 @@
                         android:layout_marginBottom="4dp"
                         android:textSize="12sp"
                         android:textStyle="bold"
+                        android:gravity="center"
                         android:textColor="@color/second_header_text"/>
 
                 <TextView
@@ -314,6 +321,7 @@
                         android:layout_marginBottom="4dp"
                         android:textSize="12sp"
                         android:textStyle="bold"
+                        android:gravity="center"
                         android:textColor="@color/second_header_text"/>
 
                 <TextView
