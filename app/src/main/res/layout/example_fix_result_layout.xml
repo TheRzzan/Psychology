@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
         android:background="@color/fragment_background"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:fitsSystemWindows="false">
 
     <ScrollView
+            android:layout_above="@+id/buttonFixNext"
             style="@style/ScrollViewStyle">
 
         <RelativeLayout
@@ -53,28 +53,28 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/activity_horizontal_margin"
                     android:layout_below="@+id/textFixResultDescription"/>
-
-            <Button
-                    android:text="Упражнение на закрепление навыка поиска мыслей 2"
-                    android:visibility="gone"
-                    style="@style/TextView.Button"
-                    android:background="@drawable/rectangle_button"
-                    android:id="@+id/buttonFixNext"
-                    android:layout_below="@+id/contentFixResult"/>
-
-            <Button
-                    android:text="Дневник мыслей"
-                    style="@style/TextView.Button"
-                    android:background="@drawable/rectangle_button"
-                    android:id="@+id/buttonFixDiary"
-                    android:layout_below="@+id/buttonFixNext"/>
-
-            <Button
-                    android:text="Выбрать эксперимент"
-                    style="@style/TextView.Button"
-                    android:background="@drawable/rectangle_button"
-                    android:id="@+id/buttonFixChooseExperiment"
-                    android:layout_below="@+id/buttonFixDiary"/>
         </RelativeLayout>
     </ScrollView>
-</LinearLayout>
+
+    <Button
+            android:text="Упражнение на закрепление навыка поиска мыслей 2"
+            android:visibility="gone"
+            style="@style/TextView.Button"
+            android:background="@drawable/rectangle_button"
+            android:id="@+id/buttonFixNext"
+            android:layout_above="@+id/buttonFixDiary"/>
+
+    <Button
+            android:text="Дневник мыслей"
+            style="@style/TextView.Button"
+            android:background="@drawable/rectangle_button"
+            android:id="@+id/buttonFixDiary"
+            android:layout_above="@+id/buttonFixChooseExperiment"/>
+
+    <Button
+            android:text="Выбрать эксперимент"
+            style="@style/TextView.Button"
+            android:background="@drawable/rectangle_button"
+            android:id="@+id/buttonFixChooseExperiment"
+            android:layout_alignParentBottom="true"/>
+</RelativeLayout>
