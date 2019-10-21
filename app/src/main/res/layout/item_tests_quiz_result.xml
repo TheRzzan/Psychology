@@ -34,7 +34,7 @@
             android:id="@+id/textQuizResultDescription"
             android:layout_marginBottom="24dp"
             android:textColor="@android:color/black"
-            android:visibility="visible"
+            android:visibility="gone"
             android:text="Поздравляем, у вас очень мало ошибок мышления."
             style="@style/TextView.Secondary"/>
 </LinearLayout>

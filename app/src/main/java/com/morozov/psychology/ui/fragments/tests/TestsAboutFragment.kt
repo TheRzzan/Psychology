@@ -33,6 +33,7 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
     *
     * */
     private val maritalStatusArr = listOf("Холост", "В браке", "Разведен", "Вдовец")
+    private val maritalFemaleStatusArr = listOf("Не замужем", "В браке", "В разводе", "Вдова")
     private val educationArr = listOf("Начальное", "Среднее", "Среднее профессиональное", "Высшее профессиональное", "Другое")
     private val freqOfUseArr = listOf("Ежедневно", "1 или несколько раз в неделю", "1 или несколько раз в месяц", "Реже")
     private val freqOfTherapyArr = listOf("Не обращаюсь", "Несколько раз в неделю", "1 раз в неделю", "2-3 раза в месяц", "Реже")
@@ -288,6 +289,15 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
         buttonTestsAboutManSex.setOnClickListener {
             mAboutModel.sex = SexEnum.MAN
 
+            initSpinner(maritalStatusArr, spinerMaritalStatus, Runnable {
+                when (spinerMaritalStatus.selectedItemId) {
+                    2L -> mAboutModel.maritalStatus = MaritalStatusEnum.DIVORCED
+                    1L -> mAboutModel.maritalStatus = MaritalStatusEnum.MARRIED
+                    0L -> mAboutModel.maritalStatus = MaritalStatusEnum.SINGLE
+                    3L -> mAboutModel.maritalStatus = MaritalStatusEnum.WIDOWER
+                }
+            })
+
             buttonTestsAboutManSex.background = resources.getDrawable(R.drawable.rectangle_edit_text_with_shadow)
             buttonTestsAboutWomanSex.background = resources.getDrawable(R.drawable.rectangle_button_white)
 
@@ -296,6 +306,15 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
 
         buttonTestsAboutWomanSex.setOnClickListener {
             mAboutModel.sex = SexEnum.WOMAN
+
+            initSpinner(maritalFemaleStatusArr, spinerMaritalStatus, Runnable {
+                when (spinerMaritalStatus.selectedItemId) {
+                    2L -> mAboutModel.maritalStatus = MaritalStatusEnum.DIVORCED
+                    1L -> mAboutModel.maritalStatus = MaritalStatusEnum.MARRIED
+                    0L -> mAboutModel.maritalStatus = MaritalStatusEnum.SINGLE
+                    3L -> mAboutModel.maritalStatus = MaritalStatusEnum.WIDOWER
+                }
+            })
 
             buttonTestsAboutManSex.background = resources.getDrawable(R.drawable.rectangle_button_white)
             buttonTestsAboutWomanSex.background = resources.getDrawable(R.drawable.rectangle_edit_text_with_shadow)

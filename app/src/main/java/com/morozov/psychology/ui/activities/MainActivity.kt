@@ -153,6 +153,16 @@ class MainActivity : MvpAppCompatActivity(), MainView {
                             },
                             Runnable { }, supportFragmentManager)
                     }
+                    is TestsAboutFragment -> {
+                        CustomYesNoDialog.showDialog("Вы действительно хотите выйти из теста \"Немного о вас\"?",
+                            "Да", "Отмена",
+                            Runnable {
+                                showBottomNav()
+                                hideBackArrow()
+                                supportFragmentManager.popBackStack()
+                            },
+                            Runnable { }, supportFragmentManager)
+                    }
                     else -> {
                         showBottomNav()
                         hideBackArrow()

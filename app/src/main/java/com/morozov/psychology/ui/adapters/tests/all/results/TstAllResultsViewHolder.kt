@@ -10,7 +10,7 @@ class TstAllResultsViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
 
     fun populate(data: Pair<String, List<Pair<String, String>>>) {
         itemView.textTestResultDate.text = data.first
-        val adapter = TstResultsAdapter()
+        var adapter = TstResultsAdapter()
         itemView.recyclerTestsResults.layoutManager = LinearLayoutManager(itemView.context)
         itemView.recyclerTestsResults.adapter = adapter
         adapter.setData(data.second)
@@ -19,6 +19,11 @@ class TstAllResultsViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
         itemView.diaryDateCard.setOnClickListener {
             when (b) {
                 true -> {
+                    adapter = TstResultsAdapter()
+                    itemView.recyclerTestsResults.layoutManager = LinearLayoutManager(itemView.context)
+                    itemView.recyclerTestsResults.adapter = adapter
+                    adapter.setData(data.second)
+
                     itemView.viewSeparator.visibility = View.VISIBLE
                     itemView.recyclerTestsResults.visibility = View.VISIBLE
                 }
