@@ -77,7 +77,7 @@
                         android:background="@color/card_background"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:minHeight="@dimen/card_min_height">
+                        >
 
                     <TextView
                             android:id="@+id/textWeismanBack"
@@ -100,7 +100,7 @@
                     <TextView
                             android:id="@+id/textWeismanBackDescr"
                             android:layout_below="@+id/viewTmp1"
-                            android:layout_alignParentBottom="true"
+                            
                             style="@style/TextView.Secondary"
                             android:textSize="@dimen/text_little_size"
                             android:text="Насколько выражены ваши ошибки мышления, приводящие к негативным эмоциям"
@@ -124,7 +124,7 @@
                         android:background="@color/card_background"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:minHeight="@dimen/card_min_height">
+                        >
 
                     <TextView
                             android:id="@+id/textEllis"
@@ -146,7 +146,7 @@
 
                     <TextView
                             android:id="@+id/textEllisDescr"
-                            android:layout_alignParentBottom="true"
+                            
                             android:layout_below="@+id/viewTmp2"
                             style="@style/TextView.Secondary"
                             android:textSize="@dimen/text_little_size"
@@ -171,7 +171,7 @@
                         android:background="@color/card_background"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:minHeight="@dimen/card_min_height">
+                        >
 
                     <TextView
                             android:id="@+id/textHospitalScale"
@@ -193,7 +193,7 @@
 
                     <TextView
                             android:id="@+id/textHospitalScaleDescr"
-                            android:layout_alignParentBottom="true"
+                            
                             android:layout_below="@+id/viewTmp3"
                             style="@style/TextView.Secondary"
                             android:textSize="@dimen/text_little_size"
@@ -218,7 +218,7 @@
                         android:background="@color/card_background"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:minHeight="@dimen/card_min_height">
+                        >
 
                     <TextView
                             android:id="@+id/textIntegrative"
@@ -240,7 +240,7 @@
 
                     <TextView
                             android:id="@+id/textIntegrativeDescr"
-                            android:layout_alignParentBottom="true"
+                            
                             android:layout_below="@+id/viewTmp4"
                             style="@style/TextView.Secondary"
                             android:textSize="@dimen/text_little_size"
@@ -265,7 +265,7 @@
                         android:background="@color/card_background"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:minHeight="@dimen/card_min_height">
+                        >
 
                     <TextView
                             android:id="@+id/textLazarusQuestionnaire"
@@ -288,7 +288,7 @@
                     <TextView
                             android:id="@+id/textLazarusQuestionnaireDescr"
                             android:layout_below="@+id/viewTmp5"
-                            android:layout_alignParentBottom="true"
+                            
                             style="@style/TextView.Secondary"
                             android:textSize="@dimen/text_little_size"
                             android:text="Позволит понять, как вы справляетесь со стрессами"
@@ -312,7 +312,7 @@
                         android:background="@color/card_background"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:minHeight="@dimen/card_min_height">
+                        >
 
                     <TextView
                             android:id="@+id/textStyleIndex"
@@ -334,7 +334,7 @@
 
                     <TextView
                             android:id="@+id/textStyleIndexDescr"
-                            android:layout_alignParentBottom="true"
+                            
                             android:layout_below="@+id/viewTmp6"
                             style="@style/TextView.Secondary"
                             android:textSize="@dimen/text_little_size"
@@ -359,7 +359,7 @@
                         android:background="@color/card_background"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:minHeight="@dimen/card_min_height">
+                        >
 
                     <TextView
                             android:id="@+id/textSelfAttitude"
@@ -381,7 +381,7 @@
 
                     <TextView
                             android:id="@+id/textSelfAttitudeDescr"
-                            android:layout_alignParentBottom="true"
+                            
                             android:layout_below="@+id/viewTmp7"
                             style="@style/TextView.Secondary"
                             android:textSize="@dimen/text_little_size"
