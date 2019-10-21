@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/dialogCard"
+        android:background="@drawable/dialog_background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    <TextView
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:id="@+id/textYNQuestion"
+            android:textSize="@dimen/button_font_size"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:textColor="@android:color/black"
+            android:text="Вы действительно хотите закончить выйти?"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"/>
+
+    <View
+            android:id="@+id/lineHor"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_below="@+id/textYNQuestion"
+            android:background="@color/grey_color"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+    <View
+            android:id="@+id/lineVer"
+            android:layout_below="@+id/lineHor"
+            android:layout_centerHorizontal="true"
+            android:layout_alignBottom="@+id/linearButtons"
+            android:background="@color/grey_color"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"/>
+
+    <LinearLayout
+            android:id="@+id/linearButtons"
+            android:layout_below="@+id/lineHor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:id="@+id/textDialogCancel"
+                android:text="Отмена"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/dialog_ok_size"
+                android:textStyle="normal"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                style="@style/TextView.Primary.Header"/>
+
+        <TextView
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:id="@+id/textDialogOK"
+                android:text="Да"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/dialog_ok_size"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                style="@style/TextView.Primary.Header"/>
+    </LinearLayout>
+
+</RelativeLayout>

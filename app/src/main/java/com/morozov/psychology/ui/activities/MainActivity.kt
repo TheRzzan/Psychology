@@ -141,18 +141,55 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         when (supportFragmentManager.backStackEntryCount) {
             0 -> super.onBackPressed()
             1 -> {
-                showBottomNav()
-                hideBackArrow()
-                supportFragmentManager.popBackStack()
+                val fragment = supportFragmentManager.fragments[supportFragmentManager.fragments.size - 1]
+                when (fragment) {
+                    is DiaryEditorFragment -> {
+                        CustomYesNoDialog.showDialog("Вы действительно хотите выйти из заполнения ситуаци?",
+                            "Да", "Отмена",
+                            Runnable {
+                                showBottomNav()
+                                hideBackArrow()
+                                supportFragmentManager.popBackStack()
+                            },
+                            Runnable { }, supportFragmentManager)
+                    }
+                    else -> {
+                        showBottomNav()
+                        hideBackArrow()
+                        supportFragmentManager.popBackStack()
+                    }
+                }
             }
             else -> {
                 val fragment = supportFragmentManager.fragments[supportFragmentManager.fragments.size - 1]
-                if (fragment is ExTestsFragment ||
-                    fragment is ExFixTestsFragment) {
-                    hideBackArrow()
+                when (fragment) {
+                    is ExTestsFragment, is ExFixTestsFragment -> {
+                        CustomYesNoDialog.showDialog("Вы действительно хотите закончить тетирование?",
+                        "Да", "Отмена",
+                        Runnable {
+                            hideBackArrow()
+                            supportFragmentManager.popBackStack()
+                        },
+                        Runnable { }, supportFragmentManager)
+                    }
+                    is DiaryEditorFragment -> {
+                        CustomYesNoDialog.showDialog("Вы действительно хотите выйти из заполнения ситуаци?",
+                            "Да", "Отмена",
+                            Runnable {
+                                supportFragmentManager.popBackStack()
+                            },
+                            Runnable { }, supportFragmentManager)
+                    }
+                    is TestsQuizFragment -> {
+                        CustomYesNoDialog.showDialog("Вы действительно хотите покинуть тест?",
+                            "Да", "Отмена",
+                            Runnable {
+                                supportFragmentManager.popBackStack()
+                            },
+                            Runnable { }, supportFragmentManager)
+                    }
+                    else -> supportFragmentManager.popBackStack()
                 }
-
-                supportFragmentManager.popBackStack()
             }
         }
     }
@@ -692,6 +729,8 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     }
 
     private fun setFragment(fragment: Fragment, b: Boolean = false) {
+        contentMain.clearFocus()
+
         val transaction = supportFragmentManager
             .beginTransaction()
             .replace(R.id.contentMain, fragment)

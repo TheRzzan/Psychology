@@ -71,6 +71,8 @@ class ExTestsFragment: MvpAppCompatFragment(), ExTestsView, OnTextChangeListener
             mPresenter.loadData(0)
     }
 
+
+
     /*
     * OnTextChangeListener implementation
     *
