@@ -58,53 +58,61 @@
             android:layout_below="@+id/recyclerDiaryDays"
             android:id="@+id/textDiaryEmptyDay"/>
 
-    <View
-            android:background="@color/grey_color"
-            android:layout_toStartOf="@+id/arrowEmpty"
-            android:layout_above="@+id/arrowEmpty"
+    <RelativeLayout
             android:layout_below="@+id/textDiaryEmptyDay"
-            android:layout_width="2dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="-2.5dp"
-            android:layout_marginBottom="-1dp" android:id="@+id/viewEmpty"/>
-
-    <com.caverock.androidsvg.SVGImageView
-            xmlns:svg="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/arrowEmpty"
-            svg:svg="empty_date_arc.svg"
-            android:scaleType="fitEnd"
-            android:layout_centerHorizontal="true"
-            android:layout_alignBottom="@+id/buttonDiaryAdd"
-            android:layout_marginBottom="20dp"
-            android:layout_width="116dp"
-            android:minHeight="128dp"
-            android:layout_height="wrap_content"/>
-
-    <LinearLayout
-            android:id="@+id/linearArrow"
-            android:orientation="horizontal"
-            android:layout_toEndOf="@+id/arrowEmpty"
             android:layout_toStartOf="@+id/buttonDiaryAdd"
             android:layout_alignBottom="@+id/buttonDiaryAdd"
-            android:layout_marginStart="-16dp"
-            android:layout_marginBottom="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
+            android:layout_width="305dp"
+            android:layout_height="716dp"
+            android:layout_marginTop="-13dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp">
         <View
-                android:layout_weight="9"
-                android:layout_gravity="center"
                 android:background="@color/grey_color"
-                android:layout_width="wrap_content"
-                android:layout_height="2dp"/>
+                android:layout_toStartOf="@+id/arrowEmpty"
+                android:layout_above="@+id/arrowEmpty"
+                android:layout_width="2dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="-2.5dp"
+                android:layout_marginBottom="-1dp" android:id="@+id/viewEmpty"/>
 
-        <ImageView
-                android:layout_weight="1"
-                android:rotation="90"
-                android:background="@drawable/triangle_shape"
-                android:layout_width="5dp"
-                android:layout_height="10dp"/>
-    </LinearLayout>
+        <com.caverock.androidsvg.SVGImageView
+                xmlns:svg="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/arrowEmpty"
+                svg:svg="empty_date_arc.svg"
+                android:scaleType="fitEnd"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
+                android:layout_width="116dp"
+                android:minHeight="128dp"
+                android:layout_height="wrap_content"/>
+
+        <LinearLayout
+                android:id="@+id/linearArrow"
+                android:orientation="horizontal"
+                android:layout_toEndOf="@+id/arrowEmpty"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="-16dp"
+                android:layout_marginBottom="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            <View
+                    android:layout_weight="9"
+                    android:layout_gravity="center"
+                    android:background="@color/grey_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="2dp"/>
+
+            <ImageView
+                    android:layout_weight="1"
+                    android:rotation="90"
+                    android:background="@drawable/triangle_shape"
+                    android:layout_width="5dp"
+                    android:layout_height="10dp"/>
+        </LinearLayout>
+    </RelativeLayout>
 
     <Button
             android:id="@+id/buttonDiaryAdd"
