@@ -11,6 +11,7 @@ import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.examples.ExDescriptionPresenter
 import com.morozov.psychology.mvp.views.examples.ExDescriptionView
 import com.morozov.psychology.utility.AppConstants
+import com.morozov.psychology.utility.ExpImagesLoader
 import kotlinx.android.synthetic.main.example_description_layout.*
 
 class ExDescriptionFragment: MvpAppCompatFragment(), ExDescriptionView {
@@ -30,6 +31,9 @@ class ExDescriptionFragment: MvpAppCompatFragment(), ExDescriptionView {
         super.onViewCreated(view, savedInstanceState)
 
         val bundle = this.arguments
+
+        if (bundle != null)
+            imageToolbar.setImageDrawable(context?.let { ExpImagesLoader.getImageDescription(it, bundle.getInt(AppConstants.EXP_POSITION) + 1) })
 
         buttonExit.setOnClickListener {
             activity?.onBackPressed()

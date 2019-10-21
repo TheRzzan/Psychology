@@ -11,6 +11,7 @@ import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.examples.ExResultsPresenter
 import com.morozov.psychology.mvp.views.examples.ExResultsView
 import com.morozov.psychology.utility.AppConstants
+import com.morozov.psychology.utility.ExpImagesLoader
 import kotlinx.android.synthetic.main.example_result_layout.*
 
 class ExResultsFragment: MvpAppCompatFragment(), ExResultsView {
@@ -28,6 +29,11 @@ class ExResultsFragment: MvpAppCompatFragment(), ExResultsView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val bundle = this.arguments
+
+        if (bundle != null)
+            imageCard.setImageDrawable(context?.let { ExpImagesLoader.getImageResult(it, bundle.getInt(AppConstants.EXP_POSITION) + 1) })
 
         buttonChoseAnother.setOnClickListener {
             if (mActivityPresenter != null)

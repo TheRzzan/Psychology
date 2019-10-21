@@ -14,6 +14,7 @@ import com.morozov.psychology.mvp.views.examples.ExTestsView
 import com.morozov.psychology.ui.adapters.examples.test.ExTestAdapter
 import com.morozov.psychology.ui.adapters.listeners.OnTextChangeListener
 import com.morozov.psychology.utility.AppConstants
+import com.morozov.psychology.utility.ExpImagesLoader
 import kotlinx.android.synthetic.main.example_test_layout.*
 
 class ExTestsFragment: MvpAppCompatFragment(), ExTestsView, OnTextChangeListener {
@@ -41,6 +42,9 @@ class ExTestsFragment: MvpAppCompatFragment(), ExTestsView, OnTextChangeListener
         super.onViewCreated(view, savedInstanceState)
 
         val bundle = this.arguments
+
+        if (bundle != null)
+            imageCard.setImageDrawable(context?.let { ExpImagesLoader.getImageTest(it, bundle.getInt(AppConstants.EXP_POSITION) + 1) })
 
         adapter = ExTestAdapter(this)
         recyclerTest.layoutManager = LinearLayoutManager(context)
