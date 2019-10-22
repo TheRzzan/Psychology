@@ -27,7 +27,7 @@
         <TextView
                 android:text="Назад"
                 android:layout_gravity="center"
-                android:textColor="@color/colorPrimary"
+                android:textColor="?attr/colorPrimary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
     </LinearLayout>

@@ -6,7 +6,7 @@
         android:layout_height="wrap_content">
 
     <RadioButton
-            android:buttonTint="@color/colorPrimaryDark"
+            android:buttonTint="?attr/colorPrimary"
             android:text="Полностью согласен"
             android:textSize="@dimen/button_font_size"
             android:textColor="@android:color/black"
