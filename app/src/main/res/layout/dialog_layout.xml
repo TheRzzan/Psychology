@@ -32,7 +32,7 @@
                 android:id="@+id/textDialogOK"
                 android:layout_below="@+id/textDialogDescription"
                 android:text="OK"
-                android:textColor="@color/colorPrimary"
+                android:textColor="?attr/colorPrimary"
                 android:textSize="@dimen/dialog_ok_size"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="@dimen/activity_vertical_margin"

@@ -6,7 +6,6 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:datePickerDialogTheme">@style/MyDatePickerDialogTheme</item>
     </style>
 
     <!-- Custom Themes -->
@@ -15,7 +14,6 @@
         <item name="colorPrimary">@color/green</item>
         <item name="colorPrimaryDark">@color/greenDark</item>
         <item name="colorAccent">@color/green</item>
-        <item name="android:datePickerDialogTheme">@style/MyDatePickerDialogTheme</item>
     </style>
 
     <style name="TurquoiseAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -23,7 +21,6 @@
         <item name="colorPrimary">@color/turquoise</item>
         <item name="colorPrimaryDark">@color/turquoiseDark</item>
         <item name="colorAccent">@color/turquoise</item>
-        <item name="android:datePickerDialogTheme">@style/MyDatePickerDialogTheme</item>
     </style>
 
     <style name="BlueAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -31,7 +28,6 @@
         <item name="colorPrimary">@color/blue</item>
         <item name="colorPrimaryDark">@color/blueDark</item>
         <item name="colorAccent">@color/blue</item>
-        <item name="android:datePickerDialogTheme">@style/MyDatePickerDialogTheme</item>
     </style>
 
     <style name="YellowAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -39,7 +35,6 @@
         <item name="colorPrimary">@color/yellow</item>
         <item name="colorPrimaryDark">@color/yellowDark</item>
         <item name="colorAccent">@color/yellow</item>
-        <item name="android:datePickerDialogTheme">@style/MyDatePickerDialogTheme</item>
     </style>
 
     <style name="OrangeAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -47,7 +42,6 @@
         <item name="colorPrimary">@color/orange</item>
         <item name="colorPrimaryDark">@color/orangeDark</item>
         <item name="colorAccent">@color/orange</item>
-        <item name="android:datePickerDialogTheme">@style/MyDatePickerDialogTheme</item>
     </style>
 
     <style name="RedAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -55,11 +49,6 @@
         <item name="colorPrimary">@color/red</item>
         <item name="colorPrimaryDark">@color/redDark</item>
         <item name="colorAccent">@color/red</item>
-        <item name="android:datePickerDialogTheme">@style/MyDatePickerDialogTheme</item>
-    </style>
-
-    <style name="MyDatePickerDialogTheme" parent="android:Theme.Material.Light.Dialog">
-        <item name="android:colorAccent">@color/colorPrimary</item>
     </style>
 
     <!-- Text -->
@@ -153,7 +142,7 @@
     </style>
 
     <style name="SeekBarStyle" parent="Widget.AppCompat.SeekBar">
-        <item name="colorAccent">@color/colorPrimaryDark</item>
+
     </style>
 
     <style name="ProgressBarStyle" parent="Widget.AppCompat.ProgressBar.Horizontal">
