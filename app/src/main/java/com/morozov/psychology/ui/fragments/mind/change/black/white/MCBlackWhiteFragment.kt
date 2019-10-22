@@ -15,6 +15,7 @@ import android.widget.TextView
 import com.arellomobile.mvp.MvpAppCompatFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
+import com.morozov.psychology.mvp.models.diary.EmotionModel
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.mind.change.black.white.MCBlackWhitePresenter
 import com.morozov.psychology.mvp.views.mind.change.black.white.MCBlackWhiteView
@@ -38,6 +39,19 @@ class MCBlackWhiteFragment: MvpAppCompatFragment(), MCBlackWhiteView {
         super.onViewCreated(view, savedInstanceState)
 
         buttonAddNewThink.setOnClickListener {
+            mPresenter.saveNewThink(
+                editNewThink.text.toString(),
+                when (selectedEmotion.value) {
+                    0 -> EmotionModel(EmotionModel.Emotion.JOY, seekBarBWEmotions.progress)
+                    1 -> EmotionModel(EmotionModel.Emotion.SADNESS, seekBarBWEmotions.progress)
+                    2 -> EmotionModel(EmotionModel.Emotion.ANNOYANCE, seekBarBWEmotions.progress)
+                    3 -> EmotionModel(EmotionModel.Emotion.ANXIETY, seekBarBWEmotions.progress)
+                    4 -> EmotionModel(EmotionModel.Emotion.DISGUST, seekBarBWEmotions.progress)
+                    5 -> EmotionModel(EmotionModel.Emotion.INTEREST, seekBarBWEmotions.progress)
+                    6 -> EmotionModel(EmotionModel.Emotion.GUILT, seekBarBWEmotions.progress)
+                    7 -> EmotionModel(EmotionModel.Emotion.RESENTMENT, seekBarBWEmotions.progress)
+                    else -> EmotionModel(EmotionModel.Emotion.RESENTMENT, 0)
+                })
             mActivityPresenter.showMindChangeSection()
         }
 

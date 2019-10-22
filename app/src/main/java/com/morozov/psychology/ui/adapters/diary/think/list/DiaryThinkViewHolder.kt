@@ -36,9 +36,9 @@ class DiaryThinkViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
             listener.onItemClick(itemView, position)
         }
 
-//        if (element.isOverwrited)
-//            itemView.imageIsOverwrited.visibility = View.VISIBLE
-//        else
-//            itemView.imageIsOverwrited.visibility = View.GONE
+        if (element.isOverwrited)
+            itemView.imageIsOverwrited.visibility = View.VISIBLE
+        else
+            itemView.imageIsOverwrited.visibility = View.GONE
     }
 }

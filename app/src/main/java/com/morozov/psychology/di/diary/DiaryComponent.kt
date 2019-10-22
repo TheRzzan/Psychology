@@ -11,6 +11,7 @@ import com.morozov.psychology.mvp.presenters.mind.change.MindChangePresenter
 import com.morozov.psychology.mvp.presenters.mind.change.MindChangeThinkTestPresenter
 import com.morozov.psychology.mvp.presenters.mind.change.black.white.MCBlackWhitePresenter
 import com.morozov.psychology.mvp.presenters.mind.change.commitment.MCCommitment_1_Presenter
+import com.morozov.psychology.mvp.presenters.mind.change.commitment.MCCommitment_4_Presenter
 import com.morozov.psychology.mvp.presenters.mind.change.deprecation.MCDeprecation_1_Presenter
 import com.morozov.psychology.mvp.presenters.mind.change.disastorous.MCDisastorous_1_Presenter
 import com.morozov.psychology.mvp.presenters.mind.change.emotional.MCEmotionalPresenter
@@ -52,4 +53,5 @@ interface DiaryComponent: AppComponent {
     fun inject(presenter: MCOvergenerationPresenter)
     fun inject(presenter: MCPersonalizationPresenter)
     fun inject(presenter: MCTunnelPresenter)
+    fun inject(presenter: MCCommitment_4_Presenter)
 }
