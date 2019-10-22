@@ -8,14 +8,14 @@
 
     <ImageView
             android:id="@+id/imageThinkMistake"
-            android:layout_width="24dp"
-            android:layout_height="24dp"/>
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"/>
 
     <TextView
             android:id="@+id/textThinkMistakeDescr"
             android:layout_toEndOf="@+id/imageThinkMistake"
             android:text="Катастрофизация – будущее предсказывается негативым. Даже если вероятность ужасного последствия минимальна, возникает мысль «а что, если…»."
-            android:textSize="13sp"
+            android:textSize="@dimen/text_little_size"
             android:layout_marginStart="@dimen/activity_horizontal_margin"
             android:layout_marginEnd="@dimen/activity_horizontal_margin"
             style="@style/TextView.Secondary"/>
@@ -28,7 +28,7 @@
             android:layout_marginEnd="@dimen/activity_horizontal_margin"
             android:layout_marginTop="8dp"
             android:text="Пример: "
-            android:textSize="13sp"
+            android:textSize="@dimen/text_little_size"
             android:textStyle="bold"
             style="@style/TextView.Secondary"/>
 
@@ -37,7 +37,7 @@
             android:layout_below="@+id/textThinkMistakeExmplTmp"
             android:layout_toEndOf="@+id/imageThinkMistake"
             android:text="Если я провалю экзамен, это будет ужасно!"
-            android:textSize="13sp"
+            android:textSize="@dimen/text_little_size"
             android:layout_marginTop="8dp"
             android:layout_marginStart="@dimen/activity_horizontal_margin"
             android:layout_marginEnd="@dimen/activity_horizontal_margin"

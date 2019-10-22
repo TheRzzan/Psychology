@@ -168,8 +168,9 @@
                         android:layout_height="wrap_content">
 
                     <ImageView
-                            android:layout_width="36dp"
-                            android:layout_height="36dp"
+                            android:layout_width="@dimen/emotion_icon_size"
+                            android:layout_height="@dimen/emotion_icon_size"
+                            android:layout_gravity="center"
                             app:srcCompat="@drawable/emotion_non_active_joy"
                             android:id="@+id/imageJoy"/>
 
@@ -188,8 +189,9 @@
                         android:layout_height="wrap_content">
 
                     <ImageView
-                            android:layout_width="36dp"
-                            android:layout_height="36dp"
+                            android:layout_width="@dimen/emotion_icon_size"
+                            android:layout_height="@dimen/emotion_icon_size"
+                            android:layout_gravity="center"
                             app:srcCompat="@drawable/emotion_non_active_sedness"
                             android:id="@+id/imageSadness"/>
 
@@ -208,8 +210,9 @@
                         android:layout_height="wrap_content">
 
                     <ImageView
-                            android:layout_width="36dp"
-                            android:layout_height="36dp"
+                            android:layout_width="@dimen/emotion_icon_size"
+                            android:layout_height="@dimen/emotion_icon_size"
+                            android:layout_gravity="center"
                             app:srcCompat="@drawable/emotion_non_active_annoyance"
                             android:id="@+id/imageAnnoyance"/>
 
@@ -228,8 +231,9 @@
                         android:layout_height="wrap_content">
 
                     <ImageView
-                            android:layout_width="36dp"
-                            android:layout_height="36dp"
+                            android:layout_width="@dimen/emotion_icon_size"
+                            android:layout_height="@dimen/emotion_icon_size"
+                            android:layout_gravity="center"
                             app:srcCompat="@drawable/emotion_non_active_anxiety"
                             android:id="@+id/imageAnxiety"/>
 
@@ -248,8 +252,9 @@
                         android:layout_height="wrap_content">
 
                     <ImageView
-                            android:layout_width="36dp"
-                            android:layout_height="36dp"
+                            android:layout_width="@dimen/emotion_icon_size"
+                            android:layout_height="@dimen/emotion_icon_size"
+                            android:layout_gravity="center"
                             app:srcCompat="@drawable/emotion_non_active_disgust"
                             android:id="@+id/imageDisgust"/>
 
@@ -268,8 +273,9 @@
                         android:layout_height="wrap_content">
 
                     <ImageView
-                            android:layout_width="36dp"
-                            android:layout_height="36dp"
+                            android:layout_width="@dimen/emotion_icon_size"
+                            android:layout_height="@dimen/emotion_icon_size"
+                            android:layout_gravity="center"
                             app:srcCompat="@drawable/emotion_non_active_interest"
                             android:id="@+id/imageInterest"/>
 
@@ -288,8 +294,9 @@
                         android:layout_height="wrap_content">
 
                     <ImageView
-                            android:layout_width="36dp"
-                            android:layout_height="36dp"
+                            android:layout_width="@dimen/emotion_icon_size"
+                            android:layout_height="@dimen/emotion_icon_size"
+                            android:layout_gravity="center"
                             app:srcCompat="@drawable/emotion_non_active_guilt"
                             android:id="@+id/imageGuilt"/>
 
@@ -307,8 +314,9 @@
                         android:layout_height="wrap_content">
 
                     <ImageView
-                            android:layout_width="36dp"
-                            android:layout_height="36dp"
+                            android:layout_width="@dimen/emotion_icon_size"
+                            android:layout_height="@dimen/emotion_icon_size"
+                            android:layout_gravity="center"
                             app:srcCompat="@drawable/emotion_non_active_resentment"
                             android:id="@+id/imageResentment"/>
 

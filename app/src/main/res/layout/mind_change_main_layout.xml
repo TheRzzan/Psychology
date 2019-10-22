@@ -30,7 +30,7 @@
                 android:text="ДД.ММ.ГГГГ"
                 android:textStyle="bold"
                 style="@style/TextView.Secondary"
-                android:textSize="20sp"
+                android:textSize="@dimen/text_middle"
                 android:textColor="@color/secondary_text"
                 android:layout_marginEnd="8dp"/>
 
@@ -38,8 +38,8 @@
                 android:layout_centerVertical="true"
                 android:layout_toEndOf="@+id/textDayMonthYear"
                 android:src="@drawable/ic_calendar"
-                android:layout_width="24dp"
-                android:layout_height="24dp"/>
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"/>
     </RelativeLayout>
 
     <LinearLayout
@@ -73,7 +73,7 @@
             android:layout_marginEnd="35dp"
             android:layout_centerInParent="true"
             android:gravity="center"
-            android:textSize="20sp"
+            android:textSize="@dimen/text_middle"
             android:textStyle="bold"
             android:id="@+id/textMindChangeEmptyDay"/>
 
@@ -86,7 +86,7 @@
             android:layout_marginEnd="35dp"
             android:layout_centerInParent="true"
             android:gravity="center"
-            android:textSize="20sp"
+            android:textSize="@dimen/text_middle"
             android:textStyle="bold"
             android:id="@+id/textMindChangeNonSelectedDay"/>
 

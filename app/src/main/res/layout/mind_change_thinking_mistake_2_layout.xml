@@ -88,50 +88,50 @@
                 <ImageView
                         android:id="@+id/imageDisastrous"
                         android:src="@drawable/ic_disastrous"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_marginEnd="24dp"/>
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_marginEnd="@dimen/icon_size"/>
 
                 <ImageView
                         android:id="@+id/imageDepreciation"
                         android:src="@drawable/ic_depreciation"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_marginEnd="24dp"/>
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_marginEnd="@dimen/icon_size"/>
 
                 <ImageView
                         android:id="@+id/imageBlackWhite"
                         android:src="@drawable/ic_black_and_white"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_marginEnd="24dp"/>
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_marginEnd="@dimen/icon_size"/>
 
                 <ImageView
                         android:id="@+id/imageEmotional"
                         android:src="@drawable/ic_emotional_rationale"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_marginEnd="24dp"/>
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_marginEnd="@dimen/icon_size"/>
 
                 <ImageView
                         android:id="@+id/imageMindReading"
                         android:src="@drawable/ic_mind_reading"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_marginEnd="24dp"/>
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_marginEnd="@dimen/icon_size"/>
 
                 <ImageView
                         android:id="@+id/imageOvergeneration"
                         android:src="@drawable/ic_overgeneration"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_marginEnd="24dp"/>
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_marginEnd="@dimen/icon_size"/>
 
                 <ImageView
                         android:id="@+id/imageMinimalism"
                         android:src="@drawable/ic_minimalism"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"/>
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"/>
             </LinearLayout>
 
             <LinearLayout
@@ -144,29 +144,29 @@
                 <ImageView
                         android:id="@+id/imageLabeling"
                         android:src="@drawable/ic_labeling"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_marginEnd="24dp"/>
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_marginEnd="@dimen/icon_size"/>
 
                 <ImageView
                         android:id="@+id/imageCommitment"
                         android:src="@drawable/ic_commitment"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_marginEnd="24dp"/>
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_marginEnd="@dimen/icon_size"/>
 
                 <ImageView
                         android:id="@+id/imageTunnel"
                         android:src="@drawable/ic_tunnel_thinking"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_marginEnd="24dp"/>
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_marginEnd="@dimen/icon_size"/>
 
                 <ImageView
                         android:id="@+id/imagePersonalization"
                         android:src="@drawable/ic_personalization"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"/>
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
