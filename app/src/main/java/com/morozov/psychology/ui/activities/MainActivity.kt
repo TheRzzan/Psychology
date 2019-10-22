@@ -101,19 +101,21 @@ class MainActivity : MvpAppCompatActivity(), MainView {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_mind_change -> {
-//                val mindChangeFragment = MindChangeFragment()
-//                mindChangeFragment.mActivityPresenter = mPresenter
-//
-//                clearBackStack()
-//                setFragment(mindChangeFragment)
-                setFragment(SectionInDevelopFragment())
+                val mindChangeFragment = MindChangeFragment()
+                mindChangeFragment.mActivityPresenter = mPresenter
+
+                clearBackStack()
+                setFragment(mindChangeFragment)
+
+//                setFragment(SectionInDevelopFragment())
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_settings -> {
-//                val settingsFragment = SettingsFragment()
-//                settingsFragment.mActivityPresenter = mPresenter
-//                setFragment(settingsFragment)
-                setFragment(SectionInDevelopFragment())
+                val settingsFragment = SettingsFragment()
+                settingsFragment.mActivityPresenter = mPresenter
+                setFragment(settingsFragment)
+
+//                setFragment(SectionInDevelopFragment())
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -122,6 +124,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setCustomTheme()
         setContentView(R.layout.activity_main)
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
@@ -208,6 +211,27 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     * Interface controls
     * (MainView impl)
     * */
+    override fun refreshActivity() {
+        finish()
+        startActivity(intent)
+    }
+
+    override fun setCustomTheme() {
+        val preference = MySharedPreferences.getStrPreference(applicationContext, AppConstants.PREF_PROG_STYLE)
+
+        when (preference) {
+            AppConstants.EMPTY_PREF -> setTheme(R.style.AppTheme)
+            AppConstants.PREF_COLOR_DEFAULT -> setTheme(R.style.AppTheme)
+            AppConstants.PREF_COLOR_GREEN -> setTheme(R.style.GreenAppTheme)
+            AppConstants.PREF_COLOR_TURQUOISE -> setTheme(R.style.TurquoiseAppTheme)
+            AppConstants.PREF_COLOR_BLUE -> setTheme(R.style.BlueAppTheme)
+            AppConstants.PREF_COLOR_YELLOW -> setTheme(R.style.YellowAppTheme)
+            AppConstants.PREF_COLOR_ORANGE -> setTheme(R.style.OrangeAppTheme)
+            AppConstants.PREF_COLOR_RED -> setTheme(R.style.RedAppTheme)
+            else -> setTheme(R.style.AppTheme)
+        }
+    }
+
     override fun showHelloDialog() {
         hideBottomNav()
         hideBackArrow()

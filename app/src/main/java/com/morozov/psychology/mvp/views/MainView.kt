@@ -29,6 +29,10 @@ interface MainView: MvpView {
 
     fun setBackground(drawable: Drawable)
 
+    fun refreshActivity()
+
+    fun setCustomTheme()
+
     /*
     * Experiments section controls
     *

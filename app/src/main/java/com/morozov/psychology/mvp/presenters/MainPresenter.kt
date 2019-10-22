@@ -14,6 +14,10 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.setBackground(drawable)
     }
 
+    fun refreshActivity() {
+        viewState.refreshActivity()
+    }
+
     /*
     * Experiments section controls
     *

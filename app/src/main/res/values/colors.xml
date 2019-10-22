@@ -34,7 +34,13 @@
     <color name="yellow">#FFD60A</color>
     <color name="orange">#FF9F0A</color>
     <color name="red">#FF453A</color>
-    <color name="white">#FFFFFF</color>
+
+    <color name="greenDark">#209B33</color>
+    <color name="turquoiseDark">#3E96B8</color>
+    <color name="blueDark">#0461C5</color>
+    <color name="yellowDark">#CAA405</color>
+    <color name="orangeDark">#C77C01</color>
+    <color name="redDark">#E21408</color>
 
     <!-- Day of week -->
     <color name="sunday">#FFD60A</color>
@@ -44,4 +50,7 @@
     <color name="thursday">#0A84FF</color>
     <color name="friday">#BF5AF2</color>
     <color name="saturday">#FF453A</color>
+
+    <!-- Another -->
+    <color name="white">#FFFFFF</color>
 </resources>

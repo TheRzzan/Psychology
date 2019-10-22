@@ -38,5 +38,15 @@ class AppConstants {
         const val PREF_DIALOG_TESTS = "pref_dialog_tests_v1.2"
         const val PREF_DIALOG_ALL_RESULTS = "pref_dialog_all_results_v1.2"
         const val PREF_DIALOG_FIRST_HELLO = "pref_dialog_first_hello_v1.6.7"
+
+        // Program styles
+        const val PREF_PROG_STYLE = "pref_prog_style"
+        const val PREF_COLOR_DEFAULT = "pref_color_default"
+        const val PREF_COLOR_GREEN = "pref_color_green"
+        const val PREF_COLOR_TURQUOISE = "pref_color_turquoise"
+        const val PREF_COLOR_BLUE = "pref_color_blue"
+        const val PREF_COLOR_YELLOW = "pref_color_yellow"
+        const val PREF_COLOR_ORANGE = "pref_color_orange"
+        const val PREF_COLOR_RED = "pref_color_red"
     }
 }

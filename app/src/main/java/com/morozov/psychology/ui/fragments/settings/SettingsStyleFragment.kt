@@ -12,6 +12,8 @@ import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.settings.SettingsStylePresenter
 import com.morozov.psychology.mvp.views.settings.SettingsStyleView
 import com.morozov.psychology.ui.adapters.settings.styles.StgStyleAdapter
+import com.morozov.psychology.utility.AppConstants
+import com.morozov.psychology.utility.MySharedPreferences
 import kotlinx.android.synthetic.main.settings_style_layout.*
 
 class SettingsStyleFragment: MvpAppCompatFragment(), SettingsStyleView {
@@ -38,6 +40,22 @@ class SettingsStyleFragment: MvpAppCompatFragment(), SettingsStyleView {
 
             buttonStyleSave.setBackgroundResource(R.drawable.rectangle_button)
             buttonStyleSave.isEnabled = true
+        }
+
+        adapter.selectedPosition.observeForever {
+            when (it) {
+                0 -> context?.let { it1 -> MySharedPreferences.setPreference(it1, AppConstants.PREF_PROG_STYLE, AppConstants.PREF_COLOR_DEFAULT) }
+                1 -> context?.let { it1 -> MySharedPreferences.setPreference(it1, AppConstants.PREF_PROG_STYLE, AppConstants.PREF_COLOR_GREEN) }
+                2 -> context?.let { it1 -> MySharedPreferences.setPreference(it1, AppConstants.PREF_PROG_STYLE, AppConstants.PREF_COLOR_TURQUOISE) }
+                3 -> context?.let { it1 -> MySharedPreferences.setPreference(it1, AppConstants.PREF_PROG_STYLE, AppConstants.PREF_COLOR_BLUE) }
+                4 -> context?.let { it1 -> MySharedPreferences.setPreference(it1, AppConstants.PREF_PROG_STYLE, AppConstants.PREF_COLOR_YELLOW) }
+                5 -> context?.let { it1 -> MySharedPreferences.setPreference(it1, AppConstants.PREF_PROG_STYLE, AppConstants.PREF_COLOR_ORANGE) }
+                6 -> context?.let { it1 -> MySharedPreferences.setPreference(it1, AppConstants.PREF_PROG_STYLE, AppConstants.PREF_COLOR_RED) }
+            }
+        }
+
+        buttonStyleSave.setOnClickListener {
+            mActivityPresenter.refreshActivity()
         }
     }
 
