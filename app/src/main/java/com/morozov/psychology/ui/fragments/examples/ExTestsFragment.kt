@@ -2,6 +2,7 @@ package com.morozov.psychology.ui.fragments.examples
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -119,7 +120,7 @@ class ExTestsFragment: MvpAppCompatFragment(), ExTestsView, OnTextChangeListener
         if (description == "")
             textTestDescr.visibility = View.GONE
         else
-            textTestDescr.text = description
+            textTestDescr.text = Html.fromHtml(description)
     }
 
     override fun setFinishEnabled(boolean: Boolean) {

@@ -2,6 +2,7 @@ package com.morozov.psychology.ui.adapters.examples.test
 
 import android.support.v7.widget.RecyclerView
 import android.text.Editable
+import android.text.Html
 import android.text.TextWatcher
 import android.view.View
 import com.morozov.psychology.ui.adapters.listeners.OnTextChangeListener
@@ -10,7 +11,11 @@ import kotlinx.android.synthetic.main.item_example_test.view.*
 class ExTestViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
     fun populate(text: String, position: Int, listener: OnTextChangeListener) {
-        itemView.textTestQuestion.text = text
+        if (position == 0)
+            itemView.textTestQuestion.text = Html.fromHtml(text)
+        else
+            itemView.textTestQuestion.text = text
+
         itemView.editTextAnswer.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
 
