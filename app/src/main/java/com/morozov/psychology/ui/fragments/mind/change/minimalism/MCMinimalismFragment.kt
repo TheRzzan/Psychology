@@ -14,6 +14,7 @@ import android.widget.TextView
 import com.arellomobile.mvp.MvpAppCompatFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
+import com.morozov.psychology.mvp.models.diary.EmotionModel
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.mind.change.minimalism.MCMinimalismPresenter
 import com.morozov.psychology.mvp.views.mind.change.minimalism.MCMinimalismView
@@ -34,6 +35,19 @@ class MCMinimalismFragment: MvpAppCompatFragment(), MCMinimalismView {
         super.onViewCreated(view, savedInstanceState)
 
         buttonAddNewThink.setOnClickListener {
+            mPresenter.saveNewThink(
+                editNewThink.text.toString(),
+                when (selectedEmotion.value) {
+                    0 -> EmotionModel(EmotionModel.Emotion.JOY, seekBarMinEmotions.progress)
+                    1 -> EmotionModel(EmotionModel.Emotion.SADNESS, seekBarMinEmotions.progress)
+                    2 -> EmotionModel(EmotionModel.Emotion.ANNOYANCE, seekBarMinEmotions.progress)
+                    3 -> EmotionModel(EmotionModel.Emotion.ANXIETY, seekBarMinEmotions.progress)
+                    4 -> EmotionModel(EmotionModel.Emotion.DISGUST, seekBarMinEmotions.progress)
+                    5 -> EmotionModel(EmotionModel.Emotion.INTEREST, seekBarMinEmotions.progress)
+                    6 -> EmotionModel(EmotionModel.Emotion.GUILT, seekBarMinEmotions.progress)
+                    7 -> EmotionModel(EmotionModel.Emotion.RESENTMENT, seekBarMinEmotions.progress)
+                    else -> EmotionModel(EmotionModel.Emotion.RESENTMENT, 0)
+                })
             mActivityPresenter.showMindChangeSection()
         }
 

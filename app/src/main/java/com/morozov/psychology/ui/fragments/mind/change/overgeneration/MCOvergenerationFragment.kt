@@ -14,6 +14,7 @@ import android.widget.TextView
 import com.arellomobile.mvp.MvpAppCompatFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
+import com.morozov.psychology.mvp.models.diary.EmotionModel
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.mind.change.overgeneration.MCOvergenerationPresenter
 import com.morozov.psychology.mvp.views.mind.change.overgeneration.MCOvergenerationView
@@ -34,6 +35,19 @@ class MCOvergenerationFragment: MvpAppCompatFragment(), MCOvergenerationView {
         super.onViewCreated(view, savedInstanceState)
 
         buttonAddNewThink.setOnClickListener {
+            mPresenter.saveNewThink(
+                editNewThink.text.toString(),
+                when (selectedEmotion.value) {
+                    0 -> EmotionModel(EmotionModel.Emotion.JOY, seekBarOvergEmotions.progress)
+                    1 -> EmotionModel(EmotionModel.Emotion.SADNESS, seekBarOvergEmotions.progress)
+                    2 -> EmotionModel(EmotionModel.Emotion.ANNOYANCE, seekBarOvergEmotions.progress)
+                    3 -> EmotionModel(EmotionModel.Emotion.ANXIETY, seekBarOvergEmotions.progress)
+                    4 -> EmotionModel(EmotionModel.Emotion.DISGUST, seekBarOvergEmotions.progress)
+                    5 -> EmotionModel(EmotionModel.Emotion.INTEREST, seekBarOvergEmotions.progress)
+                    6 -> EmotionModel(EmotionModel.Emotion.GUILT, seekBarOvergEmotions.progress)
+                    7 -> EmotionModel(EmotionModel.Emotion.RESENTMENT, seekBarOvergEmotions.progress)
+                    else -> EmotionModel(EmotionModel.Emotion.RESENTMENT, 0)
+                })
             mActivityPresenter.showMindChangeSection()
         }
 
