@@ -75,7 +75,7 @@ class ThinkDBHelper(context: Context): SQLiteOpenHelper(context, TABLE_NAME, nul
             val dateFormat = SimpleDateFormat("dd/MM/yyyy/HH:mm:ss")
 
             val mutableListOf = mutableListOf<EmotionModel>()
-            val stringEmot = c.getString(c.getColumnIndex(COLUMN_SENSATION))
+            val stringEmot = c.getString(c.getColumnIndex(COLUMN_EMOTIONS))
             val listEmot = stringEmot.split(" ")
 
             var i = 0
