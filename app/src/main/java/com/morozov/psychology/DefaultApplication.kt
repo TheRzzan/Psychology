@@ -31,7 +31,7 @@ class DefaultApplication: Application() {
 
         diaryComponent = DaggerDiaryComponent
                             .builder()
-                            .thinkModule(ThinkModule())
+                            .thinkModule(ThinkModule(applicationContext))
                             .build()
 
         testsComponent = DaggerTestsComponent

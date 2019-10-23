@@ -1,5 +1,6 @@
 package com.morozov.psychology.di.diary
 
+import android.content.Context
 import com.morozov.psychology.domain.implementation.diary.ThinkLoaderImpl
 import com.morozov.psychology.domain.interfaces.diary.ThinkDeleter
 import com.morozov.psychology.domain.interfaces.diary.ThinkLoader
@@ -8,14 +9,14 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class ThinkModule {
+class ThinkModule(private val context: Context) {
 
     @Provides
-    fun thinkLoader(): ThinkLoader = ThinkLoaderImpl()
+    fun thinkLoader(): ThinkLoader = ThinkLoaderImpl(context)
 
     @Provides
-    fun thinkSaver(): ThinkSaver = ThinkLoaderImpl()
+    fun thinkSaver(): ThinkSaver = ThinkLoaderImpl(context)
 
     @Provides
-    fun thinkDeleter(): ThinkDeleter = ThinkLoaderImpl()
+    fun thinkDeleter(): ThinkDeleter = ThinkLoaderImpl(context)
 }
