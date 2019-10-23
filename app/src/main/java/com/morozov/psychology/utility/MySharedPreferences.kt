@@ -19,6 +19,13 @@ object MySharedPreferences {
         editor.apply()
     }
 
+    fun setPreference(context: Context, pref: String, value: Int) {
+        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+        val editor = preferences.edit()
+        editor.putInt(pref, value)
+        editor.apply()
+    }
+
     fun getStrPreference(context: Context, pref: String): String {
         val preferences = PreferenceManager.getDefaultSharedPreferences(context)
         return preferences.getString(pref, AppConstants.EMPTY_PREF)
@@ -27,5 +34,10 @@ object MySharedPreferences {
     fun getBoolPreference(context: Context, pref: String): Boolean {
         val preferences = PreferenceManager.getDefaultSharedPreferences(context)
         return preferences.getBoolean(pref, false)
+    }
+
+    fun getIntPreference(context: Context, pref: String): Int {
+        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+        return preferences.getInt(pref, 0)
     }
 }

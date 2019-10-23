@@ -6,7 +6,9 @@ import com.morozov.psychology.mvp.models.tests.QuestionModel
 import com.morozov.psychology.mvp.models.tests.ResultModel
 import com.morozov.psychology.mvp.models.tests.TestModel
 import com.morozov.psychology.mvp.models.tests.about.AboutModel
+import com.morozov.psychology.mvp.models.tests.about.enums.*
 import com.morozov.psychology.utility.AppConstants
+import com.morozov.psychology.utility.MySharedPreferences
 import com.morozov.psychology.utility.TestsResultsDBHelper
 
 class TestsAllImpl(private val context: Context): DescriptionLoader, QuestionsLoader, ResultsLoader, ResultSaver, AboutLoader, AboutSaver {
@@ -106,11 +108,100 @@ class TestsAllImpl(private val context: Context): DescriptionLoader, QuestionsLo
     }
 
     override fun getAboutModel(): AboutModel? {
+        val strPreference = MySharedPreferences.getStrPreference(context, AppConstants.PREF_ABOUT_MEDICINES)
+        val split = strPreference.split(" ")
+        val list = mutableListOf<MedicinesEnum>()
+        for (item in split) {
+            when (item) {
+                MedicinesEnum.ANTIDEPRESSANTS.name -> list.add(MedicinesEnum.ANTIDEPRESSANTS)
+                MedicinesEnum.TRANQUILIZERS.name -> list.add(MedicinesEnum.TRANQUILIZERS)
+                MedicinesEnum.ANTIPSYCHOTICS.name -> list.add(MedicinesEnum.ANTIPSYCHOTICS)
+                MedicinesEnum.NORMOTIMICS.name -> list.add(MedicinesEnum.NORMOTIMICS)
+            }
+        }
+        val tmp = Pair(
+            list,
+            mutableListOf(when (MySharedPreferences.getStrPreference(context, AppConstants.PREF_ABOUT_MEDICINES_CUSTOM)) {
+                AppConstants.EMPTY_PREF -> ""
+                else -> MySharedPreferences.getStrPreference(context, AppConstants.PREF_ABOUT_MEDICINES_CUSTOM)
+            })
+        )
+
+        aboutModel = AboutModel(
+            when (MySharedPreferences.getStrPreference(context, AppConstants.PREF_ABOUT_SEX)) {
+                SexEnum.WOMAN.name -> SexEnum.WOMAN
+                SexEnum.MAN.name -> SexEnum.MAN
+                else -> null
+            },
+            MySharedPreferences.getIntPreference(context, AppConstants.PREF_ABOUT_AGE),
+            when (MySharedPreferences.getStrPreference(context, AppConstants.PREF_ABOUT_MARITAL)) {
+                MaritalStatusEnum.SINGLE.name -> MaritalStatusEnum.SINGLE
+                MaritalStatusEnum.MARRIED.name -> MaritalStatusEnum.MARRIED
+                MaritalStatusEnum.DIVORCED.name -> MaritalStatusEnum.DIVORCED
+                MaritalStatusEnum.WIDOWER.name -> MaritalStatusEnum.WIDOWER
+                else -> null
+            },
+            when (MySharedPreferences.getStrPreference(context, AppConstants.PREF_ABOUT_EDUCATION)) {
+                EducationEnum.PRIMARY.name -> EducationEnum.PRIMARY
+                EducationEnum.SECONDARY.name -> EducationEnum.SECONDARY
+                EducationEnum.SECONDARY_VOCATIONAL.name -> EducationEnum.SECONDARY_VOCATIONAL
+                EducationEnum.HIGHER_VOCATIONAL.name -> EducationEnum.HIGHER_VOCATIONAL
+                else -> null
+            },
+            MySharedPreferences.getIntPreference(context, AppConstants.PREF_ABOUT_TIME_OF_USE),
+            when (MySharedPreferences.getStrPreference(context, AppConstants.PREF_ABOUT_FREQUENCY_OF_USE)) {
+                FrequencyOfUseEnum.EVERYDAY.name -> FrequencyOfUseEnum.EVERYDAY
+                FrequencyOfUseEnum.EVERYWEEK.name -> FrequencyOfUseEnum.EVERYWEEK
+                FrequencyOfUseEnum.EVERYMONTH.name -> FrequencyOfUseEnum.EVERYMONTH
+                FrequencyOfUseEnum.LESS_OFTEN.name -> FrequencyOfUseEnum.LESS_OFTEN
+                else -> null
+            },
+            MySharedPreferences.getBoolPreference(context, AppConstants.PREF_ABOUT_IS_VISIT_THERAPY),
+            MySharedPreferences.getIntPreference(context, AppConstants.PREF_ABOUT_TIME_OF_PSY_VISIT),
+            when (MySharedPreferences.getStrPreference(context, AppConstants.PREF_ABOUT_FREQUENCY_OF_THERAPY)) {
+                FrequencyOfTherapyEnum.DONT_APPEAL.name -> FrequencyOfTherapyEnum.DONT_APPEAL
+                FrequencyOfTherapyEnum.FEW_TIMES_A_WEEK.name -> FrequencyOfTherapyEnum.FEW_TIMES_A_WEEK
+                FrequencyOfTherapyEnum.ONE_TIME_A_WEEK.name -> FrequencyOfTherapyEnum.ONE_TIME_A_WEEK
+                FrequencyOfTherapyEnum.FEW_TIMES_A_MONTH.name -> FrequencyOfTherapyEnum.FEW_TIMES_A_MONTH
+                FrequencyOfTherapyEnum.LESS_OFTEN.name -> FrequencyOfTherapyEnum.LESS_OFTEN
+                else -> null
+            },
+            when (MySharedPreferences.getBoolPreference(context, AppConstants.PREF_ABOUT_MEDICINES_NO)) {
+                true -> null
+                false -> tmp
+            }
+        )
         return aboutModel
     }
 
     override fun saveAboutModel(about: AboutModel) {
-        aboutModel = about
+        about.sex?.name?.let { MySharedPreferences.setPreference(context, AppConstants.PREF_ABOUT_SEX, it) }
+        about.age?.let { MySharedPreferences.setPreference(context, AppConstants.PREF_ABOUT_AGE, it) }
+        about.maritalStatus?.name?.let { MySharedPreferences.setPreference(context, AppConstants.PREF_ABOUT_MARITAL, it) }
+        about.education?.name?.let { MySharedPreferences.setPreference(context, AppConstants.PREF_ABOUT_EDUCATION, it) }
+        about.timeOfUse?.let { MySharedPreferences.setPreference(context, AppConstants.PREF_ABOUT_TIME_OF_USE, it) }
+        about.frequencyOfUse?.name?.let { MySharedPreferences.setPreference(context, AppConstants.PREF_ABOUT_FREQUENCY_OF_USE, it) }
+        about.isVisitTherapy?.let { MySharedPreferences.setPreference(context, AppConstants.PREF_ABOUT_IS_VISIT_THERAPY, it) }
+        about.timeOfPsychologistVisit?.let { MySharedPreferences.setPreference(context, AppConstants.PREF_ABOUT_TIME_OF_PSY_VISIT, it) }
+        about.frequencyOfTherapy?.name?.let { MySharedPreferences.setPreference(context, AppConstants.PREF_ABOUT_FREQUENCY_OF_THERAPY, it) }
+
+        if (about.medicines != null) {
+            MySharedPreferences.setPreference(context, AppConstants.PREF_ABOUT_MEDICINES_NO, false)
+
+            val first = about.medicines?.first
+            var tmpStr = ""
+
+            if (first != null)
+                for (item in first) {
+                    tmpStr += "${item.name} "
+                }
+
+            if (tmpStr != "")
+                MySharedPreferences.setPreference(context, AppConstants.PREF_ABOUT_MEDICINES, tmpStr)
+            about.medicines?.second?.get(0)?.let { MySharedPreferences.setPreference(context, AppConstants.PREF_ABOUT_MEDICINES_CUSTOM, it) }
+        } else {
+            MySharedPreferences.setPreference(context, AppConstants.PREF_ABOUT_MEDICINES_NO, true)
+        }
     }
 
     /*

@@ -48,5 +48,19 @@ class AppConstants {
         const val PREF_COLOR_YELLOW = "pref_color_yellow"
         const val PREF_COLOR_ORANGE = "pref_color_orange"
         const val PREF_COLOR_RED = "pref_color_red"
+
+        // About preference
+        const val PREF_ABOUT_SEX = "pref_about_sex"
+        const val PREF_ABOUT_AGE = "pref_about_age"
+        const val PREF_ABOUT_MARITAL = "pref_about_marital"
+        const val PREF_ABOUT_EDUCATION = "pref_about_education"
+        const val PREF_ABOUT_TIME_OF_USE = "pref_about_timeOfUse"
+        const val PREF_ABOUT_FREQUENCY_OF_USE = "pref_about_frequencyOfUse"
+        const val PREF_ABOUT_IS_VISIT_THERAPY = "pref_about_isVisitTherapy"
+        const val PREF_ABOUT_TIME_OF_PSY_VISIT = "pref_about_timeOfPsychologistVisit"
+        const val PREF_ABOUT_FREQUENCY_OF_THERAPY = "pref_about_frequencyOfTherapy"
+        const val PREF_ABOUT_MEDICINES = "pref_about_medicines"
+        const val PREF_ABOUT_MEDICINES_CUSTOM = "pref_about_medicines_custom"
+        const val PREF_ABOUT_MEDICINES_NO = "pref_about_medicines_no"
     }
 }

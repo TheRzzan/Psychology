@@ -46,7 +46,7 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
 
         buttonTestsAboutSave.setOnClickListener {
             mPresenter.saveData(getAboutModel())
-            activity?.onBackPressed()
+            mActivityPresenter.showTestSection()
         }
 
         prepareFragment()
@@ -85,8 +85,28 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
         mAboutModel.medicines = Pair(tmpMedicines1, mutableListOf(tmpStr))
 
         when (about.sex) {
-            SexEnum.MAN -> buttonTestsAboutManSex.background = resources.getDrawable(R.drawable.rectangle_edit_text_with_shadow)
-            SexEnum.WOMAN ->buttonTestsAboutWomanSex.background = resources.getDrawable(R.drawable.rectangle_edit_text_with_shadow)
+            SexEnum.MAN -> {
+                buttonTestsAboutManSex.background = resources.getDrawable(R.drawable.rectangle_edit_text_with_shadow)
+                initSpinner(maritalStatusArr, spinerMaritalStatus, Runnable {
+                    when (spinerMaritalStatus.selectedItemId) {
+                        2L -> mAboutModel.maritalStatus = MaritalStatusEnum.DIVORCED
+                        1L -> mAboutModel.maritalStatus = MaritalStatusEnum.MARRIED
+                        0L -> mAboutModel.maritalStatus = MaritalStatusEnum.SINGLE
+                        3L -> mAboutModel.maritalStatus = MaritalStatusEnum.WIDOWER
+                    }
+                })
+            }
+            SexEnum.WOMAN -> {
+                buttonTestsAboutWomanSex.background = resources.getDrawable(R.drawable.rectangle_edit_text_with_shadow)
+                initSpinner(maritalFemaleStatusArr, spinerMaritalStatus, Runnable {
+                    when (spinerMaritalStatus.selectedItemId) {
+                        2L -> mAboutModel.maritalStatus = MaritalStatusEnum.DIVORCED
+                        1L -> mAboutModel.maritalStatus = MaritalStatusEnum.MARRIED
+                        0L -> mAboutModel.maritalStatus = MaritalStatusEnum.SINGLE
+                        3L -> mAboutModel.maritalStatus = MaritalStatusEnum.WIDOWER
+                    }
+                })
+            }
         }
 
         when (about.isVisitTherapy) {
