@@ -7,6 +7,7 @@ import com.morozov.psychology.mvp.models.tests.ResultModel
 import com.morozov.psychology.mvp.models.tests.TestModel
 import com.morozov.psychology.mvp.models.tests.about.AboutModel
 import com.morozov.psychology.utility.AppConstants
+import com.morozov.psychology.utility.TestsResultsDBHelper
 
 class TestsAllImpl(private val context: Context): DescriptionLoader, QuestionsLoader, ResultsLoader, ResultSaver, AboutLoader, AboutSaver {
 
@@ -59,6 +60,19 @@ class TestsAllImpl(private val context: Context): DescriptionLoader, QuestionsLo
                 mutableListOf())
 
             testsList = mutableListOf(test1, test2, test3, test4, test5, test6, test7)
+
+            val thinkDBHelper = TestsResultsDBHelper(context)
+            val count = thinkDBHelper.getCount()
+
+            var i = 0
+            while (i < count) {
+                val itemAt = thinkDBHelper.getItemAt(i)
+
+                if (itemAt != null)
+                    getTestByName(itemAt.first)?.results?.add(itemAt.second)
+
+                i++
+            }
         }
     }
 
@@ -87,6 +101,8 @@ class TestsAllImpl(private val context: Context): DescriptionLoader, QuestionsLo
 
     override fun saveResult(testName: String, result: ResultModel) {
         getTestByName(testName)!!.results.add(result)
+        val thinkDBHelper = TestsResultsDBHelper(context)
+        thinkDBHelper.addResult(testName, result)
     }
 
     override fun getAboutModel(): AboutModel? {
