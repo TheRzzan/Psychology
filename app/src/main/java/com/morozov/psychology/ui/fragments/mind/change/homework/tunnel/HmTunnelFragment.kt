@@ -1,6 +1,7 @@
 package com.morozov.psychology.ui.fragments.mind.change.homework.tunnel
 
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.mind.change.homework.tunnel.HmTunnelPresenter
 import com.morozov.psychology.mvp.views.mind.change.homework.tunnel.HmTunnelView
+import com.morozov.psychology.ui.adapters.mind.change.aback.white.MCBlackWhiteAdapter
 import kotlinx.android.synthetic.main.homework_tunnel_layout.*
 
 class HmTunnelFragment: MvpAppCompatFragment(), HmTunnelView {
@@ -17,6 +19,8 @@ class HmTunnelFragment: MvpAppCompatFragment(), HmTunnelView {
     @InjectPresenter
     lateinit var mPresenter: HmTunnelPresenter
     lateinit var mActivityPresenter: MainPresenter
+
+    val adapter = MCBlackWhiteAdapter()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.homework_tunnel_layout, container, false)
@@ -31,5 +35,32 @@ class HmTunnelFragment: MvpAppCompatFragment(), HmTunnelView {
         buttonChooseAnother.setOnClickListener {
             mActivityPresenter.showHmMain()
         }
+
+        adapter.isAllFilled.observeForever {
+            when(it) {
+                true -> buttonAddNewThink.setBackgroundResource(R.drawable.rectangle_button)
+                false -> buttonAddNewThink.setBackgroundResource(R.drawable.rectangle_button_disable)
+            }
+            buttonAddNewThink.isEnabled = it == true
+        }
+
+        recyclerHomework.adapter = adapter
+        recyclerHomework.layoutManager = LinearLayoutManager(context)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        mPresenter.loadData()
+        adapter.isAllFilled.value = false
+    }
+
+    /*
+    * HmTunnelView implementation
+    *
+    * */
+    override fun showRecycler(data: List<String>) {
+        adapter.setData(data)
+        adapter.notifyDataSetChanged()
     }
 }

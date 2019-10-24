@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        android:orientation="vertical"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <TextView
+            android:text="Выпишите свое требование к себе или другим. Обозначьте степень веры в это правило."
+            style="@style/TextView.Secondary"
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:textColor="@color/second_header_text" android:id="@+id/textHomItem"/>
+
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:inputType="textPersonName|textMultiLine"
+            android:maxLines="4"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:hint="Требования к себе/другим"
+            android:ems="10"
+            style="@style/EditTextStyle"
+            android:id="@+id/editHomItem"/>
+
+    <RelativeLayout
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:id="@+id/textHomItemPercent1"
+                android:text="1%"
+                android:textStyle="bold"
+                style="@style/TextView.Secondary"
+                android:layout_alignParentEnd="true"
+                android:textColor="@android:color/black"/>
+    </RelativeLayout>
+
+    <SeekBar
+            android:id="@+id/seekBarHome1"
+            android:layout_marginBottom="24dp"
+            android:theme="@style/SeekBarStyle"
+            android:min="1"
+            android:max="100"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+</LinearLayout>

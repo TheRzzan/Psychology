@@ -6,4 +6,6 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
 
 @StateStrategyType(value = AddToEndSingleStrategy::class)
 interface HmDisastorous_1_View: MvpView {
+
+    fun showRecycler(data: List<Pair<String, String>>)
 }
