@@ -7,7 +7,7 @@
 
     <ScrollView
             android:layout_alignParentTop="true"
-            android:layout_above="@+id/buttonAddNewThink"
+            android:layout_above="@+id/buttonNext"
             style="@style/ScrollViewStyle">
 
         <LinearLayout
@@ -20,10 +20,12 @@
                     android:layout_marginBottom="@dimen/activity_vertical_margin"
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:text="Домашнее задание - чёрно-белое мышление"/>
+                    android:text="Домашнее задание - чтение мыслей"/>
 
             <TextView
-                    android:text='Для преодоления черно-белого мышления вам предстоит развивать диалектичность своего мышления. Говоря простым языком, вашей задачей будет допускать существование внутренних противоречий для любой ситуации. Например, если я считаю, что человек может быть либо прав, либо не прав. То в случае принятия своей правоты, я буду утвержлать, что другой человек точно не прав. А теперь попробуйте допустить существование противоречивости. Легче всего это сделать, используя слова "и вместе с тем", или "и в тоже время", или "одновременно". Например, я права в том-то, и вместе с тем не права в том-то. Он прав в том-то, и вместе с тем не прав в том-то.'
+                    android:text="Проверьте свои догадки о содержании мыслей другого человека. Задайте ему прямой вопрос. В большинстве случаев вы сразу же получите ответ – проверено многими моими клиентами и мной лично. Это задание может сначала показаться вам страшным. Помните о том, что чем быстрее решитесь, тем меньше будете бояться. И ещё о том, что, угадывая мысли других людей, вы испытываете негативные эмоции дольше, чем во время самого вопроса.
+
+Запишите результат своего эксперимента, чтобы не забыть, что вы узнали, и как изменилась ваша эмоция после эксперимента. Соответствуют ли ваши догадки реальным мыслям человека?"
                     style="@style/TextView.Secondary"
                     android:layout_marginBottom="@dimen/activity_vertical_margin"
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
@@ -42,26 +44,16 @@
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
                     android:paddingLeft="@dimen/activity_horizontal_margin"
                     android:paddingRight="@dimen/activity_horizontal_margin"
-                    android:hint="Диалектная мысль"
+                    android:hint="Результат эксперимента"
                     android:ems="10"
                     style="@style/EditTextStyle"
-                    android:id="@+id/editHomThink"/>
+                    android:id="@+id/editHomResult"/>
 
         </LinearLayout>
     </ScrollView>
 
     <Button
-            android:id="@+id/buttonAddNewThink"
-            android:text="Внести новую мысль в дневник"
-            style="@style/TextView.Button"
-            android:background="@drawable/rectangle_button"
-            android:layout_above="@+id/buttonChooseAnother"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"
-            android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
-
-    <Button
-            android:id="@+id/buttonChooseAnother"
+            android:id="@+id/buttonNext"
             android:text="Выбрать другую ошибку мышления"
             style="@style/TextView.Button"
             android:background="@drawable/rectangle_button"

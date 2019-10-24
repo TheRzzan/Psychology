@@ -11,7 +11,7 @@
             style="@style/ScrollViewStyle">
 
         <LinearLayout
-                android:id="@+id/linearCom"
+                android:id="@+id/linearHom"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -22,10 +22,32 @@
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
                     android:text="Домашнее задание - максимализм / минимализм"/>
 
-            <android.support.v7.widget.RecyclerView
+            <TextView
+                    android:text="Пока вы стремитесь к совершенству и обесцениваете свои усилия при малейших промахах, ваша жизнь наполнена тревогой. Ещё одна негативная сторона этой ошибки мышления - частое откладывание и незавершение дел в связи с тем, что они не достигают высокой планки.
+Предлагаю вам сосредоточиться не на постоянном усовершенствовании будущего результата, а на завершении дела и достижении этого результата. Помочь в этом процессе может разбивание глобальной задачи на небольшие шаги. Каждый из этих шагов можно завершить и при этом приблизиться к своей цели."
+                    style="@style/TextView.Secondary"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:textStyle="bold"
+                    android:textColor="@color/second_header_text"/>
+
+            <EditText
                     android:layout_width="match_parent"
-                    android:id="@+id/recyclerHomework"
-                    style="@style/RecyclerViewStyle"/>
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:inputType="textPersonName|textMultiLine"
+                    android:maxLines="4"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:hint="Поэтапные шаги"
+                    android:ems="10"
+                    style="@style/EditTextStyle"
+                    android:id="@+id/editHomSteps"/>
+
         </LinearLayout>
     </ScrollView>
 
