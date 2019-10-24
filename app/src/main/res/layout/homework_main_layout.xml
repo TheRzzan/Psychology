@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        android:background="@color/fragment_background"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ScrollView
+            android:layout_alignParentTop="true"
+            android:layout_above="@+id/buttonContinue"
+            style="@style/ScrollViewStyle">
+        <LinearLayout
+                android:id="@+id/linearThinkMistake"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+                    style="@style/TextView.Primary.Header"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:text="Формирование рационального мышления"/>
+
+            <TextView
+                    android:id="@+id/textThinkMistakeTmp"
+                    android:text="Новую установку можно сформировать быстро. А вот на закрепление этого убеждения может уйти много времени. Вот для этого и существуют домашние задания. Делайте их в течение 4-6 недель, чтобы закрепить новый стиль мышления.
+
+Выберите, опровержение какой ошибки мышления вы хотите потренировать:"
+                    style="@style/TextView.Secondary"
+                    android:textStyle="bold"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:textColor="@color/second_header_text"/>
+
+            <LinearLayout
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                <ImageView
+                        android:id="@+id/imageDisastrous"
+                        android:src="@drawable/ic_disastrous"
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_marginEnd="@dimen/icon_size"/>
+
+                <ImageView
+                        android:id="@+id/imageDepreciation"
+                        android:src="@drawable/ic_depreciation"
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_marginEnd="@dimen/icon_size"/>
+
+                <ImageView
+                        android:id="@+id/imageBlackWhite"
+                        android:src="@drawable/ic_black_and_white"
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_marginEnd="@dimen/icon_size"/>
+
+                <ImageView
+                        android:id="@+id/imageEmotional"
+                        android:src="@drawable/ic_emotional_rationale"
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_marginEnd="@dimen/icon_size"/>
+
+                <ImageView
+                        android:id="@+id/imageMindReading"
+                        android:src="@drawable/ic_mind_reading"
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_marginEnd="@dimen/icon_size"/>
+
+                <ImageView
+                        android:id="@+id/imageOvergeneration"
+                        android:src="@drawable/ic_overgeneration"
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_marginEnd="@dimen/icon_size"/>
+
+                <ImageView
+                        android:id="@+id/imageMinimalism"
+                        android:src="@drawable/ic_minimalism"
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content">
+                <ImageView
+                        android:id="@+id/imageLabeling"
+                        android:src="@drawable/ic_labeling"
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_marginEnd="@dimen/icon_size"/>
+
+                <ImageView
+                        android:id="@+id/imageCommitment"
+                        android:src="@drawable/ic_commitment"
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_marginEnd="@dimen/icon_size"/>
+
+                <ImageView
+                        android:id="@+id/imageTunnel"
+                        android:src="@drawable/ic_tunnel_thinking"
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_marginEnd="@dimen/icon_size"/>
+
+                <ImageView
+                        android:id="@+id/imagePersonalization"
+                        android:src="@drawable/ic_personalization"
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+            android:id="@+id/buttonContinue"
+            android:text="Продолжить"
+            style="@style/TextView.Button"
+            android:background="@drawable/rectangle_button"
+            android:layout_above="@+id/buttonStart"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+
+    <Button
+            android:id="@+id/buttonStart"
+            android:text="Приступить"
+            style="@style/TextView.Button"
+            android:background="@drawable/rectangle_button"
+            android:layout_above="@+id/buttonDiary"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+
+    <Button
+            android:id="@+id/buttonDiary"
+            android:text="Дневник мыслей"
+            style="@style/TextView.Button"
+            android:background="@drawable/rectangle_button"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+</RelativeLayout>

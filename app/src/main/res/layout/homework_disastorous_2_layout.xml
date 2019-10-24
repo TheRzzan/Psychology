@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        android:background="@color/fragment_background"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+            android:layout_alignParentTop="true"
+            android:layout_above="@+id/buttonAddNewThink"
+            style="@style/ScrollViewStyle">
+
+        <LinearLayout
+                android:id="@+id/linearCom"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+                    style="@style/TextView.Primary.Header"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:text="Домашнее задание - катастрофизация"/>
+
+            <TextView
+                    android:id="@+id/textHomeDisTmp"
+                    android:text="Привыкайте к тому, что жизнь не дает гарантий. Придется положиться на закон вероятности. Прогнозируя какую-либо ситуацию, ответьте на следующие вопросы:"
+                    style="@style/TextView.Secondary"
+                    android:textStyle="bold"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:textColor="@color/second_header_text"/>
+
+            <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:id="@+id/recyclerHomework"
+                    style="@style/RecyclerViewStyle"/>
+
+            <TextView
+                    android:id="@+id/textHomeDisTmp2"
+                    android:text="И помните, то, что ещё не произошло, – лишь плод вашего воображения."
+                    style="@style/TextView.Secondary"
+                    android:textStyle="bold"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:textColor="@color/second_header_text"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+            android:id="@+id/buttonAddNewThink"
+            android:text="Внести новую мысль в дневник"
+            style="@style/TextView.Button"
+            android:background="@drawable/rectangle_button"
+            android:layout_above="@+id/buttonChooseAnother"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+
+    <Button
+            android:id="@+id/buttonChooseAnother"
+            android:text="Выбрать другую ошибку мышления"
+            style="@style/TextView.Button"
+            android:background="@drawable/rectangle_button"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+
+</RelativeLayout>
