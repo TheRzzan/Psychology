@@ -54,7 +54,7 @@
 
     <Button
             android:id="@+id/buttonNext"
-            android:text="Выбрать другую ошибку мышления"
+            android:text="Далее"
             style="@style/TextView.Button"
             android:background="@drawable/rectangle_button"
             android:layout_alignParentBottom="true"

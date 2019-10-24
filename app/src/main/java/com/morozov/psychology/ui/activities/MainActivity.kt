@@ -45,7 +45,22 @@ import com.morozov.psychology.ui.fragments.mind.change.changing.personalization.
 import com.morozov.psychology.ui.fragments.mind.change.think.mistake.MCThinkMistake_1_Fragment
 import com.morozov.psychology.ui.fragments.mind.change.think.mistake.MCThinkMistake_2_Fragment
 import com.morozov.psychology.ui.fragments.mind.change.changing.tunnel.MCTunnelFragment
+import com.morozov.psychology.ui.fragments.mind.change.homework.black.white.HmBlackAndWhiteFragment
+import com.morozov.psychology.ui.fragments.mind.change.homework.commitment.HmCommitment_1_Fragment
+import com.morozov.psychology.ui.fragments.mind.change.homework.commitment.HmCommitment_2_Fragment
+import com.morozov.psychology.ui.fragments.mind.change.homework.commitment.HmCommitment_3_Fragment
+import com.morozov.psychology.ui.fragments.mind.change.homework.deprecation.HmDeprecationFragment
+import com.morozov.psychology.ui.fragments.mind.change.homework.disastorous.HmDisastorous_1_Fragment
+import com.morozov.psychology.ui.fragments.mind.change.homework.disastorous.HmDisastorous_2_Fragment
+import com.morozov.psychology.ui.fragments.mind.change.homework.emotional.HmEmotionalFragment
+import com.morozov.psychology.ui.fragments.mind.change.homework.labeling.HmLabelingFragment
 import com.morozov.psychology.ui.fragments.mind.change.homework.main.HmMainFragment
+import com.morozov.psychology.ui.fragments.mind.change.homework.mind.reading.HmMindReading_1_Fragment
+import com.morozov.psychology.ui.fragments.mind.change.homework.mind.reading.HmMindReading_2_Fragment
+import com.morozov.psychology.ui.fragments.mind.change.homework.minimalism.HmMinimalismFragment
+import com.morozov.psychology.ui.fragments.mind.change.homework.overgeneration.HmOvergenerationFragment
+import com.morozov.psychology.ui.fragments.mind.change.homework.personalization.HmPersonalizationFragment
+import com.morozov.psychology.ui.fragments.mind.change.homework.tunnel.HmTunnelFragment
 import com.morozov.psychology.ui.fragments.settings.SettingsConsultFragment
 import com.morozov.psychology.ui.fragments.settings.SettingsStyleFragment
 import com.morozov.psychology.ui.fragments.settings.SettingsWallpaperFragment
@@ -726,69 +741,129 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     }
 
     override fun showHmDisastorous_1() {
-        setFragment(SectionInDevelopFragment(), true)
+        val fragment = HmDisastorous_1_Fragment()
+
+        fragment.mActivityPresenter = mPresenter
+
+        setFragment(fragment, true)
     }
 
     override fun showHmDisastorous_2() {
-        setFragment(SectionInDevelopFragment(), true)
+        val fragment = HmDisastorous_2_Fragment()
+
+        fragment.mActivityPresenter = mPresenter
+
+        setFragment(fragment, true)
     }
 
     override fun showHmDeprecation() {
-        setFragment(SectionInDevelopFragment(), true)
+        val fragment = HmDeprecationFragment()
+
+        fragment.mActivityPresenter = mPresenter
+
+        setFragment(fragment, true)
     }
 
     override fun showHmBlackWhite() {
-        setFragment(SectionInDevelopFragment(), true)
+        val fragment = HmBlackAndWhiteFragment()
+
+        fragment.mActivityPresenter = mPresenter
+
+        setFragment(fragment, true)
     }
 
     override fun showHmEmotional() {
-        setFragment(SectionInDevelopFragment(), true)
+        val fragment = HmEmotionalFragment()
+
+        fragment.mActivityPresenter = mPresenter
+
+        setFragment(fragment, true)
     }
 
     override fun showHmMindReading_1() {
-        setFragment(SectionInDevelopFragment(), true)
+        val fragment = HmMindReading_1_Fragment()
+
+        fragment.mActivityPresenter = mPresenter
+
+        setFragment(fragment, true)
     }
 
     override fun showHmMindReading_2() {
-        setFragment(SectionInDevelopFragment(), true)
+        val fragment = HmMindReading_2_Fragment()
+
+        fragment.mActivityPresenter = mPresenter
+
+        setFragment(fragment, true)
     }
 
     override fun showHmOvergeneration() {
-        setFragment(SectionInDevelopFragment(), true)
+        val fragment = HmOvergenerationFragment()
+
+        fragment.mActivityPresenter = mPresenter
+
+        setFragment(fragment, true)
     }
 
     override fun showHmMinimalism() {
-        setFragment(SectionInDevelopFragment(), true)
+        val fragment = HmMinimalismFragment()
+
+        fragment.mActivityPresenter = mPresenter
+
+        setFragment(fragment, true)
     }
 
     override fun showHmLabeling() {
-        setFragment(SectionInDevelopFragment(), true)
+        val fragment = HmLabelingFragment()
+
+        fragment.mActivityPresenter = mPresenter
+
+        setFragment(fragment, true)
     }
 
     override fun showHmCommitment_1() {
-        setFragment(SectionInDevelopFragment(), true)
+        val fragment = HmCommitment_1_Fragment()
+
+        fragment.mActivityPresenter = mPresenter
+
+        setFragment(fragment, true)
     }
 
     override fun showHmCommitment_2() {
-        setFragment(SectionInDevelopFragment(), true)
+        val fragment = HmCommitment_2_Fragment()
+
+        fragment.mActivityPresenter = mPresenter
+
+        setFragment(fragment, true)
     }
 
     override fun showHmCommitment_3() {
-        setFragment(SectionInDevelopFragment(), true)
+        val fragment = HmCommitment_3_Fragment()
+
+        fragment.mActivityPresenter = mPresenter
+
+        setFragment(fragment, true)
     }
 
     override fun showHmPersonalization() {
-        setFragment(SectionInDevelopFragment(), true)
+        val fragment = HmPersonalizationFragment()
+
+        fragment.mActivityPresenter = mPresenter
+
+        setFragment(fragment, true)
     }
 
     override fun showHmTunnel() {
-        setFragment(SectionInDevelopFragment(), true)
+        val fragment = HmTunnelFragment()
+
+        fragment.mActivityPresenter = mPresenter
+
+        setFragment(fragment, true)
     }
 
     /*
-        * Settings section controls
-        *
-        * */
+    * Settings section controls
+    *
+    * */
     override fun showSettingsSection() {
         navigation.selectedItemId = R.id.navigation_settings
     }
