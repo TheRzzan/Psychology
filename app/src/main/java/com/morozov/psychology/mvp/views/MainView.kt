@@ -126,6 +126,38 @@ interface MainView: MvpView {
     fun showMCPersonalization()
 
     fun showMCTunnel()
+                        //Homework
+    fun showHmMain()
+
+    fun showHmDisastorous_1()
+
+    fun showHmDisastorous_2()
+
+    fun showHmDeprecation()
+
+    fun showHmBlackWhite()
+
+    fun showHmEmotional()
+
+    fun showHmMindReading_1()
+
+    fun showHmMindReading_2()
+
+    fun showHmOvergeneration()
+
+    fun showHmMinimalism()
+
+    fun showHmLabeling()
+
+    fun showHmCommitment_1()
+
+    fun showHmCommitment_2()
+
+    fun showHmCommitment_3()
+
+    fun showHmPersonalization()
+
+    fun showHmTunnel()
 
     /*
     * Profile section controls

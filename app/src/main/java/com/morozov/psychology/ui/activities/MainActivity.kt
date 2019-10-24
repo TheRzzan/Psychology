@@ -45,6 +45,7 @@ import com.morozov.psychology.ui.fragments.mind.change.changing.personalization.
 import com.morozov.psychology.ui.fragments.mind.change.think.mistake.MCThinkMistake_1_Fragment
 import com.morozov.psychology.ui.fragments.mind.change.think.mistake.MCThinkMistake_2_Fragment
 import com.morozov.psychology.ui.fragments.mind.change.changing.tunnel.MCTunnelFragment
+import com.morozov.psychology.ui.fragments.mind.change.homework.main.HmMainFragment
 import com.morozov.psychology.ui.fragments.settings.SettingsConsultFragment
 import com.morozov.psychology.ui.fragments.settings.SettingsStyleFragment
 import com.morozov.psychology.ui.fragments.settings.SettingsWallpaperFragment
@@ -715,11 +716,79 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
         setFragment(fragment, true)
     }
+                                    // Homework
+    override fun showHmMain() {
+        val fragment = HmMainFragment()
+
+        fragment.mActivityPresenter = mPresenter
+
+        setFragment(fragment, true)
+    }
+
+    override fun showHmDisastorous_1() {
+        setFragment(SectionInDevelopFragment(), true)
+    }
+
+    override fun showHmDisastorous_2() {
+        setFragment(SectionInDevelopFragment(), true)
+    }
+
+    override fun showHmDeprecation() {
+        setFragment(SectionInDevelopFragment(), true)
+    }
+
+    override fun showHmBlackWhite() {
+        setFragment(SectionInDevelopFragment(), true)
+    }
+
+    override fun showHmEmotional() {
+        setFragment(SectionInDevelopFragment(), true)
+    }
+
+    override fun showHmMindReading_1() {
+        setFragment(SectionInDevelopFragment(), true)
+    }
+
+    override fun showHmMindReading_2() {
+        setFragment(SectionInDevelopFragment(), true)
+    }
+
+    override fun showHmOvergeneration() {
+        setFragment(SectionInDevelopFragment(), true)
+    }
+
+    override fun showHmMinimalism() {
+        setFragment(SectionInDevelopFragment(), true)
+    }
+
+    override fun showHmLabeling() {
+        setFragment(SectionInDevelopFragment(), true)
+    }
+
+    override fun showHmCommitment_1() {
+        setFragment(SectionInDevelopFragment(), true)
+    }
+
+    override fun showHmCommitment_2() {
+        setFragment(SectionInDevelopFragment(), true)
+    }
+
+    override fun showHmCommitment_3() {
+        setFragment(SectionInDevelopFragment(), true)
+    }
+
+    override fun showHmPersonalization() {
+        setFragment(SectionInDevelopFragment(), true)
+    }
+
+    override fun showHmTunnel() {
+        setFragment(SectionInDevelopFragment(), true)
+    }
 
     /*
-    * Settings section controls
-    *
-    * */
+        * Settings section controls
+        *
+        * */
     override fun showSettingsSection() {
         navigation.selectedItemId = R.id.navigation_settings
     }

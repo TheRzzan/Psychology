@@ -267,6 +267,102 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showBackArrow()
         viewState.showMCTunnel()
     }
+                                // Homework
+    fun showHmMain() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showHmMain()
+    }
+
+    fun showHmDisastorous_1() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showHmDisastorous_1()
+    }
+
+    fun showHmDisastorous_2() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showHmDisastorous_2()
+    }
+
+    fun showHmDeprecation() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showHmDeprecation()
+    }
+
+    fun showHmBlackWhite() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showHmBlackWhite()
+    }
+
+    fun showHmEmotional() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showHmEmotional()
+    }
+
+    fun showHmMindReading_1() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showHmMindReading_1()
+    }
+
+    fun showHmMindReading_2() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showHmMindReading_2()
+    }
+
+    fun showHmOvergeneration() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showHmOvergeneration()
+    }
+
+    fun showHmMinimalism() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showHmMinimalism()
+    }
+
+    fun showHmLabeling() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showHmLabeling()
+    }
+
+    fun showHmCommitment_1() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showHmCommitment_1()
+    }
+
+    fun showHmCommitment_2() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showHmCommitment_2()
+    }
+
+    fun showHmCommitment_3() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showHmCommitment_3()
+    }
+
+    fun showHmPersonalization() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showHmPersonalization()
+    }
+
+    fun showHmTunnel() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showHmTunnel()
+    }
 
     /*
     * Settings section controls
