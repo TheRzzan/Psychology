@@ -12,7 +12,9 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.mind.change.homework.black.white.HmBlackAndWhitePresenter
+import com.morozov.psychology.mvp.views.mind.change.MindChangeThinkTestView
 import com.morozov.psychology.mvp.views.mind.change.homework.black.white.HmBlackAndWhiteView
+import com.morozov.psychology.mvp.views.mind.change.homework.main.HmMainView
 import kotlinx.android.synthetic.main.homework_black_and_white_layout.*
 
 class HmBlackAndWhiteFragment: MvpAppCompatFragment(), HmBlackAndWhiteView {
@@ -28,11 +30,11 @@ class HmBlackAndWhiteFragment: MvpAppCompatFragment(), HmBlackAndWhiteView {
         super.onViewCreated(view, savedInstanceState)
 
         buttonAddNewThink.setOnClickListener {
-            mActivityPresenter.showMindChangeSection()
+            HmMainView.date?.let { it1 -> mActivityPresenter.showDiaryEditor(false, it1, false) }
         }
 
         buttonChooseAnother.setOnClickListener {
-            mActivityPresenter.showHmMain()
+            HmMainView.date?.let { it1 -> mActivityPresenter.showHmMain(it1) }
         }
 
         addEditVerifyListnr(editHomThink)

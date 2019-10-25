@@ -146,7 +146,7 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView, TextWatcher 
             mActivityPresenter.showMindChangeThinkTest(mDate)
         }
         buttonDiaryHomeWork.setOnClickListener {
-            mActivityPresenter.showHmMain()
+            mActivityPresenter.showHmMain(mDate)
         }
         buttonDiaryThinks.setOnClickListener {
             mActivityPresenter.showDiaryCards()

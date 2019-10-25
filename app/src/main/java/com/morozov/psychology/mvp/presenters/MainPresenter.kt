@@ -268,10 +268,10 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showMCTunnel()
     }
                                 // Homework
-    fun showHmMain() {
+    fun showHmMain(date: Date) {
         viewState.hideBottomNav()
         viewState.showBackArrow()
-        viewState.showHmMain()
+        viewState.showHmMain(date)
     }
 
     fun showHmDisastorous_1() {

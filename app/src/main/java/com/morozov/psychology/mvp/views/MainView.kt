@@ -127,7 +127,7 @@ interface MainView: MvpView {
 
     fun showMCTunnel()
                         //Homework
-    fun showHmMain()
+    fun showHmMain(date: Date)
 
     fun showHmDisastorous_1()
 

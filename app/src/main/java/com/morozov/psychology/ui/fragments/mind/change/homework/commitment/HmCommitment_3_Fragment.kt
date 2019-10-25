@@ -13,6 +13,7 @@ import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.mind.change.homework.commitment.HmCommitment_3_Presenter
 import com.morozov.psychology.mvp.views.mind.change.homework.commitment.HmCommitment_3_View
+import com.morozov.psychology.mvp.views.mind.change.homework.main.HmMainView
 import kotlinx.android.synthetic.main.homework_commitment_3_layout.*
 
 class HmCommitment_3_Fragment: MvpAppCompatFragment(), HmCommitment_3_View {
@@ -28,11 +29,11 @@ class HmCommitment_3_Fragment: MvpAppCompatFragment(), HmCommitment_3_View {
         super.onViewCreated(view, savedInstanceState)
 
         buttonAddNewThink.setOnClickListener {
-            mActivityPresenter.showMindChangeSection()
+            HmMainView.date?.let { it1 -> mActivityPresenter.showDiaryEditor(false, it1, false) }
         }
 
         buttonChooseAnother.setOnClickListener {
-            mActivityPresenter.showHmMain()
+            HmMainView.date?.let { it1 -> mActivityPresenter.showHmMain(it1) }
         }
 
         addEditVerifyListnr(editHomRequire)

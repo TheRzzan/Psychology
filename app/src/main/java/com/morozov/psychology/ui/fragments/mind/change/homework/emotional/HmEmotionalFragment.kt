@@ -18,6 +18,7 @@ import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.mind.change.homework.emotional.HmEmotionalPresenter
 import com.morozov.psychology.mvp.views.mind.change.homework.emotional.HmEmotionalView
+import com.morozov.psychology.mvp.views.mind.change.homework.main.HmMainView
 import kotlinx.android.synthetic.main.homework_emotional_layout.*
 
 class HmEmotionalFragment: MvpAppCompatFragment(), HmEmotionalView {
@@ -35,11 +36,11 @@ class HmEmotionalFragment: MvpAppCompatFragment(), HmEmotionalView {
         super.onViewCreated(view, savedInstanceState)
 
         buttonAddNewThink.setOnClickListener {
-            mActivityPresenter.showMindChangeSection()
+            HmMainView.date?.let { it1 -> mActivityPresenter.showDiaryEditor(false, it1, false) }
         }
 
         buttonChooseAnother.setOnClickListener {
-            mActivityPresenter.showHmMain()
+            HmMainView.date?.let { it1 -> mActivityPresenter.showHmMain(it1) }
         }
 
         selectedEmotion.observeForever {

@@ -10,6 +10,7 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.mind.change.homework.tunnel.HmTunnelPresenter
+import com.morozov.psychology.mvp.views.mind.change.homework.main.HmMainView
 import com.morozov.psychology.mvp.views.mind.change.homework.tunnel.HmTunnelView
 import com.morozov.psychology.ui.adapters.mind.change.aback.white.MCBlackWhiteAdapter
 import kotlinx.android.synthetic.main.homework_tunnel_layout.*
@@ -29,11 +30,11 @@ class HmTunnelFragment: MvpAppCompatFragment(), HmTunnelView {
         super.onViewCreated(view, savedInstanceState)
 
         buttonAddNewThink.setOnClickListener {
-            mActivityPresenter.showMindChangeSection()
+            HmMainView.date?.let { it1 -> mActivityPresenter.showDiaryEditor(false, it1, false) }
         }
 
         buttonChooseAnother.setOnClickListener {
-            mActivityPresenter.showHmMain()
+            HmMainView.date?.let { it1 -> mActivityPresenter.showHmMain(it1) }
         }
 
         adapter.isAllFilled.observeForever {

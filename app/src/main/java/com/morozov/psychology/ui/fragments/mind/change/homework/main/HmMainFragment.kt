@@ -12,7 +12,9 @@ import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.mind.change.homework.main.HmMainPresenter
 import com.morozov.psychology.mvp.views.mind.change.homework.main.HmMainView
+import com.morozov.psychology.utility.AppConstants
 import kotlinx.android.synthetic.main.homework_main_layout.*
+import java.util.*
 
 class HmMainFragment: MvpAppCompatFragment(), HmMainView {
 
@@ -145,8 +147,32 @@ class HmMainFragment: MvpAppCompatFragment(), HmMainView {
             }
         }
 
+        buttonStart.setOnClickListener {
+            when (selectedMistake.value) {
+                0 -> mActivityPresenter.showHmDisastorous_1()
+                1 -> mActivityPresenter.showHmDeprecation()
+                2 -> mActivityPresenter.showHmBlackWhite()
+                3 -> mActivityPresenter.showHmEmotional()
+                4 -> mActivityPresenter.showHmMindReading_1()
+                5 -> mActivityPresenter.showHmOvergeneration()
+                6 -> mActivityPresenter.showHmMinimalism()
+                7 -> mActivityPresenter.showHmLabeling()
+                8 -> mActivityPresenter.showHmCommitment_1()
+                9 -> mActivityPresenter.showHmTunnel()
+                10 -> mActivityPresenter.showHmPersonalization()
+            }
+        }
+
         buttonDiary.setOnClickListener {
             mActivityPresenter.showDiaryCards()
+        }
+
+        val bundle = this.arguments
+
+        HmMainView.date = if (bundle != null) {
+            bundle.getSerializable(AppConstants.DIARY_SELECTED_DAY) as Date
+        } else {
+            Date()
         }
     }
 

@@ -11,6 +11,7 @@ import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.mind.change.homework.disastorous.HmDisastorous_2_Presenter
 import com.morozov.psychology.mvp.views.mind.change.homework.disastorous.HmDisastorous_2_View
+import com.morozov.psychology.mvp.views.mind.change.homework.main.HmMainView
 import com.morozov.psychology.ui.adapters.listeners.OnTextChangeListener
 import com.morozov.psychology.ui.adapters.mind.change.edit.seekbar.EditSeekAdapter
 import kotlinx.android.synthetic.main.homework_disastorous_2_layout.*
@@ -32,11 +33,11 @@ class HmDisastorous_2_Fragment: MvpAppCompatFragment(), HmDisastorous_2_View {
         super.onViewCreated(view, savedInstanceState)
 
         buttonAddNewThink.setOnClickListener {
-            mActivityPresenter.showMindChangeSection()
+            HmMainView.date?.let { it1 -> mActivityPresenter.showDiaryEditor(false, it1, false) }
         }
 
         buttonChooseAnother.setOnClickListener {
-            mActivityPresenter.showHmMain()
+            HmMainView.date?.let { it1 -> mActivityPresenter.showHmMain(it1) }
         }
 
         adapter = EditSeekAdapter(object : OnTextChangeListener {

@@ -772,12 +772,16 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         setFragment(fragment, true)
     }
                                     // Homework
-    override fun showHmMain() {
-        val fragment = HmMainFragment()
+    override fun showHmMain(date: Date) {
+        val mindChangeThinkTestFragment = HmMainFragment()
 
-        fragment.mActivityPresenter = mPresenter
+        val bundle = Bundle()
+        bundle.putSerializable(AppConstants.DIARY_SELECTED_DAY, date)
 
-        setFragment(fragment, true)
+        mindChangeThinkTestFragment.arguments = bundle
+        mindChangeThinkTestFragment.mActivityPresenter = mPresenter
+
+        setFragment(mindChangeThinkTestFragment, true)
     }
 
     override fun showHmDisastorous_1() {
