@@ -109,11 +109,11 @@ class HmMainFragment: MvpAppCompatFragment(), HmMainView {
 
         selectedMistake.observeForever {
             if (it == null) {
-                buttonContinue.setBackgroundResource(R.drawable.rectangle_button_disable)
-                buttonContinue.isEnabled = false
+                buttonStart.setBackgroundResource(R.drawable.rectangle_button_disable)
+                buttonStart.isEnabled = false
             } else {
-                buttonContinue.setBackgroundResource(R.drawable.rectangle_button)
-                buttonContinue.isEnabled = true
+                buttonStart.setBackgroundResource(R.drawable.rectangle_button)
+                buttonStart.isEnabled = true
             }
 
             selectMistake(imageDisastrous, 0 == it)
@@ -177,9 +177,15 @@ class HmMainFragment: MvpAppCompatFragment(), HmMainView {
     }
 
     private fun selectMistake(image: ImageView, b: Boolean) {
-        if (b)
+        val minPadding = 0
+        val maxPadding = 5
+        if (b) {
             image.background = resources.getDrawable(R.drawable.rectangle_edit_text_with_shadow)
-        else
+            image.setPadding(maxPadding, maxPadding, maxPadding, maxPadding)
+        }
+        else {
             image.setBackgroundResource(0)
+            image.setPadding(minPadding, minPadding, minPadding, minPadding)
+        }
     }
 }

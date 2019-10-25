@@ -129,6 +129,7 @@
 
     <Button
             android:id="@+id/buttonContinue"
+            android:visibility="gone"
             android:text="Продолжить"
             style="@style/TextView.Button"
             android:background="@drawable/rectangle_button"
