@@ -18,9 +18,10 @@ import com.morozov.psychology.mvp.models.diary.EmotionModel
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.mind.change.changing.minimalism.MCMinimalismPresenter
 import com.morozov.psychology.mvp.views.mind.change.changing.minimalism.MCMinimalismView
+import com.morozov.psychology.ui.fragments.mind.change.MindChangeTest
 import kotlinx.android.synthetic.main.mind_change_minimalism_layout.*
 
-class MCMinimalismFragment: MvpAppCompatFragment(), MCMinimalismView {
+class MCMinimalismFragment: MvpAppCompatFragment(), MCMinimalismView, MindChangeTest {
 
     @InjectPresenter
     lateinit var mPresenter: MCMinimalismPresenter

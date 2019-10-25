@@ -14,9 +14,10 @@ import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.mind.change.homework.labeling.HmLabelingPresenter
 import com.morozov.psychology.mvp.views.mind.change.homework.labeling.HmLabelingView
 import com.morozov.psychology.mvp.views.mind.change.homework.main.HmMainView
+import com.morozov.psychology.ui.fragments.mind.change.MindChangeTest
 import kotlinx.android.synthetic.main.homework_labeling_layout.*
 
-class HmLabelingFragment: MvpAppCompatFragment(), HmLabelingView {
+class HmLabelingFragment: MvpAppCompatFragment(), HmLabelingView, MindChangeTest {
 
     @InjectPresenter
     lateinit var mPresenter: HmLabelingPresenter

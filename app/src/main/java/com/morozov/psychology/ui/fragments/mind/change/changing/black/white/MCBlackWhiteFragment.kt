@@ -20,9 +20,10 @@ import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.mind.change.changing.black.white.MCBlackWhitePresenter
 import com.morozov.psychology.mvp.views.mind.change.changing.black.white.MCBlackWhiteView
 import com.morozov.psychology.ui.adapters.mind.change.aback.white.MCBlackWhiteAdapter
+import com.morozov.psychology.ui.fragments.mind.change.MindChangeTest
 import kotlinx.android.synthetic.main.mind_change_black_and_white_layout.*
 
-class MCBlackWhiteFragment: MvpAppCompatFragment(), MCBlackWhiteView {
+class MCBlackWhiteFragment: MvpAppCompatFragment(), MCBlackWhiteView, MindChangeTest {
 
     @InjectPresenter
     lateinit var mPresenter: MCBlackWhitePresenter

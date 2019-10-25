@@ -19,9 +19,10 @@ import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.mind.change.homework.overgeneration.HmOvergenerationPresenter
 import com.morozov.psychology.mvp.views.mind.change.homework.main.HmMainView
 import com.morozov.psychology.mvp.views.mind.change.homework.overgeneration.HmOvergenerationView
+import com.morozov.psychology.ui.fragments.mind.change.MindChangeTest
 import kotlinx.android.synthetic.main.homework_overgeneration_layout.*
 
-class HmOvergenerationFragment: MvpAppCompatFragment(), HmOvergenerationView {
+class HmOvergenerationFragment: MvpAppCompatFragment(), HmOvergenerationView, MindChangeTest {
 
     @InjectPresenter
     lateinit var mPresenter: HmOvergenerationPresenter

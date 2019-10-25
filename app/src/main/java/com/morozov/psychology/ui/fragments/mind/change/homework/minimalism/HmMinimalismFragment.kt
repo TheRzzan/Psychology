@@ -14,9 +14,10 @@ import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.mind.change.homework.minimalism.HmMinimalismPresenter
 import com.morozov.psychology.mvp.views.mind.change.homework.main.HmMainView
 import com.morozov.psychology.mvp.views.mind.change.homework.minimalism.HmMinimalismView
+import com.morozov.psychology.ui.fragments.mind.change.MindChangeTest
 import kotlinx.android.synthetic.main.homework_minimalism_layout.*
 
-class HmMinimalismFragment: MvpAppCompatFragment(), HmMinimalismView {
+class HmMinimalismFragment: MvpAppCompatFragment(), HmMinimalismView, MindChangeTest {
 
     @InjectPresenter
     lateinit var mPresenter: HmMinimalismPresenter

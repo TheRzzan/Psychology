@@ -14,9 +14,10 @@ import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.mind.change.homework.personalization.HmPersonalizationPresenter
 import com.morozov.psychology.mvp.views.mind.change.homework.main.HmMainView
 import com.morozov.psychology.mvp.views.mind.change.homework.personalization.HmPersonalizationView
+import com.morozov.psychology.ui.fragments.mind.change.MindChangeTest
 import kotlinx.android.synthetic.main.homework_personalization_layout.*
 
-class HmPersonalizationFragment: MvpAppCompatFragment(), HmPersonalizationView {
+class HmPersonalizationFragment: MvpAppCompatFragment(), HmPersonalizationView, MindChangeTest {
 
     @InjectPresenter
     lateinit var mPresenter: HmPersonalizationPresenter

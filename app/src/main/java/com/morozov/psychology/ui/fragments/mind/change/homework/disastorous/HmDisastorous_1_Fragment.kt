@@ -13,9 +13,10 @@ import com.morozov.psychology.mvp.presenters.mind.change.homework.disastorous.Hm
 import com.morozov.psychology.mvp.views.mind.change.homework.disastorous.HmDisastorous_1_View
 import com.morozov.psychology.ui.adapters.listeners.OnTextChangeListener
 import com.morozov.psychology.ui.adapters.mind.change.edit.seekbar.EditSeekAdapter
+import com.morozov.psychology.ui.fragments.mind.change.MindChangeTest
 import kotlinx.android.synthetic.main.homework_disastorous_1_layout.*
 
-class HmDisastorous_1_Fragment: MvpAppCompatFragment(), HmDisastorous_1_View {
+class HmDisastorous_1_Fragment: MvpAppCompatFragment(), HmDisastorous_1_View, MindChangeTest {
 
     @InjectPresenter
     lateinit var mPresenter: HmDisastorous_1_Presenter

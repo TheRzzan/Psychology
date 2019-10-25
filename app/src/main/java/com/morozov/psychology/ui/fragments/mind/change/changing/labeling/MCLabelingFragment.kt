@@ -18,9 +18,10 @@ import com.morozov.psychology.mvp.models.diary.EmotionModel
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.mind.change.changing.labeling.MCLabelingPresenter
 import com.morozov.psychology.mvp.views.mind.change.changing.labeling.MCLabelingView
+import com.morozov.psychology.ui.fragments.mind.change.MindChangeTest
 import kotlinx.android.synthetic.main.mind_change_labeling_layout.*
 
-class MCLabelingFragment: MvpAppCompatFragment(), MCLabelingView {
+class MCLabelingFragment: MvpAppCompatFragment(), MCLabelingView, MindChangeTest {
 
     @InjectPresenter
     lateinit var mPresenter: MCLabelingPresenter

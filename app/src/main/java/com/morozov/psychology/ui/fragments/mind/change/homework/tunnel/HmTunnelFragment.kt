@@ -13,9 +13,10 @@ import com.morozov.psychology.mvp.presenters.mind.change.homework.tunnel.HmTunne
 import com.morozov.psychology.mvp.views.mind.change.homework.main.HmMainView
 import com.morozov.psychology.mvp.views.mind.change.homework.tunnel.HmTunnelView
 import com.morozov.psychology.ui.adapters.mind.change.aback.white.MCBlackWhiteAdapter
+import com.morozov.psychology.ui.fragments.mind.change.MindChangeTest
 import kotlinx.android.synthetic.main.homework_tunnel_layout.*
 
-class HmTunnelFragment: MvpAppCompatFragment(), HmTunnelView {
+class HmTunnelFragment: MvpAppCompatFragment(), HmTunnelView, MindChangeTest {
 
     @InjectPresenter
     lateinit var mPresenter: HmTunnelPresenter

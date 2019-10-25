@@ -11,9 +11,10 @@ import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.mind.change.changing.disastorous.MCDisastorous_1_Presenter
 import com.morozov.psychology.mvp.views.mind.change.changing.disastorous.MCDisastorous_1_View
+import com.morozov.psychology.ui.fragments.mind.change.MindChangeTest
 import kotlinx.android.synthetic.main.mind_change_disastorous_1_layout.*
 
-class MCDisastorous_1_Fragment: MvpAppCompatFragment(), MCDisastorous_1_View {
+class MCDisastorous_1_Fragment: MvpAppCompatFragment(), MCDisastorous_1_View, MindChangeTest {
 
     @InjectPresenter
     lateinit var mPresenter: MCDisastorous_1_Presenter

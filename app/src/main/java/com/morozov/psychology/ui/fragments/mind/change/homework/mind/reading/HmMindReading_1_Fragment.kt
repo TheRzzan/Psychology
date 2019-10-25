@@ -13,9 +13,10 @@ import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.mind.change.homework.mind.reading.HmMindReading_1_Presenter
 import com.morozov.psychology.mvp.views.mind.change.homework.mind.reading.HmMindReading_1_View
+import com.morozov.psychology.ui.fragments.mind.change.MindChangeTest
 import kotlinx.android.synthetic.main.homework_mind_reading_1_layout.*
 
-class HmMindReading_1_Fragment: MvpAppCompatFragment(), HmMindReading_1_View {
+class HmMindReading_1_Fragment: MvpAppCompatFragment(), HmMindReading_1_View, MindChangeTest {
 
     @InjectPresenter
     lateinit var mPresenter: HmMindReading_1_Presenter

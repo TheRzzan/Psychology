@@ -19,9 +19,10 @@ import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.mind.change.homework.emotional.HmEmotionalPresenter
 import com.morozov.psychology.mvp.views.mind.change.homework.emotional.HmEmotionalView
 import com.morozov.psychology.mvp.views.mind.change.homework.main.HmMainView
+import com.morozov.psychology.ui.fragments.mind.change.MindChangeTest
 import kotlinx.android.synthetic.main.homework_emotional_layout.*
 
-class HmEmotionalFragment: MvpAppCompatFragment(), HmEmotionalView {
+class HmEmotionalFragment: MvpAppCompatFragment(), HmEmotionalView, MindChangeTest {
 
     @InjectPresenter
     lateinit var mPresenter: HmEmotionalPresenter

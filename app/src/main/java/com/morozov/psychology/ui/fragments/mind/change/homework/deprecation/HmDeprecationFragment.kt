@@ -14,9 +14,10 @@ import com.morozov.psychology.mvp.views.mind.change.homework.deprecation.HmDepre
 import com.morozov.psychology.mvp.views.mind.change.homework.main.HmMainView
 import com.morozov.psychology.ui.adapters.listeners.OnTextChangeListener
 import com.morozov.psychology.ui.adapters.mind.change.edit.seekbar.EditSeekAdapter
+import com.morozov.psychology.ui.fragments.mind.change.MindChangeTest
 import kotlinx.android.synthetic.main.homework_deprecation_layout.*
 
-class HmDeprecationFragment: MvpAppCompatFragment(), HmDeprecationView {
+class HmDeprecationFragment: MvpAppCompatFragment(), HmDeprecationView, MindChangeTest {
 
     @InjectPresenter
     lateinit var mPresenter: HmDeprecationPresenter

@@ -15,9 +15,10 @@ import com.morozov.psychology.mvp.presenters.mind.change.homework.black.white.Hm
 import com.morozov.psychology.mvp.views.mind.change.MindChangeThinkTestView
 import com.morozov.psychology.mvp.views.mind.change.homework.black.white.HmBlackAndWhiteView
 import com.morozov.psychology.mvp.views.mind.change.homework.main.HmMainView
+import com.morozov.psychology.ui.fragments.mind.change.MindChangeTest
 import kotlinx.android.synthetic.main.homework_black_and_white_layout.*
 
-class HmBlackAndWhiteFragment: MvpAppCompatFragment(), HmBlackAndWhiteView {
+class HmBlackAndWhiteFragment: MvpAppCompatFragment(), HmBlackAndWhiteView, MindChangeTest {
 
     @InjectPresenter
     lateinit var mPresenter: HmBlackAndWhitePresenter

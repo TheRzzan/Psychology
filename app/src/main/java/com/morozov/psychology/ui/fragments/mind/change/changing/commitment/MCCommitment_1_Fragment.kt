@@ -17,9 +17,10 @@ import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.mind.change.changing.commitment.MCCommitment_1_Presenter
 import com.morozov.psychology.mvp.views.mind.change.changing.commitment.MCCommitment_1_View
+import com.morozov.psychology.ui.fragments.mind.change.MindChangeTest
 import kotlinx.android.synthetic.main.mind_change_commitment_1_layout.*
 
-class MCCommitment_1_Fragment: MvpAppCompatFragment(), MCCommitment_1_View {
+class MCCommitment_1_Fragment: MvpAppCompatFragment(), MCCommitment_1_View, MindChangeTest {
 
     @InjectPresenter
     lateinit var mPresenter: MCCommitment_1_Presenter

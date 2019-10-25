@@ -18,9 +18,10 @@ import com.morozov.psychology.mvp.models.diary.EmotionModel
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.mind.change.changing.personalization.MCPersonalizationPresenter
 import com.morozov.psychology.mvp.views.mind.change.changing.personalization.MCPersonalizationView
+import com.morozov.psychology.ui.fragments.mind.change.MindChangeTest
 import kotlinx.android.synthetic.main.mind_change_personalization_layout.*
 
-class MCPersonalizationFragment: MvpAppCompatFragment(), MCPersonalizationView {
+class MCPersonalizationFragment: MvpAppCompatFragment(), MCPersonalizationView, MindChangeTest {
 
     @InjectPresenter
     lateinit var mPresenter: MCPersonalizationPresenter

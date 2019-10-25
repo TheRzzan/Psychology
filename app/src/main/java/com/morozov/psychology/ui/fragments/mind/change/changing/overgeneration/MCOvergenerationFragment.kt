@@ -18,9 +18,10 @@ import com.morozov.psychology.mvp.models.diary.EmotionModel
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.mind.change.changing.overgeneration.MCOvergenerationPresenter
 import com.morozov.psychology.mvp.views.mind.change.changing.overgeneration.MCOvergenerationView
+import com.morozov.psychology.ui.fragments.mind.change.MindChangeTest
 import kotlinx.android.synthetic.main.mind_change_overgeneration_layout.*
 
-class MCOvergenerationFragment: MvpAppCompatFragment(), MCOvergenerationView {
+class MCOvergenerationFragment: MvpAppCompatFragment(), MCOvergenerationView, MindChangeTest {
 
     @InjectPresenter
     lateinit var mPresenter: MCOvergenerationPresenter

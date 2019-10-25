@@ -18,9 +18,10 @@ import com.morozov.psychology.mvp.models.diary.EmotionModel
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.mind.change.changing.tunnel.MCTunnelPresenter
 import com.morozov.psychology.mvp.views.mind.change.changing.tunnel.MCTunnelView
+import com.morozov.psychology.ui.fragments.mind.change.MindChangeTest
 import kotlinx.android.synthetic.main.mind_change_tunnel_layout.*
 
-class MCTunnelFragment: MvpAppCompatFragment(), MCTunnelView {
+class MCTunnelFragment: MvpAppCompatFragment(), MCTunnelView, MindChangeTest {
 
     @InjectPresenter
     lateinit var mPresenter: MCTunnelPresenter

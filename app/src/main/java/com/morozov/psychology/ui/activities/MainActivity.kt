@@ -28,6 +28,7 @@ import com.morozov.psychology.ui.fragments.diary.DiaryMainFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryThinkViewingFragment
 import com.morozov.psychology.ui.fragments.examples.*
 import com.morozov.psychology.ui.fragments.mind.change.MindChangeFragment
+import com.morozov.psychology.ui.fragments.mind.change.MindChangeTest
 import com.morozov.psychology.ui.fragments.mind.change.MindChangeThinkTestFragment
 import com.morozov.psychology.ui.fragments.mind.change.changing.black.white.MCBlackWhiteFragment
 import com.morozov.psychology.ui.fragments.mind.change.changing.commitment.MCCommitment_1_Fragment
@@ -220,6 +221,14 @@ class MainActivity : MvpAppCompatActivity(), MainView {
                             Runnable { }, supportFragmentManager)
                     }
                     is TestsQuizFragment -> {
+                        CustomYesNoDialog.showDialog("Вы действительно хотите покинуть тест?",
+                            "Да", "Отмена",
+                            Runnable {
+                                supportFragmentManager.popBackStack()
+                            },
+                            Runnable { }, supportFragmentManager)
+                    }
+                    is MindChangeTest -> {
                         CustomYesNoDialog.showDialog("Вы действительно хотите покинуть тест?",
                             "Да", "Отмена",
                             Runnable {
