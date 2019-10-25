@@ -5,7 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ScrollView
+    <android.support.v4.widget.NestedScrollView
             android:layout_alignParentTop="true"
             android:layout_above="@+id/buttonNext"
             style="@style/ScrollViewStyle">
@@ -28,7 +28,7 @@
                     style="@style/RecyclerViewStyle"
                     android:nestedScrollingEnabled="true"/>
         </LinearLayout>
-    </ScrollView>
+    </android.support.v4.widget.NestedScrollView>
 
     <Button
             android:id="@+id/buttonNext"

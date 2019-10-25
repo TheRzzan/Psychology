@@ -5,7 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ScrollView
+    <android.support.v4.widget.NestedScrollView
             android:layout_alignParentTop="true"
             android:layout_above="@+id/buttonAddNewThink"
             style="@style/ScrollViewStyle">
@@ -48,7 +48,7 @@
                     android:layout_marginBottom="@dimen/activity_vertical_margin"
                     android:textColor="@color/second_header_text"/>
         </LinearLayout>
-    </ScrollView>
+    </android.support.v4.widget.NestedScrollView>
 
     <Button
             android:id="@+id/buttonAddNewThink"

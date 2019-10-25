@@ -5,10 +5,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+    <android.support.v4.widget.NestedScrollView
+            android:layout_alignParentTop="true"
+            android:layout_above="@+id/buttonNext"
+            style="@style/ScrollViewStyle">
     <LinearLayout
             android:id="@+id/linearDis"
-            android:layout_alignParentTop="true"
-            android:layout_above="@+id/buttonReadyToChoose"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -45,6 +47,7 @@
                 style="@style/EditTextStyle"
                 android:id="@+id/editDisIdeal"/>
     </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
 
     <Button
             android:id="@+id/buttonNext"
