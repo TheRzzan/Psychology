@@ -4,6 +4,7 @@ import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.graphics.Rect
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.os.Build
@@ -11,7 +12,10 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.transition.Fade
+import android.view.MotionEvent
 import android.view.View
+import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import android.widget.ImageView
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
@@ -73,6 +77,13 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     @InjectPresenter
     lateinit var mPresenter: MainPresenter
+
+    companion object {
+        const val MAX_CLICK_DURATION = 150
+        var startClickTime: Long = 0
+        var startClickX: Float = 0f
+        var startClickY: Float = 0f
+    }
 
     /*
     * Bottom Navigation
@@ -220,6 +231,35 @@ class MainActivity : MvpAppCompatActivity(), MainView {
                 }
             }
         }
+    }
+
+    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        if (ev != null) {
+            when {
+                ev.action == MotionEvent.ACTION_DOWN -> {
+                    startClickTime = Calendar.getInstance().timeInMillis
+                    startClickX = ev.rawX
+                    startClickY = ev.rawY
+                }
+                ev.action == MotionEvent.ACTION_UP -> {
+                    val clickDuration = Calendar.getInstance().timeInMillis - startClickTime
+
+                    if (clickDuration < MAX_CLICK_DURATION && startClickX == ev.rawX && startClickY == ev.rawY) {
+                        val v = currentFocus
+                        if (v is EditText) {
+                            val outRect = Rect()
+                            v.getGlobalVisibleRect(outRect)
+                            if (!outRect.contains(ev.rawX.toInt(), ev.rawY.toInt())) {
+                                v.clearFocus()
+                                val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                                imm.hideSoftInputFromWindow(v.windowToken, 0)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return super.dispatchTouchEvent(ev)
     }
 
     /*
