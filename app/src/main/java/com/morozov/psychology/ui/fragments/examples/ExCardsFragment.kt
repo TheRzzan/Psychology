@@ -45,8 +45,13 @@ class ExCardsFragment: MvpAppCompatFragment(), ExCardsView {
 
         adapterExp = ExCardsAdapter(object : OnImageClickListener {
             override fun onImageClicked(image: ImageView, position: Int) {
-                exitTransition = Fade()
-                mActivityPresenter.showExDescr(image, position)
+                if (position >= 5) {
+                    exitTransition = Fade()
+                    mActivityPresenter.showExFixDescr(image, position - 5)
+                } else {
+                    exitTransition = Fade()
+                    mActivityPresenter.showExDescr(image, position)
+                }
             }
         })
         adapterFix = ExFixCardsAdapter(object : OnImageClickListener {

@@ -42,7 +42,6 @@
 
             <android.support.v7.widget.RecyclerView
                     android:id="@+id/recyclerCardsFixing"
-                    android:layout_marginStart="384dp"
                     style="@style/RecyclerViewStyle"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"/>

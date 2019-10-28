@@ -39,4 +39,10 @@
 
     <!-- Other -->
     <dimen name="card_min_height">98dp</dimen>
+
+    <!-- Items sizes -->
+    <dimen name="item_exp_card_width">350dp</dimen>
+    <dimen name="item_exp_card_height">450dp</dimen>
+
+    <dimen name="item_exp_card_margin_top">380dp</dimen>
 </resources>

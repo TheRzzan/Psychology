@@ -17,6 +17,9 @@ class ExCardsViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         itemView.imageCard.setOnClickListener{
             listener.onImageClicked(itemView.imageCard, pos)
         }
-        ViewCompat.setTransitionName(itemView.imageCard, pos.toString() + "exp_image")
+        if (pos < 5)
+            ViewCompat.setTransitionName(itemView.imageCard, pos.toString() + "exp_image")
+        else
+            ViewCompat.setTransitionName(itemView.imageCard, pos.toString() + "fix_image")
     }
 }

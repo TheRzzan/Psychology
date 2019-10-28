@@ -73,7 +73,7 @@
                 android:layout_above="@+id/arrowEmpty"
                 android:layout_width="2dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="-2.5dp"
+                android:layout_marginEnd="-3dp"
                 android:layout_marginBottom="-1dp" android:id="@+id/viewEmpty"/>
 
         <com.caverock.androidsvg.SVGImageView

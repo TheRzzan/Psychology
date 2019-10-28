@@ -28,16 +28,20 @@ class ExCardsPresenter: MvpPresenter<ExCardsView>() {
             titles.add(item.title)
         }
 
-        viewState.showDataExperiments(titles)
-    }
-
-    fun loadDataFixing() {
-        val titles: MutableList<String> = mutableListOf()
-
         for (item in fixingLoader.getFixings()) {
             titles.add(item.title)
         }
 
-        viewState.showDataFixing(titles)
+        viewState.showDataExperiments(titles)
+    }
+
+    fun loadDataFixing() {
+//        val titles: MutableList<String> = mutableListOf()
+//
+//        for (item in fixingLoader.getFixings()) {
+//            titles.add(item.title)
+//        }
+//
+//        viewState.showDataFixing(titles)
     }
 }
