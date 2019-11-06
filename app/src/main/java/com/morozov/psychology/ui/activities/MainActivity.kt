@@ -204,7 +204,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
                 val fragment = supportFragmentManager.fragments[supportFragmentManager.fragments.size - 1]
                 when (fragment) {
                     is ExTestsFragment, is ExFixTestsFragment -> {
-                        CustomYesNoDialog.showDialog("Вы действительно хотите закончить тетирование?",
+                        CustomYesNoDialog.showDialog("Вы действительно хотите закончить эксперимент?",
                         "Да", "Отмена",
                         Runnable {
                             hideBackArrow()

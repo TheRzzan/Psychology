@@ -64,7 +64,7 @@
 
                             style="@style/TextView.Secondary"
                             android:textSize="@dimen/text_little_size"
-                            android:text="Насколько выражены ваши ошибки мышления, приводящие к негативным эмоциям"
+                            android:text="Насколько выражены ваши ошибки мышления, приводящие к негативным эмоциям?"
                             android:layout_marginStart="12dp"
                             android:layout_marginEnd="12dp"
                             android:layout_marginBottom="4dp"/>
@@ -111,7 +111,7 @@
                             android:layout_below="@+id/viewTmp2"
                             style="@style/TextView.Secondary"
                             android:textSize="@dimen/text_little_size"
-                            android:text="Позволит выявить, какие именно ошибки мышления для вас характерны"
+                            android:text="Какие именно ошибки мышления для вас характерны?"
                             android:layout_marginStart="12dp"
                             android:layout_marginEnd="12dp"
                             android:layout_marginBottom="4dp"/>
@@ -158,7 +158,7 @@
                             android:layout_below="@+id/viewTmp3"
                             style="@style/TextView.Secondary"
                             android:textSize="@dimen/text_little_size"
-                            android:text="Позволит определить уровень тревоги и депрессии"
+                            android:text="Есть ли у вас повышенная тревога и депрессия?"
                             android:layout_marginStart="12dp"
                             android:layout_marginEnd="12dp"
                             android:layout_marginBottom="4dp"/>
@@ -205,7 +205,7 @@
                             android:layout_below="@+id/viewTmp4"
                             style="@style/TextView.Secondary"
                             android:textSize="@dimen/text_little_size"
-                            android:text="Позволит понять, что в большей степени вас тревожит"
+                            android:text="Как проявляется ваша тревога?"
                             android:layout_marginStart="12dp"
                             android:layout_marginEnd="12dp"
                             android:layout_marginBottom="4dp"/>
@@ -252,7 +252,7 @@
 
                             style="@style/TextView.Secondary"
                             android:textSize="@dimen/text_little_size"
-                            android:text="Позволит понять, как вы справляетесь со стрессами"
+                            android:text="Какими способами вы справляетесь со стрессами?"
                             android:layout_marginStart="12dp"
                             android:layout_marginEnd="12dp"
                             android:layout_marginBottom="4dp"/>
@@ -299,7 +299,7 @@
                             android:layout_below="@+id/viewTmp6"
                             style="@style/TextView.Secondary"
                             android:textSize="@dimen/text_little_size"
-                            android:text="Позволит выявить бессознательные механизмы, которые позволяют вам справляться со стрессами"
+                            android:text="Какие бессознательные механизмы помогают вам меньше тревожиться?"
                             android:layout_marginStart="12dp"
                             android:layout_marginEnd="12dp"
                             android:layout_marginBottom="4dp"/>
@@ -346,7 +346,7 @@
                             android:layout_below="@+id/viewTmp7"
                             style="@style/TextView.Secondary"
                             android:textSize="@dimen/text_little_size"
-                            android:text="Позволит вам увидеть, как вы относитесь к самому себе"
+                            android:text="Как вы относитесь к самому себе?"
                             android:layout_marginStart="12dp"
                             android:layout_marginEnd="12dp"
                             android:layout_marginBottom="4dp"/>
