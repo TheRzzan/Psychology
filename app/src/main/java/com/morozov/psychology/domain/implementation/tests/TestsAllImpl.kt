@@ -360,11 +360,11 @@ class TestsAllImpl(private val context: Context): DescriptionLoader, QuestionsLo
         val questionList = mutableListOf<QuestionModel>()
 
         for (item in contentQuestions) {
-            questionList.add(QuestionModel(item, answers1))
+            questionList.add(QuestionModel("В данный момент:\n\n$item", answers1))
         }
 
         for (item in contentQuestions) {
-            questionList.add(QuestionModel(item, answers2))
+            questionList.add(QuestionModel("На протяжении последнего года:\n\n$item", answers2))
         }
 
         return questionList
