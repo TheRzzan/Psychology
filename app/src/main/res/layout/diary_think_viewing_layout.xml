@@ -31,7 +31,7 @@
                 android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:layout_marginEnd="@dimen/activity_horizontal_margin"
                 android:layout_marginBottom="24dp"
-                android:textColor="@color/grey_color" android:id="@+id/textDiaryViewSituation"/>
+                android:id="@+id/textDiaryViewSituation"/>
 
         <TextView
                 android:text="Мысли:"
@@ -46,7 +46,7 @@
                 android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:layout_marginEnd="@dimen/activity_horizontal_margin"
                 android:layout_marginBottom="24dp"
-                android:textColor="@color/grey_color" android:id="@+id/textDiaryViewThink"/>
+                android:id="@+id/textDiaryViewThink"/>
 
         <TextView
                 android:text="Эмоции:"
@@ -348,7 +348,7 @@
                 android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:layout_marginEnd="@dimen/activity_horizontal_margin"
                 android:layout_marginBottom="24dp"
-                android:textColor="@color/grey_color" android:id="@+id/textDiaryViewSensation"/>
+                android:id="@+id/textDiaryViewSensation"/>
     </LinearLayout>
 
     <Button
