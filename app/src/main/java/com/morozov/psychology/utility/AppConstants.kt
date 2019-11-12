@@ -22,12 +22,12 @@ class AppConstants {
         const val SELF_ATTITUDE_TEST = "self_attitude_test"
 
         // Shared Preference
-        const val EMPTY_PREF = "empty_pref"
-        const val PREF_WALLPAPER = "pref_wallpaper"
-        const val PREF_WALLP_DEF = "pref_wallp_DEF"
-        const val PREF_WALLP_1 = "pref_wallp_1"
-        const val PREF_WALLP_2 = "pref_wallp_2"
-        const val PREF_WALLP_3 = "pref_wallp_3"
+        const val EMPTY_PREF = "empty_pref_v1_1"
+        const val PREF_WALLPAPER = "pref_wallpaper_v1_1"
+        const val PREF_WALLP_DEF = "pref_wallp_DEF_v1_1"
+        const val PREF_WALLP_1 = "pref_wallp_1_v1_1"
+        const val PREF_WALLP_2 = "pref_wallp_2_v1_1"
+        const val PREF_WALLP_3 = "pref_wallp_3_v1_1"
 
         // Notifications
         const val PREF_QUIZ_MONTH = "pref_quiz_month"
@@ -35,19 +35,19 @@ class AppConstants {
         const val PREF_QUIZ_YEAR = "pref_quiz_year"
 
         // Dialogs
-        const val PREF_DIALOG_TESTS = "pref_dialog_tests_v1.3"
-        const val PREF_DIALOG_ALL_RESULTS = "pref_dialog_all_results_v1.3"
-        const val PREF_DIALOG_FIRST_HELLO = "pref_dialog_first_hello_v1.7"
+        const val PREF_DIALOG_TESTS = "pref_dialog_tests_v1.3.1"
+        const val PREF_DIALOG_ALL_RESULTS = "pref_dialog_all_results_v1.3.1"
+        const val PREF_DIALOG_FIRST_HELLO = "pref_dialog_first_hello_v1.7.1"
 
         // Program styles
-        const val PREF_PROG_STYLE = "pref_prog_style"
-        const val PREF_COLOR_DEFAULT = "pref_color_default"
-        const val PREF_COLOR_GREEN = "pref_color_green"
-        const val PREF_COLOR_TURQUOISE = "pref_color_turquoise"
-        const val PREF_COLOR_BLUE = "pref_color_blue"
-        const val PREF_COLOR_YELLOW = "pref_color_yellow"
-        const val PREF_COLOR_ORANGE = "pref_color_orange"
-        const val PREF_COLOR_RED = "pref_color_red"
+        const val PREF_PROG_STYLE = "pref_prog_style_v1_1"
+        const val PREF_COLOR_DEFAULT = "pref_color_default_v1_1"
+        const val PREF_COLOR_GREEN = "pref_color_green_v1_1"
+        const val PREF_COLOR_TURQUOISE = "pref_color_turquoise_v1_1"
+        const val PREF_COLOR_BLUE = "pref_color_blue_v1_1"
+        const val PREF_COLOR_YELLOW = "pref_color_yellow_v1_1"
+        const val PREF_COLOR_ORANGE = "pref_color_orange_v1_1"
+        const val PREF_COLOR_RED = "pref_color_red_v1_1"
 
         // About preference
         const val PREF_ABOUT_SEX = "pref_about_sex"

@@ -8,20 +8,20 @@
     <color name="fragment_background">#00000000</color>
 
     <!-- Button -->
-    <color name="grey_color">#8E8E93</color>
+    <color name="grey_color">#76767A</color>
 
     <!-- Progress bar -->
     <color name="non_active_line">#4D3C3C43</color>
 
     <!-- Card view -->
     <color name="card_background">#FCFCFC</color>
-    <color name="card_think_text">#636366</color>
+    <color name="card_think_text">#545457</color>
 
     <!-- Text -->
     <color name="header_text">#2C2C2E</color>
-    <color name="second_header_text">#3A3A3C</color>
+    <color name="second_header_text">#343436</color>
     <color name="primary_text">#FFFFFF</color>
-    <color name="secondary_text">#636366</color>
+    <color name="secondary_text">#4B4B4E</color>
 
     <!-- Sex colors -->
     <color name="man_color">#59CFE3</color>
