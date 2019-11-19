@@ -15,13 +15,13 @@
 
     <!-- Card view -->
     <color name="card_background">#FCFCFC</color>
-    <color name="card_think_text">#545457</color>
+    <color name="card_think_text">#1C1C1D</color>
 
     <!-- Text -->
-    <color name="header_text">#2C2C2E</color>
-    <color name="second_header_text">#343436</color>
+    <color name="header_text">#070707</color>
+    <color name="second_header_text">#1C1C1D</color>
     <color name="primary_text">#FFFFFF</color>
-    <color name="secondary_text">#4B4B4E</color>
+    <color name="secondary_text">#1C1C1D</color>
 
     <!-- Sex colors -->
     <color name="man_color">#59CFE3</color>

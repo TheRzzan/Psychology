@@ -22,12 +22,12 @@ class AppConstants {
         const val SELF_ATTITUDE_TEST = "self_attitude_test"
 
         // Shared Preference
-        const val EMPTY_PREF = "empty_pref_v1_1"
-        const val PREF_WALLPAPER = "pref_wallpaper_v1_1"
-        const val PREF_WALLP_DEF = "pref_wallp_DEF_v1_1"
-        const val PREF_WALLP_1 = "pref_wallp_1_v1_1"
-        const val PREF_WALLP_2 = "pref_wallp_2_v1_1"
-        const val PREF_WALLP_3 = "pref_wallp_3_v1_1"
+        const val EMPTY_PREF = "empty_pref_v1_2"
+        const val PREF_WALLPAPER = "pref_wallpaper_v1_2"
+        const val PREF_WALLP_DEF = "pref_wallp_DEF_v1_2"
+        const val PREF_WALLP_1 = "pref_wallp_1_v1_2"
+        const val PREF_WALLP_2 = "pref_wallp_2_v1_2"
+        const val PREF_WALLP_3 = "pref_wallp_3_v1_2"
 
         // Notifications
         const val PREF_QUIZ_MONTH = "pref_quiz_month"
@@ -35,9 +35,9 @@ class AppConstants {
         const val PREF_QUIZ_YEAR = "pref_quiz_year"
 
         // Dialogs
-        const val PREF_DIALOG_TESTS = "pref_dialog_tests_v1.3.1"
-        const val PREF_DIALOG_ALL_RESULTS = "pref_dialog_all_results_v1.3.1"
-        const val PREF_DIALOG_FIRST_HELLO = "pref_dialog_first_hello_v1.7.1"
+        const val PREF_DIALOG_TESTS = "pref_dialog_tests_v1.3.2"
+        const val PREF_DIALOG_ALL_RESULTS = "pref_dialog_all_results_v1.3.2"
+        const val PREF_DIALOG_FIRST_HELLO = "pref_dialog_first_hello_v1.7.2"
 
         // Program styles
         const val PREF_PROG_STYLE = "pref_prog_style_v1_1"
