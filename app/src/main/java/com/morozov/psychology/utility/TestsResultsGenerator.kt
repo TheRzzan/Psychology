@@ -416,19 +416,35 @@ class TestsResultsGenerator {
                     obshStn_ST = tmpIRes_1(mListObsh, obshRaw_ST)
                 }
                 aboutModel.sex == SexEnum.WOMAN -> {
-                    sScoreED_LT = tmpIRes_1(wListEd, scoreED_LT)
-                    sScoreAST_LT = tmpIRes_1(wListAST, scoreAST_LT)
-                    sScoreFOB_LT = tmpIRes_1(wListFOB, scoreFOB_LT)
-                    sScoreOP_LT = tmpIRes_1(wListOP, scoreOP_LT)
-                    sScoreSZ_LT = tmpIRes_1(wListSZ, scoreSZ_LT)
-                    obshStn_LT = tmpIRes_1(wListObsh, obshRaw_LT)
+                    if (aboutModel.age!! >= 18) {
+                        sScoreED_LT = tmpIRes_1(mListEd, scoreED_LT)
+                        sScoreAST_LT = tmpIRes_1(mListAST, scoreAST_LT)
+                        sScoreFOB_LT = tmpIRes_1(mListFOB, scoreFOB_LT)
+                        sScoreOP_LT = tmpIRes_1(mListOP, scoreOP_LT)
+                        sScoreSZ_LT = tmpIRes_1(mListSZ, scoreSZ_LT)
+                        obshStn_LT = tmpIRes_1(mListObsh, obshRaw_LT)
 
-                    sScoreED_ST = tmpIRes_1(wListEd, scoreED_ST)
-                    sScoreAST_ST = tmpIRes_1(wListAST, scoreAST_ST)
-                    sScoreFOB_ST = tmpIRes_1(wListFOB, scoreFOB_ST)
-                    sScoreOP_ST = tmpIRes_1(wListOP, scoreOP_ST)
-                    sScoreSZ_ST = tmpIRes_1(wListSZ, scoreSZ_ST)
-                    obshStn_ST = tmpIRes_1(wListObsh, obshRaw_ST)
+                        sScoreED_ST = tmpIRes_1(mListEd, scoreED_ST)
+                        sScoreAST_ST = tmpIRes_1(mListAST, scoreAST_ST)
+                        sScoreFOB_ST = tmpIRes_1(mListFOB, scoreFOB_ST)
+                        sScoreOP_ST = tmpIRes_1(mListOP, scoreOP_ST)
+                        sScoreSZ_ST = tmpIRes_1(mListSZ, scoreSZ_ST)
+                        obshStn_ST = tmpIRes_1(mListObsh, obshRaw_ST)
+                    } else {
+                        sScoreED_LT = tmpIRes_1(wListEd, scoreED_LT)
+                        sScoreAST_LT = tmpIRes_1(wListAST, scoreAST_LT)
+                        sScoreFOB_LT = tmpIRes_1(wListFOB, scoreFOB_LT)
+                        sScoreOP_LT = tmpIRes_1(wListOP, scoreOP_LT)
+                        sScoreSZ_LT = tmpIRes_1(wListSZ, scoreSZ_LT)
+                        obshStn_LT = tmpIRes_1(wListObsh, obshRaw_LT)
+
+                        sScoreED_ST = tmpIRes_1(wListEd, scoreED_ST)
+                        sScoreAST_ST = tmpIRes_1(wListAST, scoreAST_ST)
+                        sScoreFOB_ST = tmpIRes_1(wListFOB, scoreFOB_ST)
+                        sScoreOP_ST = tmpIRes_1(wListOP, scoreOP_ST)
+                        sScoreSZ_ST = tmpIRes_1(wListSZ, scoreSZ_ST)
+                        obshStn_ST = tmpIRes_1(wListObsh, obshRaw_ST)
+                    }
                 }
             }
         }
@@ -535,20 +551,20 @@ class TestsResultsGenerator {
         str2 += "\n$strObsh2"
 
         val resultBalls = "В настоящее время:\n\n" +
-                "Эмоциональный дискомфорт: $scoreED_LT\n" +
-                "Астенический компонент тревоги: $scoreAST_LT\n" +
-                "Фобический компонент тревоги: $scoreFOB_LT\n" +
-                "Тревожная оценка перспективы: $scoreOP_LT\n" +
-                "Социальная защищенность: $scoreSZ_LT\n" +
-                "Общий балл тревоги: $obshStn_LT\n\n"+
-
-                "На протяжении последнего года:\n\n" +
                 "Эмоциональный дискомфорт: $scoreED_ST\n" +
                 "Астенический компонент тревоги: $scoreAST_ST\n" +
                 "Фобический компонент тревоги: $scoreFOB_ST\n" +
                 "Тревожная оценка перспективы: $scoreOP_ST\n" +
                 "Социальная защищенность: $scoreSZ_ST\n" +
-                "Общий балл тревоги: $obshStn_ST"
+                "Общий балл тревоги: $obshStn_ST\n\n"+
+
+                "На протяжении последнего года:\n\n" +
+                "Эмоциональный дискомфорт: $scoreED_LT\n" +
+                "Астенический компонент тревоги: $scoreAST_LT\n" +
+                "Фобический компонент тревоги: $scoreFOB_LT\n" +
+                "Тревожная оценка перспективы: $scoreOP_LT\n" +
+                "Социальная защищенность: $scoreSZ_LT\n" +
+                "Общий балл тревоги: $obshStn_LT"
 
         return ResultModel(Date(), listOf(
             Pair("Результаты в баллах", resultBalls),
