@@ -9,9 +9,11 @@ import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
+import android.os.SystemClock
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.transition.Fade
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -22,12 +24,10 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.views.MainView
-import com.morozov.psychology.ui.fragments.settings.SettingsFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryEditorFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryMainFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryThinkViewingFragment
 import com.morozov.psychology.ui.fragments.examples.*
-import com.morozov.psychology.ui.fragments.mind.change.MindChangeFragment
 import com.morozov.psychology.ui.fragments.mind.change.MindChangeTest
 import com.morozov.psychology.ui.fragments.mind.change.MindChangeThinkTestFragment
 import com.morozov.psychology.ui.fragments.mind.change.changing.black.white.MCBlackWhiteFragment
@@ -72,6 +72,7 @@ import com.morozov.psychology.ui.fragments.settings.SettingsWallpaperFragment
 import com.morozov.psychology.ui.fragments.tests.*
 import com.morozov.psychology.utility.*
 import kotlinx.android.synthetic.main.activity_main.*
+import java.text.DateFormat
 import java.util.*
 
 class MainActivity : MvpAppCompatActivity(), MainView {
@@ -531,17 +532,10 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         if (!MySharedPreferences.getBoolPreference(applicationContext, AppConstants.PREF_QUIZ_MONTH)) {
             MySharedPreferences.setPreference(applicationContext, AppConstants.PREF_QUIZ_MONTH, true)
 
-            setNotification(AlarmManager.INTERVAL_DAY * 30)
-        }
-        if (!MySharedPreferences.getBoolPreference(applicationContext, AppConstants.PREF_QUIZ_HALF_YEAR)) {
-            MySharedPreferences.setPreference(applicationContext, AppConstants.PREF_QUIZ_HALF_YEAR, true)
-
-            setNotification(AlarmManager.INTERVAL_DAY * 30 * 6)
-        }
-        if (!MySharedPreferences.getBoolPreference(applicationContext, AppConstants.PREF_QUIZ_YEAR)) {
-            MySharedPreferences.setPreference(applicationContext, AppConstants.PREF_QUIZ_YEAR, true)
-
-            setNotification(AlarmManager.INTERVAL_DAY * 30 * 12)
+            val calendar = Calendar.getInstance()
+            calendar.timeInMillis = System.currentTimeMillis()
+            calendar.add(Calendar.SECOND, 30)
+            setNotification(calendar)
         }
 
         val testsResultsFragment = TestsResultsFragment()
@@ -943,7 +937,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     *  Helper methods
     *
     *  */
-    private fun setNotification(delay: Long) {
+    private fun setNotification(time: Calendar) {
         val notificationIntent = Intent(applicationContext, ShowQuizNotification::class.java)
         val contentIntent = PendingIntent.getService(
             applicationContext, 0, notificationIntent,
@@ -952,10 +946,9 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
         val am = getSystemService(Context.ALARM_SERVICE) as AlarmManager
         am.cancel(contentIntent)
-        am.set(
-            AlarmManager.RTC_WAKEUP,
-            System.currentTimeMillis() + delay, contentIntent
-        )
+        am.setExact(AlarmManager.RTC_WAKEUP, time.timeInMillis , contentIntent)
+
+        Log.i("MainTag", "Notification created, info: ${DateFormat.getInstance().format(time.time)}")
     }
 
     private fun setFragment(fragment: Fragment, b: Boolean = false) {
