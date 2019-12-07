@@ -30,9 +30,9 @@ class AppConstants {
         const val PREF_WALLP_3 = "pref_wallp_3_v1_2"
 
         // Notifications
-        const val PREF_QUIZ_MONTH = "pref_quiz_month_v2.0.6"
-        const val PREF_QUIZ_HALF_YEAR = "pref_quiz_half_year_v2.0.6"
-        const val PREF_QUIZ_YEAR = "pref_quiz_year_v2.0.6"
+        const val PREF_QUIZ_MONTH = "pref_quiz_month_v2.0.7.1.5"
+        const val PREF_QUIZ_HALF_YEAR = "pref_quiz_half_year_v2.0.7.1.5"
+        const val PREF_QUIZ_YEAR = "pref_quiz_year_v2.0.7.1.5"
 
         // Dialogs
         const val PREF_DIALOG_TESTS = "pref_dialog_tests_v1.3.2"

@@ -6,10 +6,14 @@ import android.content.Intent
 import android.os.IBinder
 import android.support.v4.app.NotificationCompat
 import android.util.Log
-import com.morozov.psychology.R
 import com.morozov.psychology.ui.activities.MainActivity
 import java.text.DateFormat
 import java.util.*
+import android.app.NotificationChannel
+import android.os.Build
+import android.app.NotificationManager
+import android.graphics.Color
+import com.morozov.psychology.R
 
 class ShowQuizNotification : Service() {
 
@@ -20,7 +24,21 @@ class ShowQuizNotification : Service() {
 
         val notificationManager = this.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
-        val noti = NotificationCompat.Builder(this)
+        val CHANNEL_ID = "Your_channel_id"
+        // === Removed some obsoletes
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(
+                CHANNEL_ID, "My channel",
+                NotificationManager.IMPORTANCE_HIGH
+            )
+            channel.description = "My channel description"
+            channel.enableLights(true)
+            channel.lightColor = Color.RED
+            channel.enableVibration(false)
+            notificationManager.createNotificationChannel(channel)
+        }
+
+        val noti = NotificationCompat.Builder(this, CHANNEL_ID)
             .setPriority(Notification.PRIORITY_HIGH)
             .setVibrate(longArrayOf(0))
             .setAutoCancel(true)
