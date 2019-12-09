@@ -64,14 +64,14 @@ class NotificationBroadcastReceiver: BroadcastReceiver() {
 
                 val calendar = Calendar.getInstance()
                 calendar.timeInMillis = System.currentTimeMillis()
-                calendar.add(Calendar.MINUTE, 10)
+                calendar.add(Calendar.MINUTE, 5)
                 setNotification(calendar, context)
             } else if (!MySharedPreferences.getBoolPreference(context, AppConstants.PREF_QUIZ_YEAR)) {
                 MySharedPreferences.setPreference(context, AppConstants.PREF_QUIZ_YEAR, true)
 
                 val calendar = Calendar.getInstance()
                 calendar.timeInMillis = System.currentTimeMillis()
-                calendar.add(Calendar.MINUTE, 15)
+                calendar.add(Calendar.MINUTE, 5)
                 setNotification(calendar, context)
             } else {
                 MySharedPreferences.setPreference(context, AppConstants.PREF_QUIZ_MONTH, false)

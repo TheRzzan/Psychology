@@ -536,7 +536,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
             val calendar = Calendar.getInstance()
             calendar.timeInMillis = System.currentTimeMillis()
-            calendar.add(Calendar.SECOND, 15)
+            calendar.add(Calendar.MINUTE, 5)
             setNotification(calendar, applicationContext)
         }
 
