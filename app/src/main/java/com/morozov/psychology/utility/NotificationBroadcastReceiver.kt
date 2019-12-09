@@ -1,30 +1,27 @@
 package com.morozov.psychology.utility
 
 import android.app.*
+import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.os.IBinder
+import android.graphics.Color
+import android.os.Build
 import android.support.v4.app.NotificationCompat
 import android.util.Log
+import com.morozov.psychology.R
 import com.morozov.psychology.ui.activities.MainActivity
 import java.text.DateFormat
 import java.util.*
-import android.app.NotificationChannel
-import android.os.Build
-import android.app.NotificationManager
-import android.graphics.Color
-import com.morozov.psychology.R
 
-class ShowQuizNotification : Service() {
+class NotificationBroadcastReceiver: BroadcastReceiver() {
 
-    override fun onCreate() {
-        super.onCreate()
+    override fun onReceive(context: Context?, intent: Intent?) {
+        val mainIntent = Intent(context, MainActivity::class.java)
 
-        val mainIntent = Intent(this, MainActivity::class.java)
-
-        val notificationManager = this.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        val notificationManager = context?.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
         val channelId = "Your_channel_id"
+        val GROUP_KEY_WORK_EMAIL = "com.morozov.psychology.WORK_EMAIL"
         // === Removed some obsoletes
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
@@ -38,72 +35,67 @@ class ShowQuizNotification : Service() {
             notificationManager.createNotificationChannel(channel)
         }
 
-        val noti = NotificationCompat.Builder(this, channelId)
+        val noti = NotificationCompat.Builder(context, channelId)
             .setPriority(Notification.PRIORITY_HIGH)
             .setVibrate(longArrayOf(0))
             .setAutoCancel(true)
             .setContentIntent(
                 PendingIntent.getActivity(
-                    this, 0, mainIntent,
+                    context, 0, mainIntent,
                     PendingIntent.FLAG_UPDATE_CURRENT
                 )
             )
-            .setContentTitle(resources.getString(R.string.app_name))
+            .setContentTitle(context.resources.getString(R.string.app_name))
             .setContentText("Не забывайте проходить тесты для большего понимания себя и изменения своих мыслей")
             .setDefaults(Notification.DEFAULT_ALL)
             .setSmallIcon(R.drawable.ic_psychology_launcher)
             .setTicker("ticker message")
             .setWhen(System.currentTimeMillis())
+            .setGroup(GROUP_KEY_WORK_EMAIL)
             .build()
 
         notificationManager.notify(0, noti)
 
         Log.i(TAG, "Notification created")
 
-        if (MySharedPreferences.getBoolPreference(applicationContext, AppConstants.PREF_QUIZ_MONTH)) {
-            if (!MySharedPreferences.getBoolPreference(applicationContext, AppConstants.PREF_QUIZ_HALF_YEAR)) {
-                MySharedPreferences.setPreference(applicationContext, AppConstants.PREF_QUIZ_HALF_YEAR, true)
+        if (MySharedPreferences.getBoolPreference(context, AppConstants.PREF_QUIZ_MONTH)) {
+            if (!MySharedPreferences.getBoolPreference(context, AppConstants.PREF_QUIZ_HALF_YEAR)) {
+                MySharedPreferences.setPreference(context, AppConstants.PREF_QUIZ_HALF_YEAR, true)
 
                 val calendar = Calendar.getInstance()
                 calendar.timeInMillis = System.currentTimeMillis()
                 calendar.add(Calendar.MINUTE, 10)
-                setNotification(calendar)
-            } else if (!MySharedPreferences.getBoolPreference(applicationContext, AppConstants.PREF_QUIZ_YEAR)) {
-                MySharedPreferences.setPreference(applicationContext, AppConstants.PREF_QUIZ_YEAR, true)
+                setNotification(calendar, context)
+            } else if (!MySharedPreferences.getBoolPreference(context, AppConstants.PREF_QUIZ_YEAR)) {
+                MySharedPreferences.setPreference(context, AppConstants.PREF_QUIZ_YEAR, true)
 
                 val calendar = Calendar.getInstance()
                 calendar.timeInMillis = System.currentTimeMillis()
                 calendar.add(Calendar.MINUTE, 15)
-                setNotification(calendar)
+                setNotification(calendar, context)
             } else {
-                MySharedPreferences.setPreference(applicationContext, AppConstants.PREF_QUIZ_MONTH, false)
-                MySharedPreferences.setPreference(applicationContext, AppConstants.PREF_QUIZ_HALF_YEAR, false)
-                MySharedPreferences.setPreference(applicationContext, AppConstants.PREF_QUIZ_YEAR, false)
+                MySharedPreferences.setPreference(context, AppConstants.PREF_QUIZ_MONTH, false)
+                MySharedPreferences.setPreference(context, AppConstants.PREF_QUIZ_HALF_YEAR, false)
+                MySharedPreferences.setPreference(context, AppConstants.PREF_QUIZ_YEAR, false)
             }
         }
     }
 
-    private fun setNotification(time: Calendar) {
-        val notificationIntent = Intent(applicationContext, ShowQuizNotification::class.java)
-        val contentIntent = PendingIntent.getService(
-            applicationContext, 0, notificationIntent,
+    private fun setNotification(time: Calendar, context: Context) {
+        val notificationIntent = Intent(context, NotificationBroadcastReceiver::class.java)
+        val contentIntent = PendingIntent.getBroadcast(
+            context, 0, notificationIntent,
             PendingIntent.FLAG_CANCEL_CURRENT
         )
 
-        val am = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val am = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         am.cancel(contentIntent)
         am.setExact(AlarmManager.RTC_WAKEUP, time.timeInMillis , contentIntent)
 
-        Log.i("MainTag", "Notification created, info: ${DateFormat.getInstance().format(time.time)}")
-    }
-
-    override fun onBind(intent: Intent): IBinder? {
-        // TODO Auto-generated method stub
-        return null
+        Log.i(TAG, "Notification created, info: ${DateFormat.getInstance().format(time.time)}")
     }
 
     companion object {
-
-        private val TAG = "ShowQuizNotification"
+        val TAG = "NotfBReceiver"
     }
 }

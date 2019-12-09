@@ -23,6 +23,7 @@
             </intent-filter>
         </activity>
         <service android:name=".utility.ShowQuizNotification"/>
+        <receiver android:name=".utility.NotificationBroadcastReceiver"/>
     </application>
 
 </manifest>

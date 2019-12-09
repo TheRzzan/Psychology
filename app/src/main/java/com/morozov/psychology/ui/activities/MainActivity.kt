@@ -28,6 +28,7 @@ import com.morozov.psychology.ui.fragments.diary.DiaryEditorFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryMainFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryThinkViewingFragment
 import com.morozov.psychology.ui.fragments.examples.*
+import com.morozov.psychology.ui.fragments.mind.change.MindChangeFragment
 import com.morozov.psychology.ui.fragments.mind.change.MindChangeTest
 import com.morozov.psychology.ui.fragments.mind.change.MindChangeThinkTestFragment
 import com.morozov.psychology.ui.fragments.mind.change.changing.black.white.MCBlackWhiteFragment
@@ -67,6 +68,7 @@ import com.morozov.psychology.ui.fragments.mind.change.homework.overgeneration.H
 import com.morozov.psychology.ui.fragments.mind.change.homework.personalization.HmPersonalizationFragment
 import com.morozov.psychology.ui.fragments.mind.change.homework.tunnel.HmTunnelFragment
 import com.morozov.psychology.ui.fragments.settings.SettingsConsultFragment
+import com.morozov.psychology.ui.fragments.settings.SettingsFragment
 import com.morozov.psychology.ui.fragments.settings.SettingsStyleFragment
 import com.morozov.psychology.ui.fragments.settings.SettingsWallpaperFragment
 import com.morozov.psychology.ui.fragments.tests.*
@@ -129,21 +131,21 @@ class MainActivity : MvpAppCompatActivity(), MainView {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_mind_change -> {
-//                val mindChangeFragment = MindChangeFragment()
-//                mindChangeFragment.mActivityPresenter = mPresenter
-//
-//                clearBackStack()
-//                setFragment(mindChangeFragment)
+                val mindChangeFragment = MindChangeFragment()
+                mindChangeFragment.mActivityPresenter = mPresenter
 
-                setFragment(SectionInDevelopFragment())
+                clearBackStack()
+                setFragment(mindChangeFragment)
+
+//                setFragment(SectionInDevelopFragment())
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_settings -> {
-//                val settingsFragment = SettingsFragment()
-//                settingsFragment.mActivityPresenter = mPresenter
-//                setFragment(settingsFragment)
+                val settingsFragment = SettingsFragment()
+                settingsFragment.mActivityPresenter = mPresenter
+                setFragment(settingsFragment)
 
-                setFragment(SectionInDevelopFragment())
+//                setFragment(SectionInDevelopFragment())
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -534,8 +536,8 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
             val calendar = Calendar.getInstance()
             calendar.timeInMillis = System.currentTimeMillis()
-            calendar.add(Calendar.SECOND, 30)
-            setNotification(calendar)
+            calendar.add(Calendar.SECOND, 15)
+            setNotification(calendar, applicationContext)
         }
 
         val testsResultsFragment = TestsResultsFragment()
@@ -949,6 +951,35 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         am.setExact(AlarmManager.RTC_WAKEUP, time.timeInMillis , contentIntent)
 
         Log.i("MainTag", "Notification created, info: ${DateFormat.getInstance().format(time.time)}")
+    }
+
+    private fun setNotification(time: Calendar, context: Context) {
+        val notificationIntent = Intent(context, NotificationBroadcastReceiver::class.java)
+        val contentIntent = PendingIntent.getBroadcast(
+            context, 0, notificationIntent,
+            PendingIntent.FLAG_CANCEL_CURRENT
+        )
+
+        val am = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        am.cancel(contentIntent)
+
+        when {
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.M -> {
+                am.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, time.timeInMillis , contentIntent)
+            }
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP -> {
+                val alarmClockInfo = AlarmManager.AlarmClockInfo(time.timeInMillis, contentIntent)
+                am.setAlarmClock(alarmClockInfo, contentIntent)
+            }
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT ->{
+                am.setExact(AlarmManager.RTC_WAKEUP, time.timeInMillis , contentIntent)
+            }
+            else -> {
+                am.set(AlarmManager.RTC_WAKEUP, time.timeInMillis , contentIntent)
+            }
+        }
+
+        Log.i(NotificationBroadcastReceiver.TAG, "Notification created, info: ${DateFormat.getInstance().format(time.time)}")
     }
 
     private fun setFragment(fragment: Fragment, b: Boolean = false) {
