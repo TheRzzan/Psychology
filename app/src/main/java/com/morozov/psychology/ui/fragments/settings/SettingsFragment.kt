@@ -11,6 +11,8 @@ import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.settings.SettingsPresenter
 import com.morozov.psychology.mvp.views.settings.SettingsView
 import kotlinx.android.synthetic.main.settings_main_layout.*
+import android.content.Intent
+import android.net.Uri
 
 class SettingsFragment: MvpAppCompatFragment(), SettingsView {
 
@@ -34,6 +36,21 @@ class SettingsFragment: MvpAppCompatFragment(), SettingsView {
 
         relativeConsult.setOnClickListener {
             mActivityPresenter.showSettingsConsult()
+        }
+
+        relativeEstimate.setOnClickListener {
+            val appPackageName = "com.plarium.raidlegends" //activity?.packageName
+            try {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$appPackageName")))
+            } catch (anfe: android.content.ActivityNotFoundException) {
+                startActivity(
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("https://play.google.com/store/apps/details?id=$appPackageName")
+                    )
+                )
+            }
+
         }
     }
 }
