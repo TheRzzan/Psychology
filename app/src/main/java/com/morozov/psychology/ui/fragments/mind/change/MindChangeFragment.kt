@@ -59,6 +59,10 @@ class MindChangeFragment: MvpAppCompatFragment(), MindChangeView, OnItemClickLis
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        imageMainSettings.setOnClickListener {
+            mActivityPresenter.showSettingsSection()
+        }
+
         adapterThink = MindChangeThinkAdapter(this)
         recyclerMindChangeThinks.layoutManager = LinearLayoutManager(context)
         recyclerMindChangeThinks.adapter = adapterThink
