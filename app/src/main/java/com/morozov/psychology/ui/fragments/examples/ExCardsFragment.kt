@@ -43,6 +43,10 @@ class ExCardsFragment: MvpAppCompatFragment(), ExCardsView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        imageMainSettings.setOnClickListener {
+            mActivityPresenter.showSettingsSection()
+        }
+
         adapterExp = ExCardsAdapter(object : OnImageClickListener {
             override fun onImageClicked(image: ImageView, position: Int) {
                 if (position >= 5) {

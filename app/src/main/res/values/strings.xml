@@ -7,6 +7,7 @@
     <string name="title_tests">Тесты</string>
     <string name="title_mind_change">Изменения</string>
     <string name="title_consult">Записаться</string>
+    <string name="title_settings">Настройки</string>
 
     <!-- Emotions -->
     <string name="joy">Радость</string>
