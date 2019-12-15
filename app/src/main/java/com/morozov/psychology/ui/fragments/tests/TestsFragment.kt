@@ -26,6 +26,10 @@ class TestsFragment: MvpAppCompatFragment(), TestsView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        imageMainSettings.setOnClickListener {
+            mActivityPresenter.showSettingsSection()
+        }
+
         buttonTestAbout.setOnClickListener {
             mActivityPresenter.showTestAbout()
         }

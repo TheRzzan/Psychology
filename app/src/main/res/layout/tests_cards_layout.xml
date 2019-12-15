@@ -20,8 +20,26 @@
             <TextView
                     android:id="@+id/textHeader"
                     style="@style/TextView.Primary.Header"
-                    android:layout_margin="@dimen/activity_horizontal_margin"
-                    android:text="Тестирование"/>
+                    android:text="Тестирование"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@+id/imageMainSettings"
+                    android:layout_marginBottom="@dimen/activity_horizontal_margin"/>
+
+            <RelativeLayout
+                    android:id="@+id/imageMainSettings"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="52dp"
+                    android:layout_height="81dp"
+                    android:layout_marginBottom="-19dp">
+                <ImageView
+                        android:src="@drawable/bar_icon_settings"
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_centerInParent="true"/>
+            </RelativeLayout>
 
             <Button
                     android:id="@+id/buttonTestAbout"
