@@ -387,8 +387,8 @@ class MainPresenter:MvpPresenter<MainView>() {
     }
 
     fun showSettingsConsult() {
-        viewState.hideBottomNav()
-        viewState.showBackArrow()
+        viewState.showBottomNav()
+        viewState.hideBackArrow()
         viewState.showSettingsConsult()
     }
 }

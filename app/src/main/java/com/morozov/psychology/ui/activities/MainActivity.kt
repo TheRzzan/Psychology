@@ -141,9 +141,11 @@ class MainActivity : MvpAppCompatActivity(), MainView {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_settings -> {
-                val settingsFragment = SettingsFragment()
-                settingsFragment.mActivityPresenter = mPresenter
-                setFragment(settingsFragment)
+                val settingsConsultFragment = SettingsConsultFragment()
+                settingsConsultFragment.mActivityPresenter = mPresenter
+
+                clearBackStack()
+                setFragment(settingsConsultFragment)
 
 //                setFragment(SectionInDevelopFragment())
                 return@OnNavigationItemSelectedListener true
@@ -914,7 +916,9 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     *
     * */
     override fun showSettingsSection() {
-        navigation.selectedItemId = R.id.navigation_settings
+        val settingsFragment = SettingsFragment()
+        settingsFragment.mActivityPresenter = mPresenter
+        setFragment(settingsFragment, true)
     }
 
     override fun showSettingsStylesSection() {
@@ -930,9 +934,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     }
 
     override fun showSettingsConsult() {
-        val settingsConsultFragment = SettingsConsultFragment()
-        settingsConsultFragment.mActivityPresenter = mPresenter
-        setFragment(settingsConsultFragment, true)
+        navigation.selectedItemId = R.id.navigation_settings
     }
 
     /*
