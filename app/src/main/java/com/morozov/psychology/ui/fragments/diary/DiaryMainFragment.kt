@@ -77,6 +77,10 @@ class DiaryMainFragment:MvpAppCompatFragment(), DiaryMainView,
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        imageMainSettings.setOnClickListener {
+            mActivityPresenter.showSettingsSection()
+        }
+
         adapterDate = DiaryMainDateAdapter(this)
         recyclerDiaryDays.setSlideOnFling(true)
         recyclerDiaryDays.adapter = adapterDate
