@@ -50,6 +50,10 @@ class SettingsConsultFragment: MvpAppCompatFragment(), SettingsConsultView {
             showCalendar()
         }
 
+        imageMainSettings.setOnClickListener {
+            mActivityPresenter.showSettingsSection()
+        }
+
         buttonSendRequest.setOnClickListener {
             activity?.onBackPressed()
         }
