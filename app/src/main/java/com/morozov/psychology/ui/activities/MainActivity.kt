@@ -241,6 +241,10 @@ class MainActivity : MvpAppCompatActivity(), MainView {
                             },
                             Runnable { }, supportFragmentManager)
                     }
+                    is SettingsWallpaperFragment -> {
+                        showBackArrow()
+                        supportFragmentManager.popBackStack()
+                    }
                     else -> supportFragmentManager.popBackStack()
                 }
             }
