@@ -11,7 +11,7 @@ class MCThinkMistake_1_Presenter: MvpPresenter<MCThinkMistake_1_View>() {
 
     fun loadThinkMistakes(resources: Resources) {
         val pair_1_2 = Pair(
-            "Катастрофизация – будущее предсказывается негативым. Даже если вероятность ужасного последствия минимальна, возникает мысль «а что, если…». ",
+            "Катастрофизация – будущее предсказывается негативным. Даже если вероятность ужасного последствия минимальна, возникает мысль «а что, если…». ",
             "Если я провалю экзамен, это будет ужасно!"
         )
         val pair_1_1 = Pair(resources.getDrawable(R.drawable.ic_disastrous), pair_1_2)

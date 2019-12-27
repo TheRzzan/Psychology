@@ -139,7 +139,7 @@ class MindChangeThinkTestFragment: MvpAppCompatFragment(), MindChangeThinkTestVi
         textMindChangeSecondText.text = "Новая мысль"
         editMindChangeSecondText.setText(newThink)
         textMindChangeTmp.text = "Проверьте достоверность этой мысли. Пересмотрите факты. Насколько эта мысль доказуема, точна? Верны ли выводы, которые вы сделали? Если мысль недостоверна, попробуйте придумать новую мысль. \n" +
-                "Например, вместо мысли «он вечно опаздывает», вернее будет записать «сегодня он пришел на 10 минут позднее обещанного времени. Он порой опаздывал и раньше». "
+                "Например, вместо мысли «он вечно опаздывает», вернее будет записать «сегодня он пришел на 10 минут позднее обещанного времени. Он порой опаздывал и раньше»."
         editMindChangeTmp.text.clear()
         selectedEmotion.value = null
 

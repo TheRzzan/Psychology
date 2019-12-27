@@ -100,7 +100,7 @@
                 android:layout_toStartOf="@+id/imageAboutArrow"
                 android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                android:text="Об этом преложении"
+                android:text="Об этом приложении"
                 android:textStyle="bold"
                 android:textColor="@color/second_header_text"
                 style="@style/TextView.Secondary" android:id="@+id/textAbout"/>
