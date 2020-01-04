@@ -11,6 +11,7 @@
             android:alpha="0.5"
             android:background="@drawable/wallpaper_1"
             android:scaleType="centerCrop"
+            android:clickable="false"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
@@ -44,6 +45,8 @@
 
     <com.yarolegovich.discretescrollview.DiscreteScrollView
             android:background="#99000000"
+            android:clickable="true"
+            android:focusable="true"
             android:id="@+id/recyclerStylesWallpaper"
             android:layout_above="@+id/buttonStyleWallpaperSave"
             android:overScrollMode="never"

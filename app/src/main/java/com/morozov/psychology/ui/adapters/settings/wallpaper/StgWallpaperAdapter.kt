@@ -23,6 +23,6 @@ class StgWallpaperAdapter(private val listener: OnItemClickListener): ListAdapte
         )
 
     override fun onBindViewHolder(holder: StgWallpaperViewHolder, position: Int) {
-        holder.populate(data()[position], position, position == selectedPosition.value, listener)
+        holder.populate(data()[position], position, selectedPosition, listener)
     }
 }

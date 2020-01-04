@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.arellomobile.mvp.MvpAppCompatFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
@@ -37,8 +38,8 @@ class SettingsWallpaperFragment: MvpAppCompatFragment(), SettingsWallpaperView,
 
         adapter = StgWallpaperAdapter(this)
         recyclerStylesWallpaper.setSlideOnFling(true)
-        recyclerStylesWallpaper.addOnItemChangedListener(this)
         recyclerStylesWallpaper.adapter = adapter
+        recyclerStylesWallpaper.addOnItemChangedListener(this)
 
         linearBack.setOnClickListener {
             activity?.onBackPressed()
@@ -77,9 +78,6 @@ class SettingsWallpaperFragment: MvpAppCompatFragment(), SettingsWallpaperView,
     override fun showMainImage(drawable: Drawable, position: Int) {
         imageStyleWallpaper.setImageDrawable(drawable)
         adapter.selectedPosition.value = position
-        recyclerStylesWallpaper.post {
-            adapter.notifyDataSetChanged()
-        }
     }
 
     override fun showImages(data: List<Drawable>) {
