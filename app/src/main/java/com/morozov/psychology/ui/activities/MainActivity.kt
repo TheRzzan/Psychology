@@ -234,7 +234,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
                             Runnable { }, supportFragmentManager)
                     }
                     is MindChangeTest -> {
-                        CustomYesNoDialog.showDialog("Вы действительно хотите покинуть тест?",
+                        CustomYesNoDialog.showDialog("Вы действительно хотите уйти с этой страницы?",
                             "Да", "Отмена",
                             Runnable {
                                 supportFragmentManager.popBackStack()
