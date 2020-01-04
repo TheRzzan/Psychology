@@ -35,12 +35,12 @@
     <color name="orange">#FF9F0A</color>
     <color name="red">#FF453A</color>
 
-    <color name="greenDark">#209B33</color>
-    <color name="turquoiseDark">#3E96B8</color>
-    <color name="blueDark">#0461C5</color>
-    <color name="yellowDark">#CAA405</color>
-    <color name="orangeDark">#C77C01</color>
-    <color name="redDark">#E21408</color>
+    <color name="greenDark">#32D74B</color>
+    <color name="turquoiseDark">#64D2FF</color>
+    <color name="blueDark">#0A84FF</color>
+    <color name="yellowDark">#FFD60A</color>
+    <color name="orangeDark">#FF9F0A</color>
+    <color name="redDark">#FF453A</color>
 
     <!-- Day of week -->
     <color name="sunday">#FFD60A</color>

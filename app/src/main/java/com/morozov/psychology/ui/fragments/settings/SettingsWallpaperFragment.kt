@@ -12,6 +12,7 @@ import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.settings.SettingsWallpaperPresenter
 import com.morozov.psychology.mvp.views.settings.SettingsWallpaperView
+import com.morozov.psychology.ui.adapters.listeners.OnItemClickListener
 import com.morozov.psychology.ui.adapters.settings.wallpaper.StgWallpaperAdapter
 import com.morozov.psychology.ui.adapters.settings.wallpaper.StgWallpaperViewHolder
 import com.morozov.psychology.utility.AppConstants
@@ -20,7 +21,7 @@ import com.yarolegovich.discretescrollview.DiscreteScrollView
 import kotlinx.android.synthetic.main.settings_wallpaper_layout.*
 
 class SettingsWallpaperFragment: MvpAppCompatFragment(), SettingsWallpaperView,
-    DiscreteScrollView.OnItemChangedListener<StgWallpaperViewHolder>{
+    DiscreteScrollView.OnItemChangedListener<StgWallpaperViewHolder>, OnItemClickListener{
 
     @InjectPresenter
     lateinit var mPresenter: SettingsWallpaperPresenter
@@ -34,7 +35,7 @@ class SettingsWallpaperFragment: MvpAppCompatFragment(), SettingsWallpaperView,
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = StgWallpaperAdapter()
+        adapter = StgWallpaperAdapter(this)
         recyclerStylesWallpaper.setSlideOnFling(true)
         recyclerStylesWallpaper.addOnItemChangedListener(this)
         recyclerStylesWallpaper.adapter = adapter
@@ -59,6 +60,14 @@ class SettingsWallpaperFragment: MvpAppCompatFragment(), SettingsWallpaperView,
         super.onStart()
 
         context?.let { mPresenter.loadImages(it) }
+    }
+
+    /*
+    * OnItemClickListener implementation
+    *
+    * */
+    override fun onItemClick(view: View, position: Int) {
+        recyclerStylesWallpaper.smoothScrollToPosition(position)
     }
 
     /*
