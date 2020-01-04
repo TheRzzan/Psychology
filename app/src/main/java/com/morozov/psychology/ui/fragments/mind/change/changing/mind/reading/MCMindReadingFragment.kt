@@ -232,7 +232,7 @@ class MCMindReadingFragment: MvpAppCompatFragment(), MCMindReadingView, MindChan
         when (b) {
             true -> {
                 text.visibility = View.VISIBLE
-                textMChangeEmotionsPercent.text = name
+                textMChangeEmotion.text = name
                 text.text = "1%"
                 image.setImageDrawable(draw1)
             }

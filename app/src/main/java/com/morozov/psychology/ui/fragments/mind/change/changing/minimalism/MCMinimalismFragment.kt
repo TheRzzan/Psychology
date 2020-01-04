@@ -232,7 +232,7 @@ class MCMinimalismFragment: MvpAppCompatFragment(), MCMinimalismView, MindChange
         when (b) {
             true -> {
                 text.visibility = View.VISIBLE
-                textMinEmotionsPercent.text = name
+                textMinEmotion.text = name
                 text.text = "1%"
                 image.setImageDrawable(draw1)
             }

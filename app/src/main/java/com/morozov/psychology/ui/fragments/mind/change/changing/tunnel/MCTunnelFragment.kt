@@ -262,7 +262,7 @@ class MCTunnelFragment: MvpAppCompatFragment(), MCTunnelView, MindChangeTest {
         when (b) {
             true -> {
                 text.visibility = View.VISIBLE
-                textTunnelEmotionsPercent.text = name
+                textTunnelEmotion.text = name
                 text.text = "1%"
                 image.setImageDrawable(draw1)
             }

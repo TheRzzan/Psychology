@@ -231,7 +231,7 @@ class MCPersonalizationFragment: MvpAppCompatFragment(), MCPersonalizationView, 
         when (b) {
             true -> {
                 text.visibility = View.VISIBLE
-                textPersEmotionsPercent.text = name
+                textPersEmotion.text = name
                 text.text = "1%"
                 image.setImageDrawable(draw1)
             }

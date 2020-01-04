@@ -232,7 +232,7 @@ class MCOvergenerationFragment: MvpAppCompatFragment(), MCOvergenerationView, Mi
         when (b) {
             true -> {
                 text.visibility = View.VISIBLE
-                textOvergEmotionsPercent.text = name
+                textOvergEmotion.text = name
                 text.text = "1%"
                 image.setImageDrawable(draw1)
             }
