@@ -121,7 +121,7 @@
                     android:id="@+id/editAllowableError"/>
 
             <TextView
-                    android:text="Помните, что в любом деле важно соотности цену, которую вы платите, с тем результатом, котрый получаете. Сфомулируйте новую мысль так, чтобы цена была сопоставима с качеством."
+                    android:text="Помните, что в любом деле важно соотнести цену, которую вы платите, с тем результатом, который получаете. Сфомулируйте новую мысль так, чтобы цена была сопоставима с качеством."
                     style="@style/TextView.Secondary"
                     android:layout_marginBottom="@dimen/activity_vertical_margin"
                     android:layout_marginStart="@dimen/activity_horizontal_margin"

@@ -218,7 +218,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
                         Runnable { }, supportFragmentManager)
                     }
                     is DiaryEditorFragment -> {
-                        CustomYesNoDialog.showDialog("Вы действительно хотите выйти из заполнения ситуаци?",
+                        CustomYesNoDialog.showDialog("Вы действительно хотите выйти из заполнения ситуации?",
                             "Да", "Отмена",
                             Runnable {
                                 supportFragmentManager.popBackStack()
