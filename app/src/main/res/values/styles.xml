@@ -122,6 +122,7 @@
     </style>
 
     <style name="EditTextStyle">
+        <item name="android:textColor">@color/second_header_text</item>
         <item name="android:textCursorDrawable">@drawable/cursor_color</item>
         <item name="android:background">@drawable/rectangle_long_edit_text_with_shadow</item>
         <item name="android:paddingTop">8dp</item>

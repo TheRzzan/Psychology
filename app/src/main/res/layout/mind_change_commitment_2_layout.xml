@@ -23,6 +23,7 @@
                     android:text="Я не могу "/>
 
             <TextView
+                    android:visibility="gone"
                     android:text="Ситуация:"
                     style="@style/TextView.Secondary"
                     android:textStyle="bold"
@@ -30,6 +31,7 @@
                     android:textColor="@color/second_header_text"/>
 
             <EditText
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:minHeight="48dp"
@@ -42,9 +44,11 @@
                     android:hint="Ситуация"
                     android:enabled="false"
                     android:ems="10"
+                    android:textColor="@color/second_header_text"
                     android:id="@+id/editComSituation"/>
 
             <TextView
+                    android:visibility="gone"
                     android:text="Новая мысль:"
                     style="@style/TextView.Secondary"
                     android:textStyle="bold"
@@ -54,6 +58,7 @@
                     android:textColor="@color/second_header_text"/>
 
             <EditText
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:minHeight="48dp"
@@ -66,6 +71,7 @@
                     android:hint="Мысли"
                     android:enabled="false"
                     android:ems="10"
+                    android:textColor="@color/second_header_text"
                     android:id="@+id/editComThink"/>
 
             <TextView
