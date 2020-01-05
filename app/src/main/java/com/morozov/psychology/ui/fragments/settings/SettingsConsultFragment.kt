@@ -1,13 +1,15 @@
 package com.morozov.psychology.ui.fragments.settings
 
-import android.app.DatePickerDialog
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.EditText
+import android.widget.Spinner
 import com.arellomobile.mvp.MvpAppCompatFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
@@ -15,8 +17,6 @@ import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.settings.SettingsConsultPresenter
 import com.morozov.psychology.mvp.views.settings.SettingsConsultView
 import kotlinx.android.synthetic.main.settings_consult_layout.*
-import java.text.SimpleDateFormat
-import java.util.*
 
 class SettingsConsultFragment: MvpAppCompatFragment(), SettingsConsultView {
 
@@ -25,16 +25,6 @@ class SettingsConsultFragment: MvpAppCompatFragment(), SettingsConsultView {
     lateinit var mActivityPresenter: MainPresenter
 
     private val consultTypeStrs = listOf("Очно в Санкт-Петербурге", "Скайп")
-
-    /*
-    * Calendar
-    *
-    * */
-    var calendar = Calendar.getInstance()
-    val calendarListener = DatePickerDialog.OnDateSetListener{ datePicker: DatePicker, year: Int, month: Int, day: Int ->
-        textDayMonthYear.text = "$day.${month + 1}.$year"
-        checkIsReadyToSave()
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.settings_consult_layout, container, false)
@@ -46,16 +36,14 @@ class SettingsConsultFragment: MvpAppCompatFragment(), SettingsConsultView {
         initEditText(editName)
         initEditText(editEmailVk)
         initEditText(editQuestion)
-        relativeDayMonthYear.setOnClickListener {
-            showCalendar()
-        }
+        initEditText(editPreferedTime)
 
         imageMainSettings.setOnClickListener {
             mActivityPresenter.showSettingsSection()
         }
 
         buttonSendRequest.setOnClickListener {
-            activity?.onBackPressed()
+            mActivityPresenter.showSettingsConsult()
         }
     }
 
@@ -95,29 +83,12 @@ class SettingsConsultFragment: MvpAppCompatFragment(), SettingsConsultView {
 
     private fun checkIsReadyToSave() {
         val isReady = editName.text.toString().isNotEmpty() && editEmailVk.text.toString().isNotEmpty() &&
-                editQuestion.text.toString().isNotEmpty() &&
-                textDayMonthYear.text != "ДД.ММ.ГГГГ"
+                editQuestion.text.toString().isNotEmpty() && editPreferedTime.text.toString().isNotEmpty()
 
         when(isReady) {
             true -> buttonSendRequest.setBackgroundResource(R.drawable.rectangle_button)
             false -> buttonSendRequest.setBackgroundResource(R.drawable.rectangle_button_disable)
         }
         buttonSendRequest.isEnabled = isReady
-    }
-
-    fun showCalendar() {
-        val dialog = DatePickerDialog(
-            context, calendarListener,
-            calendar.get(Calendar.YEAR),
-            calendar.get(Calendar.MONTH),
-            calendar.get(Calendar.DAY_OF_MONTH)
-        )
-
-        val dayMtYrFormat = SimpleDateFormat("dd/MM/yyyy")
-        val dateCal = dayMtYrFormat
-            .parse("${calendar.get(Calendar.DAY_OF_MONTH)}/${calendar.get(Calendar.MONTH) + 1}/${calendar.get(Calendar.YEAR)}")
-
-        dialog.datePicker.minDate = dateCal.time
-        dialog.show()
     }
 }

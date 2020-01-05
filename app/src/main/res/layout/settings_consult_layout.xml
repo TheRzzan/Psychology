@@ -149,30 +149,24 @@
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
 
-            <RelativeLayout
-                    android:id="@+id/relativeDayMonthYear"
+            <EditText
+                    android:textColor="@color/grey_color"
+                    android:textSize="17sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:inputType="textPersonName|textMultiLine"
+                    android:maxLines="4"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:hint="Укажите промежуток времени"
                     android:layout_marginBottom="24dp"
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                <TextView
-                        android:id="@+id/textDayMonthYear"
-                        android:text="ДД.ММ.ГГГГ"
-                        android:textStyle="bold"
-                        style="@style/TextView.Secondary"
-                        android:textSize="20sp"
-                        android:textColor="@color/secondary_text"
-                        android:layout_marginEnd="8dp"/>
-                
-                <ImageView
-                        android:layout_centerVertical="true"
-                        android:layout_toEndOf="@+id/textDayMonthYear"
-                        android:src="@drawable/ic_calendar"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"/>
-            </RelativeLayout>
+                    android:ems="10"
+                    style="@style/EditTextStyle"
+                    android:background="@drawable/rectangle_long_edit_text_with_shadow"
+                    android:id="@+id/editPreferedTime"/>
 
             <TextView
                     android:text="Выберите формат консультации:"

@@ -70,6 +70,10 @@ class MindChangeFragment: MvpAppCompatFragment(), MindChangeView, OnItemClickLis
         relativeDayMonthYear.setOnClickListener {
             showCalendar()
         }
+
+        cardHomework.setOnClickListener {
+            mActivityPresenter.showHmMain(Date())
+        }
     }
 
     /*
