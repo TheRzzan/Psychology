@@ -97,30 +97,21 @@
                     android:layout_marginBottom="@dimen/activity_vertical_margin"
                     android:textColor="@color/second_header_text"/>
 
-            <RelativeLayout
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:inputType="textPersonName|textMultiLine"
+                    android:maxLines="4"
+                    android:layout_marginBottom="24dp"
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                <TextView
-                        android:id="@+id/textLabelPercent1"
-                        android:text="1%"
-                        android:textStyle="bold"
-                        style="@style/TextView.Secondary"
-                        android:layout_alignParentEnd="true"
-                        android:textColor="@android:color/black"/>
-            </RelativeLayout>
-
-            <SeekBar
-                    android:id="@+id/seekBarLabel1"
-                    android:layout_marginBottom="24dp"
-                    android:theme="@style/SeekBarStyle"
-                    android:min="1"
-                    android:max="100"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:hint="Опишите полюс"
+                    android:ems="10"
+                    style="@style/EditTextStyle"
+                    android:id="@+id/editPolus1"/>
 
             <TextView
                     android:text="Теперь опишите другой полюс. В данном примере это был бы самый красивый человек в мире по вашему мнению. А вам предстоит описать 100%-ный полюс, противоположный вашей оценке.  "
@@ -131,30 +122,21 @@
                     android:layout_marginBottom="@dimen/activity_vertical_margin"
                     android:textColor="@color/second_header_text"/>
 
-            <RelativeLayout
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:inputType="textPersonName|textMultiLine"
+                    android:maxLines="4"
+                    android:layout_marginBottom="24dp"
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                <TextView
-                        android:id="@+id/textLabelPercent2"
-                        android:text="1%"
-                        android:textStyle="bold"
-                        style="@style/TextView.Secondary"
-                        android:layout_alignParentEnd="true"
-                        android:textColor="@android:color/black"/>
-            </RelativeLayout>
-
-            <SeekBar
-                    android:id="@+id/seekBarLabel2"
-                    android:layout_marginBottom="24dp"
-                    android:theme="@style/SeekBarStyle"
-                    android:min="1"
-                    android:max="100"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:hint="Опишите полюс"
+                    android:ems="10"
+                    style="@style/EditTextStyle"
+                    android:id="@+id/editPolus2"/>
 
             <TextView
                     android:text="Вот теперь, когда у вас есть шкала, сделайте переоценку. Определите свое место или место другого человека на этой шкале."

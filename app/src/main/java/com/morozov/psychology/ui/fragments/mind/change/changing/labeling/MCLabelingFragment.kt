@@ -52,36 +52,6 @@ class MCLabelingFragment: MvpAppCompatFragment(), MCLabelingView, MindChangeTest
             mActivityPresenter.showMindChangeSection()
         }
 
-        seekBarLabel1.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                textLabelPercent1.text = "$progress%"
-            }
-
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {
-
-            }
-
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {
-
-            }
-
-        })
-
-        seekBarLabel2.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                textLabelPercent2.text = "$progress%"
-            }
-
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {
-
-            }
-
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {
-
-            }
-
-        })
-
         selectedEmotion.observeForever {
             verifyIsReadyToSave()
 
@@ -137,6 +107,34 @@ class MCLabelingFragment: MvpAppCompatFragment(), MCLabelingView, MindChangeTest
             }
         })
 
+        editPolus1.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                verifyIsReadyToSave()
+            }
+        })
+
+        editPolus2.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                verifyIsReadyToSave()
+            }
+        })
+
         setEmotionsOnClick()
     }
 
@@ -161,6 +159,8 @@ class MCLabelingFragment: MvpAppCompatFragment(), MCLabelingView, MindChangeTest
 
     private fun isReadyToSave(): Boolean {
         return editNewThink.text.toString().isNotEmpty() &&
+                editPolus1.text.toString().isNotEmpty() &&
+                editPolus2.text.toString().isNotEmpty() &&
                 selectedEmotion.value != null
     }
 
