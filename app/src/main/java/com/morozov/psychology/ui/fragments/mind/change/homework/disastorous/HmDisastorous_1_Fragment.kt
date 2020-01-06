@@ -14,6 +14,7 @@ import com.morozov.psychology.mvp.views.mind.change.homework.disastorous.HmDisas
 import com.morozov.psychology.ui.adapters.listeners.OnTextChangeListener
 import com.morozov.psychology.ui.adapters.mind.change.edit.seekbar.EditSeekAdapter
 import com.morozov.psychology.ui.fragments.mind.change.MindChangeTest
+import com.morozov.psychology.utility.DisastorousPreferences
 import kotlinx.android.synthetic.main.homework_disastorous_1_layout.*
 
 class HmDisastorous_1_Fragment: MvpAppCompatFragment(), HmDisastorous_1_View, MindChangeTest {
@@ -26,18 +27,54 @@ class HmDisastorous_1_Fragment: MvpAppCompatFragment(), HmDisastorous_1_View, Mi
 
     var allTextRecycler: MutableList<Boolean> = mutableListOf()
 
+    var tmpWorstStr = ""
+    var tmpBestStr = ""
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.homework_disastorous_1_layout, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        buttonNext.setOnClickListener {
-            mActivityPresenter.showHmDisastorous_2()
+        val bestDis: Pair<String, Int>?
+        val worstDis: Pair<String, Int>?
+        var tmpDis: Pair<String, String>? = null
+
+        val contTmp = context
+        if (contTmp != null) {
+            bestDis = DisastorousPreferences.getBestDis(contTmp)
+            worstDis = DisastorousPreferences.getWorstDis(contTmp)
+
+            if (bestDis != null && worstDis != null) {
+                allTextRecycler.add(true)
+                allTextRecycler.add(true)
+                allTextRecycler.add(false)
+                tmpDis = Pair(bestDis.first, worstDis.first)
+                buttonNext.setOnClickListener {
+                    DisastorousPreferences.saveBestDis(contTmp)
+                    DisastorousPreferences.saveWorstDis(contTmp)
+                    mActivityPresenter.showHmDisastorous_2()
+                }
+            } else {
+                allTextRecycler.add(false)
+                allTextRecycler.add(false)
+                allTextRecycler.add(true)
+                buttonNext.text = "Сохранить"
+                buttonNext.setOnClickListener {
+                    DisastorousPreferences.saveBestDis(contTmp, tmpBestStr)
+                    DisastorousPreferences.saveWorstDis(contTmp, tmpWorstStr)
+                    mActivityPresenter.showMindChangeSection()
+                }
+            }
         }
 
         adapter = EditSeekAdapter(object : OnTextChangeListener {
             override fun onTextChanged(position: Int, count: Int, symbolSet: String) {
+                when (position) {
+                    0 -> tmpWorstStr = symbolSet
+                    1 -> tmpBestStr = symbolSet
+                }
+
                 allTextRecycler[position] = count > 0
 
                 var b = true
@@ -50,7 +87,7 @@ class HmDisastorous_1_Fragment: MvpAppCompatFragment(), HmDisastorous_1_View, Mi
 
                 verifyIsReadyToSave(b)
             }
-        })
+        }, false, tmpDis)
 
         recyclerHomework.adapter = adapter
         recyclerHomework.layoutManager = LinearLayoutManager(context)
@@ -76,13 +113,5 @@ class HmDisastorous_1_Fragment: MvpAppCompatFragment(), HmDisastorous_1_View, Mi
     * */
     override fun showRecycler(data: List<Pair<String, String>>) {
         adapter.setData(data)
-
-        allTextRecycler = mutableListOf()
-
-        var i = 0
-        while (i < adapter.itemCount) {
-            i++
-            allTextRecycler.add(false)
-        }
     }
 }

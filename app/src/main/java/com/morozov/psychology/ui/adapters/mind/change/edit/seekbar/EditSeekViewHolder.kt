@@ -10,9 +10,14 @@ import kotlinx.android.synthetic.main.item_homework_edit_seek.view.*
 
 class EditSeekViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
-    fun populate(hideSeek: Boolean, text: String, hint: String, position: Int, listener: OnTextChangeListener) {
+    fun populate(hideSeek: Boolean, text: String, hint: String,
+                 position: Int, listener: OnTextChangeListener,
+                 savedText: String? = null) {
         itemView.textHomItem.text = text
         itemView.editHomItem.hint = hint
+
+        if (savedText != null)
+            itemView.editHomItem.setText(savedText)
 
         itemView.editHomItem.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {

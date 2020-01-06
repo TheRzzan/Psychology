@@ -1,3 +1,5 @@
+@file:Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
+
 package com.morozov.psychology.utility
 
 import android.content.Context

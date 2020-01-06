@@ -6,7 +6,8 @@ import com.morozov.psychology.R
 import com.morozov.psychology.ui.adapters.ListAdapter
 import com.morozov.psychology.ui.adapters.listeners.OnTextChangeListener
 
-class EditSeekAdapter(private val listener: OnTextChangeListener, private val hideSeek: Boolean = false)
+class EditSeekAdapter(private val listener: OnTextChangeListener, private val hideSeek: Boolean = false,
+                      private val savedDis: Pair<String, String>? = null)
     : ListAdapter<Pair<String, String>, EditSeekViewHolder>() {
 
     override fun onCreateViewHolder(container: ViewGroup, p1: Int): EditSeekViewHolder =
@@ -19,6 +20,15 @@ class EditSeekAdapter(private val listener: OnTextChangeListener, private val hi
         )
 
     override fun onBindViewHolder(holder: EditSeekViewHolder, position: Int) {
-        holder.populate(hideSeek, data()[position].first, data()[position].second, position, listener)
+        var savedText: String? = null
+
+        if (savedDis!= null) {
+            when(position) {
+                0 -> savedText = savedDis.second
+                1 -> savedText = savedDis.first
+            }
+        }
+
+        holder.populate(hideSeek, data()[position].first, data()[position].second, position, listener, savedText)
     }
 }

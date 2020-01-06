@@ -13,6 +13,7 @@ import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.mind.change.homework.main.HmMainPresenter
 import com.morozov.psychology.mvp.views.mind.change.homework.main.HmMainView
 import com.morozov.psychology.utility.AppConstants
+import com.morozov.psychology.utility.DisastorousPreferences
 import kotlinx.android.synthetic.main.homework_main_layout.*
 import java.util.*
 
@@ -108,6 +109,17 @@ class HmMainFragment: MvpAppCompatFragment(), HmMainView {
         }
 
         selectedMistake.observeForever {
+            val contextTmp = context
+            if (contextTmp != null && it == 0 &&
+                DisastorousPreferences.getBestDis(contextTmp) != null &&
+                DisastorousPreferences.getBestDis(contextTmp) != null) {
+
+                buttonContinue.visibility = View.VISIBLE
+
+            } else{
+                buttonContinue.visibility = View.GONE
+            }
+
             if (it == null) {
                 buttonStart.setBackgroundResource(R.drawable.rectangle_button_disable)
                 buttonStart.isEnabled = false
@@ -149,7 +161,14 @@ class HmMainFragment: MvpAppCompatFragment(), HmMainView {
 
         buttonStart.setOnClickListener {
             when (selectedMistake.value) {
-                0 -> mActivityPresenter.showHmDisastorous_1()
+                0 -> {
+                    val contextTmp = context
+                    if (contextTmp != null) {
+                        DisastorousPreferences.saveBestDis(contextTmp)
+                        DisastorousPreferences.saveWorstDis(contextTmp)
+                    }
+                    mActivityPresenter.showHmDisastorous_1()
+                }
                 1 -> mActivityPresenter.showHmDeprecation()
                 2 -> mActivityPresenter.showHmBlackWhite()
                 3 -> mActivityPresenter.showHmEmotional()
