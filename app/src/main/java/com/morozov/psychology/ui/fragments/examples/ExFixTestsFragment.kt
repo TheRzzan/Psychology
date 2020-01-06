@@ -74,7 +74,7 @@ class ExFixTestsFragment: MvpAppCompatFragment(), ExFixTestsView, OnTextChangeLi
     * OnTextChangeListener implementation
     *
     * */
-    override fun onTextChanged(position: Int, count: Int, symbolSet: String) {
+    override fun onTextChanged(position: Int, count: Int, symbolSet: String, percent: Int?) {
         allTextRecycler[position] = symbolSet
 
         var b = true

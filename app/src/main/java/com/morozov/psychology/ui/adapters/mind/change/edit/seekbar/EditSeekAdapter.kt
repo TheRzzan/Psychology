@@ -7,7 +7,7 @@ import com.morozov.psychology.ui.adapters.ListAdapter
 import com.morozov.psychology.ui.adapters.listeners.OnTextChangeListener
 
 class EditSeekAdapter(private val listener: OnTextChangeListener, private val hideSeek: Boolean = false,
-                      private val savedDis: Pair<String, String>? = null)
+                      private val savedDis: Pair<Pair<String, Int>, Pair<String, Int>>? = null)
     : ListAdapter<Pair<String, String>, EditSeekViewHolder>() {
 
     override fun onCreateViewHolder(container: ViewGroup, p1: Int): EditSeekViewHolder =
@@ -20,7 +20,7 @@ class EditSeekAdapter(private val listener: OnTextChangeListener, private val hi
         )
 
     override fun onBindViewHolder(holder: EditSeekViewHolder, position: Int) {
-        var savedText: String? = null
+        var savedText: Pair<String, Int>? = null
 
         if (savedDis!= null) {
             when(position) {

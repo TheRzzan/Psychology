@@ -12,12 +12,9 @@ class EditSeekViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
     fun populate(hideSeek: Boolean, text: String, hint: String,
                  position: Int, listener: OnTextChangeListener,
-                 savedText: String? = null) {
+                 savedText: Pair<String, Int>? = null) {
         itemView.textHomItem.text = text
         itemView.editHomItem.hint = hint
-
-        if (savedText != null)
-            itemView.editHomItem.setText(savedText)
 
         itemView.editHomItem.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
@@ -40,6 +37,8 @@ class EditSeekViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         itemView.seekBarHome1.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 itemView.textHomItemPercent1.text = "$progress%"
+                listener.onTextChanged(position, itemView.editHomItem.text.length,
+                    itemView.editHomItem.text.toString(), progress)
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -54,6 +53,11 @@ class EditSeekViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         if (hideSeek) {
             itemView.seekBarHome1.visibility = View.GONE
             itemView.textHomItemPercent1.visibility = View.GONE
+        }
+
+        if (savedText != null) {
+            itemView.editHomItem.setText(savedText.first)
+            itemView.seekBarHome1.progress = savedText.second
         }
     }
 }

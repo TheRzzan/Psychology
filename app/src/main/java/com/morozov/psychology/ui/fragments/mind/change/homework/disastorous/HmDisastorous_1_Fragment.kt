@@ -29,6 +29,8 @@ class HmDisastorous_1_Fragment: MvpAppCompatFragment(), HmDisastorous_1_View, Mi
 
     var tmpWorstStr = ""
     var tmpBestStr = ""
+    var tmpWorstInt = 1
+    var tmpBestInt = 1
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.homework_disastorous_1_layout, container, false)
@@ -38,7 +40,7 @@ class HmDisastorous_1_Fragment: MvpAppCompatFragment(), HmDisastorous_1_View, Mi
 
         val bestDis: Pair<String, Int>?
         val worstDis: Pair<String, Int>?
-        var tmpDis: Pair<String, String>? = null
+        var tmpDis: Pair<Pair<String, Int>, Pair<String, Int>>? = null
 
         val contTmp = context
         if (contTmp != null) {
@@ -49,7 +51,7 @@ class HmDisastorous_1_Fragment: MvpAppCompatFragment(), HmDisastorous_1_View, Mi
                 allTextRecycler.add(true)
                 allTextRecycler.add(true)
                 allTextRecycler.add(false)
-                tmpDis = Pair(bestDis.first, worstDis.first)
+                tmpDis = Pair(bestDis, worstDis)
                 buttonNext.setOnClickListener {
                     DisastorousPreferences.saveBestDis(contTmp)
                     DisastorousPreferences.saveWorstDis(contTmp)
@@ -61,18 +63,26 @@ class HmDisastorous_1_Fragment: MvpAppCompatFragment(), HmDisastorous_1_View, Mi
                 allTextRecycler.add(true)
                 buttonNext.text = "Сохранить"
                 buttonNext.setOnClickListener {
-                    DisastorousPreferences.saveBestDis(contTmp, tmpBestStr)
-                    DisastorousPreferences.saveWorstDis(contTmp, tmpWorstStr)
+                    DisastorousPreferences.saveBestDis(contTmp, tmpBestStr, tmpBestInt)
+                    DisastorousPreferences.saveWorstDis(contTmp, tmpWorstStr, tmpWorstInt)
                     mActivityPresenter.showMindChangeSection()
                 }
             }
         }
 
         adapter = EditSeekAdapter(object : OnTextChangeListener {
-            override fun onTextChanged(position: Int, count: Int, symbolSet: String) {
+            override fun onTextChanged(position: Int, count: Int, symbolSet: String, percent: Int?) {
                 when (position) {
-                    0 -> tmpWorstStr = symbolSet
-                    1 -> tmpBestStr = symbolSet
+                    0 -> {
+                        tmpWorstStr = symbolSet
+                        if (percent != null)
+                            tmpWorstInt = percent
+                    }
+                    1 -> {
+                        tmpBestStr = symbolSet
+                        if (percent != null)
+                            tmpBestInt = percent
+                    }
                 }
 
                 allTextRecycler[position] = count > 0
