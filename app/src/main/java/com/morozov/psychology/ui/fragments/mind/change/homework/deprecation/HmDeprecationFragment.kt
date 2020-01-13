@@ -42,7 +42,7 @@ class HmDeprecationFragment: MvpAppCompatFragment(), HmDeprecationView, MindChan
         }
 
         adapter = EditSeekAdapter(object : OnTextChangeListener {
-            override fun onTextChanged(position: Int, count: Int, symbolSet: String) {
+            override fun onTextChanged(position: Int, count: Int, symbolSet: String, percent: Int?) {
                 allTextRecycler[position] = count > 0
 
                 var b = true

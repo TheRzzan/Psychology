@@ -41,7 +41,12 @@ class HmDisastorous_2_Fragment: MvpAppCompatFragment(), HmDisastorous_2_View {
         }
 
         adapter = EditSeekAdapter(object : OnTextChangeListener {
-            override fun onTextChanged(position: Int, count: Int, symbolSet: String) {
+            override fun onTextChanged(
+                position: Int,
+                count: Int,
+                symbolSet: String,
+                percent: Int?
+            ) {
                 allTextRecycler[position] = count > 0
 
                 var b = true
