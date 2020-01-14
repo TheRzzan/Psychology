@@ -43,6 +43,10 @@ class DiaryThinkViewingFragment: MvpAppCompatFragment(), DiaryThinkViewingView {
                     null
                 )
             }
+
+        buttonDiaryToMindChange.setOnClickListener {
+            mActivityPresenter.showMindChangeSection()
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
