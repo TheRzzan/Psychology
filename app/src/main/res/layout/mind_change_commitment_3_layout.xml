@@ -23,7 +23,7 @@
                     android:text="Мне надо "/>
 
             <TextView
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:text="Ситуация:"
                     style="@style/TextView.Secondary"
                     android:textStyle="bold"
@@ -31,7 +31,7 @@
                     android:textColor="@color/second_header_text"/>
 
             <EditText
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:minHeight="48dp"
@@ -48,7 +48,7 @@
                     android:id="@+id/editComSituation"/>
 
             <TextView
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:text="Новая мысль:"
                     style="@style/TextView.Secondary"
                     android:textStyle="bold"
@@ -58,7 +58,7 @@
                     android:textColor="@color/second_header_text"/>
 
             <EditText
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:minHeight="48dp"

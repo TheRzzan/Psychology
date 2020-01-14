@@ -98,6 +98,7 @@ class MCCommitment_3_Fragment: MvpAppCompatFragment(), MCCommitment_3_View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        mPresenter.loadData()
         selectedEmotion.value = null
     }
 
@@ -210,5 +211,14 @@ class MCCommitment_3_Fragment: MvpAppCompatFragment(), MCCommitment_3_View {
                 text.visibility = View.GONE
             }
         }
+    }
+
+    /*
+    * MCCommitment_3_View implementation
+    *
+    * */
+    override fun showThink(situation: String, newThink: String) {
+        editComSituation.setText(situation)
+        editComThink.setText(newThink)
     }
 }

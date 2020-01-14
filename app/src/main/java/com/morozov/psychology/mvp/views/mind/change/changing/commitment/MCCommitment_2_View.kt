@@ -6,5 +6,5 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
 
 @StateStrategyType(value = AddToEndSingleStrategy::class)
 interface MCCommitment_2_View: MvpView {
-
+    fun showThink(situation: String, newThink: String)
 }
