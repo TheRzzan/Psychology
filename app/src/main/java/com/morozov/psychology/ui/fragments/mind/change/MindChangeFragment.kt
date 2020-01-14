@@ -82,21 +82,21 @@ class MindChangeFragment: MvpAppCompatFragment(), MindChangeView, OnItemClickLis
     * */
     override fun showSelectDate(b: Boolean) {
         when (b) {
-            true -> {
-                linearArrow.visibility = View.VISIBLE
-                textMindChangeNonSelectedDay.visibility = View.VISIBLE
-            }
-            false -> {
-                linearArrow.visibility = View.GONE
-                textMindChangeNonSelectedDay.visibility = View.GONE
-            }
+            true -> textPreview.visibility = View.VISIBLE
+            false -> textPreview.visibility = View.GONE
         }
     }
 
     override fun showEmptyDate(b: Boolean) {
         when (b) {
-            true -> textMindChangeEmptyDay.visibility = View.VISIBLE
-            false -> textMindChangeEmptyDay.visibility = View.GONE
+            true -> {
+                textMindChangeEmptyDay.visibility = View.VISIBLE
+                recyclerMindChangeThinks.minimumHeight = 220
+            }
+            false -> {
+                textMindChangeEmptyDay.visibility = View.GONE
+                recyclerMindChangeThinks.minimumHeight = 0
+            }
         }
     }
 
