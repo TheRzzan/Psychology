@@ -21,6 +21,14 @@ class AppConstants {
         const val STYLE_INDEX_TEST = "style_index_test"
         const val SELF_ATTITUDE_TEST = "self_attitude_test"
 
+        const val SIMPLE_WEISMAN_BACK_TEST = "Шкала дисфункциональных отношений Вейсмана-Бека"
+        const val SIMPLE_ELLIS_TEST = "Тест Эллиса"
+        const val SIMPLE_HOSPITAL_SCALE_TEST = "Госпитальная шкала тревоги и депрессии"
+        const val SIMPLE_INTEGRATIVE_TEST = "Интегративный тест тревожности"
+        const val SIMPLE_LAZARUS_QUESTIONNAIRE_TEST = "Опросник «Способы совладающего поведения» Лазаруса"
+        const val SIMPLE_STYLE_INDEX_TEST = "Индекс жизненного стиля"
+        const val SIMPLE_SELF_ATTITUDE_TEST = "Методика исследования самоотношения"
+
         // Shared Preference
         const val EMPTY_PREF = "empty_pref_v1_2"
         const val PREF_WALLPAPER = "pref_wallpaper_v1_2"

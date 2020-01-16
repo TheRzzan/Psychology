@@ -5,9 +5,9 @@ import com.morozov.psychology.DefaultApplication
 import com.morozov.psychology.domain.interfaces.tests.AboutLoader
 import com.morozov.psychology.mvp.models.tests.ResultModel
 import com.morozov.psychology.mvp.models.tests.about.enums.SexEnum
+import com.morozov.psychology.repository.FirebaseHelper
 import java.util.*
 import javax.inject.Inject
-import kotlin.math.max
 
 class TestsResultsGenerator {
 
@@ -18,30 +18,48 @@ class TestsResultsGenerator {
         DefaultApplication.testsComponent.inject(this)
     }
 
-    fun getResult(testName: String, answers: List<Int>): ResultModel = when (testName) {
+    fun getResult(testName: String, answers: List<Int>): ResultModel {
+        var simpleTestName = testName
+        val resultModel = when (testName) {
             AppConstants.WEISMAN_BACK_TEST -> {
+                simpleTestName = AppConstants.SIMPLE_WEISMAN_BACK_TEST
                 getWeismanBackRes(testName, answers)
             }
             AppConstants.ELLIS_TEST -> {
+                simpleTestName = AppConstants.SIMPLE_ELLIS_TEST
                 getEllisRes(testName, answers)
             }
             AppConstants.HOSPITAL_SCALE_TEST -> {
+                simpleTestName = AppConstants.SIMPLE_HOSPITAL_SCALE_TEST
                 getHospitalScaleRes(testName, answers)
             }
             AppConstants.LAZARUS_QUESTIONNAIRE_TEST -> {
+                simpleTestName = AppConstants.SIMPLE_LAZARUS_QUESTIONNAIRE_TEST
                 getLazarusQuestionnaireRes(testName, answers)
             }
             AppConstants.SELF_ATTITUDE_TEST -> {
+                simpleTestName = AppConstants.SIMPLE_SELF_ATTITUDE_TEST
                 getSelfAttitudeRes(testName, answers)
             }
             AppConstants.STYLE_INDEX_TEST -> {
+                simpleTestName = AppConstants.SIMPLE_STYLE_INDEX_TEST
                 getStyleIndexRes(testName, answers)
             }
             AppConstants.INTEGRATIVE_TEST -> {
+                simpleTestName = AppConstants.SIMPLE_INTEGRATIVE_TEST
                 getIntegrativeRes(testName, answers)
             }
             else -> ResultModel(Date(), listOf(Pair(testName, "Some description ${answers.size}")))
         }
+
+        val hashMap = mutableMapOf<String, String>()
+        for ((index, answer) in answers.withIndex()) {
+            hashMap["_$index"] = answer.toString()
+        }
+        FirebaseHelper.writeTest(simpleTestName, Date().toString(), hashMap)
+
+        return resultModel
+    }
 
     /*
     * WeismanBack functions
