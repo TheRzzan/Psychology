@@ -56,7 +56,8 @@ class TestsResultsGenerator {
         for ((index, answer) in answers.withIndex()) {
             hashMap["_$index"] = answer.toString()
         }
-        FirebaseHelper.writeTest(simpleTestName, Date().toString(), hashMap)
+        FirebaseHelper.writeTest(simpleTestName, resultModel.date.time.toString(),
+            hashMap, resultModel.items.toMap())
 
         return resultModel
     }

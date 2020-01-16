@@ -9,12 +9,13 @@ object FirebaseHelper {
         database = FirebaseDatabase.getInstance().reference
     }
 
-    fun writeTest(nameTest: String, date: String, answers: Map<String, String>) {
-        val answers = FirebaseAnswers(nameTest, date, answers)
+    fun writeTest(nameTest: String, date: String, answers: Map<String, String>, generatedResults: Map<String, String>) {
+        val answers = FirebaseAnswers(nameTest, date, answers, generatedResults)
         if (database == null)
             init()
         database!!.child("analytics").push().setValue(answers)
     }
 
-    private data class FirebaseAnswers(val nameTest: String, val date: String, val answers: Map<String, String>)
+    private data class FirebaseAnswers(val nameTest: String, val date: String,
+                                       val answers: Map<String, String>, val generatedResults: Map<String, String>)
 }
