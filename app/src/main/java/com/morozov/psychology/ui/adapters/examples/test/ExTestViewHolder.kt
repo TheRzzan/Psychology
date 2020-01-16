@@ -1,6 +1,6 @@
 package com.morozov.psychology.ui.adapters.examples.test
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.text.Editable
 import android.text.Html
 import android.text.TextWatcher
@@ -8,7 +8,7 @@ import android.view.View
 import com.morozov.psychology.ui.adapters.listeners.OnTextChangeListener
 import kotlinx.android.synthetic.main.item_example_test.view.*
 
-class ExTestViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+class ExTestViewHolder(itemView: View): androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
 
     fun populate(text: String, position: Int, listener: OnTextChangeListener) {
         if (position == 0)

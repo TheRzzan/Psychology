@@ -1,7 +1,7 @@
 package com.morozov.psychology.ui.fragments.mind.change.homework.disastorous
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -100,7 +100,8 @@ class HmDisastorous_1_Fragment: MvpAppCompatFragment(), HmDisastorous_1_View, Mi
         }, false, tmpDis)
 
         recyclerHomework.adapter = adapter
-        recyclerHomework.layoutManager = LinearLayoutManager(context)
+        recyclerHomework.layoutManager =
+            androidx.recyclerview.widget.LinearLayoutManager(context)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

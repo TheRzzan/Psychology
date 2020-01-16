@@ -2,7 +2,7 @@ package com.morozov.psychology.ui.fragments.mind.change.think.mistake
 
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -49,7 +49,8 @@ class MCThinkMistake_1_Fragment: MvpAppCompatFragment(), MCThinkMistake_1_View {
 
         adapter = MCThinkMistakeAdapter()
         recyclerThinkMistake.adapter = adapter
-        recyclerThinkMistake.layoutManager = LinearLayoutManager(context)
+        recyclerThinkMistake.layoutManager =
+            androidx.recyclerview.widget.LinearLayoutManager(context)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

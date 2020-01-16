@@ -1,13 +1,13 @@
 package com.morozov.psychology.ui.adapters.diary.think.list
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import com.morozov.psychology.mvp.models.diary.ThinkModel
 import com.morozov.psychology.ui.adapters.listeners.OnItemClickListener
 import kotlinx.android.synthetic.main.item_diary_think_card.view.*
 import java.text.SimpleDateFormat
 
-class DiaryThinkViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+class DiaryThinkViewHolder(itemView: View): androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
 
     companion object {
         private const val MAX_SYMBOLS_SITUATION = 16

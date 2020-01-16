@@ -1,7 +1,7 @@
 package com.morozov.psychology.utility
 
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.helper.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.ItemTouchHelper
 
 class ItemTouchHelperClass(private val adapter: ItemTouchHelperAdapter): ItemTouchHelper.Callback() {
 
@@ -17,18 +17,18 @@ class ItemTouchHelperClass(private val adapter: ItemTouchHelperAdapter): ItemTou
         return true
     }
 
-    override fun getMovementFlags(recycler: RecyclerView, holder: RecyclerView.ViewHolder): Int {
+    override fun getMovementFlags(recycler: androidx.recyclerview.widget.RecyclerView, holder: androidx.recyclerview.widget.RecyclerView.ViewHolder): Int {
         val upFlags = ItemTouchHelper.UP or ItemTouchHelper.DOWN
         val swipeFlags = ItemTouchHelper.START or ItemTouchHelper.END
 
         return makeMovementFlags(upFlags, swipeFlags)
     }
 
-    override fun onMove(recycler: RecyclerView, holder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
+    override fun onMove(recycler: androidx.recyclerview.widget.RecyclerView, holder: androidx.recyclerview.widget.RecyclerView.ViewHolder, target: androidx.recyclerview.widget.RecyclerView.ViewHolder): Boolean {
         return false
     }
 
-    override fun onSwiped(holder: RecyclerView.ViewHolder, direction: Int) {
+    override fun onSwiped(holder: androidx.recyclerview.widget.RecyclerView.ViewHolder, direction: Int) {
         adapter.onItemRemoved(holder.getAdapterPosition())
     }
 }

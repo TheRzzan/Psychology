@@ -81,7 +81,7 @@
                     android:layout_height="wrap_content"
                     android:minHeight="52dp"/>
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                     android:id="@+id/cardWeismanBack"
                     android:layout_below="@+id/buttonTestResults"
                     app:cardCornerRadius="@dimen/card_corner_radius"
@@ -126,9 +126,9 @@
                             android:layout_marginEnd="12dp"
                             android:layout_marginBottom="4dp"/>
                 </RelativeLayout>
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                     android:id="@+id/cardEllis"
                     android:layout_below="@+id/cardWeismanBack"
                     app:cardCornerRadius="@dimen/card_corner_radius"
@@ -173,9 +173,9 @@
                             android:layout_marginEnd="12dp"
                             android:layout_marginBottom="4dp"/>
                 </RelativeLayout>
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                     android:id="@+id/cardHospitalScale"
                     android:layout_below="@+id/cardEllis"
                     app:cardCornerRadius="@dimen/card_corner_radius"
@@ -220,9 +220,9 @@
                             android:layout_marginEnd="12dp"
                             android:layout_marginBottom="4dp"/>
                 </RelativeLayout>
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                     android:id="@+id/cardIntegrative"
                     android:layout_below="@+id/cardHospitalScale"
                     app:cardCornerRadius="@dimen/card_corner_radius"
@@ -267,9 +267,9 @@
                             android:layout_marginEnd="12dp"
                             android:layout_marginBottom="4dp"/>
                 </RelativeLayout>
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                     android:id="@+id/cardLazarusQuestionnaire"
                     android:layout_below="@+id/cardIntegrative"
                     app:cardCornerRadius="@dimen/card_corner_radius"
@@ -314,9 +314,9 @@
                             android:layout_marginEnd="12dp"
                             android:layout_marginBottom="4dp"/>
                 </RelativeLayout>
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                     android:id="@+id/cardStyleIndex"
                     android:layout_below="@+id/cardLazarusQuestionnaire"
                     app:cardCornerRadius="@dimen/card_corner_radius"
@@ -361,9 +361,9 @@
                             android:layout_marginEnd="12dp"
                             android:layout_marginBottom="4dp"/>
                 </RelativeLayout>
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                     android:id="@+id/cardSelfAttitude"
                     android:layout_below="@+id/cardStyleIndex"
                     app:cardCornerRadius="@dimen/card_corner_radius"
@@ -408,7 +408,7 @@
                             android:layout_marginEnd="12dp"
                             android:layout_marginBottom="4dp"/>
                 </RelativeLayout>
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
         </RelativeLayout>
     </ScrollView>

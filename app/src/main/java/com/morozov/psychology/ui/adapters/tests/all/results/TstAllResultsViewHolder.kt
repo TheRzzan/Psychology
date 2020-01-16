@@ -1,17 +1,18 @@
 package com.morozov.psychology.ui.adapters.tests.all.results
 
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import com.morozov.psychology.ui.adapters.tests.results.TstResultsAdapter
 import kotlinx.android.synthetic.main.item_tests_all_results.view.*
 
-class TstAllResultsViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+class TstAllResultsViewHolder(itemView: View): androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
 
     fun populate(data: Pair<String, List<Pair<String, String>>>) {
         itemView.textTestResultDate.text = data.first
         var adapter = TstResultsAdapter()
-        itemView.recyclerTestsResults.layoutManager = LinearLayoutManager(itemView.context)
+        itemView.recyclerTestsResults.layoutManager =
+            androidx.recyclerview.widget.LinearLayoutManager(itemView.context)
         itemView.recyclerTestsResults.adapter = adapter
         adapter.setData(data.second)
 
@@ -20,7 +21,8 @@ class TstAllResultsViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
             when (b) {
                 true -> {
                     adapter = TstResultsAdapter()
-                    itemView.recyclerTestsResults.layoutManager = LinearLayoutManager(itemView.context)
+                    itemView.recyclerTestsResults.layoutManager =
+                        androidx.recyclerview.widget.LinearLayoutManager(itemView.context)
                     itemView.recyclerTestsResults.adapter = adapter
                     adapter.setData(data.second)
 

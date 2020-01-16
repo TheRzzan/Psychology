@@ -2,7 +2,7 @@ package com.morozov.psychology.ui.fragments.mind.change
 
 import android.app.DatePickerDialog
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -64,7 +64,8 @@ class MindChangeFragment: MvpAppCompatFragment(), MindChangeView, OnItemClickLis
         }
 
         adapterThink = MindChangeThinkAdapter(this)
-        recyclerMindChangeThinks.layoutManager = LinearLayoutManager(context)
+        recyclerMindChangeThinks.layoutManager =
+            androidx.recyclerview.widget.LinearLayoutManager(context)
         recyclerMindChangeThinks.adapter = adapterThink
 
         relativeDayMonthYear.setOnClickListener {

@@ -1,8 +1,8 @@
 package com.morozov.psychology.ui.fragments.examples
 
 import android.os.Bundle
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.transition.Fade
 import android.view.LayoutInflater
 import android.view.View
@@ -66,13 +66,16 @@ class ExCardsFragment: MvpAppCompatFragment(), ExCardsView {
         })
 
         if (resources.getBoolean(R.bool.is_tablet))
-            recyclerCardsExper.layoutManager = LinearLayoutManager(context)
+            recyclerCardsExper.layoutManager =
+                androidx.recyclerview.widget.LinearLayoutManager(context)
         else
-            recyclerCardsExper.layoutManager = GridLayoutManager(context, 2)
+            recyclerCardsExper.layoutManager =
+                androidx.recyclerview.widget.GridLayoutManager(context, 2)
 
         recyclerCardsExper.adapter = adapterExp
 
-        recyclerCardsFixing.layoutManager = LinearLayoutManager(context)
+        recyclerCardsFixing.layoutManager =
+            androidx.recyclerview.widget.LinearLayoutManager(context)
         recyclerCardsFixing.adapter = adapterFix
     }
 

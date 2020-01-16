@@ -1,7 +1,7 @@
 package com.morozov.psychology.ui.fragments.tests
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,7 +34,8 @@ class TestsAllResultsCardsFragment: MvpAppCompatFragment(), TestsAllResultsCards
         super.onViewCreated(view, savedInstanceState)
 
         adapter = TstAllResultsAdapter()
-        recyclerAllTestsResultsDays.layoutManager = LinearLayoutManager(context)
+        recyclerAllTestsResultsDays.layoutManager =
+            androidx.recyclerview.widget.LinearLayoutManager(context)
         recyclerAllTestsResultsDays.adapter = adapter
     }
 

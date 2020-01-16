@@ -21,7 +21,7 @@
                 android:layout_marginEnd="@dimen/activity_horizontal_margin"
                 android:id="@+id/textStyleSectionName"/>
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
                 android:layout_below="@+id/textStyleSectionName"
                 style="@style/RecyclerViewStyle"
                 android:layout_width="match_parent"

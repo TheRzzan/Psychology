@@ -1,6 +1,6 @@
 package com.morozov.psychology.ui.fragments.mind.change.homework.main
 
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.MutableLiveData
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View

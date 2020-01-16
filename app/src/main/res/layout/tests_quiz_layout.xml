@@ -42,7 +42,7 @@
                         android:id="@+id/textTestsQuestionDescr"
                         android:layout_below="@+id/progressBarHorizontal"/>
 
-                <android.support.v7.widget.RecyclerView
+                <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recyclerTestsQuestion"
                         style="@style/RecyclerViewStyle"
                         android:layout_width="match_parent"

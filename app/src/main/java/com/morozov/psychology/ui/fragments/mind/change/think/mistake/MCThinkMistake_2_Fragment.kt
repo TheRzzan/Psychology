@@ -1,6 +1,6 @@
 package com.morozov.psychology.ui.fragments.mind.change.think.mistake
 
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.MutableLiveData
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater

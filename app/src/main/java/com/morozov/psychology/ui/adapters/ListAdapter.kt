@@ -1,8 +1,8 @@
 package com.morozov.psychology.ui.adapters
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 
-abstract class ListAdapter<T, VH : RecyclerView.ViewHolder>: RecyclerView.Adapter<VH>() {
+abstract class ListAdapter<T, VH : androidx.recyclerview.widget.RecyclerView.ViewHolder>: androidx.recyclerview.widget.RecyclerView.Adapter<VH>() {
 
     private var data: List<T> = ArrayList<T>()
 

@@ -1,7 +1,7 @@
 package com.morozov.psychology.ui.fragments.mind.change.homework.deprecation
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -58,7 +58,8 @@ class HmDeprecationFragment: MvpAppCompatFragment(), HmDeprecationView, MindChan
         }, true)
 
         recyclerHomework.adapter = adapter
-        recyclerHomework.layoutManager = LinearLayoutManager(context)
+        recyclerHomework.layoutManager =
+            androidx.recyclerview.widget.LinearLayoutManager(context)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

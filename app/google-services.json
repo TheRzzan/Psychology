@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "5738342482",
+    "firebase_url": "https://psyhology-3c2c2.firebaseio.com",
+    "project_id": "psyhology-3c2c2",
+    "storage_bucket": "psyhology-3c2c2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:5738342482:android:ff6f68a2f8c83d8d45178b",
+        "android_client_info": {
+          "package_name": "com.morozov.psychology"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "5738342482-gbso087cflanqv1lesl2n5doeo4pmv68.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.morozov.psychology",
+            "certificate_hash": "24eed9449dc4c3141620fbb6d9347838ab073fee"
+          }
+        },
+        {
+          "client_id": "5738342482-osichp443pbmq0a40gu6k3lf7lqvc891.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1T6bfvzt7S8xiSaB14PC8t6sp4hWbfpY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "5738342482-osichp443pbmq0a40gu6k3lf7lqvc891.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

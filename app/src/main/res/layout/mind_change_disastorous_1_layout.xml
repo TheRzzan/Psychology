@@ -5,7 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
             android:layout_alignParentTop="true"
             android:layout_above="@+id/buttonNext"
             style="@style/ScrollViewStyle">
@@ -103,7 +103,7 @@
                 android:layout_height="wrap_content"/>
 
     </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <Button
             android:id="@+id/buttonNext"

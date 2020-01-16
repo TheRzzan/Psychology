@@ -1,7 +1,7 @@
 package com.morozov.psychology.ui.fragments.settings
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,7 +31,8 @@ class SettingsStyleFragment: MvpAppCompatFragment(), SettingsStyleView {
         super.onViewCreated(view, savedInstanceState)
 
         adapter = StgStyleAdapter()
-        recyclerStyles.layoutManager = LinearLayoutManager(context)
+        recyclerStyles.layoutManager =
+            androidx.recyclerview.widget.LinearLayoutManager(context)
         recyclerStyles.adapter = adapter
 
         adapter.selectedPosition.observeForever {

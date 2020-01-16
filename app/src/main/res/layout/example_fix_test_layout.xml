@@ -70,7 +70,7 @@
                         android:layout_weight="1"/>
             </LinearLayout>
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerFixTest"
                     style="@style/RecyclerViewStyle"
                     android:layout_width="match_parent"

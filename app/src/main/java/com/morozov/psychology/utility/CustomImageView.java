@@ -8,7 +8,7 @@ import android.graphics.Matrix;
  *
  * @author Chris Arriola
  */
-public class CustomImageView extends android.support.v7.widget.AppCompatImageView {
+public class CustomImageView extends androidx.appcompat.widget.AppCompatImageView {
 
     public CustomImageView(Context context) {
         super(context);

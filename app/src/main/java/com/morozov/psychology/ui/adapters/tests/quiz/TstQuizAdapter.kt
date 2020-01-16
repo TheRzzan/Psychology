@@ -1,6 +1,6 @@
 package com.morozov.psychology.ui.adapters.tests.quiz
 
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.MutableLiveData
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

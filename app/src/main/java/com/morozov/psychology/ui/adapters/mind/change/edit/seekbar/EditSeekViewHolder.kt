@@ -1,6 +1,6 @@
 package com.morozov.psychology.ui.adapters.mind.change.edit.seekbar
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
@@ -8,7 +8,7 @@ import android.widget.SeekBar
 import com.morozov.psychology.ui.adapters.listeners.OnTextChangeListener
 import kotlinx.android.synthetic.main.item_homework_edit_seek.view.*
 
-class EditSeekViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+class EditSeekViewHolder(itemView: View): androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
 
     fun populate(hideSeek: Boolean, text: String, hint: String,
                  position: Int, listener: OnTextChangeListener,

@@ -1,12 +1,12 @@
 package com.morozov.psychology.ui.adapters.mind.change.aback.white
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import kotlinx.android.synthetic.main.item_example_test.view.*
 
-class MCBlackWhiteViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+class MCBlackWhiteViewHolder(itemView: View): androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
 
     fun populate(str: String, adapter: MCBlackWhiteAdapter) {
         itemView.textTestQuestion.visibility = View.GONE

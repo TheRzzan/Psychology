@@ -1,7 +1,7 @@
 package com.morozov.psychology.ui.fragments.examples
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -48,7 +48,8 @@ class ExFixTestsFragment: MvpAppCompatFragment(), ExFixTestsView, OnTextChangeLi
         val bundle = this.arguments
 
         adapterTest = ExTestAdapter(this)
-        recyclerFixTest.layoutManager = LinearLayoutManager(context)
+        recyclerFixTest.layoutManager =
+            androidx.recyclerview.widget.LinearLayoutManager(context)
         recyclerFixTest.adapter = adapterTest
 
         buttonFixFinishTest.setOnClickListener {
@@ -95,7 +96,8 @@ class ExFixTestsFragment: MvpAppCompatFragment(), ExFixTestsView, OnTextChangeLi
     override fun showData(description: String, data: List<String>) {
         increaseSegmentProgress()
 
-        recyclerFixTest.layoutManager = LinearLayoutManager(context)
+        recyclerFixTest.layoutManager =
+            androidx.recyclerview.widget.LinearLayoutManager(context)
         recyclerFixTest.adapter = adapterTest
         adapterTest.setData(data)
 
@@ -125,7 +127,8 @@ class ExFixTestsFragment: MvpAppCompatFragment(), ExFixTestsView, OnTextChangeLi
 
     override fun showResults(data: List<ExFixingResultModel>) {
         adapterResults = ExFixResultAdapter()
-        recyclerFixTest.layoutManager = LinearLayoutManager(context)
+        recyclerFixTest.layoutManager =
+            androidx.recyclerview.widget.LinearLayoutManager(context)
         recyclerFixTest.adapter = adapterResults
 
         adapterResults.setData(data)

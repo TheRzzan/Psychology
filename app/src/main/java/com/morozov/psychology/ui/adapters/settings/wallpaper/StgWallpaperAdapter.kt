@@ -1,6 +1,6 @@
 package com.morozov.psychology.ui.adapters.settings.wallpaper
 
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.MutableLiveData
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View

@@ -1,9 +1,9 @@
 package com.morozov.psychology.ui.fragments.mind.change.changing.black.white
 
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.MutableLiveData
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
@@ -57,7 +57,8 @@ class MCBlackWhiteFragment: MvpAppCompatFragment(), MCBlackWhiteView, MindChange
         }
 
         recyclerBW.adapter = adapter
-        recyclerBW.layoutManager = LinearLayoutManager(context)
+        recyclerBW.layoutManager =
+            androidx.recyclerview.widget.LinearLayoutManager(context)
 
         adapter.isAllFilled.observeForever {
             verifyIsReadyToSave()

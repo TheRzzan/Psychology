@@ -50,12 +50,12 @@
                     android:id="@+id/textHeaderSecond"
                     android:layout_below="@+id/textHeader"/>
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerCardsExper"
                     style="@style/RecyclerViewStyle"
                     android:layout_below="@+id/textHeaderSecond"/>
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerCardsFixing"
                     style="@style/RecyclerViewStyle"
                     android:layout_below="@+id/recyclerCardsExper"/>

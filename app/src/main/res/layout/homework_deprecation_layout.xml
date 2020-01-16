@@ -5,7 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
             android:layout_alignParentTop="true"
             android:layout_above="@+id/buttonAddNewThink"
             style="@style/ScrollViewStyle">
@@ -22,13 +22,13 @@
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
                     android:text="Домашнее задание - обесценивание позитивного"/>
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:id="@+id/recyclerHomework"
                     style="@style/RecyclerViewStyle"
                     android:layout_height="wrap_content"/>
         </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <Button
             android:id="@+id/buttonAddNewThink"

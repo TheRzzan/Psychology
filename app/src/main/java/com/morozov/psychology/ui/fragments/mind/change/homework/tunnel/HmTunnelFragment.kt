@@ -1,7 +1,7 @@
 package com.morozov.psychology.ui.fragments.mind.change.homework.tunnel
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -47,7 +47,8 @@ class HmTunnelFragment: MvpAppCompatFragment(), HmTunnelView, MindChangeTest {
         }
 
         recyclerHomework.adapter = adapter
-        recyclerHomework.layoutManager = LinearLayoutManager(context)
+        recyclerHomework.layoutManager =
+            androidx.recyclerview.widget.LinearLayoutManager(context)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

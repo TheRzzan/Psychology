@@ -2,8 +2,8 @@ package com.morozov.psychology.ui.fragments.diary
 
 import android.app.DatePickerDialog
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.helper.ItemTouchHelper
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.ItemTouchHelper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -75,7 +75,8 @@ class DiaryFragment:
                 .build())
 
         adapterThink = DiaryThinkAdapter(this, mPresenter, layoutDiaryCards)
-        recyclerDiaryThinks.layoutManager = LinearLayoutManager(context)
+        recyclerDiaryThinks.layoutManager =
+            androidx.recyclerview.widget.LinearLayoutManager(context)
         recyclerDiaryThinks.adapter = adapterThink
 
         buttonDiaryAdd.setOnClickListener {

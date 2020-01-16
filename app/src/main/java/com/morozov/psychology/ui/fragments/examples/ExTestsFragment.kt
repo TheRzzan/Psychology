@@ -1,7 +1,7 @@
 package com.morozov.psychology.ui.fragments.examples
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
@@ -48,7 +48,8 @@ class ExTestsFragment: MvpAppCompatFragment(), ExTestsView, OnTextChangeListener
             imageCard.setImageDrawable(context?.let { ExpImagesLoader.getImageTest(it, bundle.getInt(AppConstants.EXP_POSITION) + 1) })
 
         adapter = ExTestAdapter(this)
-        recyclerTest.layoutManager = LinearLayoutManager(context)
+        recyclerTest.layoutManager =
+            androidx.recyclerview.widget.LinearLayoutManager(context)
         recyclerTest.adapter = adapter
 
         buttonFinishTest.setOnClickListener {

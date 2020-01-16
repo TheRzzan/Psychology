@@ -2,9 +2,9 @@ package com.morozov.psychology.ui.adapters.diary.date
 
 import android.annotation.SuppressLint
 import android.content.res.ColorStateList
-import android.support.v4.content.ContextCompat
-import android.support.v4.widget.ImageViewCompat
-import android.support.v7.widget.RecyclerView
+import androidx.core.content.ContextCompat
+import androidx.core.widget.ImageViewCompat
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import com.morozov.psychology.R
 import com.morozov.psychology.ui.adapters.listeners.OnItemClickListener
@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.item_diary_date_card.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class DiaryDateViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+class DiaryDateViewHolder(itemView: View): androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
 
     @SuppressLint("RestrictedApi")
     fun populate(element: Date, position: Int, listener: OnItemClickListener) {
