@@ -7,7 +7,7 @@
 
     <androidx.core.widget.NestedScrollView
             android:layout_alignParentTop="true"
-            android:layout_above="@+id/buttonAddNewThink"
+            android:layout_above="@+id/buttonNext"
             style="@style/ScrollViewStyle">
 
         <LinearLayout
@@ -51,21 +51,11 @@
     </androidx.core.widget.NestedScrollView>
 
     <Button
-            android:id="@+id/buttonAddNewThink"
-            android:text="Внести новую мысль в дневник"
+            android:id="@+id/buttonNext"
+            android:text="Далее"
             style="@style/TextView.Button"
             android:background="@drawable/rectangle_button_disable"
             android:enabled="false"
-            android:layout_above="@+id/buttonChooseAnother"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"
-            android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
-
-    <Button
-            android:id="@+id/buttonChooseAnother"
-            android:text="Выбрать другую ошибку мышления"
-            style="@style/TextView.Button"
-            android:background="@drawable/rectangle_button"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="@dimen/activity_vertical_margin"
             android:layout_marginStart="@dimen/activity_horizontal_margin"

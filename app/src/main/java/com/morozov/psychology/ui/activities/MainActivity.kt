@@ -796,7 +796,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     }
 
     override fun showHmDisastorous_1() {
-        val fragment = HmDisastorous_1_Fragment()
+        val fragment = HmDisastorous_2_Fragment()
 
         fragment.mActivityPresenter = mPresenter
 
@@ -804,7 +804,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     }
 
     override fun showHmDisastorous_2() {
-        val fragment = HmDisastorous_2_Fragment()
+        val fragment = HmDisastorous_1_Fragment()
 
         fragment.mActivityPresenter = mPresenter
 

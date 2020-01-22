@@ -5,12 +5,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import com.arellomobile.mvp.MvpAppCompatFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.mind.change.homework.disastorous.HmDisastorous_1_Presenter
 import com.morozov.psychology.mvp.views.mind.change.homework.disastorous.HmDisastorous_1_View
+import com.morozov.psychology.mvp.views.mind.change.homework.main.HmMainView
 import com.morozov.psychology.ui.adapters.listeners.OnTextChangeListener
 import com.morozov.psychology.ui.adapters.mind.change.edit.seekbar.EditSeekAdapter
 import com.morozov.psychology.ui.fragments.mind.change.MindChangeTest
@@ -32,6 +34,8 @@ class HmDisastorous_1_Fragment: MvpAppCompatFragment(), HmDisastorous_1_View, Mi
     var tmpWorstInt = 1
     var tmpBestInt = 1
 
+    lateinit var buttonForVisible: Button
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.homework_disastorous_1_layout, container, false)
 
@@ -52,21 +56,31 @@ class HmDisastorous_1_Fragment: MvpAppCompatFragment(), HmDisastorous_1_View, Mi
                 allTextRecycler.add(true)
                 allTextRecycler.add(false)
                 tmpDis = Pair(bestDis, worstDis)
-                buttonNext.setOnClickListener {
+                buttonAddNewThink.visibility = View.VISIBLE
+                buttonChooseAnother.visibility = View.VISIBLE
+                buttonAddNewThink.setOnClickListener {
                     DisastorousPreferences.saveBestDis(contTmp)
                     DisastorousPreferences.saveWorstDis(contTmp)
-                    mActivityPresenter.showHmDisastorous_2()
+                    HmMainView.date?.let { it1 -> mActivityPresenter.showDiaryEditor(false, it1, false) }
                 }
+
+                buttonChooseAnother.setOnClickListener {
+                    HmMainView.date?.let { it1 -> mActivityPresenter.showHmMain(it1) }
+                }
+                buttonForVisible = buttonAddNewThink
             } else {
                 allTextRecycler.add(false)
                 allTextRecycler.add(false)
                 allTextRecycler.add(true)
-                buttonNext.text = "Сохранить"
-                buttonNext.setOnClickListener {
+                buttonAddNewThink.visibility = View.GONE
+                buttonChooseAnother.visibility = View.VISIBLE
+                buttonChooseAnother.text = "Закончить"
+                buttonChooseAnother.setOnClickListener {
                     DisastorousPreferences.saveBestDis(contTmp, tmpBestStr, tmpBestInt)
                     DisastorousPreferences.saveWorstDis(contTmp, tmpWorstStr, tmpWorstInt)
                     mActivityPresenter.showMindChangeSection()
                 }
+                buttonForVisible = buttonChooseAnother
             }
         }
 
@@ -100,8 +114,7 @@ class HmDisastorous_1_Fragment: MvpAppCompatFragment(), HmDisastorous_1_View, Mi
         }, false, tmpDis)
 
         recyclerHomework.adapter = adapter
-        recyclerHomework.layoutManager =
-            androidx.recyclerview.widget.LinearLayoutManager(context)
+        recyclerHomework.layoutManager = LinearLayoutManager(context)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -112,10 +125,10 @@ class HmDisastorous_1_Fragment: MvpAppCompatFragment(), HmDisastorous_1_View, Mi
 
     private fun verifyIsReadyToSave(b: Boolean) {
         when(b) {
-            true -> buttonNext.setBackgroundResource(R.drawable.rectangle_button)
-            false -> buttonNext.setBackgroundResource(R.drawable.rectangle_button_disable)
+            true -> buttonForVisible.setBackgroundResource(R.drawable.rectangle_button)
+            false -> buttonForVisible.setBackgroundResource(R.drawable.rectangle_button_disable)
         }
-        buttonNext.isEnabled = b
+        buttonForVisible.isEnabled = b
     }
 
     /*
