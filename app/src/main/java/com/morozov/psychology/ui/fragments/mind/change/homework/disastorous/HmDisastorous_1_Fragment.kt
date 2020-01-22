@@ -61,6 +61,7 @@ class HmDisastorous_1_Fragment: MvpAppCompatFragment(), HmDisastorous_1_View, Mi
                 buttonAddNewThink.setOnClickListener {
                     DisastorousPreferences.saveBestDis(contTmp)
                     DisastorousPreferences.saveWorstDis(contTmp)
+                    DisastorousPreferences.saveDis1(contTmp, DisastorousPreferences.Dis1())
                     HmMainView.date?.let { it1 -> mActivityPresenter.showDiaryEditor(false, it1, false) }
                 }
 
@@ -83,6 +84,8 @@ class HmDisastorous_1_Fragment: MvpAppCompatFragment(), HmDisastorous_1_View, Mi
                 buttonForVisible = buttonChooseAnother
             }
         }
+        
+        verifyIsReadyToSave(false)
 
         adapter = EditSeekAdapter(object : OnTextChangeListener {
             override fun onTextChanged(position: Int, count: Int, symbolSet: String, percent: Int?) {
