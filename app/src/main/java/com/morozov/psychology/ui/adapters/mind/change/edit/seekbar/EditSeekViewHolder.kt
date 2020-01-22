@@ -6,13 +6,15 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.SeekBar
 import com.morozov.psychology.ui.adapters.listeners.OnTextChangeListener
+import com.morozov.psychology.utility.DisastorousPreferences
 import kotlinx.android.synthetic.main.item_homework_edit_seek.view.*
 
-class EditSeekViewHolder(itemView: View): androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
+class EditSeekViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
     fun populate(hideSeek: Boolean, text: String, hint: String,
                  position: Int, listener: OnTextChangeListener,
-                 savedText: Pair<String, Int>? = null) {
+                 savedText: Pair<String, Int>? = null,
+                 dis1: String? = null) {
         itemView.textHomItem.text = text
         itemView.editHomItem.hint = hint
 
@@ -58,6 +60,10 @@ class EditSeekViewHolder(itemView: View): androidx.recyclerview.widget.RecyclerV
         if (savedText != null) {
             itemView.editHomItem.setText(savedText.first)
             itemView.seekBarHome1.progress = savedText.second
+        }
+
+        if (dis1 != null) {
+            itemView.editHomItem.setText(dis1)
         }
     }
 }

@@ -12,6 +12,7 @@ import com.morozov.psychology.mvp.presenters.mind.change.homework.disastorous.Hm
 import com.morozov.psychology.mvp.views.mind.change.homework.disastorous.HmDisastorous_2_View
 import com.morozov.psychology.ui.adapters.listeners.OnTextChangeListener
 import com.morozov.psychology.ui.adapters.mind.change.edit.seekbar.EditSeekAdapter
+import com.morozov.psychology.utility.DisastorousPreferences
 import kotlinx.android.synthetic.main.homework_disastorous_2_layout.*
 
 class HmDisastorous_2_Fragment: MvpAppCompatFragment(), HmDisastorous_2_View {
@@ -23,12 +24,26 @@ class HmDisastorous_2_Fragment: MvpAppCompatFragment(), HmDisastorous_2_View {
     lateinit var adapter: EditSeekAdapter
 
     var allTextRecycler: MutableList<Boolean> = mutableListOf()
+    var insertedTextRecycler: MutableList<String> = mutableListOf()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.homework_disastorous_2_layout, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val contextTmp = context
+
+        var dis1: DisastorousPreferences.Dis1? = null
+        if (contextTmp != null) {
+            dis1 = DisastorousPreferences.getDis1(contextTmp)
+        }
+
+        if (dis1 != null) {
+            allTextRecycler.add(true)
+            allTextRecycler.add(true)
+            allTextRecycler.add(true)
+        }
 
         buttonNext.setOnClickListener {
             saveAnswers()
@@ -43,6 +58,7 @@ class HmDisastorous_2_Fragment: MvpAppCompatFragment(), HmDisastorous_2_View {
                 percent: Int?
             ) {
                 allTextRecycler[position] = count > 0
+                insertedTextRecycler[position] = symbolSet
 
                 var b = true
                 for (item in allTextRecycler) {
@@ -54,7 +70,7 @@ class HmDisastorous_2_Fragment: MvpAppCompatFragment(), HmDisastorous_2_View {
 
                 verifyIsReadyToSave(b)
             }
-        }, true)
+        }, true, null, dis1)
 
         recyclerHomework.adapter = adapter
         recyclerHomework.layoutManager =
@@ -88,10 +104,16 @@ class HmDisastorous_2_Fragment: MvpAppCompatFragment(), HmDisastorous_2_View {
         while (i < adapter.itemCount) {
             i++
             allTextRecycler.add(false)
+            insertedTextRecycler.add("")
         }
     }
 
     private fun saveAnswers() {
-
+        if (insertedTextRecycler.size >= 3) {
+            val good = insertedTextRecycler[0]
+            val think = insertedTextRecycler[1]
+            val forecast = insertedTextRecycler[2]
+            context?.let { DisastorousPreferences.saveDis1(it, DisastorousPreferences.Dis1(good, think, forecast)) }
+        }
     }
 }
