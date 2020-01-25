@@ -326,7 +326,7 @@
 
             <Button
                     android:id="@+id/buttonMindChangeMain"
-                    android:text="Проработать другую мысль"
+                    android:text="Закончить проработку"
                     style="@style/TextView.Button"
                     android:background="@drawable/rectangle_button"
                     android:layout_marginBottom="@dimen/activity_vertical_margin"

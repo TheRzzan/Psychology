@@ -24,6 +24,10 @@ import java.util.*
 
 class MindChangeFragment: MvpAppCompatFragment(), MindChangeView, OnItemClickListener {
 
+    companion object {
+        var isBought = false
+    }
+
     @InjectPresenter
     lateinit var mPresenter: MindChangePresenter
     lateinit var mActivityPresenter: MainPresenter
@@ -59,21 +63,48 @@ class MindChangeFragment: MvpAppCompatFragment(), MindChangeView, OnItemClickLis
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        imageMainSettings.setOnClickListener {
-            mActivityPresenter.showSettingsSection()
-        }
+        if (isBought) {
+            textPay.visibility = View.GONE
 
-        adapterThink = MindChangeThinkAdapter(this)
-        recyclerMindChangeThinks.layoutManager =
-            androidx.recyclerview.widget.LinearLayoutManager(context)
-        recyclerMindChangeThinks.adapter = adapterThink
+            imageMainSettings.setOnClickListener {
+                mActivityPresenter.showSettingsSection()
+            }
 
-        relativeDayMonthYear.setOnClickListener {
-            showCalendar()
-        }
+            adapterThink = MindChangeThinkAdapter(this)
+            recyclerMindChangeThinks.layoutManager =
+                LinearLayoutManager(context)
+            recyclerMindChangeThinks.adapter = adapterThink
 
-        cardHomework.setOnClickListener {
-            mActivityPresenter.showHmMain(Date())
+            relativeDayMonthYear.setOnClickListener {
+                showCalendar()
+            }
+
+            cardHomework.setOnClickListener {
+                mActivityPresenter.showHmMain(Date())
+            }
+        } else {
+            buttonBuy.setOnClickListener {
+                isBought = true
+
+                textPay.visibility = View.GONE
+
+                imageMainSettings.setOnClickListener {
+                    mActivityPresenter.showSettingsSection()
+                }
+
+                adapterThink = MindChangeThinkAdapter(this)
+                recyclerMindChangeThinks.layoutManager =
+                    LinearLayoutManager(context)
+                recyclerMindChangeThinks.adapter = adapterThink
+
+                relativeDayMonthYear.setOnClickListener {
+                    showCalendar()
+                }
+
+                cardHomework.setOnClickListener {
+                    mActivityPresenter.showHmMain(Date())
+                }
+            }
         }
     }
 

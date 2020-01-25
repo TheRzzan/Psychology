@@ -84,7 +84,7 @@ class HmDisastorous_1_Fragment: MvpAppCompatFragment(), HmDisastorous_1_View, Mi
                 buttonForVisible = buttonChooseAnother
             }
         }
-        
+
         verifyIsReadyToSave(false)
 
         adapter = EditSeekAdapter(object : OnTextChangeListener {

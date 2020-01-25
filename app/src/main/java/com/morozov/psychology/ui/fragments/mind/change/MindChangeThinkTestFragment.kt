@@ -44,7 +44,7 @@ class MindChangeThinkTestFragment: MvpAppCompatFragment(), MindChangeThinkTestVi
         super.onViewCreated(view, savedInstanceState)
 
         buttonMindChangeMain.setOnClickListener {
-            mActivityPresenter.showMindChangeSection()
+            activity?.onBackPressed()
         }
 
         setEmotionsOnClick()
