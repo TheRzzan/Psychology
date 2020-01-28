@@ -179,7 +179,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
                 val fragment = supportFragmentManager.fragments[supportFragmentManager.fragments.size - 1]
                 when (fragment) {
                     is DiaryEditorFragment -> {
-                        CustomYesNoDialog.showDialog("Вы действительно хотите выйти из заполнения ситуаци?",
+                        CustomYesNoDialog.showDialog("Вы действительно хотите выйти из заполнения ситуации?",
                             "Да", "Отмена",
                             Runnable {
                                 showBottomNav()
