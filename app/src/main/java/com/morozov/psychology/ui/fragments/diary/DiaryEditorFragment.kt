@@ -77,7 +77,7 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView, TextWatcher 
                     setEmotionsOnClick(false)
                 }
                 false -> {
-                    buttonDiaryMindChange.visibility = View.GONE
+                    buttonDiaryMindChange.visibility = View.VISIBLE
                     buttonDiaryHomeWork.visibility = View.GONE
                     buttonDiaryThinks.visibility = View.GONE
                     buttonDiarySave.visibility = View.VISIBLE
@@ -143,7 +143,13 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView, TextWatcher 
         currentEmotion.value = -1
 
         buttonDiaryMindChange.setOnClickListener {
-            mActivityPresenter.showMindChangeThinkTest(mDate)
+            if (bundle != null) {
+                if (bundle.getBoolean(AppConstants.DIARY_IS_NEW_ITEM))
+                    mPresenter.saveNewThink(getThink())
+                else
+                    mPresenter.saveOldThink(getThink())
+            }
+            mActivityPresenter.showMindChangeThinkTest(getThink().date)
         }
         buttonDiaryHomeWork.setOnClickListener {
             mActivityPresenter.showHmMain(mDate)
@@ -456,10 +462,17 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView, TextWatcher 
     * */
     fun verifyIsReadyToSave() {
         when(isReadyToSave()) {
-            true -> buttonDiarySave.setBackgroundResource(R.drawable.rectangle_button)
-            false -> buttonDiarySave.setBackgroundResource(R.drawable.rectangle_button_disable)
+            true -> {
+                buttonDiarySave.setBackgroundResource(R.drawable.rectangle_button)
+                buttonDiaryMindChange.setBackgroundResource(R.drawable.rectangle_button)
+            }
+            false -> {
+                buttonDiarySave.setBackgroundResource(R.drawable.rectangle_button_disable)
+                buttonDiaryMindChange.setBackgroundResource(R.drawable.rectangle_button_disable)
+            }
         }
         buttonDiarySave.isEnabled = isReadyToSave()
+        buttonDiaryMindChange.isEnabled = isReadyToSave()
     }
 
     fun isReadyToSave(): Boolean =
