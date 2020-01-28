@@ -43,6 +43,20 @@ class MindChangeThinkTestFragment: MvpAppCompatFragment(), MindChangeThinkTestVi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        if (MindChangeFragment.isBought) {
+            initAll()
+        } else {
+            buttonBuy.setOnClickListener {
+                MindChangeFragment.isBought = true
+                textPay.visibility = View.GONE
+                initAll()
+            }
+        }
+
+
+    }
+
+    private fun initAll() {
         buttonMindChangeMain.setOnClickListener {
             activity?.onBackPressed()
         }
