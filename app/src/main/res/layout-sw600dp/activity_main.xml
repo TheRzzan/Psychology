@@ -10,54 +10,68 @@
         tools:context=".ui.activities.MainActivity">
 
     <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:id="@+id/relativeLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/navigation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <View
+                android:visibility="invisible"
+                android:layout_above="@+id/contentMain"
+                android:id="@+id/blackBack"
+                android:alpha="0.75"
+                android:elevation="8dp"
+                android:background="@android:color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
         <ImageView
                 android:id="@+id/imageMainBack"
-                android:alpha="0.5"
-                android:src="@drawable/wallpaper_1"
-                android:scaleType="centerCrop"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:alpha="0.5"
+                android:scaleType="centerCrop"
+                android:src="@drawable/wallpaper_1" />
 
         <LinearLayout
                 android:id="@+id/linearBack"
-                android:layout_marginTop="12dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
 
             <ImageView
-                    android:layout_gravity="center"
-                    android:background="@drawable/arrow_back"
                     android:layout_width="@dimen/icon_size"
-                    android:layout_height="@dimen/icon_size"/>
-            <TextView
-                    android:text="Назад"
+                    android:layout_height="@dimen/icon_size"
                     android:layout_gravity="center"
-                    android:textSize="@dimen/text_little_size"
-                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/arrow_back" />
+
+            <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Назад"
+                    android:textColor="?attr/colorPrimary"
+                    android:textSize="@dimen/text_little_size" />
         </LinearLayout>
 
         <FrameLayout
-                android:layout_below="@id/linearBack"
                 android:id="@+id/contentMain"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:layout_below="@id/linearBack" />
     </RelativeLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/navigation"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="0dp"
-            android:layout_marginStart="0dp"
             android:background="?android:attr/windowBackground"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:menu="@menu/menu_navigation"/>
+            app:menu="@menu/menu_navigation" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

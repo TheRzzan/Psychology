@@ -170,4 +170,11 @@ interface MainView: MvpView {
     fun showSettingsWallpaper()
 
     fun showSettingsConsult()
+
+    /*
+    * Another
+    *
+    * */
+    fun makeBackBlack()
+    fun makeBackWhite()
 }

@@ -942,9 +942,21 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     }
 
     /*
-    *  Helper methods
+    * Another
     *
-    *  */
+    * */
+    override fun makeBackBlack() {
+        blackBack?.visibility = View.VISIBLE
+    }
+
+    override fun makeBackWhite() {
+        blackBack?.visibility = View.INVISIBLE
+    }
+
+    /*
+        *  Helper methods
+        *
+        *  */
     private fun setNotification(time: Calendar) {
         val notificationIntent = Intent(applicationContext, ShowQuizNotification::class.java)
         val contentIntent = PendingIntent.getService(

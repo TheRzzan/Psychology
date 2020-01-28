@@ -63,8 +63,11 @@ class MindChangeFragment: MvpAppCompatFragment(), MindChangeView, OnItemClickLis
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        mActivityPresenter.makeBackBlack()
+
         if (isBought) {
             textPay.visibility = View.GONE
+            mActivityPresenter.makeBackWhite()
 
             imageMainSettings.setOnClickListener {
                 mActivityPresenter.showSettingsSection()
@@ -87,6 +90,7 @@ class MindChangeFragment: MvpAppCompatFragment(), MindChangeView, OnItemClickLis
                 isBought = true
 
                 textPay.visibility = View.GONE
+                mActivityPresenter.makeBackWhite()
 
                 imageMainSettings.setOnClickListener {
                     mActivityPresenter.showSettingsSection()
@@ -108,10 +112,15 @@ class MindChangeFragment: MvpAppCompatFragment(), MindChangeView, OnItemClickLis
         }
     }
 
+    override fun onDestroy() {
+        mActivityPresenter.makeBackWhite()
+        super.onDestroy()
+    }
+
     /*
-    * MindChangeView implementation
-    *
-    * */
+        * MindChangeView implementation
+        *
+        * */
     override fun showSelectDate(b: Boolean) {
         when (b) {
             true -> textPreview.visibility = View.VISIBLE

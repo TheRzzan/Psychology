@@ -46,17 +46,22 @@ class MindChangeThinkTestFragment: MvpAppCompatFragment(), MindChangeThinkTestVi
         if (MindChangeFragment.isBought) {
             initAll()
         } else {
+            mActivityPresenter.makeBackBlack()
             buttonBuy.setOnClickListener {
                 MindChangeFragment.isBought = true
                 initAll()
             }
         }
+    }
 
-
+    override fun onDestroy() {
+        mActivityPresenter.makeBackWhite()
+        super.onDestroy()
     }
 
     private fun initAll() {
         textPay.visibility = View.GONE
+        mActivityPresenter.makeBackWhite()
 
         buttonMindChangeMain.setOnClickListener {
             activity?.onBackPressed()

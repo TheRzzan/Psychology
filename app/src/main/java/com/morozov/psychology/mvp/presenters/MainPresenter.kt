@@ -391,4 +391,16 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.hideBackArrow()
         viewState.showSettingsConsult()
     }
+
+    /*
+    * Another
+    *
+    * */
+    fun makeBackBlack() {
+        viewState.makeBackBlack()
+    }
+
+    fun makeBackWhite() {
+        viewState.makeBackWhite()
+    }
 }
