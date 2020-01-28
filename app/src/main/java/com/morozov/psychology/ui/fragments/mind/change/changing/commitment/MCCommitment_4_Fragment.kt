@@ -36,7 +36,7 @@ class MCCommitment_4_Fragment: MvpAppCompatFragment(), MCCommitment_4_View {
         super.onViewCreated(view, savedInstanceState)
 
         buttonAddNewThink.setOnClickListener {
-            mPresenter.saveNewThink(
+            val savedDate = mPresenter.saveNewThink(
                 editComNewThink.text.toString(),
                 when (selectedEmotion.value) {
                     0 -> EmotionModel(EmotionModel.Emotion.JOY, seekBarComEmotions.progress)
@@ -49,7 +49,8 @@ class MCCommitment_4_Fragment: MvpAppCompatFragment(), MCCommitment_4_View {
                     7 -> EmotionModel(EmotionModel.Emotion.RESENTMENT, seekBarComEmotions.progress)
                     else -> EmotionModel(EmotionModel.Emotion.RESENTMENT, 0)
                 })
-            mActivityPresenter.showMindChangeSection()
+            mActivityPresenter.showDiaryCards()
+            savedDate?.let { it1 -> mActivityPresenter.showDiaryViewing(it1) }
         }
 
         selectedEmotion.observeForever {
