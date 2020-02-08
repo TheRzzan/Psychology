@@ -1,6 +1,7 @@
 package com.morozov.psychology
 
 import android.app.Application
+import com.android.vending.billing.IInAppBillingService
 import com.morozov.psychology.di.diary.DaggerDiaryComponent
 import com.morozov.psychology.di.diary.DiaryComponent
 import com.morozov.psychology.di.diary.ThinkModule
@@ -15,6 +16,7 @@ import com.morozov.psychology.di.tests.TestsModule
 class DefaultApplication: Application() {
 
     companion object {
+        lateinit var inAppService: IInAppBillingService
         lateinit var examplesComponent: ExamplesComponent
         lateinit var diaryComponent: DiaryComponent
         lateinit var testsComponent: TestsComponent

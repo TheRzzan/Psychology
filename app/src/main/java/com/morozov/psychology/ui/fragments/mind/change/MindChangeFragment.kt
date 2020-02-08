@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.DatePicker
+import androidx.lifecycle.Observer
 import com.arellomobile.mvp.MvpAppCompatFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
@@ -14,6 +15,7 @@ import com.morozov.psychology.mvp.models.diary.ThinkModel
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.mind.change.MindChangePresenter
 import com.morozov.psychology.mvp.views.mind.change.MindChangeView
+import com.morozov.psychology.ui.activities.MainActivity
 import com.morozov.psychology.ui.adapters.listeners.OnItemClickListener
 import com.morozov.psychology.ui.adapters.mind.change.MindChangeThinkAdapter
 import kotlinx.android.synthetic.main.mind_change_main_layout.*
@@ -65,7 +67,7 @@ class MindChangeFragment: MvpAppCompatFragment(), MindChangeView, OnItemClickLis
 
         mActivityPresenter.makeBackBlack()
 
-        if (isBought) {
+        if (MainActivity.openPurchase) {
             textPay.visibility = View.GONE
             mActivityPresenter.makeBackWhite()
 
@@ -87,27 +89,30 @@ class MindChangeFragment: MvpAppCompatFragment(), MindChangeView, OnItemClickLis
             }
         } else {
             buttonBuy.setOnClickListener {
-                isBought = true
+                (activity as MainActivity).buy().observe(this,
+                    Observer<Boolean> {
+                        if (!it)
+                            return@Observer
+                        textPay.visibility = View.GONE
+                        mActivityPresenter.makeBackWhite()
 
-                textPay.visibility = View.GONE
-                mActivityPresenter.makeBackWhite()
+                        imageMainSettings.setOnClickListener {
+                            mActivityPresenter.showSettingsSection()
+                        }
 
-                imageMainSettings.setOnClickListener {
-                    mActivityPresenter.showSettingsSection()
-                }
+                        adapterThink = MindChangeThinkAdapter(this)
+                        recyclerMindChangeThinks.layoutManager =
+                            LinearLayoutManager(context)
+                        recyclerMindChangeThinks.adapter = adapterThink
 
-                adapterThink = MindChangeThinkAdapter(this)
-                recyclerMindChangeThinks.layoutManager =
-                    LinearLayoutManager(context)
-                recyclerMindChangeThinks.adapter = adapterThink
+                        relativeDayMonthYear.setOnClickListener {
+                            showCalendar()
+                        }
 
-                relativeDayMonthYear.setOnClickListener {
-                    showCalendar()
-                }
-
-                cardHomework.setOnClickListener {
-                    mActivityPresenter.showHmMain(Date())
-                }
+                        cardHomework.setOnClickListener {
+                            mActivityPresenter.showHmMain(Date())
+                        }
+                    })
             }
         }
     }

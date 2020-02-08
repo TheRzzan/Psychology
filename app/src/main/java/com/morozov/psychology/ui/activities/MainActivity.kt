@@ -1,14 +1,18 @@
 package com.morozov.psychology.ui.activities
 
 import android.app.AlarmManager
+import android.app.Application
 import android.app.PendingIntent
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.content.ServiceConnection
 import android.graphics.Rect
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
+import android.os.IBinder
 import android.os.SystemClock
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.fragment.app.Fragment
@@ -19,8 +23,13 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.Toast
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import com.android.vending.billing.IInAppBillingService
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
+import com.morozov.psychology.DefaultApplication
 import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.views.MainView
@@ -74,6 +83,7 @@ import com.morozov.psychology.ui.fragments.settings.SettingsWallpaperFragment
 import com.morozov.psychology.ui.fragments.tests.*
 import com.morozov.psychology.utility.*
 import kotlinx.android.synthetic.main.activity_main.*
+import org.json.JSONObject
 import java.text.DateFormat
 import java.util.*
 
@@ -87,7 +97,35 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         var startClickTime: Long = 0
         var startClickX: Float = 0f
         var startClickY: Float = 0f
+
+        // Billing
+        const val PRODUCT1 = "com.morozov.psyhology.mychange_inapp"
+        const val SHARED_BILLING1 = "BILLING_INAPP"
+        const val PURCHASED_STATUS = 0
+        var openPurchase = false
+        const val CODE_PURCHASE = 1234
+        var purchases = listOf<InAppProduct>()
     }
+
+    private val billingResult = MutableLiveData<Boolean>()
+
+    inner class InAppProduct {
+
+        var sku: String? = null
+            internal set
+        internal var storeName: String? = null
+        internal var storeDescription: String? = null
+        internal var price: String? = null
+        internal var isSubscription: Boolean = false
+        internal var priceAmountMicros: Int = 0
+        internal var currencyIsoCode: String? = null
+
+        val type: String
+            get() = if (isSubscription) "subs" else "inapp"
+
+    }
+
+
 
     /*
     * Bottom Navigation
@@ -154,11 +192,142 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         false
     }
 
+    internal var inAppBillingService: IInAppBillingService? = null
+
+    private var serviceConnection: ServiceConnection? = object : ServiceConnection{
+        override fun onServiceDisconnected(name: ComponentName?) {
+            inAppBillingService = null
+        }
+
+        override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
+            inAppBillingService = IInAppBillingService.Stub.asInterface(service)
+            DefaultApplication.inAppService = inAppBillingService!!
+            try{
+                readMyPurchases()
+                purchases = getInAppPurchases (PRODUCT1)
+            }catch (e: Exception){
+
+            }
+
+        }
+
+    }
+
+    @Throws(Exception::class)
+    private fun getInAppPurchases(vararg productIds: String): List<InAppProduct> {
+        val skuList = ArrayList(Arrays.asList(*productIds))
+        val query = Bundle()
+        query.putStringArrayList("ITEM_ID_LIST", skuList)
+        val skuDetails = inAppBillingService!!.getSkuDetails(
+            3, packageName, "inapp", query)
+        val responseList = skuDetails.getStringArrayList("DETAILS_LIST")
+        val result = ArrayList<InAppProduct>()
+        for (responseItem in responseList!!) {
+            val jsonObject = JSONObject(responseItem)
+            val product = InAppProduct()
+            product.sku = jsonObject.getString("productId")
+            product.storeName = jsonObject.getString("title")
+            product.storeDescription = jsonObject.getString("description")
+            product.price = jsonObject.getString("price")
+            product.isSubscription = jsonObject.getString("type") == "subs"
+            product.priceAmountMicros = Integer.parseInt(jsonObject.getString("price_amount_micros"))
+            product.currencyIsoCode = jsonObject.getString("price_currency_code")
+            result.add(product)
+        }
+        return result
+    }
+
+
+
+
+    private fun readMyPurchases(){
+        val result = inAppBillingService!!.getPurchases(
+            3, packageName, "inapp", null)
+
+        if (result.getInt("RESPONSE_CODE", -1) != 0) {
+            throw Exception("Invalid response code")
+        }
+        val responseList = result.getStringArrayList("INAPP_PURCHASE_DATA_LIST")
+
+        for (purchaseData in responseList!!) {
+            val jsonObject = JSONObject(purchaseData)
+            val purchaseState = jsonObject.getInt("purchaseState")
+            if (purchaseState == PURCHASED_STATUS) {
+                when (jsonObject.getString("productId")) {
+                    PRODUCT1 -> {
+                        openPurchase = true
+                        getSharedPreferences(SHARED_BILLING1, Context.MODE_PRIVATE).edit()
+                            .putBoolean(SHARED_BILLING1, true).apply()
+                    }
+                }
+                refreshAfterBuying()
+            }
+        }
+    }
+
+    public fun refreshAfterBuying() {
+        billingResult.value = true
+    }
+
+    public fun buy(): LiveData<Boolean> {
+        purchase(0)
+        return billingResult
+    }
+
+    private fun purchase(number: Int) {
+        try {
+            purchaseProduct(purchases[number])
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    @Throws(Exception::class)
+    private fun purchaseProduct(product: InAppProduct) {
+        val sku = product.sku
+        val type = product.type
+        val buyIntentBundle = inAppBillingService!!.getBuyIntent(
+            3, packageName,
+            sku, type, null)
+        val pendingIntent = buyIntentBundle.getParcelable<PendingIntent>("BUY_INTENT")
+        startIntentSenderForResult(pendingIntent!!.intentSender,
+            CODE_PURCHASE, Intent(), 0, 0,
+            0, null)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == CODE_PURCHASE) {
+            val responseCode = data!!.getIntExtra("RESPONSE_CODE", -1)
+            if (responseCode == PURCHASED_STATUS) {
+                val purchaseData = data.getStringExtra("INAPP_PURCHASE_DATA")
+                readPurchase(purchaseData)
+            }
+        }
+    }
+
+    private fun readPurchase(purchaseData: String?) {
+        try {
+            val jsonObject = JSONObject(purchaseData)
+            when (jsonObject.getString("productId")) {
+                PRODUCT1 -> {
+                    openPurchase = true
+                    getSharedPreferences(SHARED_BILLING1, Context.MODE_PRIVATE).edit()
+                        .putBoolean(SHARED_BILLING1, true).apply()
+                }
+
+            }
+            refreshAfterBuying()
+        }catch (e: Exception){}
+
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setCustomTheme()
         setContentView(R.layout.activity_main)
-
+        initPreferences()
+        initPurchaseService()
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         linearBack.setOnClickListener {
             onBackPressed()
@@ -170,6 +339,17 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         } else {
             startCustomActivity()
         }
+    }
+
+    private fun initPreferences() {
+        openPurchase = getSharedPreferences(SHARED_BILLING1, Context.MODE_PRIVATE).getBoolean(
+            SHARED_BILLING1, false)
+    }
+
+    private fun initPurchaseService() {
+        val serviceIntent = Intent("com.android.vending.billing.InAppBillingService.BIND")
+        serviceIntent.setPackage("com.android.vending")
+        bindService(serviceIntent, serviceConnection, Context.BIND_AUTO_CREATE)
     }
 
     override fun onBackPressed() {
