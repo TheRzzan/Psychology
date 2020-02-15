@@ -99,7 +99,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         var startClickY: Float = 0f
 
         // Billing
-        const val PRODUCT1 = "com.morozov.psyhology.mychange_inapp"
+        const val PRODUCT1 = "mychange_inapp"
         const val SHARED_BILLING1 = "BILLING_INAPP"
         const val PURCHASED_STATUS = 0
         var openPurchase = false
