@@ -155,6 +155,8 @@ class TestsAllImpl(private val context: Context): DescriptionLoader, QuestionsLo
                 else -> null
             },
             MySharedPreferences.getBoolPreference(context, AppConstants.PREF_ABOUT_IS_VISIT_THERAPY),
+            MySharedPreferences.getBoolPreference(context, AppConstants.PREF_ABOUT_IS_VISIT_PSYCHOLOGY),
+            MySharedPreferences.getIntPreference(context, AppConstants.PREF_ABOUT_TIME_OF_PSYTER_VISIT),
             MySharedPreferences.getIntPreference(context, AppConstants.PREF_ABOUT_TIME_OF_PSY_VISIT),
             when (MySharedPreferences.getStrPreference(context, AppConstants.PREF_ABOUT_FREQUENCY_OF_THERAPY)) {
                 FrequencyOfTherapyEnum.DONT_APPEAL.name -> FrequencyOfTherapyEnum.DONT_APPEAL
@@ -180,7 +182,9 @@ class TestsAllImpl(private val context: Context): DescriptionLoader, QuestionsLo
         about.timeOfUse?.let { MySharedPreferences.setPreference(context, AppConstants.PREF_ABOUT_TIME_OF_USE, it) }
         about.frequencyOfUse?.name?.let { MySharedPreferences.setPreference(context, AppConstants.PREF_ABOUT_FREQUENCY_OF_USE, it) }
         about.isVisitTherapy?.let { MySharedPreferences.setPreference(context, AppConstants.PREF_ABOUT_IS_VISIT_THERAPY, it) }
+        about.isVisitPsychology?.let { MySharedPreferences.setPreference(context, AppConstants.PREF_ABOUT_IS_VISIT_PSYCHOLOGY, it) }
         about.timeOfPsychologistVisit?.let { MySharedPreferences.setPreference(context, AppConstants.PREF_ABOUT_TIME_OF_PSY_VISIT, it) }
+        about.timeOfPsychoterapevtVisit?.let { MySharedPreferences.setPreference(context, AppConstants.PREF_ABOUT_TIME_OF_PSYTER_VISIT, it) }
         about.frequencyOfTherapy?.name?.let { MySharedPreferences.setPreference(context, AppConstants.PREF_ABOUT_FREQUENCY_OF_THERAPY, it) }
 
         if (about.medicines != null) {

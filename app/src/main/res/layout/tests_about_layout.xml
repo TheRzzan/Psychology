@@ -215,6 +215,88 @@
                     android:minHeight="44dp" android:id="@+id/spinnerFreqOfUs"/>
 
             <TextView
+                    android:text="Получаете ли вы одновременно помощь психолога?"
+                    android:textStyle="bold"
+                    style="@style/TextView.Secondary"
+                    android:textColor="@color/second_header_text"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                <Button
+                        android:textAllCaps="false"
+                        android:background="@drawable/rectangle_button_white"
+                        android:textColor="@color/man_color"
+                        android:text="Да"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginBottom="4dp"
+                        android:layout_marginTop="4dp"
+                        android:textSize="@dimen/button_font_size"
+                        android:layout_width="54dp"
+                        android:layout_height="44dp" android:id="@+id/buttonYesPsycho"/>
+
+                <Button
+                        android:textAllCaps="false"
+                        android:background="@drawable/rectangle_button_white"
+                        android:textColor="@color/woman_color"
+                        android:textSize="@dimen/button_font_size"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginBottom="4dp"
+                        android:layout_marginTop="4dp"
+                        android:text="Нет"
+                        android:layout_width="54dp"
+                        android:layout_height="44dp" android:id="@+id/buttonNoPsycho"/>
+            </LinearLayout>
+
+            <TextView
+                    android:id="@+id/textTherapyMonthsPsycho"
+                    android:text="Сколько месяцев вы занимаетесь с психологом?"
+                    android:textStyle="bold"
+                    style="@style/TextView.Secondary"
+                    android:textColor="@color/second_header_text"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+
+            <LinearLayout
+                    android:id="@+id/linearTherapyMonthsPsycho"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                <EditText
+                        android:paddingLeft="@dimen/activity_horizontal_margin"
+                        android:paddingRight="@dimen/activity_horizontal_margin"
+                        style="@style/EditTextStyle"
+                        android:textColor="@color/grey_color"
+                        android:textSize="17sp"
+                        android:layout_width="74dp"
+                        android:layout_height="43dp"
+                        android:background="@drawable/rectangle_edit_text_with_shadow"
+                        android:inputType="number"
+                        android:ems="3" android:id="@+id/editMonthOfTherapyPsycho"/>
+
+                <TextView
+                        android:text="Месяцев"
+                        android:textStyle="bold"
+                        style="@style/TextView.Secondary"
+                        android:textColor="@color/second_header_text"
+                        android:layout_marginStart="8dp"/>
+            </LinearLayout>
+
+            <TextView
                     android:text="Получаете ли вы одновременно помощь психотерапевта?"
                     android:textStyle="bold"
                     style="@style/TextView.Secondary"
@@ -259,7 +341,7 @@
 
             <TextView
                     android:id="@+id/textTherapyMonths"
-                    android:text="Сколько месяцев вы занимаетесь с психологом или психотерапевтом?"
+                    android:text="Сколько месяцев вы занимаетесь с психотерапевтом?"
                     android:textStyle="bold"
                     style="@style/TextView.Secondary"
                     android:textColor="@color/second_header_text"

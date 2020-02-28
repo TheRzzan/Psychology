@@ -57,7 +57,8 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
 
         mAboutModel = AboutModel(null, null, null,
             null, null, null,
-            null, null, null,
+            null, null, null, null,
+            null,
             Pair(mutableListOf(), mutableListOf())
         )
 
@@ -112,9 +113,17 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
         when (about.isVisitTherapy) {
             true -> {
                 buttonYes.background = resources.getDrawable(R.drawable.rectangle_edit_text_white)
-                editMonthOfTherapy.setText(about.timeOfPsychologistVisit.toString())
+                editMonthOfTherapy.setText(about.timeOfPsychoterapevtVisit.toString())
             }
             false ->buttonNo.background = resources.getDrawable(R.drawable.rectangle_edit_text_white)
+        }
+
+        when (about.isVisitPsychology) {
+            true -> {
+                buttonYesPsycho.background = resources.getDrawable(R.drawable.rectangle_edit_text_white)
+                editMonthOfTherapyPsycho.setText(about.timeOfPsychologistVisit.toString())
+            }
+            false ->buttonNoPsycho.background = resources.getDrawable(R.drawable.rectangle_edit_text_white)
         }
 
         editAge.setText(about.age.toString())
@@ -185,9 +194,14 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
         var isReady: Boolean = mAboutModel.sex != null && mAboutModel.age != null &&
                 mAboutModel.maritalStatus != null && mAboutModel.education != null &&
                 mAboutModel.timeOfUse != null && mAboutModel.frequencyOfUse != null &&
-                mAboutModel.isVisitTherapy != null
+                mAboutModel.isVisitTherapy != null &&
+                mAboutModel.isVisitPsychology != null
 
         if (mAboutModel.isVisitTherapy == true)
+            if (mAboutModel.timeOfPsychoterapevtVisit == null)
+                isReady = false
+
+        if (mAboutModel.isVisitPsychology == true)
             if (mAboutModel.timeOfPsychologistVisit == null)
                 isReady = false
 
@@ -371,6 +385,32 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
 
             checkIsReadyToSave()
         }
+
+        buttonYesPsycho.setOnClickListener {
+            mAboutModel.isVisitPsychology = true
+
+            buttonYesPsycho.background = resources.getDrawable(R.drawable.rectangle_edit_text_with_shadow)
+            buttonNoPsycho.background = resources.getDrawable(R.drawable.rectangle_button_white)
+
+            textTherapyMonthsPsycho.visibility = View.VISIBLE
+            linearTherapyMonthsPsycho.visibility = View.VISIBLE
+
+            checkIsReadyToSave()
+        }
+
+        buttonNoPsycho.setOnClickListener {
+            mAboutModel.isVisitPsychology = false
+
+            buttonYesPsycho.background = resources.getDrawable(R.drawable.rectangle_button_white)
+            buttonNoPsycho.background = resources.getDrawable(R.drawable.rectangle_edit_text_with_shadow)
+
+            textTherapyMonthsPsycho.visibility = View.GONE
+            linearTherapyMonthsPsycho.visibility = View.GONE
+
+            editMonthOfTherapyPsycho.text.clear()
+
+            checkIsReadyToSave()
+        }
     }
 
     private fun initOnTextChange() {
@@ -442,6 +482,40 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
         })
 
         editMonthOfTherapy.addTextChangedListener(object : TextWatcher{
+            override fun afterTextChanged(s: Editable?) {
+                var sStr = s.toString()
+                val length = sStr.length
+
+                if(length == 2) {
+                    if(sStr[0] == '0') {
+                        s?.delete(0, 1)
+                    }
+                } else if(length == 3) {
+                    if(sStr.toInt() > 100)
+                        s?.delete(length - 1, length)
+                } else if (length > 3) {
+                    s?.delete(length - 1, length)
+                }
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (s != null) {
+                    if (s.isNotEmpty())
+                        mAboutModel.timeOfPsychoterapevtVisit = s.toString().toInt()
+                    else
+                        mAboutModel.timeOfPsychoterapevtVisit = null
+                }else
+                    mAboutModel.timeOfPsychoterapevtVisit = null
+
+                checkIsReadyToSave()
+            }
+        })
+
+        editMonthOfTherapyPsycho.addTextChangedListener(object : TextWatcher{
             override fun afterTextChanged(s: Editable?) {
                 var sStr = s.toString()
                 val length = sStr.length

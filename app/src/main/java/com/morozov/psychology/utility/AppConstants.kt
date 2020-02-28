@@ -65,6 +65,8 @@ class AppConstants {
         const val PREF_ABOUT_TIME_OF_USE = "pref_about_timeOfUse"
         const val PREF_ABOUT_FREQUENCY_OF_USE = "pref_about_frequencyOfUse"
         const val PREF_ABOUT_IS_VISIT_THERAPY = "pref_about_isVisitTherapy"
+        const val PREF_ABOUT_IS_VISIT_PSYCHOLOGY = "pref_about_isVisitPsychology"
+        const val PREF_ABOUT_TIME_OF_PSYTER_VISIT = "pref_about_timeOfPsychoterapevtVisit"
         const val PREF_ABOUT_TIME_OF_PSY_VISIT = "pref_about_timeOfPsychologistVisit"
         const val PREF_ABOUT_FREQUENCY_OF_THERAPY = "pref_about_frequencyOfTherapy"
         const val PREF_ABOUT_MEDICINES = "pref_about_medicines"

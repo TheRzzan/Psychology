@@ -4,6 +4,7 @@ import android.util.Range
 import com.morozov.psychology.DefaultApplication
 import com.morozov.psychology.domain.interfaces.tests.AboutLoader
 import com.morozov.psychology.mvp.models.tests.ResultModel
+import com.morozov.psychology.mvp.models.tests.about.AboutModel
 import com.morozov.psychology.mvp.models.tests.about.enums.SexEnum
 import com.morozov.psychology.repository.FirebaseHelper
 import java.util.*
@@ -56,8 +57,9 @@ class TestsResultsGenerator {
         for ((index, answer) in answers.withIndex()) {
             hashMap["_$index"] = answer.toString()
         }
+        val aboutModel = aboutLoader.getAboutModel()
         FirebaseHelper.writeTest(simpleTestName, resultModel.date.time.toString(),
-            hashMap, resultModel.items.toMap())
+            hashMap, resultModel.items.toMap(), aboutModel)
 
         return resultModel
     }
