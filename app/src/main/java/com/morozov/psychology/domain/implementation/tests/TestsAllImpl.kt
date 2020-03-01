@@ -169,7 +169,8 @@ class TestsAllImpl(private val context: Context): DescriptionLoader, QuestionsLo
             when (MySharedPreferences.getBoolPreference(context, AppConstants.PREF_ABOUT_MEDICINES_NO)) {
                 true -> null
                 false -> tmp
-            }
+            } ,
+            MySharedPreferences.getBoolPreference(context, AppConstants.PREF_DIARY)
         )
         return aboutModel
     }
@@ -186,6 +187,7 @@ class TestsAllImpl(private val context: Context): DescriptionLoader, QuestionsLo
         about.timeOfPsychologistVisit?.let { MySharedPreferences.setPreference(context, AppConstants.PREF_ABOUT_TIME_OF_PSY_VISIT, it) }
         about.timeOfPsychoterapevtVisit?.let { MySharedPreferences.setPreference(context, AppConstants.PREF_ABOUT_TIME_OF_PSYTER_VISIT, it) }
         about.frequencyOfTherapy?.name?.let { MySharedPreferences.setPreference(context, AppConstants.PREF_ABOUT_FREQUENCY_OF_THERAPY, it) }
+        about.agreeToSendMyTestInfo?.let { MySharedPreferences.setPreference(context, AppConstants.PREF_DIARY, it) }
 
         if (about.medicines != null) {
             MySharedPreferences.setPreference(context, AppConstants.PREF_ABOUT_MEDICINES_NO, false)

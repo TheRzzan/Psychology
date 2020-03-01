@@ -17,6 +17,8 @@ import com.morozov.psychology.mvp.models.tests.about.enums.*
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.tests.TestsAboutPresenter
 import com.morozov.psychology.mvp.views.tests.TestsAboutView
+import com.morozov.psychology.utility.AppConstants
+import com.morozov.psychology.utility.MySharedPreferences
 import kotlinx.android.synthetic.main.diary_think_editor_layout.*
 import kotlinx.android.synthetic.main.tests_about_layout.*
 
@@ -49,6 +51,20 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
             mActivityPresenter.showTestSection()
         }
 
+        buttonAgree.setOnClickListener {
+            mAboutModel.agreeToSendMyTestInfo = true
+            buttonAgree.background = resources.getDrawable(R.drawable.rectangle_edit_text_with_shadow)
+            buttonDisagree.background = resources.getDrawable(R.drawable.rectangle_button_white)
+            checkIsReadyToSave()
+        }
+
+        buttonDisagree.setOnClickListener {
+            mAboutModel.agreeToSendMyTestInfo = false
+            buttonAgree.background = resources.getDrawable(R.drawable.rectangle_button_white)
+            buttonDisagree.background = resources.getDrawable(R.drawable.rectangle_edit_text_with_shadow)
+            checkIsReadyToSave()
+        }
+
         prepareFragment()
     }
 
@@ -59,7 +75,8 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
             null, null, null,
             null, null, null, null,
             null,
-            Pair(mutableListOf(), mutableListOf())
+            Pair(mutableListOf(), mutableListOf()),
+            null
         )
 
         mPresenter.loadData()
@@ -71,6 +88,11 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
     * */
     override fun showAbout(about: AboutModel) {
         mAboutModel = about.copy()
+
+        if (mAboutModel.agreeToSendMyTestInfo == true)
+            buttonAgree.callOnClick()
+        if (mAboutModel.agreeToSendMyTestInfo == false)
+            buttonDisagree.callOnClick()
 
         val tmpMedicines1: MutableList<MedicinesEnum> = mutableListOf()
         var tmpStr = ""
@@ -112,18 +134,18 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
 
         when (about.isVisitTherapy) {
             true -> {
-                buttonYes.background = resources.getDrawable(R.drawable.rectangle_edit_text_white)
+                buttonYes.background = resources.getDrawable(R.drawable.rectangle_edit_text_with_shadow)
                 editMonthOfTherapy.setText(about.timeOfPsychoterapevtVisit.toString())
             }
-            false ->buttonNo.background = resources.getDrawable(R.drawable.rectangle_edit_text_white)
+            false ->buttonNo.background = resources.getDrawable(R.drawable.rectangle_edit_text_with_shadow)
         }
 
         when (about.isVisitPsychology) {
             true -> {
-                buttonYesPsycho.background = resources.getDrawable(R.drawable.rectangle_edit_text_white)
+                buttonYesPsycho.callOnClick()
                 editMonthOfTherapyPsycho.setText(about.timeOfPsychologistVisit.toString())
             }
-            false ->buttonNoPsycho.background = resources.getDrawable(R.drawable.rectangle_edit_text_white)
+            false ->buttonNoPsycho.callOnClick()
         }
 
         editAge.setText(about.age.toString())
@@ -195,7 +217,8 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
                 mAboutModel.maritalStatus != null && mAboutModel.education != null &&
                 mAboutModel.timeOfUse != null && mAboutModel.frequencyOfUse != null &&
                 mAboutModel.isVisitTherapy != null &&
-                mAboutModel.isVisitPsychology != null
+                mAboutModel.isVisitPsychology != null &&
+                mAboutModel.agreeToSendMyTestInfo != null
 
         if (mAboutModel.isVisitTherapy == true)
             if (mAboutModel.timeOfPsychoterapevtVisit == null)

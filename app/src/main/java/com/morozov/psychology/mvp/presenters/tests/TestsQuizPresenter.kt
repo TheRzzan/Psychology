@@ -1,5 +1,6 @@
 package com.morozov.psychology.mvp.presenters.tests
 
+import android.content.Context
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import com.morozov.psychology.DefaultApplication
@@ -32,8 +33,8 @@ class TestsQuizPresenter: MvpPresenter<TestsQuizView>() {
         viewState.showQuestion(questionsLoader.getQuestions(testName)[position])
     }
 
-    fun generateResult(testName: String) {
-        resultSaver.saveResult(testName, TestsResultsGenerator().getResult(testName, selectedAnswers))
+    fun generateResult(context: Context, testName: String) {
+        resultSaver.saveResult(testName, TestsResultsGenerator().getResult(context, testName, selectedAnswers))
     }
 
     fun getQuestionsAmount(testName: String): Int {

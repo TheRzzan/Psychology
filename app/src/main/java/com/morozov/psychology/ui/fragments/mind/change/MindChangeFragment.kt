@@ -67,7 +67,7 @@ class MindChangeFragment: MvpAppCompatFragment(), MindChangeView, OnItemClickLis
 
         mActivityPresenter.makeBackBlack()
 
-        if (MainActivity.openPurchase) {
+        if (!MainActivity.openPurchase) {
             textPay.visibility = View.GONE
             mActivityPresenter.makeBackWhite()
 

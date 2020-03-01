@@ -95,7 +95,7 @@ class TestsQuizFragment: MvpAppCompatFragment(), TestsQuizView {
                 val bundle = this.arguments ?: return@setOnClickListener
                 val name = bundle.getString(AppConstants.TEST_NAME) ?: return@setOnClickListener
 
-                mPresenter.generateResult(name)
+                context?.let { it1 -> mPresenter.generateResult(it1, name) }
                 mActivityPresenter.showTestQuizResults(name)
             }
         }

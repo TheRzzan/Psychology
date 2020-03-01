@@ -1,5 +1,6 @@
 package com.morozov.psychology.utility
 
+import android.content.Context
 import android.util.Range
 import com.morozov.psychology.DefaultApplication
 import com.morozov.psychology.domain.interfaces.tests.AboutLoader
@@ -19,7 +20,7 @@ class TestsResultsGenerator {
         DefaultApplication.testsComponent.inject(this)
     }
 
-    fun getResult(testName: String, answers: List<Int>): ResultModel {
+    fun getResult(context: Context, testName: String, answers: List<Int>): ResultModel {
         var simpleTestName = testName
         val resultModel = when (testName) {
             AppConstants.WEISMAN_BACK_TEST -> {
@@ -53,13 +54,18 @@ class TestsResultsGenerator {
             else -> ResultModel(Date(), listOf(Pair(testName, "Some description ${answers.size}")))
         }
 
-        val hashMap = mutableMapOf<String, String>()
-        for ((index, answer) in answers.withIndex()) {
-            hashMap["_$index"] = answer.toString()
+        val agree = if (aboutLoader.getAboutModel() == null) true
+        else aboutLoader.getAboutModel()!!.agreeToSendMyTestInfo == true
+
+        if (agree) {
+            val hashMap = mutableMapOf<String, String>()
+            for ((index, answer) in answers.withIndex()) {
+                hashMap["_$index"] = answer.toString()
+            }
+            val aboutModel = aboutLoader.getAboutModel()
+            FirebaseHelper.writeTest(simpleTestName, resultModel.date.time.toString(),
+                hashMap, resultModel.items.toMap(), aboutModel)
         }
-        val aboutModel = aboutLoader.getAboutModel()
-        FirebaseHelper.writeTest(simpleTestName, resultModel.date.time.toString(),
-            hashMap, resultModel.items.toMap(), aboutModel)
 
         return resultModel
     }

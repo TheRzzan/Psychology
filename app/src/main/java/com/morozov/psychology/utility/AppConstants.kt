@@ -37,6 +37,8 @@ class AppConstants {
         const val PREF_WALLP_2 = "pref_wallp_2_v1_2"
         const val PREF_WALLP_3 = "pref_wallp_3_v1_2"
 
+        const val PREF_SEND_TEST_INFO = "pref_send_test_info"
+
         // Notifications
         const val PREF_QUIZ_MONTH = "pref_quiz_month_v2.0.7.1.9.1.1"
         const val PREF_QUIZ_HALF_YEAR = "pref_quiz_half_year_v2.0.7.1.9.1.1"
@@ -46,6 +48,7 @@ class AppConstants {
         const val PREF_DIALOG_TESTS = "pref_dialog_tests_v1.3.2"
         const val PREF_DIALOG_ALL_RESULTS = "pref_dialog_all_results_v1.3.2"
         const val PREF_DIALOG_FIRST_HELLO = "pref_dialog_first_hello_v1.7.2"
+        const val PREF_DIARY = "pref_diary"
 
         // Program styles
         const val PREF_PROG_STYLE = "pref_prog_style_v1_1"

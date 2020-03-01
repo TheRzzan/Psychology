@@ -147,6 +147,17 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
                 clearBackStack()
                 setFragment(diaryFragment)
+
+                if (!MySharedPreferences.getBoolPreference(applicationContext, AppConstants.PREF_DIARY)) {
+                    val customDialog = CustomDialog()
+                    customDialog.setTitle(getString(R.string.dialog_diary_title))
+                    customDialog.setDescription(getString(R.string.dialog_diary_description))
+                    customDialog.setOk(getString(R.string.dialog_diary_ok))
+                    customDialog.show(supportFragmentManager, CustomDialog::class.simpleName)
+
+                    MySharedPreferences.setPreference(applicationContext, AppConstants.PREF_DIARY, true)
+                }
+
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_tests -> {

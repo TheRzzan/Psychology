@@ -45,7 +45,7 @@ class MindChangeThinkTestFragment: MvpAppCompatFragment(), MindChangeThinkTestVi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (MainActivity.openPurchase) {
+        if (!MainActivity.openPurchase) {
             initAll()
         } else {
             mActivityPresenter.makeBackBlack()
