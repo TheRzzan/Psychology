@@ -171,6 +171,8 @@ interface MainView: MvpView {
 
     fun showSettingsConsult()
 
+    fun showAboutApplication()
+
     /*
     * Another
     *

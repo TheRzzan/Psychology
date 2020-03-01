@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/fragment_background"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+            android:layout_alignParentTop="true"
+            style="@style/ScrollViewStyle">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+                    style="@style/TextView.Primary.Header"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:text="О приложении"/>
+            <TextView
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    style="@style/TextView.Secondary"
+                    android:text="Приложение основано на принципах когнитивно-поведенческой терапии, зарекомендовавшей свою эффективность во всем мире. Благодаря приложению вы сможете снизить уровень собственной тревоги, улучшить настроение, понять причины поведения, периодических телесных симптомов и предупредить их возникновение.
+Предназначено как для самостоятельной работы со своими мыслями, так и в помощь к индивидуальной психотерапии и психокоррекции.
+Когнитивно-поведенческая терапия (КПТ) работает с мыслями. Если вы еще не знакомы с этим направлением, то рекомендуем начать с блока «хочу убедиться, что мысли влияют на эмоции». В нем вы проведете ряд экспериментов и на собственном опыте убедитесь, что мысли влияют на ваши эмоции и тело.
+Вы сможете пройти тестирование и узнать, какие симптомы у вас сейчас есть, насколько они выражены. А также выявить присущие вам ошибки мышления и психологические механизмы, помогающие вам с ними справиться. Пройдя тестирование повторно через 1 месяц, 2 месяца и год, вы увидите, насколько приложение помогает вам. Вы можете дать согласие и стать анонимным участником исследования эффективности дистанционной самопомощи русскоязычным людям всего мира, а также позволите нам улучшить это приложение."
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

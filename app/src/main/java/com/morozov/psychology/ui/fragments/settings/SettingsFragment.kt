@@ -38,6 +38,10 @@ class SettingsFragment: MvpAppCompatFragment(), SettingsView {
             mActivityPresenter.showSettingsConsult()
         }
 
+        relativeAbout.setOnClickListener {
+            mActivityPresenter.showAboutApplication()
+        }
+
         relativeEstimate.setOnClickListener {
             val appPackageName = activity?.packageName ?: return@setOnClickListener //"com.plarium.raidlegends"
             try {

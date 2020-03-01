@@ -76,10 +76,7 @@ import com.morozov.psychology.ui.fragments.mind.change.homework.minimalism.HmMin
 import com.morozov.psychology.ui.fragments.mind.change.homework.overgeneration.HmOvergenerationFragment
 import com.morozov.psychology.ui.fragments.mind.change.homework.personalization.HmPersonalizationFragment
 import com.morozov.psychology.ui.fragments.mind.change.homework.tunnel.HmTunnelFragment
-import com.morozov.psychology.ui.fragments.settings.SettingsConsultFragment
-import com.morozov.psychology.ui.fragments.settings.SettingsFragment
-import com.morozov.psychology.ui.fragments.settings.SettingsStyleFragment
-import com.morozov.psychology.ui.fragments.settings.SettingsWallpaperFragment
+import com.morozov.psychology.ui.fragments.settings.*
 import com.morozov.psychology.ui.fragments.tests.*
 import com.morozov.psychology.utility.*
 import kotlinx.android.synthetic.main.activity_main.*
@@ -548,9 +545,18 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     }
 
     /*
-        * Experiments section controls
-        * (MainView impl)
-        * */
+    * Experiments section controls
+    * (MainView impl)
+    * */
+    override fun showAboutApplication() {
+        val fragment = AboutApplicationFragment()
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.contentMain, fragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
     override fun showExCards() {
         navigation.selectedItemId = R.id.navigation_examples
     }
