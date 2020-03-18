@@ -44,11 +44,11 @@ class SettingsConsultFragment: MvpAppCompatFragment(), SettingsConsultView {
         }
 
         buttonSendRequest.setOnClickListener {
-            var textEmail = "Как к вам обращаться: ${editName.text}\n"
-            textEmail += "Как связаться: ${editEmailVk.text}\n"
-            textEmail += "Вопрос: ${editQuestion.text}\n"
-            textEmail += "Удобное время для консультации: ${editPreferedTime.text}\n"
-            textEmail += "Формат консультации: ${spinerConsultFormat.selectedItem}"
+            var textEmail = "Как к вам обращаться: ${editName.text}. "
+            textEmail += "Как связаться: ${editEmailVk.text}. "
+            textEmail += "Вопрос: ${editQuestion.text}. "
+            textEmail += "Удобное время для консультации: ${editPreferedTime.text}. "
+            textEmail += "Формат консультации: ${spinerConsultFormat.selectedItem}."
             EmailSender.text = textEmail
             activity?.let { it1 -> EmailSender.send(it1) }
 //            mActivityPresenter.showSettingsConsult()
