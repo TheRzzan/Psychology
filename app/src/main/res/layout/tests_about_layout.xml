@@ -26,6 +26,33 @@
                     android:text="Немного о вас"/>
 
             <TextView
+                    android:text="Электронная почта"
+                    android:textStyle="bold"
+                    style="@style/TextView.Secondary"
+                    android:textColor="@color/second_header_text"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+
+            <EditText
+                    android:textColor="@color/grey_color"
+                    android:textSize="17sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:inputType="textEmailAddress|textMultiLine"
+                    android:maxLines="1"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:hint="Email"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:ems="10"
+                    style="@style/EditTextStyle"
+                    android:id="@+id/editEmail"/>
+
+            <TextView
                     android:text="Пол"
                     android:textStyle="bold"
                     style="@style/TextView.Secondary"
