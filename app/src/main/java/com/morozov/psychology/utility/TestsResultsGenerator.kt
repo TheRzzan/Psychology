@@ -763,7 +763,19 @@ class TestsResultsGenerator {
             in 61..max -> mutableListOf.add(Pair(str8, "Вы легко находите позитивные стороны даже в проблемах. Однако чрезмерное использование данной тактики может привести к недооценке возможностей действенного разрешения и затягиванию проблемных ситуаций."))
         }
 
-        return ResultModel(Date(), mutableListOf)
+        val hashMap = mutableMapOf<String, String>()
+        hashMap["_0"] = tBallKonKop.toString()
+        hashMap["_1"] = tBallDistan.toString()
+        hashMap["_2"] = tBallSamokt.toString()
+        hashMap["_3"] = tBallSocHlp.toString()
+        hashMap["_4"] = tBallPrOtvt.toString()
+        hashMap["_5"] = tBallBegIzb.toString()
+        hashMap["_6"] = tBallPlResh.toString()
+        hashMap["_7"] = tBallPolPer.toString()
+
+        return ResultModel(Date(), mutableListOf).apply {
+            firebaseRes = hashMap
+        }
     }
 
     private fun getLKonfTable(): List<List<Int>> {

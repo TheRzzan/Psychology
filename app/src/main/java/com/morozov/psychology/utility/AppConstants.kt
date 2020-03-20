@@ -24,10 +24,10 @@ class AppConstants {
         const val SIMPLE_WEISMAN_BACK_TEST_NAME = "Шкала дисфункциональных отношений Вейсмана – Бека"
         const val SIMPLE_ELLIS_TEST_NAME = "Тест Эллиса"
         const val SIMPLE_HOSPITAL_SCALE_TEST_NAME = "Госпитальная шкала тревоги и депрессии"
-        const val SIMPLE_INTEGRATIVE_TEST_NAME = "Интегративный тест тревожности"
-        const val SIMPLE_LAZARUS_QUESTIONNAIRE_TEST_NAME = "Способы совладающего поведения Лазаруса"
-        const val SIMPLE_STYLE_INDEX_TEST_NAME = "Индекс жизненного стиля"
-        const val SIMPLE_SELF_ATTITUDE_TEST_NAME = "Методика исследования самоотношения"
+        const val SIMPLE_INTEGRATIVE_TEST_NAME = "ИТТ"
+        const val SIMPLE_LAZARUS_QUESTIONNAIRE_TEST_NAME = "Лазарус"
+        const val SIMPLE_STYLE_INDEX_TEST_NAME = "ИЖС"
+        const val SIMPLE_SELF_ATTITUDE_TEST_NAME = "МИС"
 
         // Shared Preference
         const val EMPTY_PREF = "empty_pref_v1_2"
