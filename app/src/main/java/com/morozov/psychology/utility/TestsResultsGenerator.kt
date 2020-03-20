@@ -977,9 +977,21 @@ class TestsResultsGenerator {
         val readyInt = if (resReadyInt.size <= rawInt) { 100 } else { resReadyInt[rawInt] }
         val readyRea = if (resReadyRea.size <= rawRea) { 100 } else { resReadyRea[rawRea] }
 
+        val hashMap = mutableMapOf<String, String>()
+        hashMap["_0"] =  readyOtr.toString()
+        hashMap["_1"] =  readyPod.toString()
+        hashMap["_2"] =  readyReg.toString()
+        hashMap["_3"] =  readyKom.toString()
+        hashMap["_4"] =  readyPro.toString()
+        hashMap["_5"] =  readyZam.toString()
+        hashMap["_6"] =  readyInt.toString()
+        hashMap["_7"] =  readyRea.toString()
+
         return getSIResStr(readyOtr, readyPod, readyReg,
                 readyKom, readyPro, readyZam,
-                readyInt, readyRea)
+                readyInt, readyRea).apply {
+            firebaseRes = hashMap
+        }
     }
 
     private fun getSIResStr(readyOtr: Int, readyPod: Int, readyReg: Int,
