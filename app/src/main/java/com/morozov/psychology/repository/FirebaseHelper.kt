@@ -10,14 +10,17 @@ object FirebaseHelper {
         database = FirebaseDatabase.getInstance().reference
     }
 
-    fun writeTest(nameTest: String, date: String, answers: Map<String, String>, generatedResults: Map<String, String>, userModel: AboutModel?) {
-        val answers = FirebaseAnswers(nameTest, date, answers, generatedResults, userModel)
+    fun writeTest(nameTest: String, date: String, answers: Map<String, String>, general: Int? = null, userModel: AboutModel?) {
+        val answersHashMap = mutableMapOf<String, Any?>()
+        answersHashMap["nameTest"] = nameTest
+        answersHashMap["date"] = date
+        answersHashMap["userModel"] = userModel
+        val testObject = mutableMapOf<String, Any?>()
+        testObject["results"] = answers
+        testObject["general"] = general
+        answersHashMap[nameTest] = testObject
         if (database == null)
             init()
-        database!!.child("analytics").push().setValue(answers)
+        database!!.child("analytics").push().setValue(answersHashMap)
     }
-
-    private data class FirebaseAnswers(val nameTest: String, val date: String,
-                                       val answers: Map<String, String>, val generatedResults: Map<String, String>,
-                                       val userModel: AboutModel?)
 }

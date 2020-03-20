@@ -1,43 +1,50 @@
 {
   "project_info": {
-    "project_number": "5738342482",
-    "firebase_url": "https://psyhology-3c2c2.firebaseio.com",
-    "project_id": "psyhology-3c2c2",
-    "storage_bucket": "psyhology-3c2c2.appspot.com"
+    "project_number": "790428285617",
+    "firebase_url": "https://psyhology2.firebaseio.com",
+    "project_id": "psyhology2",
+    "storage_bucket": "psyhology2.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:5738342482:android:ff6f68a2f8c83d8d45178b",
+        "mobilesdk_app_id": "1:790428285617:android:cc1a958ede6c8b9b9bc090",
         "android_client_info": {
           "package_name": "com.morozov.psychology"
         }
       },
       "oauth_client": [
         {
-          "client_id": "5738342482-gbso087cflanqv1lesl2n5doeo4pmv68.apps.googleusercontent.com",
+          "client_id": "790428285617-ci5aul3vp4pt6jd8rrl2kqkbq3uigba5.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.morozov.psychology",
-            "certificate_hash": "24eed9449dc4c3141620fbb6d9347838ab073fee"
+            "certificate_hash": "cf3800db65990d63ba213cf6010448ef3840c695"
           }
         },
         {
-          "client_id": "5738342482-osichp443pbmq0a40gu6k3lf7lqvc891.apps.googleusercontent.com",
+          "client_id": "790428285617-csjjr0c1aeo52cffh2m50m5si7q50uf7.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB1T6bfvzt7S8xiSaB14PC8t6sp4hWbfpY"
+          "current_key": "AIzaSyABkv5hXnpouta8XrJsIBFbA30PkxeSIf8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "5738342482-osichp443pbmq0a40gu6k3lf7lqvc891.apps.googleusercontent.com",
+              "client_id": "790428285617-csjjr0c1aeo52cffh2m50m5si7q50uf7.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "790428285617-oh748uinnakqak3365rrn8v8cr4anv3u.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.psychology.psychology-ios-native"
+              }
             }
           ]
         }

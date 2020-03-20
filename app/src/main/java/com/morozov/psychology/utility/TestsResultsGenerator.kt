@@ -8,6 +8,7 @@ import com.morozov.psychology.mvp.models.tests.ResultModel
 import com.morozov.psychology.mvp.models.tests.about.AboutModel
 import com.morozov.psychology.mvp.models.tests.about.enums.SexEnum
 import com.morozov.psychology.repository.FirebaseHelper
+import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
 
@@ -24,31 +25,31 @@ class TestsResultsGenerator {
         var simpleTestName = testName
         val resultModel = when (testName) {
             AppConstants.WEISMAN_BACK_TEST -> {
-                simpleTestName = AppConstants.SIMPLE_WEISMAN_BACK_TEST
+                simpleTestName = AppConstants.SIMPLE_WEISMAN_BACK_TEST_NAME
                 getWeismanBackRes(testName, answers)
             }
             AppConstants.ELLIS_TEST -> {
-                simpleTestName = AppConstants.SIMPLE_ELLIS_TEST
+                simpleTestName = AppConstants.SIMPLE_ELLIS_TEST_NAME
                 getEllisRes(testName, answers)
             }
             AppConstants.HOSPITAL_SCALE_TEST -> {
-                simpleTestName = AppConstants.SIMPLE_HOSPITAL_SCALE_TEST
+                simpleTestName = AppConstants.SIMPLE_HOSPITAL_SCALE_TEST_NAME
                 getHospitalScaleRes(testName, answers)
             }
             AppConstants.LAZARUS_QUESTIONNAIRE_TEST -> {
-                simpleTestName = AppConstants.SIMPLE_LAZARUS_QUESTIONNAIRE_TEST
+                simpleTestName = AppConstants.SIMPLE_LAZARUS_QUESTIONNAIRE_TEST_NAME
                 getLazarusQuestionnaireRes(testName, answers)
             }
             AppConstants.SELF_ATTITUDE_TEST -> {
-                simpleTestName = AppConstants.SIMPLE_SELF_ATTITUDE_TEST
+                simpleTestName = AppConstants.SIMPLE_SELF_ATTITUDE_TEST_NAME
                 getSelfAttitudeRes(testName, answers)
             }
             AppConstants.STYLE_INDEX_TEST -> {
-                simpleTestName = AppConstants.SIMPLE_STYLE_INDEX_TEST
+                simpleTestName = AppConstants.SIMPLE_STYLE_INDEX_TEST_NAME
                 getStyleIndexRes(testName, answers)
             }
             AppConstants.INTEGRATIVE_TEST -> {
-                simpleTestName = AppConstants.SIMPLE_INTEGRATIVE_TEST
+                simpleTestName = AppConstants.SIMPLE_INTEGRATIVE_TEST_NAME
                 getIntegrativeRes(testName, answers)
             }
             else -> ResultModel(Date(), listOf(Pair(testName, "Some description ${answers.size}")))
@@ -63,8 +64,8 @@ class TestsResultsGenerator {
                 hashMap["_$index"] = answer.toString()
             }
             val aboutModel = aboutLoader.getAboutModel()
-            FirebaseHelper.writeTest(simpleTestName, resultModel.date.time.toString(),
-                hashMap, resultModel.items.toMap(), aboutModel)
+            FirebaseHelper.writeTest(simpleTestName, SimpleDateFormat("dd.MM.yyyy").format(resultModel.date),
+                hashMap, null, aboutModel)
         }
 
         return resultModel
