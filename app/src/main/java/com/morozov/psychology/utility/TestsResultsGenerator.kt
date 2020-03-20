@@ -1282,6 +1282,17 @@ class TestsResultsGenerator {
             else -> ""
         }
 
+        val hashMap = mutableMapOf<String, String>()
+        hashMap["_0"] =  scSten1.toString()
+        hashMap["_1"] =  scSten2.toString()
+        hashMap["_2"] =  scSten3.toString()
+        hashMap["_3"] =  scSten4.toString()
+        hashMap["_4"] =  scSten5.toString()
+        hashMap["_5"] =  scSten6.toString()
+        hashMap["_6"] =  scSten7.toString()
+        hashMap["_7"] =  scSten8.toString()
+        hashMap["_8"] =  scSten9.toString()
+
         return ResultModel(Date(),
             listOf(
                 Pair("Закрытость ($scSten1)", p1),
@@ -1293,7 +1304,9 @@ class TestsResultsGenerator {
                 Pair("Самопривязанность ($scSten7)", p7),
                 Pair("Внутренняя конфликтность ($scSten8)", p8),
                 Pair("Самообвинение ($scSten9)", p9)
-            ))
+            )).apply {
+            firebaseRes = hashMap
+        }
     }
 
     /*
