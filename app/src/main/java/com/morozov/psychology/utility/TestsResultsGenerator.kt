@@ -59,13 +59,9 @@ class TestsResultsGenerator {
         else aboutLoader.getAboutModel()!!.agreeToSendMyTestInfo == true
 
         if (agree) {
-            val hashMap = mutableMapOf<String, String>()
-            for ((index, answer) in answers.withIndex()) {
-                hashMap["_$index"] = answer.toString()
-            }
             val aboutModel = aboutLoader.getAboutModel()
             FirebaseHelper.writeTest(simpleTestName, SimpleDateFormat("dd.MM.yyyy").format(resultModel.date),
-                hashMap, null, aboutModel)
+                resultModel.firebaseRes, resultModel.general, aboutModel)
         }
 
         return resultModel
@@ -84,7 +80,10 @@ class TestsResultsGenerator {
         var score = 0
 
         var i = 0
+        val hashMap = mutableMapOf<String, String>()
         while (i < answers.size) {
+            hashMap["_$i"] = answers[i].toString()
+
             if (summationPoints.contains(i + 1)) {
                 score += answers[i] + 1
             } else if (reversePoints.contains(i + 1)) {
@@ -94,7 +93,10 @@ class TestsResultsGenerator {
             i ++
         }
 
-        return getWBResStr(score)
+        return getWBResStr(score).apply {
+            general = score
+            firebaseRes = hashMap
+        }
     }
 
     private fun getWBResStr(score: Int): ResultModel {
@@ -159,7 +161,16 @@ class TestsResultsGenerator {
             i += 5
         }
 
-        return getEResStr(scoreKat, scoreDoljSelf, scoreDoljOthers, scoreLowFr, scoreSelfMax)
+        val hashMap = mutableMapOf<String, String>()
+        hashMap["_0"] = scoreKat.toString()
+        hashMap["_1"] = scoreDoljSelf.toString()
+        hashMap["_2"] = scoreDoljOthers.toString()
+        hashMap["_3"] = scoreLowFr.toString()
+        hashMap["_4"] = scoreSelfMax.toString()
+
+        return getEResStr(scoreKat, scoreDoljSelf, scoreDoljOthers, scoreLowFr, scoreSelfMax).apply {
+            firebaseRes = hashMap
+        }
     }
 
     private fun getEResStr(scoreKat: Int, scoreDoljSelf: Int, scoreDoljOthers: Int,
