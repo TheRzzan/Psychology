@@ -9,4 +9,4 @@ data class AboutModel(var sex: SexEnum?, var age: Int?, var maritalStatus: Marit
                       var timeOfPsychoterapevtVisit: Int?, var timeOfPsychologistVisit: Int?, var frequencyOfTherapy: FrequencyOfTherapyEnum?,
                       var medicines: Pair<MutableList<MedicinesEnum>, MutableList<String>>?,
                       var agreeToSendMyTestInfo: Boolean?,
-                      var email: String = "")
+                      var email: String?)

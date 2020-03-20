@@ -76,7 +76,7 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
             null, null, null, null,
             null,
             Pair(mutableListOf(), mutableListOf()),
-            null
+            null, null
         )
 
         mPresenter.loadData()
@@ -150,6 +150,8 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
 
         editAge.setText(about.age.toString())
 
+        editEmail.setText(about.email)
+
         editMonthOfUse.setText(about.timeOfUse.toString())
 
         when (about.maritalStatus) {
@@ -218,7 +220,8 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
                 mAboutModel.timeOfUse != null && mAboutModel.frequencyOfUse != null &&
                 mAboutModel.isVisitTherapy != null &&
                 mAboutModel.isVisitPsychology != null &&
-                mAboutModel.agreeToSendMyTestInfo != null
+                mAboutModel.agreeToSendMyTestInfo != null &&
+                mAboutModel.email != null
 
         if (mAboutModel.isVisitTherapy == true)
             if (mAboutModel.timeOfPsychoterapevtVisit == null)
@@ -465,6 +468,22 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
                         mAboutModel.age = null
                 } else
                     mAboutModel.age = null
+
+                checkIsReadyToSave()
+            }
+        })
+
+        editEmail.addTextChangedListener(object : TextWatcher{
+            override fun afterTextChanged(s: Editable?) {}
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (s != null) {
+                    if (s.isNotEmpty())
+                        mAboutModel.email = s.toString()
+                    else
+                        mAboutModel.email = null
+                } else
+                    mAboutModel.email = null
 
                 checkIsReadyToSave()
             }
