@@ -249,7 +249,13 @@ class TestsResultsGenerator {
                 }
         }
 
-        return getHSResStr(anxietyScore, depressionScore)
+        val hashMap = mutableMapOf<String, String>()
+        hashMap["_0"] = anxietyScore.toString()
+        hashMap["_1"] = depressionScore.toString()
+
+        return getHSResStr(anxietyScore, depressionScore).apply {
+            firebaseRes = hashMap
+        }
     }
 
     private fun getHSResStr(anxietyScore: Int, depressionScore: Int): ResultModel {
@@ -496,9 +502,25 @@ class TestsResultsGenerator {
             }
         }
 
+        val hashMap = mutableMapOf<String, String>()
+        hashMap["_0"] = sScoreED_ST.toString()
+        hashMap["_1"] = sScoreAST_ST.toString()
+        hashMap["_2"] = sScoreFOB_ST.toString()
+        hashMap["_3"] = sScoreOP_ST.toString()
+        hashMap["_4"] = sScoreSZ_ST.toString()
+        hashMap["_5"] = obshStn_ST.toString()
+        hashMap["_6"] = sScoreED_LT.toString()
+        hashMap["_7"] = sScoreAST_LT.toString()
+        hashMap["_8"] = sScoreFOB_LT.toString()
+        hashMap["_9"] = sScoreOP_LT.toString()
+        hashMap["_10"] = sScoreSZ_LT.toString()
+        hashMap["_11"] = obshStn_LT.toString()
+
         return getIResStr(sScoreED_LT, sScoreAST_LT, sScoreFOB_LT, sScoreOP_LT, sScoreSZ_LT,
             sScoreED_ST, sScoreAST_ST, sScoreFOB_ST, sScoreOP_ST, sScoreSZ_ST,
-            obshStn_LT, obshStn_ST)
+            obshStn_LT, obshStn_ST).apply {
+            firebaseRes = hashMap
+        }
     }
 
     private fun tmpIRes_1(list: List<Range<Int>>, value: Int): Int {
