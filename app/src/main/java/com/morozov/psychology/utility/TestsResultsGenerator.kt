@@ -55,14 +55,9 @@ class TestsResultsGenerator {
             else -> ResultModel(Date(), listOf(Pair(testName, "Some description ${answers.size}")))
         }
 
-        val agree = if (aboutLoader.getAboutModel() == null) true
-        else aboutLoader.getAboutModel()!!.agreeToSendMyTestInfo == true
-
-        if (agree) {
-            val aboutModel = aboutLoader.getAboutModel()
-            FirebaseHelper.writeTest(simpleTestName, SimpleDateFormat("dd.MM.yyyy").format(resultModel.date),
-                resultModel.firebaseRes, resultModel.general, aboutModel)
-        }
+        val aboutModel = aboutLoader.getAboutModel()
+        FirebaseHelper.writeTest(simpleTestName, SimpleDateFormat("dd.MM.yyyy").format(resultModel.date),
+            resultModel.firebaseRes, resultModel.general, aboutModel)
 
         return resultModel
     }

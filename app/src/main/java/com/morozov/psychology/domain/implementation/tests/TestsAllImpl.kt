@@ -171,7 +171,7 @@ class TestsAllImpl(private val context: Context): DescriptionLoader, QuestionsLo
                 false -> tmp
             } ,
             MySharedPreferences.getBoolPreference(context, AppConstants.PREF_DIARY),
-            MySharedPreferences.getStrPreference(context, AppConstants.PREF_ABOUT_EMAil)
+            MySharedPreferences.getStrPreferenceNullable(context, AppConstants.PREF_ABOUT_EMAil)
         )
         return aboutModel
     }
