@@ -12,6 +12,7 @@ import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.TextView
+import androidx.lifecycle.Observer
 import com.arellomobile.mvp.MvpAppCompatFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
@@ -19,6 +20,7 @@ import com.morozov.psychology.mvp.models.diary.ThinkModel
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.mind.change.MindChangeThinkTestPresenter
 import com.morozov.psychology.mvp.views.mind.change.MindChangeThinkTestView
+import com.morozov.psychology.ui.activities.MainActivity
 import com.morozov.psychology.utility.AppConstants
 import kotlinx.android.synthetic.main.mind_change_think_test_layout.*
 import java.util.*
@@ -43,8 +45,32 @@ class MindChangeThinkTestFragment: MvpAppCompatFragment(), MindChangeThinkTestVi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        if (MainActivity.openPurchase) {
+            initAll()
+        } else {
+            mActivityPresenter.makeBackBlack()
+            buttonBuy.setOnClickListener {
+                (activity as MainActivity).buy().observe(this, Observer<Boolean> {
+                    if (!it)
+                        return@Observer
+                    MindChangeFragment.isBought = true
+                    initAll()
+                })
+            }
+        }
+    }
+
+    override fun onDestroy() {
+        mActivityPresenter.makeBackWhite()
+        super.onDestroy()
+    }
+
+    private fun initAll() {
+        textPay.visibility = View.GONE
+        mActivityPresenter.makeBackWhite()
+
         buttonMindChangeMain.setOnClickListener {
-            mActivityPresenter.showMindChangeSection()
+            activity?.onBackPressed()
         }
 
         setEmotionsOnClick()

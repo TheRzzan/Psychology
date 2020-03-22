@@ -36,7 +36,7 @@ class MCMindReadingFragment: MvpAppCompatFragment(), MCMindReadingView, MindChan
         super.onViewCreated(view, savedInstanceState)
 
         buttonAddNewThink.setOnClickListener {
-            mPresenter.saveNewThink(
+            val savedDate = mPresenter.saveNewThink(
                 editNewThink.text.toString(),
                 when (selectedEmotion.value) {
                     0 -> EmotionModel(EmotionModel.Emotion.JOY, seekBarMChangeEmotions.progress)
@@ -49,7 +49,8 @@ class MCMindReadingFragment: MvpAppCompatFragment(), MCMindReadingView, MindChan
                     7 -> EmotionModel(EmotionModel.Emotion.RESENTMENT, seekBarMChangeEmotions.progress)
                     else -> EmotionModel(EmotionModel.Emotion.RESENTMENT, 0)
                 })
-            mActivityPresenter.showMindChangeSection()
+            mActivityPresenter.showDiaryCards()
+            savedDate?.let { it1 -> mActivityPresenter.showDiaryViewing(it1) }
         }
 
         selectedEmotion.observeForever {

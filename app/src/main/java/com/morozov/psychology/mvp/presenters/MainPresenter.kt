@@ -2,6 +2,7 @@ package com.morozov.psychology.mvp.presenters
 
 import android.graphics.drawable.Drawable
 import android.widget.ImageView
+import androidx.lifecycle.LiveData
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import com.morozov.psychology.mvp.views.MainView
@@ -390,5 +391,23 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showBottomNav()
         viewState.hideBackArrow()
         viewState.showSettingsConsult()
+    }
+
+    fun showAboutApplication() {
+        viewState.hideBottomNav()
+        viewState.showBackArrow()
+        viewState.showAboutApplication()
+    }
+
+    /*
+    * Another
+    *
+    * */
+    fun makeBackBlack() {
+        viewState.makeBackBlack()
+    }
+
+    fun makeBackWhite() {
+        viewState.makeBackWhite()
     }
 }

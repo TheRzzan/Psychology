@@ -35,7 +35,7 @@ class MCDisastorous_3_Fragment: MvpAppCompatFragment(), MCDisastorous_3_View {
         super.onViewCreated(view, savedInstanceState)
 
         buttonAddNewThink.setOnClickListener {
-            mPresenter.saveNewThink(
+            val savedDate = mPresenter.saveNewThink(
                 editDisNewThink.text.toString(),
                 when (selectedEmotion.value) {
                     0 -> EmotionModel(EmotionModel.Emotion.JOY, seekBarDisEmotions.progress)
@@ -48,7 +48,8 @@ class MCDisastorous_3_Fragment: MvpAppCompatFragment(), MCDisastorous_3_View {
                     7 -> EmotionModel(EmotionModel.Emotion.RESENTMENT, seekBarDisEmotions.progress)
                     else -> EmotionModel(EmotionModel.Emotion.RESENTMENT, 0)
                 })
-            mActivityPresenter.showMindChangeSection()
+            mActivityPresenter.showDiaryCards()
+            savedDate?.let { it1 -> mActivityPresenter.showDiaryViewing(it1) }
         }
 
         seekBarDis.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {

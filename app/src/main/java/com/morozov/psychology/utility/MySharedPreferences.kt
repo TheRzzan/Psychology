@@ -33,9 +33,14 @@ object MySharedPreferences {
         return preferences.getString(pref, AppConstants.EMPTY_PREF)
     }
 
+    fun getStrPreferenceNullable(context: Context, pref: String): String? {
+        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+        return preferences.getString(pref, null)
+    }
+
     fun getBoolPreference(context: Context, pref: String): Boolean {
         val preferences = PreferenceManager.getDefaultSharedPreferences(context)
-        return preferences.getBoolean(pref, false)
+        return preferences.getBoolean(pref, true)
     }
 
     fun getIntPreference(context: Context, pref: String): Int {

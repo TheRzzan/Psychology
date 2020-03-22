@@ -40,7 +40,7 @@ class MCBlackWhiteFragment: MvpAppCompatFragment(), MCBlackWhiteView, MindChange
         super.onViewCreated(view, savedInstanceState)
 
         buttonAddNewThink.setOnClickListener {
-            mPresenter.saveNewThink(
+            val savedDate = mPresenter.saveNewThink(
                 editNewThink.text.toString(),
                 when (selectedEmotion.value) {
                     0 -> EmotionModel(EmotionModel.Emotion.JOY, seekBarBWEmotions.progress)
@@ -53,7 +53,8 @@ class MCBlackWhiteFragment: MvpAppCompatFragment(), MCBlackWhiteView, MindChange
                     7 -> EmotionModel(EmotionModel.Emotion.RESENTMENT, seekBarBWEmotions.progress)
                     else -> EmotionModel(EmotionModel.Emotion.RESENTMENT, 0)
                 })
-            mActivityPresenter.showMindChangeSection()
+            mActivityPresenter.showDiaryCards()
+            savedDate?.let { it1 -> mActivityPresenter.showDiaryViewing(it1) }
         }
 
         recyclerBW.adapter = adapter

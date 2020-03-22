@@ -17,6 +17,8 @@ import com.morozov.psychology.mvp.models.tests.about.enums.*
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.tests.TestsAboutPresenter
 import com.morozov.psychology.mvp.views.tests.TestsAboutView
+import com.morozov.psychology.utility.AppConstants
+import com.morozov.psychology.utility.MySharedPreferences
 import kotlinx.android.synthetic.main.diary_think_editor_layout.*
 import kotlinx.android.synthetic.main.tests_about_layout.*
 
@@ -49,6 +51,20 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
             mActivityPresenter.showTestSection()
         }
 
+        buttonAgree.setOnClickListener {
+            mAboutModel.agreeToSendMyTestInfo = true
+            buttonAgree.background = resources.getDrawable(R.drawable.rectangle_edit_text_with_shadow)
+            buttonDisagree.background = resources.getDrawable(R.drawable.rectangle_button_white)
+            checkIsReadyToSave()
+        }
+
+        buttonDisagree.setOnClickListener {
+            mAboutModel.agreeToSendMyTestInfo = false
+            buttonAgree.background = resources.getDrawable(R.drawable.rectangle_button_white)
+            buttonDisagree.background = resources.getDrawable(R.drawable.rectangle_edit_text_with_shadow)
+            checkIsReadyToSave()
+        }
+
         prepareFragment()
     }
 
@@ -57,8 +73,10 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
 
         mAboutModel = AboutModel(null, null, null,
             null, null, null,
-            null, null, null,
-            Pair(mutableListOf(), mutableListOf())
+            null, null, null, null,
+            null,
+            Pair(mutableListOf(), mutableListOf()),
+            null, null
         )
 
         mPresenter.loadData()
@@ -70,6 +88,11 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
     * */
     override fun showAbout(about: AboutModel) {
         mAboutModel = about.copy()
+
+        if (mAboutModel.agreeToSendMyTestInfo == true)
+            buttonAgree.callOnClick()
+        if (mAboutModel.agreeToSendMyTestInfo == false)
+            buttonDisagree.callOnClick()
 
         val tmpMedicines1: MutableList<MedicinesEnum> = mutableListOf()
         var tmpStr = ""
@@ -111,13 +134,23 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
 
         when (about.isVisitTherapy) {
             true -> {
-                buttonYes.background = resources.getDrawable(R.drawable.rectangle_edit_text_white)
-                editMonthOfTherapy.setText(about.timeOfPsychologistVisit.toString())
+                buttonYes.background = resources.getDrawable(R.drawable.rectangle_edit_text_with_shadow)
+                editMonthOfTherapy.setText(about.timeOfPsychoterapevtVisit.toString())
             }
-            false ->buttonNo.background = resources.getDrawable(R.drawable.rectangle_edit_text_white)
+            false ->buttonNo.background = resources.getDrawable(R.drawable.rectangle_edit_text_with_shadow)
+        }
+
+        when (about.isVisitPsychology) {
+            true -> {
+                buttonYesPsycho.callOnClick()
+                editMonthOfTherapyPsycho.setText(about.timeOfPsychologistVisit.toString())
+            }
+            false ->buttonNoPsycho.callOnClick()
         }
 
         editAge.setText(about.age.toString())
+
+        editEmail.setText(about.email)
 
         editMonthOfUse.setText(about.timeOfUse.toString())
 
@@ -185,9 +218,16 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
         var isReady: Boolean = mAboutModel.sex != null && mAboutModel.age != null &&
                 mAboutModel.maritalStatus != null && mAboutModel.education != null &&
                 mAboutModel.timeOfUse != null && mAboutModel.frequencyOfUse != null &&
-                mAboutModel.isVisitTherapy != null
+                mAboutModel.isVisitTherapy != null &&
+                mAboutModel.isVisitPsychology != null &&
+                mAboutModel.agreeToSendMyTestInfo != null &&
+                mAboutModel.email != null
 
         if (mAboutModel.isVisitTherapy == true)
+            if (mAboutModel.timeOfPsychoterapevtVisit == null)
+                isReady = false
+
+        if (mAboutModel.isVisitPsychology == true)
             if (mAboutModel.timeOfPsychologistVisit == null)
                 isReady = false
 
@@ -371,6 +411,32 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
 
             checkIsReadyToSave()
         }
+
+        buttonYesPsycho.setOnClickListener {
+            mAboutModel.isVisitPsychology = true
+
+            buttonYesPsycho.background = resources.getDrawable(R.drawable.rectangle_edit_text_with_shadow)
+            buttonNoPsycho.background = resources.getDrawable(R.drawable.rectangle_button_white)
+
+            textTherapyMonthsPsycho.visibility = View.VISIBLE
+            linearTherapyMonthsPsycho.visibility = View.VISIBLE
+
+            checkIsReadyToSave()
+        }
+
+        buttonNoPsycho.setOnClickListener {
+            mAboutModel.isVisitPsychology = false
+
+            buttonYesPsycho.background = resources.getDrawable(R.drawable.rectangle_button_white)
+            buttonNoPsycho.background = resources.getDrawable(R.drawable.rectangle_edit_text_with_shadow)
+
+            textTherapyMonthsPsycho.visibility = View.GONE
+            linearTherapyMonthsPsycho.visibility = View.GONE
+
+            editMonthOfTherapyPsycho.text.clear()
+
+            checkIsReadyToSave()
+        }
     }
 
     private fun initOnTextChange() {
@@ -402,6 +468,22 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
                         mAboutModel.age = null
                 } else
                     mAboutModel.age = null
+
+                checkIsReadyToSave()
+            }
+        })
+
+        editEmail.addTextChangedListener(object : TextWatcher{
+            override fun afterTextChanged(s: Editable?) {}
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (s != null) {
+                    if (s.isNotEmpty())
+                        mAboutModel.email = s.toString()
+                    else
+                        mAboutModel.email = null
+                } else
+                    mAboutModel.email = null
 
                 checkIsReadyToSave()
             }
@@ -442,6 +524,40 @@ class TestsAboutFragment: MvpAppCompatFragment(), TestsAboutView {
         })
 
         editMonthOfTherapy.addTextChangedListener(object : TextWatcher{
+            override fun afterTextChanged(s: Editable?) {
+                var sStr = s.toString()
+                val length = sStr.length
+
+                if(length == 2) {
+                    if(sStr[0] == '0') {
+                        s?.delete(0, 1)
+                    }
+                } else if(length == 3) {
+                    if(sStr.toInt() > 100)
+                        s?.delete(length - 1, length)
+                } else if (length > 3) {
+                    s?.delete(length - 1, length)
+                }
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (s != null) {
+                    if (s.isNotEmpty())
+                        mAboutModel.timeOfPsychoterapevtVisit = s.toString().toInt()
+                    else
+                        mAboutModel.timeOfPsychoterapevtVisit = null
+                }else
+                    mAboutModel.timeOfPsychoterapevtVisit = null
+
+                checkIsReadyToSave()
+            }
+        })
+
+        editMonthOfTherapyPsycho.addTextChangedListener(object : TextWatcher{
             override fun afterTextChanged(s: Editable?) {
                 var sStr = s.toString()
                 val length = sStr.length

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.DatePicker
+import androidx.lifecycle.Observer
 import com.arellomobile.mvp.MvpAppCompatFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
@@ -14,6 +15,7 @@ import com.morozov.psychology.mvp.models.diary.ThinkModel
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.mind.change.MindChangePresenter
 import com.morozov.psychology.mvp.views.mind.change.MindChangeView
+import com.morozov.psychology.ui.activities.MainActivity
 import com.morozov.psychology.ui.adapters.listeners.OnItemClickListener
 import com.morozov.psychology.ui.adapters.mind.change.MindChangeThinkAdapter
 import kotlinx.android.synthetic.main.mind_change_main_layout.*
@@ -23,6 +25,10 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class MindChangeFragment: MvpAppCompatFragment(), MindChangeView, OnItemClickListener {
+
+    companion object {
+        var isBought = false
+    }
 
     @InjectPresenter
     lateinit var mPresenter: MindChangePresenter
@@ -59,28 +65,67 @@ class MindChangeFragment: MvpAppCompatFragment(), MindChangeView, OnItemClickLis
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        imageMainSettings.setOnClickListener {
-            mActivityPresenter.showSettingsSection()
-        }
+        mActivityPresenter.makeBackBlack()
 
-        adapterThink = MindChangeThinkAdapter(this)
-        recyclerMindChangeThinks.layoutManager =
-            androidx.recyclerview.widget.LinearLayoutManager(context)
-        recyclerMindChangeThinks.adapter = adapterThink
+        if (MainActivity.openPurchase) {
+            textPay.visibility = View.GONE
+            mActivityPresenter.makeBackWhite()
 
-        relativeDayMonthYear.setOnClickListener {
-            showCalendar()
-        }
+            imageMainSettings.setOnClickListener {
+                mActivityPresenter.showSettingsSection()
+            }
 
-        cardHomework.setOnClickListener {
-            mActivityPresenter.showHmMain(Date())
+            adapterThink = MindChangeThinkAdapter(this)
+            recyclerMindChangeThinks.layoutManager =
+                LinearLayoutManager(context)
+            recyclerMindChangeThinks.adapter = adapterThink
+
+            relativeDayMonthYear.setOnClickListener {
+                showCalendar()
+            }
+
+            cardHomework.setOnClickListener {
+                mActivityPresenter.showHmMain(Date())
+            }
+        } else {
+            buttonBuy.setOnClickListener {
+                (activity as MainActivity).buy().observe(this,
+                    Observer<Boolean> {
+                        if (!it)
+                            return@Observer
+                        textPay.visibility = View.GONE
+                        mActivityPresenter.makeBackWhite()
+
+                        imageMainSettings.setOnClickListener {
+                            mActivityPresenter.showSettingsSection()
+                        }
+
+                        adapterThink = MindChangeThinkAdapter(this)
+                        recyclerMindChangeThinks.layoutManager =
+                            LinearLayoutManager(context)
+                        recyclerMindChangeThinks.adapter = adapterThink
+
+                        relativeDayMonthYear.setOnClickListener {
+                            showCalendar()
+                        }
+
+                        cardHomework.setOnClickListener {
+                            mActivityPresenter.showHmMain(Date())
+                        }
+                    })
+            }
         }
     }
 
+    override fun onDestroy() {
+        mActivityPresenter.makeBackWhite()
+        super.onDestroy()
+    }
+
     /*
-    * MindChangeView implementation
-    *
-    * */
+        * MindChangeView implementation
+        *
+        * */
     override fun showSelectDate(b: Boolean) {
         when (b) {
             true -> textPreview.visibility = View.VISIBLE

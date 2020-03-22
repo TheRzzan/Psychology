@@ -8,6 +8,7 @@ import com.morozov.psychology.domain.interfaces.diary.ThinkSaver
 import com.morozov.psychology.mvp.models.diary.EmotionModel
 import com.morozov.psychology.mvp.views.mind.change.MindChangeThinkTestView
 import com.morozov.psychology.mvp.views.mind.change.changing.black.white.MCBlackWhiteView
+import java.util.*
 import javax.inject.Inject
 
 @InjectViewState
@@ -32,15 +33,17 @@ class MCBlackWhitePresenter: MvpPresenter<MCBlackWhiteView>() {
         viewState.showRecycler(listOf("0%","10%","20%","30%","40%","50%","60%","70%","80%","90%","100%"))
     }
 
-    fun saveNewThink(think: String, emotion: EmotionModel) {
+    fun saveNewThink(think: String, emotion: EmotionModel): Date? {
         val thinkByDate = MindChangeThinkTestView.date?.let { thinkLoader.getThinkByDate(it) }
 
-        if (thinkByDate != null) {
+        return if (thinkByDate != null) {
             thinkByDate.think = think
             thinkByDate.emotion = arrayListOf(emotion)
             thinkByDate.isOverwrited = true
 
             thinkSaver.overwriteThink(thinkByDate)
-        }
+            thinkByDate.date
+        } else
+            null
     }
 }

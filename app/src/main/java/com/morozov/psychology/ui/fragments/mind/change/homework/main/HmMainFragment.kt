@@ -166,6 +166,7 @@ class HmMainFragment: MvpAppCompatFragment(), HmMainView {
                     if (contextTmp != null) {
                         DisastorousPreferences.saveBestDis(contextTmp)
                         DisastorousPreferences.saveWorstDis(contextTmp)
+                        DisastorousPreferences.saveDis1(contextTmp, DisastorousPreferences.Dis1())
                     }
                     mActivityPresenter.showHmDisastorous_1()
                 }

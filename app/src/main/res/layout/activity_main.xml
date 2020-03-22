@@ -11,41 +11,57 @@
 
     <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/navigation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0">
+
+        <View
+                android:visibility="invisible"
+                android:layout_above="@+id/contentMain"
+                android:id="@+id/blackBack"
+                android:alpha="0.75"
+                android:elevation="8dp"
+                android:background="@android:color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
         <ImageView
                 android:id="@+id/imageMainBack"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:alpha="0.5"
                 android:background="@drawable/wallpaper_1"
-                android:scaleType="centerCrop"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:scaleType="centerCrop" />
 
         <LinearLayout
                 android:id="@+id/linearBack"
-                android:layout_marginTop="12dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
 
             <ImageView
-                    android:layout_gravity="center"
-                    android:background="@drawable/arrow_back"
                     android:layout_width="@dimen/icon_size"
-                    android:layout_height="@dimen/icon_size"/>
-            <TextView
-                    android:text="Назад"
-                    android:textSize="@dimen/text_little_size"
+                    android:layout_height="@dimen/icon_size"
                     android:layout_gravity="center"
-                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/arrow_back" />
+
+            <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Назад"
+                    android:textColor="?attr/colorPrimary"
+                    android:textSize="@dimen/text_little_size" />
         </LinearLayout>
 
         <FrameLayout
-                android:layout_below="@id/linearBack"
                 android:id="@+id/contentMain"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:layout_below="@id/linearBack"/>
     </RelativeLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

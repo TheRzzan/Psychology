@@ -2,10 +2,10 @@ package com.morozov.psychology.mvp.views
 
 import android.graphics.drawable.Drawable
 import android.widget.ImageView
+import androidx.lifecycle.LiveData
 import com.arellomobile.mvp.MvpView
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
-import com.morozov.psychology.mvp.models.diary.ThinkModel
 import java.util.*
 
 @StateStrategyType(value = AddToEndSingleStrategy::class)
@@ -170,4 +170,13 @@ interface MainView: MvpView {
     fun showSettingsWallpaper()
 
     fun showSettingsConsult()
+
+    fun showAboutApplication()
+
+    /*
+    * Another
+    *
+    * */
+    fun makeBackBlack()
+    fun makeBackWhite()
 }

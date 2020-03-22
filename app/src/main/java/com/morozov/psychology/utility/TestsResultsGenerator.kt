@@ -1,11 +1,14 @@
 package com.morozov.psychology.utility
 
+import android.content.Context
 import android.util.Range
 import com.morozov.psychology.DefaultApplication
 import com.morozov.psychology.domain.interfaces.tests.AboutLoader
 import com.morozov.psychology.mvp.models.tests.ResultModel
+import com.morozov.psychology.mvp.models.tests.about.AboutModel
 import com.morozov.psychology.mvp.models.tests.about.enums.SexEnum
 import com.morozov.psychology.repository.FirebaseHelper
+import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
 
@@ -18,46 +21,43 @@ class TestsResultsGenerator {
         DefaultApplication.testsComponent.inject(this)
     }
 
-    fun getResult(testName: String, answers: List<Int>): ResultModel {
+    fun getResult(context: Context, testName: String, answers: List<Int>): ResultModel {
         var simpleTestName = testName
         val resultModel = when (testName) {
             AppConstants.WEISMAN_BACK_TEST -> {
-                simpleTestName = AppConstants.SIMPLE_WEISMAN_BACK_TEST
+                simpleTestName = AppConstants.SIMPLE_WEISMAN_BACK_TEST_NAME
                 getWeismanBackRes(testName, answers)
             }
             AppConstants.ELLIS_TEST -> {
-                simpleTestName = AppConstants.SIMPLE_ELLIS_TEST
+                simpleTestName = AppConstants.SIMPLE_ELLIS_TEST_NAME
                 getEllisRes(testName, answers)
             }
             AppConstants.HOSPITAL_SCALE_TEST -> {
-                simpleTestName = AppConstants.SIMPLE_HOSPITAL_SCALE_TEST
+                simpleTestName = AppConstants.SIMPLE_HOSPITAL_SCALE_TEST_NAME
                 getHospitalScaleRes(testName, answers)
             }
             AppConstants.LAZARUS_QUESTIONNAIRE_TEST -> {
-                simpleTestName = AppConstants.SIMPLE_LAZARUS_QUESTIONNAIRE_TEST
+                simpleTestName = AppConstants.SIMPLE_LAZARUS_QUESTIONNAIRE_TEST_NAME
                 getLazarusQuestionnaireRes(testName, answers)
             }
             AppConstants.SELF_ATTITUDE_TEST -> {
-                simpleTestName = AppConstants.SIMPLE_SELF_ATTITUDE_TEST
+                simpleTestName = AppConstants.SIMPLE_SELF_ATTITUDE_TEST_NAME
                 getSelfAttitudeRes(testName, answers)
             }
             AppConstants.STYLE_INDEX_TEST -> {
-                simpleTestName = AppConstants.SIMPLE_STYLE_INDEX_TEST
+                simpleTestName = AppConstants.SIMPLE_STYLE_INDEX_TEST_NAME
                 getStyleIndexRes(testName, answers)
             }
             AppConstants.INTEGRATIVE_TEST -> {
-                simpleTestName = AppConstants.SIMPLE_INTEGRATIVE_TEST
+                simpleTestName = AppConstants.SIMPLE_INTEGRATIVE_TEST_NAME
                 getIntegrativeRes(testName, answers)
             }
             else -> ResultModel(Date(), listOf(Pair(testName, "Some description ${answers.size}")))
         }
 
-        val hashMap = mutableMapOf<String, String>()
-        for ((index, answer) in answers.withIndex()) {
-            hashMap["_$index"] = answer.toString()
-        }
-        FirebaseHelper.writeTest(simpleTestName, resultModel.date.time.toString(),
-            hashMap, resultModel.items.toMap())
+        val aboutModel = aboutLoader.getAboutModel()
+        FirebaseHelper.writeTest(simpleTestName, SimpleDateFormat("dd.MM.yyyy").format(resultModel.date),
+            resultModel.firebaseRes, resultModel.general, aboutModel)
 
         return resultModel
     }
@@ -75,7 +75,10 @@ class TestsResultsGenerator {
         var score = 0
 
         var i = 0
+        val hashMap = mutableMapOf<String, String>()
         while (i < answers.size) {
+            hashMap["_$i"] = answers[i].toString()
+
             if (summationPoints.contains(i + 1)) {
                 score += answers[i] + 1
             } else if (reversePoints.contains(i + 1)) {
@@ -85,7 +88,10 @@ class TestsResultsGenerator {
             i ++
         }
 
-        return getWBResStr(score)
+        return getWBResStr(score).apply {
+            general = score
+            firebaseRes = hashMap
+        }
     }
 
     private fun getWBResStr(score: Int): ResultModel {
@@ -150,13 +156,22 @@ class TestsResultsGenerator {
             i += 5
         }
 
-        return getEResStr(scoreKat, scoreDoljSelf, scoreDoljOthers, scoreLowFr, scoreSelfMax)
+        val hashMap = mutableMapOf<String, String>()
+        hashMap["_0"] = scoreKat.toString()
+        hashMap["_1"] = scoreDoljSelf.toString()
+        hashMap["_2"] = scoreDoljOthers.toString()
+        hashMap["_3"] = scoreLowFr.toString()
+        hashMap["_4"] = scoreSelfMax.toString()
+
+        return getEResStr(scoreKat, scoreDoljSelf, scoreDoljOthers, scoreLowFr, scoreSelfMax).apply {
+            firebaseRes = hashMap
+        }
     }
 
     private fun getEResStr(scoreKat: Int, scoreDoljSelf: Int, scoreDoljOthers: Int,
                            scoreLowFr: Int, scoreSelfMax: Int): ResultModel {
 
-        val pK1 = "Вы набрали $scoreKat баллов по шкале катастрофизация."
+        val pK1 = "Вы набрали $scoreKat баллов по шкале катастрофизация"
         val pK2: String = when {
             scoreKat <= 30 -> "Вы склоны сильно преувеливать степень негативных последствий ситуаций. Неблагоприятные события кажутся вам ужасными и невыносимыми. Зачастую это приводит к повышению тревоги. Во время работы с собственными мыслями рекомендуем вам обратить внимание на проработку ошибки мышления «катастрофизация»."
             scoreKat in 31..45 -> "Вы склоны в некоторой степени преувеливать степень негативных последствий ситуаций. Порой неблагоприятные события кажутся вам ужасными и невыносимыми. Это может повышать уровень тревоги. Во время работы с собственными мыслями рекомендуем вам обратить внимание на проработку ошибки мышления «катастрофизация»."
@@ -165,7 +180,7 @@ class TestsResultsGenerator {
         }
         val p1 = Pair(pK1, pK2)
 
-        val pDS1 = "Вы набрали $scoreDoljSelf баллов по шкале долженствование в отношении себя."
+        val pDS1 = "Вы набрали $scoreDoljSelf баллов по шкале долженствование в отношении себя"
         val pDS2: String = when {
             scoreDoljSelf <= 30 -> "Вы очень часто предъявляете чрезмерно высокие требования к себе. Это может приводить к высокому чувству вины. Во время работы с собственными мыслями рекомендуем вам обратить внимание на проработку ошибки мышления «долженствование»."
             scoreDoljSelf in 31..45 -> "Вы порой предъявляете чрезмерно высокие требования к себе. Это может приводить к повышению чувства вины. Во время работы с собственными мыслями рекомендуем вам обратить внимание на проработку ошибки мышления «долженствование»."
@@ -174,7 +189,7 @@ class TestsResultsGenerator {
         }
         val p2 = Pair(pDS1, pDS2)
 
-        val pDO1 = "Вы набрали $scoreDoljOthers баллов по шкале долженствование в отношении других."
+        val pDO1 = "Вы набрали $scoreDoljOthers баллов по шкале долженствование в отношении других"
         val pDO2: String = when {
             scoreDoljOthers <= 30 -> "Вы очень часто предъявляете чрезмерно высокие требования к другим. Часто это приводит к повышению чувства обиды и злости. Во время работы с собственными мыслями рекомендуем вам обратить внимание на проработку ошибки мышления «долженствование»."
             scoreDoljOthers in 31..45 -> "Вы порой предъявляете чрезмерно высокие требования к другим. Это может приводить к частым обидам и раздражению. Во время работы с собственными мыслями рекомендуем вам обратить внимание на проработку ошибки мышления «долженствование»."
@@ -183,7 +198,7 @@ class TestsResultsGenerator {
         }
         val p3 = Pair(pDO1, pDO2)
 
-        val pLF1 = "Вы набрали $scoreLowFr баллов по шкале низкая фрустрационная толерантность."
+        val pLF1 = "Вы набрали $scoreLowFr баллов по шкале низкая фрустрационная толерантность"
         val pLF2: String = when {
             scoreLowFr <= 30 -> "У вас очень низкая степень стрессоустойчивости. Высокая вероятность развития стресса. "
             scoreLowFr in 31..45 -> "У вас низкая степень стрессоустойчивости. Средняя вероятность развития стресса."
@@ -192,7 +207,7 @@ class TestsResultsGenerator {
         }
         val p4 = Pair(pLF1, pLF2)
 
-        val pSM1 = "Вы набрали $scoreSelfMax баллов по шкале самооценка."
+        val pSM1 = "Вы набрали $scoreSelfMax баллов по шкале самооценка"
         val pSM2: String = when {
             scoreSelfMax <= 30 -> "Вы часто оцениваете не отдельные черты или поступки людей, а личность в целом. Это касается не только окружающих, но и вас самих. Зачастую это приводит к выраженному снижению самооценки и частому раздражению. Во время работы с собственными мыслями рекомендуем вам обратить внимание на проработку ошибки мышления «оценивание»."
             scoreSelfMax in 31..45 -> "Вы склонны оценивать не отдельные черты или поступки людей, а личность в целом. Это касается не только окружающих, но и вас самих. Эта привычка может приводить к выраженному снижению самооценки. Во время работы с собственными мыслями рекомендуем вам обратить внимание на проработку ошибки мышления «оценивание»."
@@ -229,12 +244,18 @@ class TestsResultsGenerator {
                 }
         }
 
-        return getHSResStr(anxietyScore, depressionScore)
+        val hashMap = mutableMapOf<String, String>()
+        hashMap["_0"] = anxietyScore.toString()
+        hashMap["_1"] = depressionScore.toString()
+
+        return getHSResStr(anxietyScore, depressionScore).apply {
+            firebaseRes = hashMap
+        }
     }
 
     private fun getHSResStr(anxietyScore: Int, depressionScore: Int): ResultModel {
 
-        val pA1 = "Вы набрали $anxietyScore баллов по шкале тревоги."
+        val pA1 = "Вы набрали $anxietyScore баллов по шкале тревоги"
         val pA2: String = when {
             anxietyScore <= 7 -> "У вас нет достоверно выраженных симптомов тревоги."
             anxietyScore in 8..10 -> "У вас присутствуют достоверно выраженные симптомы тревоги, но их выраженность не достигает состояния болезни. Рекомендуем обратиться к специалисту для профилактики заболевания и продолжить работу в данном приложении."
@@ -242,7 +263,7 @@ class TestsResultsGenerator {
             else -> ""
         }
 
-        val pD1 = "Вы набрали $depressionScore баллов по шкале депрессии."
+        val pD1 = "Вы набрали $depressionScore баллов по шкале депрессии"
         val pD2: String = when {
             depressionScore <= 7 -> "У вас нет достоверно выраженных симптомов депрессии."
             depressionScore in 8..10 -> "У вас присутствуют достоверно выраженные симптомы депрессии, но их выраженность не достигает состояния болезни. Рекомендуем обратиться к специалисту для профилактики заболевания и продолжить работу в данном приложении."
@@ -476,9 +497,25 @@ class TestsResultsGenerator {
             }
         }
 
+        val hashMap = mutableMapOf<String, String>()
+        hashMap["_0"] = sScoreED_ST.toString()
+        hashMap["_1"] = sScoreAST_ST.toString()
+        hashMap["_2"] = sScoreFOB_ST.toString()
+        hashMap["_3"] = sScoreOP_ST.toString()
+        hashMap["_4"] = sScoreSZ_ST.toString()
+        hashMap["_5"] = obshStn_ST.toString()
+        hashMap["_6"] = sScoreED_LT.toString()
+        hashMap["_7"] = sScoreAST_LT.toString()
+        hashMap["_8"] = sScoreFOB_LT.toString()
+        hashMap["_9"] = sScoreOP_LT.toString()
+        hashMap["_10"] = sScoreSZ_LT.toString()
+        hashMap["_11"] = obshStn_LT.toString()
+
         return getIResStr(sScoreED_LT, sScoreAST_LT, sScoreFOB_LT, sScoreOP_LT, sScoreSZ_LT,
             sScoreED_ST, sScoreAST_ST, sScoreFOB_ST, sScoreOP_ST, sScoreSZ_ST,
-            obshStn_LT, obshStn_ST)
+            obshStn_LT, obshStn_ST).apply {
+            firebaseRes = hashMap
+        }
     }
 
     private fun tmpIRes_1(list: List<Range<Int>>, value: Int): Int {
@@ -721,7 +758,19 @@ class TestsResultsGenerator {
             in 61..max -> mutableListOf.add(Pair(str8, "Вы легко находите позитивные стороны даже в проблемах. Однако чрезмерное использование данной тактики может привести к недооценке возможностей действенного разрешения и затягиванию проблемных ситуаций."))
         }
 
-        return ResultModel(Date(), mutableListOf)
+        val hashMap = mutableMapOf<String, String>()
+        hashMap["_0"] = tBallKonKop.toString()
+        hashMap["_1"] = tBallDistan.toString()
+        hashMap["_2"] = tBallSamokt.toString()
+        hashMap["_3"] = tBallSocHlp.toString()
+        hashMap["_4"] = tBallPrOtvt.toString()
+        hashMap["_5"] = tBallBegIzb.toString()
+        hashMap["_6"] = tBallPlResh.toString()
+        hashMap["_7"] = tBallPolPer.toString()
+
+        return ResultModel(Date(), mutableListOf).apply {
+            firebaseRes = hashMap
+        }
     }
 
     private fun getLKonfTable(): List<List<Int>> {
@@ -923,9 +972,21 @@ class TestsResultsGenerator {
         val readyInt = if (resReadyInt.size <= rawInt) { 100 } else { resReadyInt[rawInt] }
         val readyRea = if (resReadyRea.size <= rawRea) { 100 } else { resReadyRea[rawRea] }
 
+        val hashMap = mutableMapOf<String, String>()
+        hashMap["_0"] =  readyOtr.toString()
+        hashMap["_1"] =  readyPod.toString()
+        hashMap["_2"] =  readyReg.toString()
+        hashMap["_3"] =  readyKom.toString()
+        hashMap["_4"] =  readyPro.toString()
+        hashMap["_5"] =  readyZam.toString()
+        hashMap["_6"] =  readyInt.toString()
+        hashMap["_7"] =  readyRea.toString()
+
         return getSIResStr(readyOtr, readyPod, readyReg,
                 readyKom, readyPro, readyZam,
-                readyInt, readyRea)
+                readyInt, readyRea).apply {
+            firebaseRes = hashMap
+        }
     }
 
     private fun getSIResStr(readyOtr: Int, readyPod: Int, readyReg: Int,
@@ -1216,6 +1277,17 @@ class TestsResultsGenerator {
             else -> ""
         }
 
+        val hashMap = mutableMapOf<String, String>()
+        hashMap["_0"] =  scSten1.toString()
+        hashMap["_1"] =  scSten2.toString()
+        hashMap["_2"] =  scSten3.toString()
+        hashMap["_3"] =  scSten4.toString()
+        hashMap["_4"] =  scSten5.toString()
+        hashMap["_5"] =  scSten6.toString()
+        hashMap["_6"] =  scSten7.toString()
+        hashMap["_7"] =  scSten8.toString()
+        hashMap["_8"] =  scSten9.toString()
+
         return ResultModel(Date(),
             listOf(
                 Pair("Закрытость ($scSten1)", p1),
@@ -1227,7 +1299,9 @@ class TestsResultsGenerator {
                 Pair("Самопривязанность ($scSten7)", p7),
                 Pair("Внутренняя конфликтность ($scSten8)", p8),
                 Pair("Самообвинение ($scSten9)", p9)
-            ))
+            )).apply {
+            firebaseRes = hashMap
+        }
     }
 
     /*

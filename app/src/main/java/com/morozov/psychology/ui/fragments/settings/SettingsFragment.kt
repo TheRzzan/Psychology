@@ -38,8 +38,12 @@ class SettingsFragment: MvpAppCompatFragment(), SettingsView {
             mActivityPresenter.showSettingsConsult()
         }
 
+        relativeAbout.setOnClickListener {
+            mActivityPresenter.showAboutApplication()
+        }
+
         relativeEstimate.setOnClickListener {
-            val appPackageName = "com.plarium.raidlegends" //activity?.packageName
+            val appPackageName = activity?.packageName ?: return@setOnClickListener //"com.plarium.raidlegends"
             try {
                 startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$appPackageName")))
             } catch (anfe: android.content.ActivityNotFoundException) {

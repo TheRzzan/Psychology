@@ -16,6 +16,7 @@ import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.presenters.settings.SettingsConsultPresenter
 import com.morozov.psychology.mvp.views.settings.SettingsConsultView
+import com.morozov.psychology.ui.fragments.settings.email.EmailSender
 import kotlinx.android.synthetic.main.settings_consult_layout.*
 
 class SettingsConsultFragment: MvpAppCompatFragment(), SettingsConsultView {
@@ -43,7 +44,14 @@ class SettingsConsultFragment: MvpAppCompatFragment(), SettingsConsultView {
         }
 
         buttonSendRequest.setOnClickListener {
-            mActivityPresenter.showSettingsConsult()
+            var textEmail = "Как к вам обращаться: ${editName.text}. "
+            textEmail += "Как связаться: ${editEmailVk.text}. "
+            textEmail += "Вопрос: ${editQuestion.text}. "
+            textEmail += "Удобное время для консультации: ${editPreferedTime.text}. "
+            textEmail += "Формат консультации: ${spinerConsultFormat.selectedItem}."
+            EmailSender.text = textEmail
+            activity?.let { it1 -> EmailSender.send(it1) }
+//            mActivityPresenter.showSettingsConsult()
         }
     }
 

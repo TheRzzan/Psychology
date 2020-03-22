@@ -8,6 +8,7 @@ import com.morozov.psychology.domain.interfaces.diary.ThinkSaver
 import com.morozov.psychology.mvp.models.diary.EmotionModel
 import com.morozov.psychology.mvp.views.mind.change.MindChangeThinkTestView
 import com.morozov.psychology.mvp.views.mind.change.changing.deprecation.MCDeprecation_3_View
+import java.util.*
 import javax.inject.Inject
 
 @InjectViewState
@@ -23,15 +24,17 @@ class MCDeprecation_3_Presenter: MvpPresenter<MCDeprecation_3_View>() {
         DefaultApplication.diaryComponent.inject(this)
     }
 
-    fun saveNewThink(think: String, emotion: EmotionModel) {
+    fun saveNewThink(think: String, emotion: EmotionModel): Date? {
         val thinkByDate = MindChangeThinkTestView.date?.let { thinkLoader.getThinkByDate(it) }
 
-        if (thinkByDate != null) {
+        return if (thinkByDate != null) {
             thinkByDate.think = think
             thinkByDate.emotion = arrayListOf(emotion)
             thinkByDate.isOverwrited = true
 
             thinkSaver.overwriteThink(thinkByDate)
-        }
+            thinkByDate.date
+        } else
+            null
     }
 }
