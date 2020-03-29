@@ -68,4 +68,7 @@ dependencies {
 
     // Email send
     implementation 'de.cketti.mailto:email-intent-builder:2.0.0'
+
+    // Recycler View
+    implementation 'com.github.vivchar:RendererRecyclerViewAdapter:2.8.0'
 }
