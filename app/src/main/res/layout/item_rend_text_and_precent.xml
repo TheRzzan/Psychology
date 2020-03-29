@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_marginBottom="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <TextView
+            android:id="@+id/textRendThink"
+            android:layout_weight="2"
+            style="@style/TextView.Secondary"
+            android:textColor="@color/second_light_header_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:id="@+id/textRendPercent"
+            android:gravity="end"
+            android:layout_weight="1"
+            style="@style/TextView.Secondary"
+            android:textStyle="bold"
+            android:textColor="@color/second_light_header_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+</LinearLayout>
