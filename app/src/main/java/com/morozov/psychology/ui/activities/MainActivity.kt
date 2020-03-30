@@ -82,6 +82,7 @@ import com.morozov.psychology.ui.fragments.mind.change.homework.tunnel.HmTunnelF
 import com.morozov.psychology.ui.fragments.settings.*
 import com.morozov.psychology.ui.fragments.tests.*
 import com.morozov.psychology.utility.*
+import io.realm.Realm
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
 import java.text.DateFormat
@@ -93,6 +94,8 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     lateinit var mPresenter: MainPresenter
 
     companion object {
+        val realm = Realm.getDefaultInstance()
+
         const val MAX_CLICK_DURATION = 150
         var startClickTime: Long = 0
         var startClickX: Float = 0f

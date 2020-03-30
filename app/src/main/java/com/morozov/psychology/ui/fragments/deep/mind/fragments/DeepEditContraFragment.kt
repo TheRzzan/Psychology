@@ -10,6 +10,7 @@ import android.widget.SeekBar
 import androidx.fragment.app.Fragment
 import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
+import com.morozov.psychology.ui.activities.MainActivity
 import com.morozov.psychology.ui.fragments.deep.mind.fragments.models.ContraRealmModel
 import com.morozov.psychology.ui.fragments.deep.mind.fragments.models.ThinkRealmModel
 import kotlinx.android.synthetic.main.fragment_deep_edit_contra.*
@@ -57,6 +58,28 @@ class DeepEditContraFragment: Fragment() {
         seekThink.progress = mContraModel.percent
 
         buttonSave.setOnClickListener {
+            val model = if (mThinkModel.id == -1L) {
+                MainActivity.realm.beginTransaction()
+                val thinkRealm = MainActivity.realm.createObject(ThinkRealmModel::class.java)
+                thinkRealm.id = MainActivity.realm.where(ThinkRealmModel::class.java).count()
+                thinkRealm.text = mThinkModel.text
+                thinkRealm.percent = mThinkModel.percent
+                MainActivity.realm.commitTransaction()
+                thinkRealm
+            } else {
+                mThinkModel
+            }
+            MainActivity.realm.beginTransaction()
+            val contra: ContraRealmModel = if (mContraModel.thinkId == -1L) {
+                val contraRealm = MainActivity.realm.createObject(ContraRealmModel::class.java)
+                contraRealm.thinkId = model.id
+                contraRealm
+            } else {
+                MainActivity.realm.where(ContraRealmModel::class.java).equalTo("thinkId", model.id).findAll()?.first()!!
+            }
+            contra.text = editRend.text.toString()
+            contra.percent = seekThink.progress
+            MainActivity.realm.commitTransaction()
             // save to realm
             activity?.supportFragmentManager?.popBackStack()
         }

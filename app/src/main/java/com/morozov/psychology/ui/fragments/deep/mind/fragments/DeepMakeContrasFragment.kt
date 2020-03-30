@@ -12,6 +12,7 @@ import com.github.vivchar.rendererrecyclerviewadapter.ViewModel
 import com.github.vivchar.rendererrecyclerviewadapter.binder.ViewBinder
 import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
+import com.morozov.psychology.ui.activities.MainActivity
 import com.morozov.psychology.ui.fragments.deep.mind.fragments.models.ContraRealmModel
 import com.morozov.psychology.ui.fragments.deep.mind.fragments.models.ThinkRealmModel
 import com.morozov.psychology.ui.fragments.deep.mind.renderers.text.and.percent.OnItemClickListener
@@ -26,9 +27,10 @@ class DeepMakeContrasFragment: Fragment() {
     lateinit var mThink: String
 
     private lateinit var mAdapter: RendererRecyclerViewAdapter
-    private val mItems = mutableListOf<ViewModel>()
+    private var mItems = mutableListOf<ViewModel>()
+    private var mContras = mutableListOf<ContraRealmModel>()
 
-    private lateinit var mThinkRealmModel: ThinkRealmModel
+    private var mThinkRealmModel: ThinkRealmModel? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.fragment_deep_make_contra, container, false)
@@ -49,7 +51,7 @@ class DeepMakeContrasFragment: Fragment() {
         }
 
         buttonSelectContr.setOnClickListener {
-            mActivityPresenter.showEditContra(mThinkRealmModel, ContraRealmModel())
+            mActivityPresenter.showEditContra(mThinkRealmModel!!, ContraRealmModel())
         }
 
         textHeader.text = mThink
@@ -58,11 +60,14 @@ class DeepMakeContrasFragment: Fragment() {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
                 textPercent.text = "$p1%"
                 progressThink.progress = p1
+                MainActivity.realm.beginTransaction()
+                mThinkRealmModel?.percent = p1
+                MainActivity.realm.commitTransaction()
             }
             override fun onStartTrackingTouch(p0: SeekBar?) {}
             override fun onStopTrackingTouch(p0: SeekBar?) {}
         })
-        seekThink.progress = 0
+        seekThink.progress = mThinkRealmModel?.percent ?: 0
 
         mAdapter = RendererRecyclerViewAdapter()
         mAdapter.registerRenderer(ViewBinder(R.layout.item_rend_text_and_precent, TextAndPercentModel::class.java, TextAndPercentViewBinder(listener)))
@@ -76,16 +81,31 @@ class DeepMakeContrasFragment: Fragment() {
     }
 
     private fun loadItems() {
-        // Load from cache
-        mThinkRealmModel = ThinkRealmModel(
-            -1,
-            mThink
-        )
+        MainActivity.realm.beginTransaction()
+        val resultsThink = MainActivity.realm
+            .where(ThinkRealmModel::class.java)
+            .equalTo("text", mThink)
+            .findAll()
+        mThinkRealmModel = if (resultsThink.isNotEmpty())
+            resultsThink.first()!!
+        else
+            ThinkRealmModel(-1, mThink)
+        if (mThinkRealmModel!!.id != -1L) {
+            mContras = MainActivity.realm
+                .where(ContraRealmModel::class.java)
+                .equalTo("thinkId", mThinkRealmModel!!.id)
+                .findAll()
+            mItems = mContras.mapIndexed { index, contraRealmModel ->
+                contraRealmModel.toTextAndPercentModel(index)
+            }.toMutableList()
+            mAdapter.setItems(mItems)
+        }
+        MainActivity.realm.commitTransaction()
     }
 
     private val listener = object : OnItemClickListener {
         override fun onClick(position: Int) {
-
+            mActivityPresenter.showEditContra(mThinkRealmModel!!, mContras[position])
         }
     }
 }
