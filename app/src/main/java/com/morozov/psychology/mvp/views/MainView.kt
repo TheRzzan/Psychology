@@ -17,6 +17,8 @@ interface MainView: MvpView {
      * */
     fun showDeepMindTest()
 
+    fun showSelectMind()
+
     /*
     * Interface controls
     *

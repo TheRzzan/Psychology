@@ -1,7 +1,6 @@
 package com.morozov.psychology.ui.activities
 
 import android.app.AlarmManager
-import android.app.Application
 import android.app.PendingIntent
 import android.content.ComponentName
 import android.content.Context
@@ -13,7 +12,6 @@ import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
 import android.os.IBinder
-import android.os.SystemClock
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.fragment.app.Fragment
 import android.transition.Fade
@@ -23,7 +21,6 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.android.vending.billing.IInAppBillingService
@@ -34,7 +31,6 @@ import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.views.MainView
 import com.morozov.psychology.ui.fragments.deep.mind.fragments.DeepMindTestFragment
-import com.morozov.psychology.ui.fragments.deep.mind.fragments.DeepMintTest
 import com.morozov.psychology.ui.fragments.diary.DiaryEditorFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryMainFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryThinkViewingFragment
@@ -557,14 +553,18 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.contentMain, fragment)
-            .addToBackStack(DeepMintTest::class.java.simpleName)
+            .addToBackStack(DeepMindTestFragment::class.java.simpleName)
             .commit()
     }
 
+    override fun showSelectMind() {
+
+    }
+
     /*
-    * Experiments section controls
-    * (MainView impl)
-    * */
+        * Experiments section controls
+        * (MainView impl)
+        * */
     override fun showAboutApplication() {
         val fragment = AboutApplicationFragment()
 

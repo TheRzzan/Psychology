@@ -29,6 +29,12 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showDeepMindTest()
     }
 
+    fun showSelectMind() {
+        viewState.hideBottomNav()
+        viewState.hideBackArrow()
+        viewState.showSelectMind()
+    }
+
     /*
     * Experiments section controls
     *

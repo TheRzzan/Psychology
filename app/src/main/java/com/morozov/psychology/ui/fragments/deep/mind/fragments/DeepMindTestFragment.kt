@@ -1,5 +1,6 @@
 package com.morozov.psychology.ui.fragments.deep.mind.fragments
 
+import android.graphics.Typeface
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -30,6 +31,10 @@ class DeepMindTestFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        linearBack.setOnClickListener {
+            activity?.onBackPressed()
+        }
 
         val textEnterThink = "Введите мысль"
         val textEnterAnswer = "Введите ответ"
@@ -125,11 +130,7 @@ class DeepMindTestFragment: Fragment() {
         textView.layoutParams = params
         textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, resources.getDimension(R.dimen.text_secondary_size))
         textView.setTextColor(resources.getColor(R.color.second_header_text))
-        try {
-            val f = TextView::class.java.getDeclaredField("textStyle")
-            f.isAccessible = true
-            f.set(textView, "bold")
-        } catch (ignore: Exception) {}
+        textView.setTypeface(null, Typeface.BOLD)
         textView.text = text
         this.addView(textView)
     }
@@ -168,6 +169,9 @@ class DeepMindTestFragment: Fragment() {
             ViewGroup.LayoutParams.WRAP_CONTENT)
         params.setMargins(32, 0, 32, 32)
         button.layoutParams = params
+        button.setOnClickListener {
+            mActivityPresenter.showSelectMind()
+        }
         try {
             val f = TextView::class.java.getDeclaredField("textStyle")
             f.isAccessible = true
