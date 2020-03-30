@@ -25,6 +25,8 @@ interface MainView: MvpView {
 
     fun showEditContra(think: ThinkRealmModel, contra: ContraRealmModel)
 
+    fun showSelectThinkList()
+
     /*
     * Interface controls
     *

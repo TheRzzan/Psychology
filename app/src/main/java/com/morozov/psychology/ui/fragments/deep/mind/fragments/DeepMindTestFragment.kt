@@ -53,66 +53,66 @@ class DeepMindTestFragment: Fragment() {
                 "Вам предстоит отвечать на вопрос, а затем читать ответ и и снова задавать себе вопрос уже применительно к этому ответу. Так с каждым разом вы будете все глубже и глубже погружаться в исследование смысла своего убеждения. Если вы стали повторяться с ответами, то можете остановить свои поиски. \n\nНачнем. Ответьте на вопрос: Что эта мысль значит для вас? ",
             textEnterAnswer
         )
-//        linearRoot.addTextAndEdit(
-//                "Если это так, то что это значит для вас?",
-//            textEnterAnswer
-//        )
-//        linearRoot.addTextAndEdit(
-//                "Если это так, то что это значит для вас?",
-//            textEnterAnswer
-//        )
-//        linearRoot.addTextAndEdit(
-//                "Если это так, то как при этом вы воспринимаете себя?",
-//            textEnterAnswer
-//        )
-//        linearRoot.addTextAndEdit(
-//                "Если это так, то что это значит для вас?",
-//            textEnterAnswer
-//        )
-//        linearRoot.addTextAndEdit(
-//                "Если это так, то каким вы воспринимаете мир?",
-//            textEnterAnswer
-//        )
-//        linearRoot.addTextAndEdit(
-//                "Если это так, то каким вы воспринимаете окружающих людей? ",
-//            textEnterAnswer
-//        )
-//        linearRoot.addTextAndEdit(
-//                "Если это так, то что это значит для вас?",
-//            textEnterAnswer
-//        )
-//        linearRoot.addTextAndEdit(
-//                "Если это так, то на чем вы основываете свое убеждение? ",
-//            textEnterAnswer
-//        )
-//        linearRoot.addTextAndEdit(
-//                "Если это так, то что это значит для вас?",
-//            textEnterAnswer
-//        )
-//        linearRoot.addTextAndEdit(
-//                "Если это так, то что вы думаете о своей жизни?",
-//            textEnterAnswer
-//        )
-//        linearRoot.addTextAndEdit(
-//                "Если это так, то что это значит для вас?",
-//            textEnterAnswer
-//        )
-//        linearRoot.addTextAndEdit(
-//                "Если это так, то каким вы (или окружающие) должны быть? ",
-//            textEnterAnswer
-//        )
-//        linearRoot.addTextAndEdit(
-//                "Если это так, то что это значит для вас?",
-//            textEnterAnswer
-//        )
-//        linearRoot.addTextAndEdit(
-//                "Если это так, то что это значит для вас?",
-//            textEnterAnswer
-//        )
-//        linearRoot.addTextAndEdit(
-//                "Если это так, то что это значит для вас?",
-//            textEnterAnswer
-//        )
+        linearRoot.addTextAndEdit(
+                "Если это так, то что это значит для вас?",
+            textEnterAnswer
+        )
+        linearRoot.addTextAndEdit(
+                "Если это так, то что это значит для вас?",
+            textEnterAnswer
+        )
+        linearRoot.addTextAndEdit(
+                "Если это так, то как при этом вы воспринимаете себя?",
+            textEnterAnswer
+        )
+        linearRoot.addTextAndEdit(
+                "Если это так, то что это значит для вас?",
+            textEnterAnswer
+        )
+        linearRoot.addTextAndEdit(
+                "Если это так, то каким вы воспринимаете мир?",
+            textEnterAnswer
+        )
+        linearRoot.addTextAndEdit(
+                "Если это так, то каким вы воспринимаете окружающих людей? ",
+            textEnterAnswer
+        )
+        linearRoot.addTextAndEdit(
+                "Если это так, то что это значит для вас?",
+            textEnterAnswer
+        )
+        linearRoot.addTextAndEdit(
+                "Если это так, то на чем вы основываете свое убеждение? ",
+            textEnterAnswer
+        )
+        linearRoot.addTextAndEdit(
+                "Если это так, то что это значит для вас?",
+            textEnterAnswer
+        )
+        linearRoot.addTextAndEdit(
+                "Если это так, то что вы думаете о своей жизни?",
+            textEnterAnswer
+        )
+        linearRoot.addTextAndEdit(
+                "Если это так, то что это значит для вас?",
+            textEnterAnswer
+        )
+        linearRoot.addTextAndEdit(
+                "Если это так, то каким вы (или окружающие) должны быть? ",
+            textEnterAnswer
+        )
+        linearRoot.addTextAndEdit(
+                "Если это так, то что это значит для вас?",
+            textEnterAnswer
+        )
+        linearRoot.addTextAndEdit(
+                "Если это так, то что это значит для вас?",
+            textEnterAnswer
+        )
+        linearRoot.addTextAndEdit(
+                "Если это так, то что это значит для вас?",
+            textEnterAnswer
+        )
         linearRoot.addTextView(
             "Просмотрите свои записи и выберите мысль, которая в большей степени откликается вам, вызывает негативные эмоции. "
             )

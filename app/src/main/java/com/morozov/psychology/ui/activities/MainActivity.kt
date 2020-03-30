@@ -30,10 +30,7 @@ import com.morozov.psychology.DefaultApplication
 import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.views.MainView
-import com.morozov.psychology.ui.fragments.deep.mind.fragments.DeepEditContraFragment
-import com.morozov.psychology.ui.fragments.deep.mind.fragments.DeepMakeContrasFragment
-import com.morozov.psychology.ui.fragments.deep.mind.fragments.DeepMindTestFragment
-import com.morozov.psychology.ui.fragments.deep.mind.fragments.DeepSelectFragment
+import com.morozov.psychology.ui.fragments.deep.mind.fragments.*
 import com.morozov.psychology.ui.fragments.deep.mind.fragments.models.ContraRealmModel
 import com.morozov.psychology.ui.fragments.deep.mind.fragments.models.ThinkRealmModel
 import com.morozov.psychology.ui.fragments.diary.DiaryEditorFragment
@@ -356,9 +353,8 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     }
 
     private fun initPreferences() {
-//        openPurchase = getSharedPreferences(SHARED_BILLING1, Context.MODE_PRIVATE).getBoolean(
-//            SHARED_BILLING1, false)
-        openPurchase = true
+        openPurchase = getSharedPreferences(SHARED_BILLING1, Context.MODE_PRIVATE).getBoolean(
+            SHARED_BILLING1, false)
     }
 
     private fun initPurchaseService() {
@@ -619,10 +615,20 @@ class MainActivity : MvpAppCompatActivity(), MainView {
             .commit()
     }
 
+    override fun showSelectThinkList() {
+        val fragment = DeepSelectThinkFragment()
+        fragment.mActivityPresenter = mPresenter
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.contentMain, fragment)
+            .addToBackStack(DeepSelectThinkFragment::class.java.simpleName)
+            .commit()
+    }
+
     /*
-                * Experiments section controls
-                * (MainView impl)
-                * */
+                    * Experiments section controls
+                    * (MainView impl)
+                    * */
     override fun showAboutApplication() {
         val fragment = AboutApplicationFragment()
 

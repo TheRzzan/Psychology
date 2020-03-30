@@ -49,6 +49,12 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showEditContra(think, contra)
     }
 
+    fun showSelectThinkList() {
+        viewState.hideBottomNav()
+        viewState.hideBackArrow()
+        viewState.showSelectThinkList()
+    }
+
     /*
     * Experiments section controls
     *

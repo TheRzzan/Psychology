@@ -91,6 +91,10 @@ class MindChangeFragment: MvpAppCompatFragment(), MindChangeView, OnItemClickLis
             cardDeepMind.setOnClickListener {
                 mActivityPresenter.showDeepMindTest()
             }
+
+            cardSelectDeepMind.setOnClickListener {
+                mActivityPresenter.showSelectThinkList()
+            }
         } else {
             buttonBuy.setOnClickListener {
                 (activity as MainActivity).buy().observe(this,

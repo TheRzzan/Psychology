@@ -210,7 +210,7 @@
                 android:layout_marginBottom="16dp"
                 app:cardCornerRadius="@dimen/card_corner_radius"
                 app:cardElevation="5dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/cardSelectDeepMind"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardHomework"
@@ -230,6 +230,42 @@
                         android:layout_marginTop="0dp"
                         android:gravity="center"
                         android:text="Поиск глубинных убеждений"
+                        android:textColor="@color/grey_color"
+                        android:textSize="@dimen/text_secondary_size"
+                        android:textStyle="bold" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+                android:id="@+id/cardSelectDeepMind"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginStart="@dimen/activity_vertical_margin"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardHomework"
+                app:layout_constraintVertical_bias="1.0">
+
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/card_background">
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="0dp"
+                        android:gravity="center"
+                        android:text="Копилка контраргументов"
                         android:textColor="@color/grey_color"
                         android:textSize="@dimen/text_secondary_size"
                         android:textStyle="bold" />
