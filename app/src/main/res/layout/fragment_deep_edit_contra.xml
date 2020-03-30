@@ -103,7 +103,7 @@
     </LinearLayout>
 
     <Button
-            android:id="@+id/buttonSelectContr"
+            android:id="@+id/buttonSave"
             android:text="Сохранить"
             android:layout_width="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"

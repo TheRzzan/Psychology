@@ -6,6 +6,8 @@ import androidx.lifecycle.LiveData
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import com.morozov.psychology.mvp.views.MainView
+import com.morozov.psychology.ui.fragments.deep.mind.fragments.models.ContraRealmModel
+import com.morozov.psychology.ui.fragments.deep.mind.fragments.models.ThinkRealmModel
 import java.util.*
 
 @InjectViewState
@@ -39,6 +41,12 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.hideBottomNav()
         viewState.hideBackArrow()
         viewState.showMakeContras(think)
+    }
+
+    fun showEditContra(think: ThinkRealmModel, contra: ContraRealmModel) {
+        viewState.hideBottomNav()
+        viewState.hideBackArrow()
+        viewState.showEditContra(think, contra)
     }
 
     /*

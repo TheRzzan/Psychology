@@ -12,6 +12,8 @@ import com.github.vivchar.rendererrecyclerviewadapter.ViewModel
 import com.github.vivchar.rendererrecyclerviewadapter.binder.ViewBinder
 import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
+import com.morozov.psychology.ui.fragments.deep.mind.fragments.models.ContraRealmModel
+import com.morozov.psychology.ui.fragments.deep.mind.fragments.models.ThinkRealmModel
 import com.morozov.psychology.ui.fragments.deep.mind.renderers.text.and.percent.OnItemClickListener
 import com.morozov.psychology.ui.fragments.deep.mind.renderers.text.and.percent.TextAndPercentModel
 import com.morozov.psychology.ui.fragments.deep.mind.renderers.text.and.percent.TextAndPercentViewBinder
@@ -25,6 +27,8 @@ class DeepMakeContrasFragment: Fragment() {
 
     private lateinit var mAdapter: RendererRecyclerViewAdapter
     private val mItems = mutableListOf<ViewModel>()
+
+    private lateinit var mThinkRealmModel: ThinkRealmModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.fragment_deep_make_contra, container, false)
@@ -42,6 +46,10 @@ class DeepMakeContrasFragment: Fragment() {
 
         buttonMindChangeMain.setOnClickListener {
             mActivityPresenter.showMindChangeSection()
+        }
+
+        buttonSelectContr.setOnClickListener {
+            mActivityPresenter.showEditContra(mThinkRealmModel, ContraRealmModel())
         }
 
         textHeader.text = mThink
@@ -69,6 +77,10 @@ class DeepMakeContrasFragment: Fragment() {
 
     private fun loadItems() {
         // Load from cache
+        mThinkRealmModel = ThinkRealmModel(
+            -1,
+            mThink
+        )
     }
 
     private val listener = object : OnItemClickListener {

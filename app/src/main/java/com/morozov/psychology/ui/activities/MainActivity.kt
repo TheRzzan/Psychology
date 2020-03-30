@@ -30,9 +30,12 @@ import com.morozov.psychology.DefaultApplication
 import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.views.MainView
+import com.morozov.psychology.ui.fragments.deep.mind.fragments.DeepEditContraFragment
 import com.morozov.psychology.ui.fragments.deep.mind.fragments.DeepMakeContrasFragment
 import com.morozov.psychology.ui.fragments.deep.mind.fragments.DeepMindTestFragment
 import com.morozov.psychology.ui.fragments.deep.mind.fragments.DeepSelectFragment
+import com.morozov.psychology.ui.fragments.deep.mind.fragments.models.ContraRealmModel
+import com.morozov.psychology.ui.fragments.deep.mind.fragments.models.ThinkRealmModel
 import com.morozov.psychology.ui.fragments.diary.DiaryEditorFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryMainFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryThinkViewingFragment
@@ -581,10 +584,22 @@ class MainActivity : MvpAppCompatActivity(), MainView {
             .commit()
     }
 
+    override fun showEditContra(think: ThinkRealmModel, contra: ContraRealmModel) {
+        val fragment = DeepEditContraFragment()
+        fragment.mActivityPresenter = mPresenter
+        fragment.mThinkModel = think
+        fragment.mContraModel = contra
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.contentMain, fragment)
+            .addToBackStack(DeepEditContraFragment::class.java.simpleName)
+            .commit()
+    }
+
     /*
-            * Experiments section controls
-            * (MainView impl)
-            * */
+                * Experiments section controls
+                * (MainView impl)
+                * */
     override fun showAboutApplication() {
         val fragment = AboutApplicationFragment()
 
