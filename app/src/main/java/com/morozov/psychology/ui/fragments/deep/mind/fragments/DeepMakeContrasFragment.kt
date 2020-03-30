@@ -6,8 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.github.vivchar.rendererrecyclerviewadapter.RendererRecyclerViewAdapter
+import com.github.vivchar.rendererrecyclerviewadapter.ViewModel
+import com.github.vivchar.rendererrecyclerviewadapter.binder.ViewBinder
 import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
+import com.morozov.psychology.ui.fragments.deep.mind.renderers.text.and.percent.OnItemClickListener
+import com.morozov.psychology.ui.fragments.deep.mind.renderers.text.and.percent.TextAndPercentModel
+import com.morozov.psychology.ui.fragments.deep.mind.renderers.text.and.percent.TextAndPercentViewBinder
 import kotlinx.android.synthetic.main.fragment_deep_make_contra.*
 
 class DeepMakeContrasFragment: Fragment() {
@@ -15,6 +22,9 @@ class DeepMakeContrasFragment: Fragment() {
     lateinit var mActivityPresenter: MainPresenter
 
     lateinit var mThink: String
+
+    private lateinit var mAdapter: RendererRecyclerViewAdapter
+    private val mItems = mutableListOf<ViewModel>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.fragment_deep_make_contra, container, false)
@@ -24,6 +34,14 @@ class DeepMakeContrasFragment: Fragment() {
 
         linearBack.setOnClickListener {
             activity?.onBackPressed()
+        }
+
+        buttonAnotherThink.setOnClickListener {
+            activity?.onBackPressed()
+        }
+
+        buttonMindChangeMain.setOnClickListener {
+            mActivityPresenter.showMindChangeSection()
         }
 
         textHeader.text = mThink
@@ -37,5 +55,25 @@ class DeepMakeContrasFragment: Fragment() {
             override fun onStopTrackingTouch(p0: SeekBar?) {}
         })
         seekThink.progress = 0
+
+        mAdapter = RendererRecyclerViewAdapter()
+        mAdapter.registerRenderer(ViewBinder(R.layout.item_rend_text_and_precent, TextAndPercentModel::class.java, TextAndPercentViewBinder(listener)))
+        mAdapter.setItems(mItems)
+        mAdapter.enableDiffUtil()
+
+        recyclerContras.layoutManager = LinearLayoutManager(context)
+        recyclerContras.adapter = mAdapter
+
+        loadItems()
+    }
+
+    private fun loadItems() {
+        // Load from cache
+    }
+
+    private val listener = object : OnItemClickListener {
+        override fun onClick(position: Int) {
+
+        }
     }
 }
