@@ -19,6 +19,16 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.refreshActivity()
     }
 
+    /**
+     * Deep mind
+     *
+     * */
+    fun showDeepMindTest() {
+        viewState.hideBottomNav()
+        viewState.hideBackArrow()
+        viewState.showDeepMindTest()
+    }
+
     /*
     * Experiments section controls
     *

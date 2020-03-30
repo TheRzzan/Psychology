@@ -87,6 +87,10 @@ class MindChangeFragment: MvpAppCompatFragment(), MindChangeView, OnItemClickLis
             cardHomework.setOnClickListener {
                 mActivityPresenter.showHmMain(Date())
             }
+
+            cardDeepMind.setOnClickListener {
+                mActivityPresenter.showDeepMindTest()
+            }
         } else {
             buttonBuy.setOnClickListener {
                 (activity as MainActivity).buy().observe(this,
@@ -111,6 +115,9 @@ class MindChangeFragment: MvpAppCompatFragment(), MindChangeView, OnItemClickLis
 
                         cardHomework.setOnClickListener {
                             mActivityPresenter.showHmMain(Date())
+                        }
+                        cardDeepMind.setOnClickListener {
+                            mActivityPresenter.showDeepMindTest()
                         }
                     })
             }

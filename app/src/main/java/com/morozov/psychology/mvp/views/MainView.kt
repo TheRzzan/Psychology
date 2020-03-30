@@ -11,6 +11,12 @@ import java.util.*
 @StateStrategyType(value = AddToEndSingleStrategy::class)
 interface MainView: MvpView {
 
+    /**
+     * Deep mind
+     *
+     * */
+    fun showDeepMindTest()
+
     /*
     * Interface controls
     *
