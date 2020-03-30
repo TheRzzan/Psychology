@@ -31,19 +31,105 @@ class DeepMindTestFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        linearRoot.addTextView("За теми мыслями, что автоматически появляются в нашей голове, всегда стоят глубинные убеждения, уходящие своими корнями в далекое прошлое. Готовы приступить к поиску? \n\n  Запишите мысль, глубинное значение которой хотите найти. ")
-        linearRoot.addEditText("Введите мысль", 0)
-        linearRoot.addButton("Выбрать мысль")
+        val textEnterThink = "Введите мысль"
+        val textEnterAnswer = "Введите ответ"
+
+        linearRoot.addTextAndEdit(
+            "За теми мыслями, что автоматически появляются в нашей голове, всегда стоят глубинные убеждения, уходящие своими корнями в далекое прошлое. Готовы приступить к поиску?\n\nЗапишите мысль, глубинное значение которой хотите найти. ",
+            textEnterThink
+        )
+        linearRoot.addTextAndEdit(
+                "Вам предстоит отвечать на вопрос, а затем читать ответ и и снова задавать себе вопрос уже применительно к этому ответу. Так с каждым разом вы будете все глубже и глубже погружаться в исследование смысла своего убеждения. Если вы стали повторяться с ответами, то можете остановить свои поиски. \n\nНачнем. Ответьте на вопрос: Что эта мысль значит для вас? ",
+            textEnterAnswer
+        )
+        linearRoot.addTextAndEdit(
+                "Если это так, то что это значит для вас?",
+            textEnterAnswer
+        )
+        linearRoot.addTextAndEdit(
+                "Если это так, то что это значит для вас?",
+            textEnterAnswer
+        )
+        linearRoot.addTextAndEdit(
+                "Если это так, то как при этом вы воспринимаете себя?",
+            textEnterAnswer
+        )
+        linearRoot.addTextAndEdit(
+                "Если это так, то что это значит для вас?",
+            textEnterAnswer
+        )
+        linearRoot.addTextAndEdit(
+                "Если это так, то каким вы воспринимаете мир?",
+            textEnterAnswer
+        )
+        linearRoot.addTextAndEdit(
+                "Если это так, то каким вы воспринимаете окружающих людей? ",
+            textEnterAnswer
+        )
+        linearRoot.addTextAndEdit(
+                "Если это так, то что это значит для вас?",
+            textEnterAnswer
+        )
+        linearRoot.addTextAndEdit(
+                "Если это так, то на чем вы основываете свое убеждение? ",
+            textEnterAnswer
+        )
+        linearRoot.addTextAndEdit(
+                "Если это так, то что это значит для вас?",
+            textEnterAnswer
+        )
+        linearRoot.addTextAndEdit(
+                "Если это так, то что вы думаете о своей жизни?",
+            textEnterAnswer
+        )
+        linearRoot.addTextAndEdit(
+                "Если это так, то что это значит для вас?",
+            textEnterAnswer
+        )
+        linearRoot.addTextAndEdit(
+                "Если это так, то каким вы (или окружающие) должны быть? ",
+            textEnterAnswer
+        )
+        linearRoot.addTextAndEdit(
+                "Если это так, то что это значит для вас?",
+            textEnterAnswer
+        )
+        linearRoot.addTextAndEdit(
+                "Если это так, то что это значит для вас?",
+            textEnterAnswer
+        )
+        linearRoot.addTextAndEdit(
+                "Если это так, то что это значит для вас?",
+            textEnterAnswer
+        )
+        linearRoot.addTextView(
+            "Просмотрите свои записи и выберите мысль, которая в большей степени откликается вам, вызывает негативные эмоции. "
+            )
+        linearRoot.addButton(
+            "Выбрать мысль"
+        )
+    }
+
+    private var addPosition = 0
+    private fun LinearLayout.addTextAndEdit(header: String, editHint: String) {
+        addTextView(header)
+        addEditText(editHint, addPosition)
+        addPosition++
     }
 
     private fun LinearLayout.addTextView(text: String) {
         val textView = TextView(context)
         val params = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT)
+            ViewGroup.LayoutParams.WRAP_CONTENT, 6f)
         params.setMargins(32, 0, 32, 32)
         textView.layoutParams = params
         textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, resources.getDimension(R.dimen.text_secondary_size))
         textView.setTextColor(resources.getColor(R.color.second_header_text))
+        try {
+            val f = TextView::class.java.getDeclaredField("textStyle")
+            f.isAccessible = true
+            f.set(textView, "bold")
+        } catch (ignore: Exception) {}
         textView.text = text
         this.addView(textView)
     }
