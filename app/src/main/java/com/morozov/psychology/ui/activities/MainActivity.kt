@@ -33,6 +33,7 @@ import com.morozov.psychology.DefaultApplication
 import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.views.MainView
+import com.morozov.psychology.ui.fragments.deep.mind.fragments.DeepMindTestFragment
 import com.morozov.psychology.ui.fragments.deep.mind.fragments.DeepMintTest
 import com.morozov.psychology.ui.fragments.diary.DiaryEditorFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryMainFragment
@@ -551,7 +552,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
      *
      * */
     override fun showDeepMindTest() {
-        val fragment = DeepMintTest()
+        val fragment = DeepMindTestFragment()
         fragment.mActivityPresenter = mPresenter
 
         supportFragmentManager.beginTransaction()

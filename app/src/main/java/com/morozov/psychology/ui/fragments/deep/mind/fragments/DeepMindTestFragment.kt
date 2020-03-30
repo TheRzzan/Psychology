@@ -3,27 +3,45 @@ package com.morozov.psychology.ui.fragments.deep.mind.fragments
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewGroup.MarginLayoutParams
+import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.morozov.psychology.R
-import java.lang.Exception
+import com.morozov.psychology.mvp.presenters.MainPresenter
+import kotlinx.android.synthetic.main.fragment_deep_mind_test_new.*
+
 
 class DeepMindTestFragment: Fragment() {
+
+    lateinit var mActivityPresenter: MainPresenter
 
     private val listOfThinks = mutableListOf<String>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-        inflater.inflate(R.layout.fragment_deep_mind_test, container, false)
+        inflater.inflate(R.layout.fragment_deep_mind_test_new, container, false)
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        linearRoot.addTextView("За теми мыслями, что автоматически появляются в нашей голове, всегда стоят глубинные убеждения, уходящие своими корнями в далекое прошлое. Готовы приступить к поиску? \n\n  Запишите мысль, глубинное значение которой хотите найти. ")
+        linearRoot.addEditText("Введите мысль", 0)
+        linearRoot.addButton("Выбрать мысль")
+    }
 
     private fun LinearLayout.addTextView(text: String) {
         val textView = TextView(context)
-        textView.setPadding(16, 0, 16, 16)
-        textView.textSize = resources.getDimension(R.dimen.text_secondary_size)
+        val params = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT)
+        params.setMargins(32, 0, 32, 32)
+        textView.layoutParams = params
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, resources.getDimension(R.dimen.text_secondary_size))
         textView.setTextColor(resources.getColor(R.color.second_header_text))
         textView.text = text
         this.addView(textView)
@@ -31,11 +49,15 @@ class DeepMindTestFragment: Fragment() {
 
     private fun LinearLayout.addEditText(hint: String, position: Int) {
         val editText = EditText(context)
-        editText.setPadding(16, 8, 16, 24)
+        editText.setPadding(32, 8, 32, 8)
+        val params = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT)
+        params.setMargins(32, 0, 32, 48)
+        editText.layoutParams = params
         editText.hint = hint
         editText.setTextColor(resources.getColor(R.color.second_header_text))
         try {
-            val f = TextView::class.java.getDeclaredField("mCursorDrawableRes")
+            val f = TextView::class.java.getDeclaredField("textCursorDrawable")
             f.isAccessible = true
             f.set(editText, R.drawable.cursor_color)
         } catch (ignore: Exception) {}
@@ -43,6 +65,25 @@ class DeepMindTestFragment: Fragment() {
         editText.addTextChangedListener(object: MyTextWatcher(){
             override fun getPosition(): Int = position
         })
+        this.addView(editText)
+    }
+
+    private fun LinearLayout.addButton(text: String) {
+        val button = Button(context)
+        button.text = text
+        button.textSize = resources.getDimension(R.dimen.button_font_size)
+        button.setTextColor(resources.getColor(R.color.primary_text))
+        button.background = resources.getDrawable(R.drawable.rectangle_button)
+        val params = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT)
+        params.setMargins(32, 0, 32, 32)
+        button.layoutParams = params
+        try {
+            val f = TextView::class.java.getDeclaredField("textStyle")
+            f.isAccessible = true
+            f.set(button, "bold")
+        } catch (ignore: Exception) {}
+        this.addView(button)
     }
 
     private abstract inner class MyTextWatcher: TextWatcher{
@@ -52,5 +93,13 @@ class DeepMindTestFragment: Fragment() {
             // Check is ready
         }
         abstract fun getPosition(): Int
+    }
+
+    fun View.setMargins(l: Int, t: Int, r: Int, b: Int) {
+        if (this.layoutParams is MarginLayoutParams) {
+            val p = this.layoutParams as MarginLayoutParams
+            p.setMargins(l, t, r, b)
+            this.requestLayout()
+        }
     }
 }
