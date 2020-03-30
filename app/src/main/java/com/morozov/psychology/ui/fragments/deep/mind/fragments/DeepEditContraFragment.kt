@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
 import androidx.fragment.app.Fragment
+import com.arellomobile.mvp.MvpAppCompatFragment
 import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.ui.activities.MainActivity
@@ -15,7 +16,7 @@ import com.morozov.psychology.ui.fragments.deep.mind.fragments.models.ContraReal
 import com.morozov.psychology.ui.fragments.deep.mind.fragments.models.ThinkRealmModel
 import kotlinx.android.synthetic.main.fragment_deep_edit_contra.*
 
-class DeepEditContraFragment: Fragment() {
+class DeepEditContraFragment: MvpAppCompatFragment() {
 
     lateinit var mActivityPresenter: MainPresenter
 

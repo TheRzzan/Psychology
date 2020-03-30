@@ -373,6 +373,16 @@ class MainActivity : MvpAppCompatActivity(), MainView {
             1 -> {
                 val fragment = supportFragmentManager.fragments[supportFragmentManager.fragments.size - 1]
                 when (fragment) {
+                    is DeepEditContraFragment -> {
+                        CustomYesNoDialog.showDialog("Вы действительно хотите выйти? Введённые данные не будут сохранены",
+                            "Да", "Отмена",
+                            Runnable {
+                                showBottomNav()
+                                hideBackArrow()
+                                supportFragmentManager.popBackStack()
+                            },
+                            Runnable { }, supportFragmentManager)
+                    }
                     is DiaryEditorFragment -> {
                         CustomYesNoDialog.showDialog("Вы действительно хотите выйти из заполнения ситуации?",
                             "Да", "Отмена",
@@ -403,6 +413,16 @@ class MainActivity : MvpAppCompatActivity(), MainView {
             else -> {
                 val fragment = supportFragmentManager.fragments[supportFragmentManager.fragments.size - 1]
                 when (fragment) {
+                    is DeepEditContraFragment -> {
+                        CustomYesNoDialog.showDialog("Вы действительно хотите выйти? Введённые данные не будут сохранены",
+                            "Да", "Отмена",
+                            Runnable {
+                                showBottomNav()
+                                hideBackArrow()
+                                supportFragmentManager.popBackStack()
+                            },
+                            Runnable { }, supportFragmentManager)
+                    }
                     is ExTestsFragment, is ExFixTestsFragment -> {
                         CustomYesNoDialog.showDialog("Вы действительно хотите закончить эксперимент?",
                         "Да", "Отмена",
