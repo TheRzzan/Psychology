@@ -15,6 +15,8 @@ import com.github.vivchar.rendererrecyclerviewadapter.ViewModel
 import com.github.vivchar.rendererrecyclerviewadapter.binder.ViewBinder
 import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
+import com.morozov.psychology.ui.fragments.deep.mind.renderers.text.and.button.TextAndButtonModel
+import com.morozov.psychology.ui.fragments.deep.mind.renderers.text.and.button.TextAndButtonViewBinder
 import com.morozov.psychology.ui.fragments.deep.mind.renderers.text.and.edit.OnTextUpdatedCallback
 import com.morozov.psychology.ui.fragments.deep.mind.renderers.text.and.edit.TextAndEditModel
 import com.morozov.psychology.ui.fragments.deep.mind.renderers.text.and.edit.TextAndEditViewBinder
@@ -50,7 +52,12 @@ class DeepMintTest: Fragment() {
 
     private fun RendererRecyclerViewAdapter.registerRenderers() {
         registerRenderer(ViewBinder(R.layout.item_rend_text_and_edit, TextAndEditModel::class.java, TextAndEditViewBinder(), EditViewStateProvider()))
+        registerRenderer(ViewBinder(R.layout.item_rend_text_and_button, TextAndButtonModel::class.java, TextAndButtonViewBinder(buttonClickListener)))
 //        registerRenderer(ViewBinder(R.layout.item_to_me_media_text_message, ToMeMediaAndTextModel::class.java, ToMeMediaAndTextViewBinder(this@RendererDialogChatFragment)))
+    }
+
+    private val buttonClickListener = View.OnClickListener {
+        Log.i("Jeka", "Click")
     }
 
     inner class MyTextUpdatedCallback(private val position: Int): OnTextUpdatedCallback, TextWatcher {
@@ -214,6 +221,12 @@ class DeepMintTest: Fragment() {
                 "Если это так, то что это значит для вас?",
                 textEnterAnswer,
                 MyTextUpdatedCallback(16)
+            )
+        )
+        mItems.add(
+            TextAndButtonModel(
+                "Просмотрите свои записи и выберите мысль, которая в большей степени откликается вам, вызывает негативные эмоции. ",
+                "Выбрать мысль"
             )
         )
         mRecyclerViewAdapter.setItems(mItems)
