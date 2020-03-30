@@ -29,10 +29,10 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showDeepMindTest()
     }
 
-    fun showSelectMind() {
+    fun showSelectMind(thinks: List<String>) {
         viewState.hideBottomNav()
         viewState.hideBackArrow()
-        viewState.showSelectMind()
+        viewState.showSelectMind(thinks)
     }
 
     /*

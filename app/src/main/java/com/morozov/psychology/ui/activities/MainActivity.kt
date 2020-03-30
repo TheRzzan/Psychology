@@ -31,6 +31,7 @@ import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.views.MainView
 import com.morozov.psychology.ui.fragments.deep.mind.fragments.DeepMindTestFragment
+import com.morozov.psychology.ui.fragments.deep.mind.fragments.DeepSelectFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryEditorFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryMainFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryThinkViewingFragment
@@ -557,8 +558,15 @@ class MainActivity : MvpAppCompatActivity(), MainView {
             .commit()
     }
 
-    override fun showSelectMind() {
+    override fun showSelectMind(thinks: List<String>) {
+        val fragment = DeepSelectFragment()
+        fragment.mActivityPresenter = mPresenter
+        fragment.thinkList = thinks
 
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.contentMain, fragment)
+            .addToBackStack(DeepSelectFragment::class.java.simpleName)
+            .commit()
     }
 
     /*

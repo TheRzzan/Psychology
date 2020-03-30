@@ -17,7 +17,7 @@ interface MainView: MvpView {
      * */
     fun showDeepMindTest()
 
-    fun showSelectMind()
+    fun showSelectMind(thinks: List<String>)
 
     /*
     * Interface controls
