@@ -60,14 +60,14 @@ class DeepMakeContrasFragment: Fragment() {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
                 textPercent.text = "$p1%"
                 progressThink.progress = p1
-                MainActivity.realm.beginTransaction()
+                if (MainActivity.realm.isInTransaction.not())
+                    MainActivity.realm.beginTransaction()
                 mThinkRealmModel?.percent = p1
                 MainActivity.realm.commitTransaction()
             }
             override fun onStartTrackingTouch(p0: SeekBar?) {}
             override fun onStopTrackingTouch(p0: SeekBar?) {}
         })
-        seekThink.progress = mThinkRealmModel?.percent ?: 0
 
         mAdapter = RendererRecyclerViewAdapter()
         mAdapter.registerRenderer(ViewBinder(R.layout.item_rend_text_and_precent, TextAndPercentModel::class.java, TextAndPercentViewBinder(listener)))
@@ -101,6 +101,7 @@ class DeepMakeContrasFragment: Fragment() {
             mAdapter.setItems(mItems)
         }
         MainActivity.realm.commitTransaction()
+        seekThink.progress = mThinkRealmModel!!.percent
     }
 
     private val listener = object : OnItemClickListener {
