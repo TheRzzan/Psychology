@@ -4,6 +4,7 @@ import android.graphics.Typeface
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
@@ -20,9 +21,13 @@ import kotlinx.android.synthetic.main.fragment_deep_mind_test_new.*
 
 class DeepMindTestFragment: Fragment() {
 
-    lateinit var mActivityPresenter: MainPresenter
+    companion object{
+        private const val LIST_OF_THINKS = "list_of_thinks"
 
-    private val listOfThinks = mutableListOf<String>()
+        private var listOfThinks = mutableListOf<String>()
+    }
+
+    lateinit var mActivityPresenter: MainPresenter
 
     private lateinit var button: Button
 
@@ -35,6 +40,7 @@ class DeepMindTestFragment: Fragment() {
         linearBack.setOnClickListener {
             activity?.onBackPressed()
         }
+        addPosition = 0
 
         val textEnterThink = "Введите мысль"
         val textEnterAnswer = "Введите ответ"
@@ -115,6 +121,11 @@ class DeepMindTestFragment: Fragment() {
         )
     }
 
+//    override fun onDestroy() {
+//        listOfThinks.clear()
+//        super.onDestroy()
+//    }
+
     private var addPosition = 0
     private fun LinearLayout.addTextAndEdit(header: String, editHint: String) {
         addTextView(header)
@@ -153,7 +164,14 @@ class DeepMindTestFragment: Fragment() {
         editText.addTextChangedListener(object: MyTextWatcher(){
             override fun getPosition(): Int = position
         })
-        listOfThinks.add("")
+
+        Log.i("Jeka", listOfThinks.toString())
+
+        if (listOfThinks.size > position)
+            editText.setText(listOfThinks[position])
+        else
+            listOfThinks.add("")
+
         this.addView(editText)
     }
 
