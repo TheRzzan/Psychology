@@ -19,6 +19,8 @@ interface MainView: MvpView {
 
     fun showSelectMind(thinks: List<String>)
 
+    fun showMakeContras(think: String)
+
     /*
     * Interface controls
     *

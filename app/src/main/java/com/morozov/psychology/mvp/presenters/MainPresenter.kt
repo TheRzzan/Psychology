@@ -35,6 +35,12 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showSelectMind(thinks)
     }
 
+    fun showMakeContras(think: String) {
+        viewState.hideBottomNav()
+        viewState.hideBackArrow()
+        viewState.showMakeContras(think)
+    }
+
     /*
     * Experiments section controls
     *

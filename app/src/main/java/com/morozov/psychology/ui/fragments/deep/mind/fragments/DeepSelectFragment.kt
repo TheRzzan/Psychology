@@ -38,6 +38,10 @@ class DeepSelectFragment: Fragment() {
             buttonSelectContr.setBackgroundResource(R.drawable.rectangle_button)
             buttonSelectContr.isEnabled = true
         }
+
+        buttonSelectContr.setOnClickListener {
+            mActivityPresenter.showMakeContras(thinkList[radioGroupThink.indexOfChild(view.findViewById(radioGroupThink.checkedRadioButtonId))])
+        }
     }
 
     private fun RadioGroup.addThink(text: String) {

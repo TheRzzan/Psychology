@@ -30,6 +30,7 @@ import com.morozov.psychology.DefaultApplication
 import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.views.MainView
+import com.morozov.psychology.ui.fragments.deep.mind.fragments.DeepMakeContrasFragment
 import com.morozov.psychology.ui.fragments.deep.mind.fragments.DeepMindTestFragment
 import com.morozov.psychology.ui.fragments.deep.mind.fragments.DeepSelectFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryEditorFragment
@@ -569,10 +570,21 @@ class MainActivity : MvpAppCompatActivity(), MainView {
             .commit()
     }
 
+    override fun showMakeContras(think: String) {
+        val fragment = DeepMakeContrasFragment()
+        fragment.mActivityPresenter = mPresenter
+        fragment.mThink = think
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.contentMain, fragment)
+            .addToBackStack(DeepMakeContrasFragment::class.java.simpleName)
+            .commit()
+    }
+
     /*
-        * Experiments section controls
-        * (MainView impl)
-        * */
+            * Experiments section controls
+            * (MainView impl)
+            * */
     override fun showAboutApplication() {
         val fragment = AboutApplicationFragment()
 

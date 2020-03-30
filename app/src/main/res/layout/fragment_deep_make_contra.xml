@@ -76,14 +76,34 @@
                     android:layout_marginBottom="@dimen/activity_vertical_margin"
                     android:text="90%"/>
         </LinearLayout>
-        <SeekBar
-                android:id="@+id/seekThink"
+        <FrameLayout
                 android:layout_marginTop="26dp"
-                android:progress="20"
-                android:max="100"
-                android:thumb="@drawable/ic_knob"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content">
+            <SeekBar
+                    android:elevation="1dp"
+                    android:id="@+id/seekThink"
+                    android:progress="20"
+                    android:max="100"
+                    android:progressTint="#00000000"
+                    android:background="#00000000"
+                    android:progressBackgroundTint="#00000000"
+                    android:thumb="@drawable/knob"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            <ProgressBar
+                    android:id="@+id/progressThink"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:max="100"
+                    android:progress="20"
+                    android:layout_gravity="center_vertical"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"/>
+        </FrameLayout>
         <LinearLayout
                 android:layout_marginTop="32dp"
                 android:layout_marginStart="16dp"
