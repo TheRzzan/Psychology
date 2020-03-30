@@ -121,10 +121,10 @@ class DeepMindTestFragment: Fragment() {
         )
     }
 
-//    override fun onDestroy() {
-//        listOfThinks.clear()
-//        super.onDestroy()
-//    }
+    override fun onDestroy() {
+        listOfThinks.clear()
+        super.onDestroy()
+    }
 
     private var addPosition = 0
     private fun LinearLayout.addTextAndEdit(header: String, editHint: String) {

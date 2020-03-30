@@ -26,6 +26,10 @@ class DeepSelectFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        linearBack.setOnClickListener {
+            activity?.onBackPressed()
+        }
+
         for (s in thinkList) {
             radioGroupThink.addThink(s)
         }
