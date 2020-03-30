@@ -4,8 +4,9 @@ import android.widget.EditText
 import com.github.vivchar.rendererrecyclerviewadapter.ViewHolder
 import com.github.vivchar.rendererrecyclerviewadapter.ViewState
 import com.morozov.psychology.R
+import com.morozov.psychology.ui.fragments.deep.mind.renderers.text.and.edit.OnTextUpdatedCallback
 
-class EditViewState(holder: ViewHolder): ViewState<ViewHolder> {
+class EditViewState(private val holder: ViewHolder): ViewState<ViewHolder> {
 
     private val mEnteredText: String
 
@@ -17,4 +18,6 @@ class EditViewState(holder: ViewHolder): ViewState<ViewHolder> {
     override fun restore(holder: ViewHolder) {
         holder.viewFinder.setText(R.id.editRend, mEnteredText)
     }
+
+    fun getState(): String? = holder.viewFinder.find<EditText>(R.id.editRend).text.toString()
 }

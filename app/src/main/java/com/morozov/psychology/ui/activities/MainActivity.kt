@@ -33,6 +33,7 @@ import com.morozov.psychology.DefaultApplication
 import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.views.MainView
+import com.morozov.psychology.ui.fragments.deep.mind.fragments.DeepMintTest
 import com.morozov.psychology.ui.fragments.diary.DiaryEditorFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryMainFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryThinkViewingFragment
@@ -350,8 +351,9 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     }
 
     private fun initPreferences() {
-        openPurchase = getSharedPreferences(SHARED_BILLING1, Context.MODE_PRIVATE).getBoolean(
-            SHARED_BILLING1, false)
+//        openPurchase = getSharedPreferences(SHARED_BILLING1, Context.MODE_PRIVATE).getBoolean(
+//            SHARED_BILLING1, false)
+        openPurchase = true
     }
 
     private fun initPurchaseService() {
@@ -542,6 +544,20 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun setBackground(drawable: Drawable) {
         imageMainBack.setImageDrawable(drawable)
+    }
+
+    /**
+     * Deep mind
+     *
+     * */
+    override fun showDeepMindTest() {
+        val fragment = DeepMintTest()
+        fragment.mActivityPresenter = mPresenter
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.contentMain, fragment)
+            .addToBackStack(DeepMintTest::class.java.simpleName)
+            .commit()
     }
 
     /*

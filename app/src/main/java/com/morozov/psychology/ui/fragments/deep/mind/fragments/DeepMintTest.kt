@@ -22,6 +22,7 @@ import com.morozov.psychology.ui.fragments.deep.mind.renderers.text.and.button.T
 import com.morozov.psychology.ui.fragments.deep.mind.renderers.text.and.edit.OnTextUpdatedCallback
 import com.morozov.psychology.ui.fragments.deep.mind.renderers.text.and.edit.TextAndEditModel
 import com.morozov.psychology.ui.fragments.deep.mind.renderers.text.and.edit.TextAndEditViewBinder
+import com.morozov.psychology.ui.fragments.deep.mind.renderers.text.and.edit.state.save.EditViewState
 import com.morozov.psychology.ui.fragments.deep.mind.renderers.text.and.edit.state.save.EditViewStateProvider
 import kotlinx.android.synthetic.main.fragment_deep_mind_test.*
 
@@ -68,22 +69,31 @@ class DeepMintTest: Fragment() {
         override fun afterTextChanged(p0: Editable?) {}
         override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
         override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            onUpdated(position, p0?.toString() ?: "")
+            onUpdated(position, null)
         }
 
-        override fun onUpdated(position: Int, newText: String) {
-            when{
-                newText.isEmpty() -> mEditFilled--
-                newText.length == 1 -> mEditFilled++
+        override fun onUpdated(position: Int, newText: String?) {
+            val item = (mItems[position+1])
+            if (item is TextAndEditModel) {
+                if (newText != null)
+                    item.insertedText = newText
             }
-            (mItems[position+1] as TextAndEditModel).insertedText = newText
             checkIsReady()
-            Log.i("Jeka", "Position: $position, text: $newText")
         }
     }
 
     private fun checkIsReady() {
-        if (mEditFilled == mEditNumber)
+        var bool = true
+        for (state in mRecyclerViewAdapter.states) {
+            val value = state.value
+            if (value is EditViewState) {
+                if (value.getState().isNullOrEmpty()){
+                    bool = false
+                    break
+                }
+            }
+        }
+        if (bool)
             Toast.makeText(context, "Ready", Toast.LENGTH_SHORT).show()
     }
 
