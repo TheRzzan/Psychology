@@ -25,6 +25,10 @@ import com.morozov.psychology.ui.fragments.deep.mind.renderers.text.and.edit.Tex
 import com.morozov.psychology.ui.fragments.deep.mind.renderers.text.and.edit.state.save.EditViewState
 import com.morozov.psychology.ui.fragments.deep.mind.renderers.text.and.edit.state.save.EditViewStateProvider
 import kotlinx.android.synthetic.main.fragment_deep_mind_test.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class DeepMintTest: Fragment() {
 
@@ -93,8 +97,10 @@ class DeepMintTest: Fragment() {
                 }
             }
         }
-        if (bool)
-            Toast.makeText(context, "Ready", Toast.LENGTH_SHORT).show()
+        (mItems.last() as TextAndButtonModel).enable = bool
+        recyclerRendTest.post {
+            mRecyclerViewAdapter.notifyItemChanged(mItems.size-1)
+        }
     }
 
     private fun loadItems() {
