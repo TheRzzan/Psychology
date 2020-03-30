@@ -17,12 +17,13 @@ import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import kotlinx.android.synthetic.main.fragment_deep_mind_test_new.*
 
-
 class DeepMindTestFragment: Fragment() {
 
     lateinit var mActivityPresenter: MainPresenter
 
     private val listOfThinks = mutableListOf<String>()
+
+    private lateinit var button: Button
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.fragment_deep_mind_test_new, container, false)
@@ -65,15 +66,18 @@ class DeepMindTestFragment: Fragment() {
         editText.addTextChangedListener(object: MyTextWatcher(){
             override fun getPosition(): Int = position
         })
+        listOfThinks.add("")
         this.addView(editText)
     }
 
     private fun LinearLayout.addButton(text: String) {
-        val button = Button(context)
+        button = Button(context)
         button.text = text
-        button.textSize = resources.getDimension(R.dimen.button_font_size)
+        button.setTextSize(TypedValue.COMPLEX_UNIT_PX, resources.getDimension(R.dimen.button_font_size))
         button.setTextColor(resources.getColor(R.color.primary_text))
-        button.background = resources.getDrawable(R.drawable.rectangle_button)
+        button.setBackgroundResource(R.drawable.rectangle_button_disable)
+        button.isEnabled = false
+        button.isAllCaps = false
         val params = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.WRAP_CONTENT)
         params.setMargins(32, 0, 32, 32)
@@ -90,7 +94,19 @@ class DeepMindTestFragment: Fragment() {
         override fun afterTextChanged(p0: Editable?) {}
         override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
         override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            // Check is ready
+            var isReady = true
+            listOfThinks[getPosition()] = p0?.toString() ?: ""
+            for (think in listOfThinks) {
+                if (think.isEmpty()){
+                    isReady = false
+                    break
+                }
+            }
+            when(isReady) {
+                true -> button.setBackgroundResource(R.drawable.rectangle_button)
+                false -> button.setBackgroundResource(R.drawable.rectangle_button_disable)
+            }
+            button.isEnabled = isReady
         }
         abstract fun getPosition(): Int
     }
