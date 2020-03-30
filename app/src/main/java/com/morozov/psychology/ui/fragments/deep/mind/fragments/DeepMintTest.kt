@@ -15,6 +15,8 @@ import com.github.vivchar.rendererrecyclerviewadapter.ViewModel
 import com.github.vivchar.rendererrecyclerviewadapter.binder.ViewBinder
 import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
+import com.morozov.psychology.ui.fragments.deep.mind.renderers.header.HeaderModel
+import com.morozov.psychology.ui.fragments.deep.mind.renderers.header.HeaderViewBinder
 import com.morozov.psychology.ui.fragments.deep.mind.renderers.text.and.button.TextAndButtonModel
 import com.morozov.psychology.ui.fragments.deep.mind.renderers.text.and.button.TextAndButtonViewBinder
 import com.morozov.psychology.ui.fragments.deep.mind.renderers.text.and.edit.OnTextUpdatedCallback
@@ -53,6 +55,7 @@ class DeepMintTest: Fragment() {
     private fun RendererRecyclerViewAdapter.registerRenderers() {
         registerRenderer(ViewBinder(R.layout.item_rend_text_and_edit, TextAndEditModel::class.java, TextAndEditViewBinder(), EditViewStateProvider()))
         registerRenderer(ViewBinder(R.layout.item_rend_text_and_button, TextAndButtonModel::class.java, TextAndButtonViewBinder(buttonClickListener)))
+        registerRenderer(ViewBinder(R.layout.item_rend_text_header, HeaderModel::class.java, HeaderViewBinder()))
 //        registerRenderer(ViewBinder(R.layout.item_to_me_media_text_message, ToMeMediaAndTextModel::class.java, ToMeMediaAndTextViewBinder(this@RendererDialogChatFragment)))
     }
 
@@ -73,7 +76,7 @@ class DeepMintTest: Fragment() {
                 newText.isEmpty() -> mEditFilled--
                 newText.length == 1 -> mEditFilled++
             }
-            (mItems[position] as TextAndEditModel).insertedText = newText
+            (mItems[position+1] as TextAndEditModel).insertedText = newText
             checkIsReady()
             Log.i("Jeka", "Position: $position, text: $newText")
         }
@@ -87,6 +90,9 @@ class DeepMintTest: Fragment() {
     private fun loadItems() {
         val textEnterThink = "Введите мысль"
         val textEnterAnswer = "Введите ответ"
+        mItems.add(
+            HeaderModel("Глубинные убеждения")
+        )
         mItems.add(
             TextAndEditModel(
                 0,
