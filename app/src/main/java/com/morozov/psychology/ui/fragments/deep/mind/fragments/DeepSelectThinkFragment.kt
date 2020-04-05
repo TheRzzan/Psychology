@@ -33,6 +33,10 @@ class DeepSelectThinkFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        linearBack.setOnClickListener {
+            activity?.onBackPressed()
+        }
+
         mAdapter = RendererRecyclerViewAdapter()
         mAdapter.registerRenderer(ViewBinder(R.layout.item_rend_text_on_card, CardAndTextModel::class.java, CardAndTextViewBinder(listener)))
         mAdapter.setItems(mItems)
