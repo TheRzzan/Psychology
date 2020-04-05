@@ -40,6 +40,11 @@ object MySharedPreferences {
 
     fun getBoolPreference(context: Context, pref: String): Boolean {
         val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+        return preferences.getBoolean(pref, false)
+    }
+
+    fun getBoolPreferenceTrue(context: Context, pref: String): Boolean {
+        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
         return preferences.getBoolean(pref, true)
     }
 

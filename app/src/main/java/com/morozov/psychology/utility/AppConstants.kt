@@ -75,6 +75,7 @@ class AppConstants {
         const val PREF_ABOUT_MEDICINES = "pref_about_medicines"
         const val PREF_ABOUT_MEDICINES_CUSTOM = "pref_about_medicines_custom"
         const val PREF_ABOUT_MEDICINES_NO = "pref_about_medicines_no"
+        const val PREF_ABOUT_AGREE_TO_SEND_INFO = "pref_about_agree_to_send_info"
         const val PREF_ABOUT_EMAil = "pref_about_email"
     }
 }
