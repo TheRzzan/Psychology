@@ -12,6 +12,7 @@ import com.morozov.psychology.di.examples.FixingModule
 import com.morozov.psychology.di.tests.DaggerTestsComponent
 import com.morozov.psychology.di.tests.TestsComponent
 import com.morozov.psychology.di.tests.TestsModule
+import io.realm.Realm
 
 class DefaultApplication: Application() {
 
@@ -24,6 +25,8 @@ class DefaultApplication: Application() {
 
     override fun onCreate() {
         super.onCreate()
+
+        Realm.init(applicationContext)
 
         examplesComponent = DaggerExamplesComponent
                             .builder()

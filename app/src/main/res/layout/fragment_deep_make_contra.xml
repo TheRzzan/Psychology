@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/fragment_background"
+        android:orientation="vertical"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="true">
+
+    <LinearLayout
+            android:id="@+id/linearBack"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp">
+
+        <ImageView
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:layout_gravity="center"
+                android:background="@drawable/arrow_back" />
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Назад"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="@dimen/text_little_size" />
+
+        <TextView
+                android:gravity="end"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_gravity="center"
+                style="@style/TextView.Secondary"
+                android:textStyle="bold"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:text="Степень веры:"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/linearRoot"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linearBack"
+            app:layout_constraintBottom_toTopOf="@+id/linearButtons"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+                    android:layout_weight="2"
+                    android:id="@+id/textHeader"
+                    android:layout_width="0dp"
+                    style="@style/TextView.Primary.Header"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:text="Я крутой"/>
+
+            <TextView
+                    android:gravity="end"
+                    android:layout_weight="1"
+                    android:id="@+id/textPercent"
+                    android:layout_width="0dp"
+                    style="@style/TextView.Primary.Header"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:text="90%"/>
+        </LinearLayout>
+        <FrameLayout
+                android:layout_marginTop="26dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <SeekBar
+                    android:elevation="1dp"
+                    android:id="@+id/seekThink"
+                    android:progress="20"
+                    android:max="100"
+                    android:progressTint="#00000000"
+                    android:background="#00000000"
+                    android:progressBackgroundTint="#00000000"
+                    android:thumb="@drawable/knob"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            <ProgressBar
+                    android:id="@+id/progressThink"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:max="100"
+                    android:progress="20"
+                    android:layout_gravity="center_vertical"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"/>
+        </FrameLayout>
+        <LinearLayout
+                android:layout_marginTop="32dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+                    android:text="Контраргументы:"
+                    android:textStyle="bold"
+                    style="@style/Text.Secondary"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+            <TextView
+                    android:gravity="end"
+                    android:text="Степень веры:"
+                    android:textStyle="bold"
+                    style="@style/Text.Secondary"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerContras"
+                android:layout_margin="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/linearButtons"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <Button
+                android:id="@+id/buttonSelectContr"
+                android:text="Добавить контраргумент"
+                android:layout_width="match_parent"
+                style="@style/TextView.Button"
+                android:background="@drawable/rectangle_button"
+                android:layout_marginBottom="@dimen/activity_vertical_margin" />
+        <Button
+                android:id="@+id/buttonMindChangeMain"
+                android:text="Перейти в раздел изменения мыслей"
+                android:layout_width="match_parent"
+                style="@style/TextView.Button"
+                android:background="@drawable/rectangle_button"
+                android:layout_marginBottom="@dimen/activity_vertical_margin" />
+        <Button
+                android:id="@+id/buttonAnotherThink"
+                android:text="Выбрать другую мысль"
+                android:layout_width="match_parent"
+                style="@style/TextView.Button"
+                android:background="@drawable/rectangle_button"
+                android:layout_marginBottom="@dimen/activity_vertical_margin" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

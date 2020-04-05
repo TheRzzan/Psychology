@@ -6,10 +6,26 @@ import androidx.lifecycle.LiveData
 import com.arellomobile.mvp.MvpView
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
+import com.morozov.psychology.ui.fragments.deep.mind.fragments.models.ContraRealmModel
+import com.morozov.psychology.ui.fragments.deep.mind.fragments.models.ThinkRealmModel
 import java.util.*
 
 @StateStrategyType(value = AddToEndSingleStrategy::class)
 interface MainView: MvpView {
+
+    /**
+     * Deep mind
+     *
+     * */
+    fun showDeepMindTest()
+
+    fun showSelectMind(thinks: List<String>)
+
+    fun showMakeContras(think: String)
+
+    fun showEditContra(think: ThinkRealmModel, contra: ContraRealmModel)
+
+    fun showSelectThinkList()
 
     /*
     * Interface controls

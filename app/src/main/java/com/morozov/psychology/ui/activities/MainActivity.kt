@@ -1,7 +1,6 @@
 package com.morozov.psychology.ui.activities
 
 import android.app.AlarmManager
-import android.app.Application
 import android.app.PendingIntent
 import android.content.ComponentName
 import android.content.Context
@@ -13,7 +12,6 @@ import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
 import android.os.IBinder
-import android.os.SystemClock
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.fragment.app.Fragment
 import android.transition.Fade
@@ -23,7 +21,6 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.android.vending.billing.IInAppBillingService
@@ -33,6 +30,9 @@ import com.morozov.psychology.DefaultApplication
 import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.mvp.views.MainView
+import com.morozov.psychology.ui.fragments.deep.mind.fragments.*
+import com.morozov.psychology.ui.fragments.deep.mind.fragments.models.ContraRealmModel
+import com.morozov.psychology.ui.fragments.deep.mind.fragments.models.ThinkRealmModel
 import com.morozov.psychology.ui.fragments.diary.DiaryEditorFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryMainFragment
 import com.morozov.psychology.ui.fragments.diary.DiaryThinkViewingFragment
@@ -79,6 +79,7 @@ import com.morozov.psychology.ui.fragments.mind.change.homework.tunnel.HmTunnelF
 import com.morozov.psychology.ui.fragments.settings.*
 import com.morozov.psychology.ui.fragments.tests.*
 import com.morozov.psychology.utility.*
+import io.realm.Realm
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
 import java.text.DateFormat
@@ -90,6 +91,8 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     lateinit var mPresenter: MainPresenter
 
     companion object {
+        val realm = Realm.getDefaultInstance()
+
         const val MAX_CLICK_DURATION = 150
         var startClickTime: Long = 0
         var startClickX: Float = 0f
@@ -366,6 +369,16 @@ class MainActivity : MvpAppCompatActivity(), MainView {
             1 -> {
                 val fragment = supportFragmentManager.fragments[supportFragmentManager.fragments.size - 1]
                 when (fragment) {
+                    is DeepEditContraFragment -> {
+                        CustomYesNoDialog.showDialog("Вы действительно хотите выйти? Введённые данные не будут сохранены",
+                            "Да", "Отмена",
+                            Runnable {
+                                showBottomNav()
+                                hideBackArrow()
+                                supportFragmentManager.popBackStack()
+                            },
+                            Runnable { }, supportFragmentManager)
+                    }
                     is DiaryEditorFragment -> {
                         CustomYesNoDialog.showDialog("Вы действительно хотите выйти из заполнения ситуации?",
                             "Да", "Отмена",
@@ -396,6 +409,16 @@ class MainActivity : MvpAppCompatActivity(), MainView {
             else -> {
                 val fragment = supportFragmentManager.fragments[supportFragmentManager.fragments.size - 1]
                 when (fragment) {
+                    is DeepEditContraFragment -> {
+                        CustomYesNoDialog.showDialog("Вы действительно хотите выйти? Введённые данные не будут сохранены",
+                            "Да", "Отмена",
+                            Runnable {
+                                showBottomNav()
+                                hideBackArrow()
+                                supportFragmentManager.popBackStack()
+                            },
+                            Runnable { }, supportFragmentManager)
+                    }
                     is ExTestsFragment, is ExFixTestsFragment -> {
                         CustomYesNoDialog.showDialog("Вы действительно хотите закончить эксперимент?",
                         "Да", "Отмена",
@@ -544,10 +567,68 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         imageMainBack.setImageDrawable(drawable)
     }
 
+    /**
+     * Deep mind
+     *
+     * */
+    override fun showDeepMindTest() {
+        val fragment = DeepMindTestFragment()
+        fragment.mActivityPresenter = mPresenter
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.contentMain, fragment)
+            .addToBackStack(DeepMindTestFragment::class.java.simpleName)
+            .commit()
+    }
+
+    override fun showSelectMind(thinks: List<String>) {
+        val fragment = DeepSelectFragment()
+        fragment.mActivityPresenter = mPresenter
+        fragment.thinkList = thinks
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.contentMain, fragment)
+            .addToBackStack(DeepSelectFragment::class.java.simpleName)
+            .commit()
+    }
+
+    override fun showMakeContras(think: String) {
+        val fragment = DeepMakeContrasFragment()
+        fragment.mActivityPresenter = mPresenter
+        fragment.mThink = think
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.contentMain, fragment)
+            .addToBackStack(DeepMakeContrasFragment::class.java.simpleName)
+            .commit()
+    }
+
+    override fun showEditContra(think: ThinkRealmModel, contra: ContraRealmModel) {
+        val fragment = DeepEditContraFragment()
+        fragment.mActivityPresenter = mPresenter
+        fragment.mThinkModel = think
+        fragment.mContraModel = contra
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.contentMain, fragment)
+            .addToBackStack(DeepEditContraFragment::class.java.simpleName)
+            .commit()
+    }
+
+    override fun showSelectThinkList() {
+        val fragment = DeepSelectThinkFragment()
+        fragment.mActivityPresenter = mPresenter
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.contentMain, fragment)
+            .addToBackStack(DeepSelectThinkFragment::class.java.simpleName)
+            .commit()
+    }
+
     /*
-    * Experiments section controls
-    * (MainView impl)
-    * */
+                    * Experiments section controls
+                    * (MainView impl)
+                    * */
     override fun showAboutApplication() {
         val fragment = AboutApplicationFragment()
 

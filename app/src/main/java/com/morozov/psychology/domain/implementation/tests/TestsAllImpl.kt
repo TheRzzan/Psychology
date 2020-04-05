@@ -170,7 +170,7 @@ class TestsAllImpl(private val context: Context): DescriptionLoader, QuestionsLo
                 true -> null
                 false -> tmp
             } ,
-            MySharedPreferences.getBoolPreference(context, AppConstants.PREF_DIARY),
+            MySharedPreferences.getBoolPreferenceTrue(context, AppConstants.PREF_ABOUT_AGREE_TO_SEND_INFO),
             MySharedPreferences.getStrPreferenceNullable(context, AppConstants.PREF_ABOUT_EMAil)
         )
         return aboutModel
@@ -188,7 +188,7 @@ class TestsAllImpl(private val context: Context): DescriptionLoader, QuestionsLo
         about.timeOfPsychologistVisit?.let { MySharedPreferences.setPreference(context, AppConstants.PREF_ABOUT_TIME_OF_PSY_VISIT, it) }
         about.timeOfPsychoterapevtVisit?.let { MySharedPreferences.setPreference(context, AppConstants.PREF_ABOUT_TIME_OF_PSYTER_VISIT, it) }
         about.frequencyOfTherapy?.name?.let { MySharedPreferences.setPreference(context, AppConstants.PREF_ABOUT_FREQUENCY_OF_THERAPY, it) }
-        about.agreeToSendMyTestInfo?.let { MySharedPreferences.setPreference(context, AppConstants.PREF_DIARY, it) }
+        about.agreeToSendMyTestInfo?.let { MySharedPreferences.setPreference(context, AppConstants.PREF_ABOUT_AGREE_TO_SEND_INFO, it) }
         about.email?.let { MySharedPreferences.setPreference(context, AppConstants.PREF_ABOUT_EMAil, it) }
 
         if (about.medicines != null) {
