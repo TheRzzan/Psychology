@@ -95,7 +95,7 @@ class DiaryMainFragment:MvpAppCompatFragment(), DiaryMainView,
         else
             recyclerDiaryDays.scrollToPosition(DiaryMainPresenter.currentDate)
 
-        adapterThink = DiaryMainThinkAdapter(this, mPresenter, layoutDiaryCards)
+        adapterThink = DiaryMainThinkAdapter(this, mPresenter, layoutDiaryCards, childFragmentManager)
         recyclerDiaryThinks.layoutManager =
             androidx.recyclerview.widget.LinearLayoutManager(context)
         recyclerDiaryThinks.adapter = adapterThink
