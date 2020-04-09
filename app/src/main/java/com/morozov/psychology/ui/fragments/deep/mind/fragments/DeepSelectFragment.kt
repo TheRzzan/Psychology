@@ -40,7 +40,7 @@ class DeepSelectFragment: Fragment() {
         }
 
         buttonSelectContr.setOnClickListener {
-            mActivityPresenter.showMakeContras(thinkList[radioGroupThink.indexOfChild(view.findViewById(radioGroupThink.checkedRadioButtonId))])
+            mActivityPresenter.showMakeContras(thinkList[radioGroupThink.indexOfChild(view.findViewById(radioGroupThink.checkedRadioButtonId))], true)
         }
     }
 

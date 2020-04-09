@@ -8,6 +8,7 @@ class CardAndTextViewBinder(private val listener: OnCardClickListener): ViewBind
     override fun bindView(model: CardAndTextModel, finder: ViewFinder, payloads: MutableList<Any>) {
         if (payloads.isEmpty()) {
             finder.setText(R.id.textRend, model.text)
+            finder.setText(R.id.textRendPercent, "${model.percent}%")
             finder.setOnClickListener(R.id.cardRend) {
                 listener.onClick(model.position)
             }

@@ -581,6 +581,16 @@ class MainActivity : MvpAppCompatActivity(), MainView {
             .commit()
     }
 
+    override fun showDeepMindTestShort() {
+        val fragment = DeepMindTestShortFragment()
+        fragment.mActivityPresenter = mPresenter
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.contentMain, fragment)
+            .addToBackStack(DeepMindTestShortFragment::class.java.simpleName)
+            .commit()
+    }
+
     override fun showSelectMind(thinks: List<String>) {
         val fragment = DeepSelectFragment()
         fragment.mActivityPresenter = mPresenter
@@ -592,10 +602,11 @@ class MainActivity : MvpAppCompatActivity(), MainView {
             .commit()
     }
 
-    override fun showMakeContras(think: String) {
+    override fun showMakeContras(think: String, showSelectAnother: Boolean) {
         val fragment = DeepMakeContrasFragment()
         fragment.mActivityPresenter = mPresenter
         fragment.mThink = think
+        fragment.showSelectAnother = showSelectAnother
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.contentMain, fragment)
@@ -820,7 +831,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
             val calendar = Calendar.getInstance()
             calendar.timeInMillis = System.currentTimeMillis()
-            calendar.add(Calendar.MINUTE, 5)
+            calendar.add(Calendar.MONTH, 1)
             setNotification(calendar, applicationContext)
         }
 

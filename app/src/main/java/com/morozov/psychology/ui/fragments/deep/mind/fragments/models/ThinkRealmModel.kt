@@ -9,6 +9,6 @@ open class ThinkRealmModel(
     var percent: Int = 0
 ): RealmObject() {
     fun toCardAndText(position: Int): CardAndTextModel {
-        return CardAndTextModel(position, text)
+        return CardAndTextModel(position, text, percent)
     }
 }
