@@ -52,6 +52,13 @@ class DeepEditContraFragment: MvpAppCompatFragment() {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
                 textPercent.text = "$p1%"
                 progressThink.progress = p1
+
+                val isReady = editRend.text.isNullOrEmpty().not()
+                when(isReady) {
+                    true -> buttonSave.setBackgroundResource(R.drawable.rectangle_button)
+                    false -> buttonSave.setBackgroundResource(R.drawable.rectangle_button_disable)
+                }
+                buttonSave.isEnabled = isReady
             }
             override fun onStartTrackingTouch(p0: SeekBar?) {}
             override fun onStopTrackingTouch(p0: SeekBar?) {}
