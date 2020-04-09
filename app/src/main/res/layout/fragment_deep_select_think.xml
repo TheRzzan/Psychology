@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
         android:background="@color/fragment_background"
-        android:orientation="vertical"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
@@ -9,43 +8,60 @@
         android:focusableInTouchMode="true">
 
     <LinearLayout
-            android:id="@+id/linearBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp">
-
-        <ImageView
-                android:layout_width="@dimen/icon_size"
-                android:layout_height="@dimen/icon_size"
-                android:layout_gravity="center"
-                android:background="@drawable/arrow_back" />
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Назад"
-                android:textColor="?attr/colorPrimary"
-                android:textSize="@dimen/text_little_size" />
-    </LinearLayout>
-
-    <LinearLayout
-            android:id="@+id/linearRoot"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.0"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+        <LinearLayout
+                android:id="@+id/linearBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
 
-        <TextView
-                android:id="@+id/textHeader"
-                style="@style/TextView.Primary.Header"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                android:layout_marginBottom="@dimen/activity_vertical_margin"
-                android:text="Копилка контраргументов" />
+            <ImageView
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:layout_gravity="center"
+                    android:background="@drawable/arrow_back" />
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Назад"
+                    android:textColor="?attr/colorPrimary"
+                    android:textSize="@dimen/text_little_size" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/linearRoot"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:id="@+id/textHeader"
+                    style="@style/TextView.Primary.Header"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:text="Копилка контраргументов" />
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerRend"
+                android:layout_margin="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
     </LinearLayout>
-    <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerRend"
-            android:layout_margin="16dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-</LinearLayout>
+
+    <Button
+            android:id="@+id/buttonRendAdd"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="@dimen/big_icon_size"
+            android:layout_height="@dimen/big_icon_size"
+            android:background="@drawable/fab_add"
+            android:layout_margin="@dimen/activity_horizontal_margin" />
+</androidx.constraintlayout.widget.ConstraintLayout>

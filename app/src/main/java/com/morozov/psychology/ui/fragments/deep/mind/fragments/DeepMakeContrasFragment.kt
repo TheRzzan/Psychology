@@ -26,6 +26,8 @@ class DeepMakeContrasFragment: Fragment() {
 
     lateinit var mThink: String
 
+    var showSelectAnother = true
+
     private lateinit var mAdapter: RendererRecyclerViewAdapter
     private var mItems = mutableListOf<ViewModel>()
     private var mContras = mutableListOf<ContraRealmModel>()
@@ -42,9 +44,12 @@ class DeepMakeContrasFragment: Fragment() {
             activity?.onBackPressed()
         }
 
-        buttonAnotherThink.setOnClickListener {
-            activity?.onBackPressed()
-        }
+        if (showSelectAnother) {
+            buttonAnotherThink.setOnClickListener {
+                activity?.onBackPressed()
+            }
+        } else
+            buttonAnotherThink.visibility = View.GONE
 
         buttonMindChangeMain.setOnClickListener {
             mActivityPresenter.showMindChangeSection()

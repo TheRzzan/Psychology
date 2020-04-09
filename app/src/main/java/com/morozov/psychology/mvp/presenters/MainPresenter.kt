@@ -31,16 +31,22 @@ class MainPresenter:MvpPresenter<MainView>() {
         viewState.showDeepMindTest()
     }
 
+    fun showDeepMindTestShort() {
+        viewState.hideBottomNav()
+        viewState.hideBackArrow()
+        viewState.showDeepMindTestShort()
+    }
+
     fun showSelectMind(thinks: List<String>) {
         viewState.hideBottomNav()
         viewState.hideBackArrow()
         viewState.showSelectMind(thinks)
     }
 
-    fun showMakeContras(think: String) {
+    fun showMakeContras(think: String, showSelectAnother: Boolean) {
         viewState.hideBottomNav()
         viewState.hideBackArrow()
-        viewState.showMakeContras(think)
+        viewState.showMakeContras(think, showSelectAnother)
     }
 
     fun showEditContra(think: ThinkRealmModel, contra: ContraRealmModel) {

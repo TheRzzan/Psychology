@@ -19,9 +19,11 @@ interface MainView: MvpView {
      * */
     fun showDeepMindTest()
 
+    fun showDeepMindTestShort()
+
     fun showSelectMind(thinks: List<String>)
 
-    fun showMakeContras(think: String)
+    fun showMakeContras(think: String, showSelectAnother: Boolean)
 
     fun showEditContra(think: ThinkRealmModel, contra: ContraRealmModel)
 

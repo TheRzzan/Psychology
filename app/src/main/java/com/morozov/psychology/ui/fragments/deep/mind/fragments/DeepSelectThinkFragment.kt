@@ -37,6 +37,10 @@ class DeepSelectThinkFragment: Fragment() {
             activity?.onBackPressed()
         }
 
+        buttonRendAdd.setOnClickListener {
+            mActivityPresenter.showDeepMindTestShort()
+        }
+
         mAdapter = RendererRecyclerViewAdapter()
         mAdapter.registerRenderer(ViewBinder(R.layout.item_rend_text_on_card, CardAndTextModel::class.java, CardAndTextViewBinder(listener)))
         mAdapter.setItems(mItems)
@@ -50,7 +54,7 @@ class DeepSelectThinkFragment: Fragment() {
 
     private val listener = object : OnCardClickListener {
         override fun onClick(position: Int) {
-            mActivityPresenter.showMakeContras(mThinks[position].text)
+            mActivityPresenter.showMakeContras(mThinks[position].text, true)
         }
     }
 
