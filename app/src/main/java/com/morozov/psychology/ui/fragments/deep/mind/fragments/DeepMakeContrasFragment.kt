@@ -94,7 +94,7 @@ class DeepMakeContrasFragment: Fragment() {
         mThinkRealmModel = if (resultsThink.isNotEmpty())
             resultsThink.first()!!
         else
-            ThinkRealmModel(-1, mThink)
+            ThinkRealmModel(-1, mThink, 0, System.currentTimeMillis())
         if (mThinkRealmModel!!.id != -1L) {
             mContras = MainActivity.realm
                 .where(ContraRealmModel::class.java)

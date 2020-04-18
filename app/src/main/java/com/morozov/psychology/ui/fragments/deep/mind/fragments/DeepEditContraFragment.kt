@@ -72,6 +72,7 @@ class DeepEditContraFragment: MvpAppCompatFragment() {
                 thinkRealm.id = MainActivity.realm.where(ThinkRealmModel::class.java).count()
                 thinkRealm.text = mThinkModel.text
                 thinkRealm.percent = mThinkModel.percent
+                thinkRealm.timeCreate = System.currentTimeMillis()
                 MainActivity.realm.commitTransaction()
                 thinkRealm
             } else {
