@@ -35,7 +35,7 @@ class DiaryThinkViewingFragment: MvpAppCompatFragment(), DiaryThinkViewingView {
         super.onViewCreated(view, savedInstanceState)
 
         val bundle = this.arguments
-        if (bundle != null)
+        if (bundle != null) {
             buttonDiaryEditThink.setOnClickListener {
                 mActivityPresenter.showDiaryEditor(
                     false,
@@ -44,8 +44,13 @@ class DiaryThinkViewingFragment: MvpAppCompatFragment(), DiaryThinkViewingView {
                 )
             }
 
-        buttonDiaryToMindChange.setOnClickListener {
-            mActivityPresenter.showMindChangeSection()
+            buttonDiaryToMindChange.setOnClickListener {
+                mActivityPresenter.showDiaryEditor(
+                    false,
+                    bundle.getSerializable(AppConstants.DIARY_SELECTED_DAY) as Date,
+                    true
+                )
+            }
         }
     }
 
