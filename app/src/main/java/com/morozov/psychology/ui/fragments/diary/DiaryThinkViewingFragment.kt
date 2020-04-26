@@ -45,11 +45,12 @@ class DiaryThinkViewingFragment: MvpAppCompatFragment(), DiaryThinkViewingView {
             }
 
             buttonDiaryToMindChange.setOnClickListener {
-                mActivityPresenter.showDiaryEditor(
-                    false,
-                    bundle.getSerializable(AppConstants.DIARY_SELECTED_DAY) as Date,
-                    true
-                )
+                mActivityPresenter.showMindChangeThinkTest(bundle.getSerializable(AppConstants.DIARY_SELECTED_DAY) as Date)
+//                mActivityPresenter.showDiaryEditor(
+//                    false,
+//                    bundle.getSerializable(AppConstants.DIARY_SELECTED_DAY) as Date,
+//                    true
+//                )
             }
         }
     }
