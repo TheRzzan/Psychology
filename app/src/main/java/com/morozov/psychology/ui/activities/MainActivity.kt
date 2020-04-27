@@ -364,6 +364,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     }
 
     override fun onBackPressed() {
+        hideKeyboard(this)
         when (supportFragmentManager.backStackEntryCount) {
             0 -> super.onBackPressed()
             1 -> {
@@ -574,7 +575,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     override fun showDeepMindTest() {
         val fragment = DeepMindTestFragment()
         fragment.mActivityPresenter = mPresenter
-
+        hideKeyboard(this)
         supportFragmentManager.beginTransaction()
             .replace(R.id.contentMain, fragment)
             .addToBackStack(DeepMindTestFragment::class.java.simpleName)
@@ -584,7 +585,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     override fun showDeepMindTestShort() {
         val fragment = DeepMindTestShortFragment()
         fragment.mActivityPresenter = mPresenter
-
+        hideKeyboard(this)
         supportFragmentManager.beginTransaction()
             .replace(R.id.contentMain, fragment)
             .addToBackStack(DeepMindTestShortFragment::class.java.simpleName)
@@ -595,6 +596,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         val fragment = DeepSelectFragment()
         fragment.mActivityPresenter = mPresenter
         fragment.thinkList = thinks
+        hideKeyboard(this)
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.contentMain, fragment)
@@ -607,6 +609,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         fragment.mActivityPresenter = mPresenter
         fragment.mThink = think
         fragment.showSelectAnother = showSelectAnother
+        hideKeyboard(this)
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.contentMain, fragment)
@@ -619,6 +622,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         fragment.mActivityPresenter = mPresenter
         fragment.mThinkModel = think
         fragment.mContraModel = contra
+        hideKeyboard(this)
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.contentMain, fragment)
@@ -629,6 +633,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     override fun showSelectThinkList() {
         val fragment = DeepSelectThinkFragment()
         fragment.mActivityPresenter = mPresenter
+        hideKeyboard(this)
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.contentMain, fragment)
@@ -642,6 +647,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
                     * */
     override fun showAboutApplication() {
         val fragment = AboutApplicationFragment()
+        hideKeyboard(this)
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.contentMain, fragment)
@@ -650,11 +656,13 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     }
 
     override fun showExCards() {
+        hideKeyboard(this)
         navigation.selectedItemId = R.id.navigation_examples
     }
 
     override fun showExDescr(image: ImageView?, position: Int) {
         val exDescriptionFragment = ExDescriptionFragment()
+        hideKeyboard(this)
 
         val bundle = Bundle()
         bundle.putInt(AppConstants.EXP_POSITION, position)
@@ -684,6 +692,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
         val bundle = Bundle()
         bundle.putInt(AppConstants.EXP_POSITION, position)
+        hideKeyboard(this)
 
         exFixDescriptionFragment.arguments = bundle
         exFixDescriptionFragment.mActivityPresenter = mPresenter
@@ -710,6 +719,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
         val bundle = Bundle()
         bundle.putInt(AppConstants.EXP_POSITION, position)
+        hideKeyboard(this)
 
         exTestsFragment.arguments = bundle
         exTestsFragment.mActivityPresenter = mPresenter
@@ -722,6 +732,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
         val bundle = Bundle()
         bundle.putInt(AppConstants.EXP_POSITION, position)
+        hideKeyboard(this)
 
         exFixTestsFragment.arguments = bundle
         exFixTestsFragment.mActivityPresenter = mPresenter
@@ -737,6 +748,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
         exResultsFragment.arguments = bundle
         exResultsFragment.mActivityPresenter = mPresenter
+        hideKeyboard(this)
 
         clearBackStackForResults()
         setFragment(exResultsFragment, true)
@@ -744,6 +756,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showExFixResults(position: Int) {
         val exfixResultsFragment = ExFixResultsFragment()
+        hideKeyboard(this)
 
         val bundle = Bundle()
         bundle.putInt(AppConstants.EXP_POSITION, position)
@@ -760,6 +773,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     * (MainView impl)
     * */
     override fun showDiaryCards() {
+        hideKeyboard(this)
         navigation.selectedItemId = R.id.navigation_diary
     }
 
@@ -768,6 +782,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
         val bundle = Bundle()
         bundle.putSerializable(AppConstants.DIARY_SELECTED_DAY, date)
+        hideKeyboard(this)
 
         diaryThinkViewingFragment.arguments = bundle
         diaryThinkViewingFragment.mActivityPresenter = mPresenter
@@ -786,6 +801,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
             false -> bundle.putBoolean(AppConstants.DIARY_THINK_EDITOR_SHOW_BUTTONS, false)
             null -> bundle.putBoolean(AppConstants.DIARY_THINK_EDITOR_SHOW_BUTTONS, false)
         }
+        hideKeyboard(this)
 
         diaryEditorFragment.arguments = bundle
         diaryEditorFragment.mActivityPresenter = mPresenter
@@ -798,11 +814,13 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     *
     * */
     override fun showTestSection() {
+        hideKeyboard(this)
         navigation.selectedItemId = R.id.navigation_tests
     }
 
     override fun showTestDescr(testName: String) {
         val testsDescriptionFragment = TestsDescriptionFragment()
+        hideKeyboard(this)
 
         val bundle = Bundle()
         bundle.putString(AppConstants.TEST_NAME, testName)
@@ -834,6 +852,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
             calendar.add(Calendar.MONTH, 1)
             setNotification(calendar, applicationContext)
         }
+        hideKeyboard(this)
 
         val testsResultsFragment = TestsResultsFragment()
 
@@ -849,6 +868,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showTestAbout() {
         val testsAboutFragment = TestsAboutFragment()
+        hideKeyboard(this)
 
         testsAboutFragment.mActivityPresenter = mPresenter
 
@@ -857,6 +877,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showTestAllResults() {
         val testsAllResultsFragment = TestsAllResultsFragment()
+        hideKeyboard(this)
 
         testsAllResultsFragment.mActivityPresenter = mPresenter
 
@@ -874,6 +895,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showTestAllResultsCards(testName: String) {
         val testsAllResultsCardsFragment = TestsAllResultsCardsFragment()
+        hideKeyboard(this)
 
         val bundle = Bundle()
         bundle.putString(AppConstants.TEST_NAME, testName)
@@ -889,11 +911,13 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     *
     * */
     override fun showMindChangeSection() {
+        hideKeyboard(this)
         navigation.selectedItemId = R.id.navigation_mind_change
     }
 
     override fun showMindChangeThinkTest(date: Date) {
         val mindChangeThinkTestFragment = MindChangeThinkTestFragment()
+        hideKeyboard(this)
 
         val bundle = Bundle()
         bundle.putSerializable(AppConstants.DIARY_SELECTED_DAY, date)
@@ -906,6 +930,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showMCThinkMistake_1(date: Date) {
         val mcThinkMistake_1_Fragment = MCThinkMistake_1_Fragment()
+        hideKeyboard(this)
 
         val bundle = Bundle()
         bundle.putSerializable(AppConstants.DIARY_SELECTED_DAY, date)
@@ -918,6 +943,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showMCThinkMistake_2(date: Date) {
         val mcThinkMistake_2_Fragment = MCThinkMistake_2_Fragment()
+        hideKeyboard(this)
 
         val bundle = Bundle()
         bundle.putSerializable(AppConstants.DIARY_SELECTED_DAY, date)
@@ -930,6 +956,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showMCDisastorous_1() {
         val fragment = MCDisastorous_1_Fragment()
+        hideKeyboard(this)
 
         fragment.mActivityPresenter = mPresenter
 
@@ -938,6 +965,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showMCDisastorous_2() {
         val fragment = MCDisastorous_2_Fragment()
+        hideKeyboard(this)
 
         fragment.mActivityPresenter = mPresenter
 
@@ -946,6 +974,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showMCDisastorous_3() {
         val fragment = MCDisastorous_3_Fragment()
+        hideKeyboard(this)
 
         fragment.mActivityPresenter = mPresenter
 
@@ -954,6 +983,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showMCDeprecation_1() {
         val fragment = MCDeprecation_1_Fragment()
+        hideKeyboard(this)
 
         fragment.mActivityPresenter = mPresenter
 
@@ -962,6 +992,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showMCDeprecation_2() {
         val fragment = MCDeprecation_2_Fragment()
+        hideKeyboard(this)
 
         fragment.mActivityPresenter = mPresenter
 
@@ -970,6 +1001,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showMCDeprecation_3() {
         val fragment = MCDeprecation_3_Fragment()
+        hideKeyboard(this)
 
         fragment.mActivityPresenter = mPresenter
 
@@ -978,6 +1010,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showMCBlackWhite() {
         val fragment = MCBlackWhiteFragment()
+        hideKeyboard(this)
 
         fragment.mActivityPresenter = mPresenter
 
@@ -986,6 +1019,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showMCEmotional() {
         val fragment = MCEmotionalFragment()
+        hideKeyboard(this)
 
         fragment.mActivityPresenter = mPresenter
 
@@ -994,6 +1028,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showMCMindReading() {
         val fragment = MCMindReadingFragment()
+        hideKeyboard(this)
 
         fragment.mActivityPresenter = mPresenter
 
@@ -1002,6 +1037,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showMCOvergeneration() {
         val fragment = MCOvergenerationFragment()
+        hideKeyboard(this)
 
         fragment.mActivityPresenter = mPresenter
 
@@ -1010,6 +1046,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showMCMinimalism() {
         val fragment = MCMinimalismFragment()
+        hideKeyboard(this)
 
         fragment.mActivityPresenter = mPresenter
 
@@ -1018,6 +1055,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showMCLabeling() {
         val fragment = MCLabelingFragment()
+        hideKeyboard(this)
 
         fragment.mActivityPresenter = mPresenter
 
@@ -1026,6 +1064,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showMCCommitment_1() {
         val fragment = MCCommitment_1_Fragment()
+        hideKeyboard(this)
 
         fragment.mActivityPresenter = mPresenter
 
@@ -1034,6 +1073,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showMCCommitment_2() {
         val fragment = MCCommitment_2_Fragment()
+        hideKeyboard(this)
 
         fragment.mActivityPresenter = mPresenter
 
@@ -1042,6 +1082,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showMCCommitment_3() {
         val fragment = MCCommitment_3_Fragment()
+        hideKeyboard(this)
 
         fragment.mActivityPresenter = mPresenter
 
@@ -1050,6 +1091,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showMCCommitment_4() {
         val fragment = MCCommitment_4_Fragment()
+        hideKeyboard(this)
 
         fragment.mActivityPresenter = mPresenter
 
@@ -1058,6 +1100,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showMCPersonalization() {
         val fragment = MCPersonalizationFragment()
+        hideKeyboard(this)
 
         fragment.mActivityPresenter = mPresenter
 
@@ -1066,6 +1109,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showMCTunnel() {
         val fragment = MCTunnelFragment()
+        hideKeyboard(this)
 
         fragment.mActivityPresenter = mPresenter
 
@@ -1074,6 +1118,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
                                     // Homework
     override fun showHmMain(date: Date) {
         val mindChangeThinkTestFragment = HmMainFragment()
+                                        hideKeyboard(this)
 
         val bundle = Bundle()
         bundle.putSerializable(AppConstants.DIARY_SELECTED_DAY, date)
@@ -1086,6 +1131,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showHmDisastorous_1() {
         val fragment = HmDisastorous_2_Fragment()
+        hideKeyboard(this)
 
         fragment.mActivityPresenter = mPresenter
 
@@ -1094,6 +1140,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showHmDisastorous_2() {
         val fragment = HmDisastorous_1_Fragment()
+        hideKeyboard(this)
 
         fragment.mActivityPresenter = mPresenter
 
@@ -1102,6 +1149,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showHmDeprecation() {
         val fragment = HmDeprecationFragment()
+        hideKeyboard(this)
 
         fragment.mActivityPresenter = mPresenter
 
@@ -1110,6 +1158,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showHmBlackWhite() {
         val fragment = HmBlackAndWhiteFragment()
+        hideKeyboard(this)
 
         fragment.mActivityPresenter = mPresenter
 
@@ -1118,6 +1167,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showHmEmotional() {
         val fragment = HmEmotionalFragment()
+        hideKeyboard(this)
 
         fragment.mActivityPresenter = mPresenter
 
@@ -1126,6 +1176,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showHmMindReading_1() {
         val fragment = HmMindReading_1_Fragment()
+        hideKeyboard(this)
 
         fragment.mActivityPresenter = mPresenter
 
@@ -1134,6 +1185,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showHmMindReading_2() {
         val fragment = HmMindReading_2_Fragment()
+        hideKeyboard(this)
 
         fragment.mActivityPresenter = mPresenter
 
@@ -1142,6 +1194,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showHmOvergeneration() {
         val fragment = HmOvergenerationFragment()
+        hideKeyboard(this)
 
         fragment.mActivityPresenter = mPresenter
 
@@ -1150,6 +1203,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showHmMinimalism() {
         val fragment = HmMinimalismFragment()
+        hideKeyboard(this)
 
         fragment.mActivityPresenter = mPresenter
 
@@ -1158,6 +1212,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showHmLabeling() {
         val fragment = HmLabelingFragment()
+        hideKeyboard(this)
 
         fragment.mActivityPresenter = mPresenter
 
@@ -1166,6 +1221,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showHmCommitment_1() {
         val fragment = HmCommitment_1_Fragment()
+        hideKeyboard(this)
 
         fragment.mActivityPresenter = mPresenter
 
@@ -1174,6 +1230,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showHmCommitment_2() {
         val fragment = HmCommitment_2_Fragment()
+        hideKeyboard(this)
 
         fragment.mActivityPresenter = mPresenter
 
@@ -1182,6 +1239,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showHmCommitment_3() {
         val fragment = HmCommitment_3_Fragment()
+        hideKeyboard(this)
 
         fragment.mActivityPresenter = mPresenter
 
@@ -1190,6 +1248,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showHmPersonalization() {
         val fragment = HmPersonalizationFragment()
+        hideKeyboard(this)
 
         fragment.mActivityPresenter = mPresenter
 
@@ -1198,6 +1257,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun showHmTunnel() {
         val fragment = HmTunnelFragment()
+        hideKeyboard(this)
 
         fragment.mActivityPresenter = mPresenter
 
@@ -1209,24 +1269,32 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     *
     * */
     override fun showSettingsSection() {
+        hideKeyboard(this)
+
         val settingsFragment = SettingsFragment()
         settingsFragment.mActivityPresenter = mPresenter
         setFragment(settingsFragment, true)
     }
 
     override fun showSettingsStylesSection() {
+        hideKeyboard(this)
+
         val settingsStyleFragment = SettingsStyleFragment()
         settingsStyleFragment.mActivityPresenter = mPresenter
         setFragment(settingsStyleFragment, true)
     }
 
     override fun showSettingsWallpaper() {
+        hideKeyboard(this)
+
         val settingsWallpaperFragment = SettingsWallpaperFragment()
         settingsWallpaperFragment.mActivityPresenter = mPresenter
         setFragment(settingsWallpaperFragment, true)
     }
 
     override fun showSettingsConsult() {
+        hideKeyboard(this)
+
         navigation.selectedItemId = R.id.navigation_settings
     }
 

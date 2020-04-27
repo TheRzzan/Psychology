@@ -1,6 +1,5 @@
 package com.morozov.psychology.ui.fragments.diary
 
-import androidx.lifecycle.MutableLiveData
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -8,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
+import androidx.lifecycle.MutableLiveData
 import com.arellomobile.mvp.MvpAppCompatFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
@@ -22,7 +22,7 @@ import kotlinx.android.synthetic.main.diary_think_editor_layout.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView, TextWatcher {
+class DiaryEditorFragment : MvpAppCompatFragment(), DiaryEditorView, TextWatcher {
 
     /*
     * Moxy presenters
@@ -52,9 +52,13 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView, TextWatcher 
     *
     * */
     var selectedEmotions = arrayListOf<EmotionModel>()
-    var currentEmotion= MutableLiveData<Int>()
+    var currentEmotion = MutableLiveData<Int>()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? =
         inflater.inflate(R.layout.diary_think_editor_layout, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -98,7 +102,7 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView, TextWatcher 
             }
         }
 
-        seekBarDiaryEditor.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
+        seekBarDiaryEditor.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 textDiaryPercent.text = "$progress%"
                 if (currentEmotion.value!! >= 0 && currentEmotion.value!! < selectedEmotions.size) {
@@ -132,12 +136,12 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView, TextWatcher 
 
         currentEmotion.observeForever {
             if (it != null)
-            when (it) {
-                -1 -> hideSeekBar()
-                else -> {
-                    showSeekBar()
+                when (it) {
+                    -1 -> hideSeekBar()
+                    else -> {
+                        showSeekBar()
+                    }
                 }
-            }
         }
 
         currentEmotion.value = -1
@@ -235,7 +239,7 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView, TextWatcher 
         val yearFormat = SimpleDateFormat("yyyy")
 
         val dateStr =
-                    dayFormat.format(date) + " " +
+            dayFormat.format(date) + " " +
                     DateConverter.getStringMonth(monthFormat.format(date)) + ", " +
                     yearFormat.format(date)
 
@@ -262,10 +266,12 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView, TextWatcher 
             println(item.percent)
         }
 
-        return ThinkModel(date, editTextDiarySituation.text.toString(),
+        return ThinkModel(
+            date, editTextDiarySituation.text.toString(),
             editTextDiaryThink.text.toString(),
             selectedEmotions,
-            editTextDiarySensation.text.toString())
+            editTextDiarySensation.text.toString()
+        )
     }
 
     /*
@@ -461,25 +467,25 @@ class DiaryEditorFragment: MvpAppCompatFragment(), DiaryEditorView, TextWatcher 
     *
     * */
     fun verifyIsReadyToSave() {
-        when(isReadyToSave()) {
+        when (isReadyToSave()) {
             true -> {
-                buttonDiarySave.setBackgroundResource(R.drawable.rectangle_button)
-                buttonDiaryMindChange.setBackgroundResource(R.drawable.rectangle_button)
+                buttonDiarySave?.setBackgroundResource(R.drawable.rectangle_button)
+                buttonDiaryMindChange?.setBackgroundResource(R.drawable.rectangle_button)
             }
             false -> {
-                buttonDiarySave.setBackgroundResource(R.drawable.rectangle_button_disable)
-                buttonDiaryMindChange.setBackgroundResource(R.drawable.rectangle_button_disable)
+                buttonDiarySave?.setBackgroundResource(R.drawable.rectangle_button_disable)
+                buttonDiaryMindChange?.setBackgroundResource(R.drawable.rectangle_button_disable)
             }
         }
-        buttonDiarySave.isEnabled = isReadyToSave()
-        buttonDiaryMindChange.isEnabled = isReadyToSave()
+        buttonDiarySave?.isEnabled = isReadyToSave()
+        buttonDiaryMindChange?.isEnabled = isReadyToSave()
     }
 
     fun isReadyToSave(): Boolean =
-                editTextDiarySituation.text.isNotEmpty() &&
-                editTextDiarySensation.text.isNotEmpty() &&
-                editTextDiaryThink.text.isNotEmpty() &&
-                selectedEmotions.isNotEmpty()
+        !editTextDiarySituation?.text.isNullOrEmpty() &&
+                !editTextDiarySensation?.text.isNullOrEmpty() &&
+                !editTextDiaryThink?.text.isNullOrEmpty() &&
+                !selectedEmotions.isNullOrEmpty()
 
     private fun showEmotions(items: List<EmotionModel>) {
         for (item in items) {

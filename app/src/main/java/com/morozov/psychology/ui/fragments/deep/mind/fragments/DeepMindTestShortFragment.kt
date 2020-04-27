@@ -121,10 +121,10 @@ class DeepMindTestShortFragment: Fragment() {
                 }
             }
             when(isReady) {
-                true -> buttonRendAdd.setBackgroundResource(R.drawable.rectangle_button)
-                false -> buttonRendAdd.setBackgroundResource(R.drawable.rectangle_button_disable)
+                true -> buttonRendAdd?.setBackgroundResource(R.drawable.rectangle_button)
+                false -> buttonRendAdd?.setBackgroundResource(R.drawable.rectangle_button_disable)
             }
-            buttonRendAdd.isEnabled = isReady
+            buttonRendAdd?.isEnabled = isReady
         }
         abstract fun getPosition(): Int
     }
