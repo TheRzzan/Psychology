@@ -276,11 +276,11 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         }
     }
 
-    public fun refreshAfterBuying() {
+    fun refreshAfterBuying() {
         billingResult.value = true
     }
 
-    public fun buy(): LiveData<Boolean> {
+    fun buy(): LiveData<Boolean> {
         purchase(0)
         return billingResult
     }
@@ -335,6 +335,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Realm.init(applicationContext)
         realm = Realm.getDefaultInstance()
         setCustomTheme()
         setContentView(R.layout.activity_main)
