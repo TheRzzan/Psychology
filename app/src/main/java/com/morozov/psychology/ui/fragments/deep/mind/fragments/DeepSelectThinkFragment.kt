@@ -21,10 +21,11 @@ import com.morozov.psychology.ui.fragments.deep.mind.renderers.card.and.text.Car
 import com.morozov.psychology.ui.fragments.deep.mind.renderers.card.and.text.OnCardClickListener
 import com.morozov.psychology.utility.CustomYesNoDialog
 import com.morozov.psychology.utility.ItemTouchHelperClass
+import io.realm.Realm
 import io.realm.Sort
 import kotlinx.android.synthetic.main.fragment_deep_select_think.*
 
-class DeepSelectThinkFragment: Fragment() {
+class DeepSelectThinkFragment(private val realm: Realm) : Fragment() {
 
     lateinit var mActivityPresenter: MainPresenter
 
@@ -83,12 +84,12 @@ class DeepSelectThinkFragment: Fragment() {
     }
 
     private fun initRecycler() {
-        MainActivity.realm.beginTransaction()
-        mThinks = MainActivity.realm
+        realm.beginTransaction()
+        mThinks = realm
             .where(ThinkRealmModel::class.java)
             .sort("timeCreate", Sort.DESCENDING)
             .findAll()
-        MainActivity.realm.commitTransaction()
+        realm.commitTransaction()
         mItems = mThinks.mapIndexed { index, thinkRealmModel ->
             Log.i("Jeka", "$index time create: ${thinkRealmModel.timeCreate}")
             thinkRealmModel.toCardAndText(index)
@@ -99,10 +100,10 @@ class DeepSelectThinkFragment: Fragment() {
     private fun removeItemFromRealm(position: Int) {
         val item = mThinks[position]
         Log.i("Jeka", "Size before: ${mThinks.size}")
-        MainActivity.realm.beginTransaction()
-        MainActivity.realm.where(ContraRealmModel::class.java).equalTo("thinkId", item.id).findAll().deleteAllFromRealm()
-        MainActivity.realm.where(ThinkRealmModel::class.java).equalTo("id", item.id).findAll().deleteAllFromRealm()
-        MainActivity.realm.commitTransaction()
+        realm.beginTransaction()
+        realm.where(ContraRealmModel::class.java).equalTo("thinkId", item.id).findAll().deleteAllFromRealm()
+        realm.where(ThinkRealmModel::class.java).equalTo("id", item.id).findAll().deleteAllFromRealm()
+        realm.commitTransaction()
         Log.i("Jeka", "Size after: ${mThinks.size}")
     }
 }

@@ -18,9 +18,10 @@ import com.morozov.psychology.ui.fragments.deep.mind.fragments.models.ThinkRealm
 import com.morozov.psychology.ui.fragments.deep.mind.renderers.text.and.percent.OnItemClickListener
 import com.morozov.psychology.ui.fragments.deep.mind.renderers.text.and.percent.TextAndPercentModel
 import com.morozov.psychology.ui.fragments.deep.mind.renderers.text.and.percent.TextAndPercentViewBinder
+import io.realm.Realm
 import kotlinx.android.synthetic.main.fragment_deep_make_contra.*
 
-class DeepMakeContrasFragment: Fragment() {
+class DeepMakeContrasFragment(private val realm: Realm) : Fragment() {
 
     lateinit var mActivityPresenter: MainPresenter
 
@@ -65,10 +66,10 @@ class DeepMakeContrasFragment: Fragment() {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
                 textPercent.text = "$p1%"
                 progressThink.progress = p1
-                if (MainActivity.realm.isInTransaction.not())
-                    MainActivity.realm.beginTransaction()
+                if (realm.isInTransaction.not())
+                    realm.beginTransaction()
                 mThinkRealmModel?.percent = p1
-                MainActivity.realm.commitTransaction()
+                realm.commitTransaction()
             }
             override fun onStartTrackingTouch(p0: SeekBar?) {}
             override fun onStopTrackingTouch(p0: SeekBar?) {}
@@ -86,8 +87,8 @@ class DeepMakeContrasFragment: Fragment() {
     }
 
     private fun loadItems() {
-        MainActivity.realm.beginTransaction()
-        val resultsThink = MainActivity.realm
+        realm.beginTransaction()
+        val resultsThink = realm
             .where(ThinkRealmModel::class.java)
             .equalTo("text", mThink)
             .findAll()
@@ -96,7 +97,7 @@ class DeepMakeContrasFragment: Fragment() {
         else
             ThinkRealmModel(-1, mThink, 0, System.currentTimeMillis())
         if (mThinkRealmModel!!.id != -1L) {
-            mContras = MainActivity.realm
+            mContras = realm
                 .where(ContraRealmModel::class.java)
                 .equalTo("thinkId", mThinkRealmModel!!.id)
                 .findAll()
@@ -105,7 +106,7 @@ class DeepMakeContrasFragment: Fragment() {
             }.toMutableList()
             mAdapter.setItems(mItems)
         }
-        MainActivity.realm.commitTransaction()
+        realm.commitTransaction()
         seekThink.progress = mThinkRealmModel!!.percent
     }
 

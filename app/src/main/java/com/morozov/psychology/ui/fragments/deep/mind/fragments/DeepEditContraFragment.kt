@@ -7,16 +7,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
-import androidx.fragment.app.Fragment
 import com.arellomobile.mvp.MvpAppCompatFragment
 import com.morozov.psychology.R
 import com.morozov.psychology.mvp.presenters.MainPresenter
 import com.morozov.psychology.ui.activities.MainActivity
 import com.morozov.psychology.ui.fragments.deep.mind.fragments.models.ContraRealmModel
 import com.morozov.psychology.ui.fragments.deep.mind.fragments.models.ThinkRealmModel
+import io.realm.Realm
 import kotlinx.android.synthetic.main.fragment_deep_edit_contra.*
 
-class DeepEditContraFragment: MvpAppCompatFragment() {
+class DeepEditContraFragment(private val realm: Realm) : MvpAppCompatFragment() {
 
     lateinit var mActivityPresenter: MainPresenter
 
@@ -67,28 +67,28 @@ class DeepEditContraFragment: MvpAppCompatFragment() {
 
         buttonSave.setOnClickListener {
             val model = if (mThinkModel.id == -1L) {
-                MainActivity.realm.beginTransaction()
-                val thinkRealm = MainActivity.realm.createObject(ThinkRealmModel::class.java)
-                thinkRealm.id = MainActivity.realm.where(ThinkRealmModel::class.java).count()
+                realm.beginTransaction()
+                val thinkRealm = realm.createObject(ThinkRealmModel::class.java)
+                thinkRealm.id = realm.where(ThinkRealmModel::class.java).count()
                 thinkRealm.text = mThinkModel.text
                 thinkRealm.percent = mThinkModel.percent
                 thinkRealm.timeCreate = System.currentTimeMillis()
-                MainActivity.realm.commitTransaction()
+                realm.commitTransaction()
                 thinkRealm
             } else {
                 mThinkModel
             }
-            MainActivity.realm.beginTransaction()
+            realm.beginTransaction()
             val contra: ContraRealmModel = if (mContraModel.thinkId == -1L) {
-                val contraRealm = MainActivity.realm.createObject(ContraRealmModel::class.java)
+                val contraRealm = realm.createObject(ContraRealmModel::class.java)
                 contraRealm.thinkId = model.id
                 contraRealm
             } else {
-                MainActivity.realm.where(ContraRealmModel::class.java).equalTo("thinkId", model.id).findAll()?.first()!!
+                realm.where(ContraRealmModel::class.java).equalTo("thinkId", model.id).findAll()?.first()!!
             }
             contra.text = editRend.text.toString()
             contra.percent = seekThink.progress
-            MainActivity.realm.commitTransaction()
+            realm.commitTransaction()
             // save to realm
             activity?.supportFragmentManager?.popBackStack()
         }

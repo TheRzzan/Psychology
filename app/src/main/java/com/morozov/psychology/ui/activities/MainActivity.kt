@@ -606,7 +606,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     }
 
     override fun showMakeContras(think: String, showSelectAnother: Boolean) {
-        val fragment = DeepMakeContrasFragment()
+        val fragment = DeepMakeContrasFragment(realm)
         fragment.mActivityPresenter = mPresenter
         fragment.mThink = think
         fragment.showSelectAnother = showSelectAnother
@@ -619,7 +619,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     }
 
     override fun showEditContra(think: ThinkRealmModel, contra: ContraRealmModel) {
-        val fragment = DeepEditContraFragment()
+        val fragment = DeepEditContraFragment(realm)
         fragment.mActivityPresenter = mPresenter
         fragment.mThinkModel = think
         fragment.mContraModel = contra
@@ -632,7 +632,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     }
 
     override fun showSelectThinkList() {
-        val fragment = DeepSelectThinkFragment()
+        val fragment = DeepSelectThinkFragment(realm)
         fragment.mActivityPresenter = mPresenter
         hideKeyboard(this)
 
