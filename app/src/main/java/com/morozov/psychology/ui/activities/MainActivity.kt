@@ -87,12 +87,12 @@ import java.util.*
 
 class MainActivity : MvpAppCompatActivity(), MainView {
 
+    lateinit var realm: Realm
+
     @InjectPresenter
     lateinit var mPresenter: MainPresenter
 
     companion object {
-        val realm = Realm.getDefaultInstance()
-
         const val MAX_CLICK_DURATION = 150
         var startClickTime: Long = 0
         var startClickX: Float = 0f
@@ -335,6 +335,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        realm = Realm.getDefaultInstance()
         setCustomTheme()
         setContentView(R.layout.activity_main)
         initPreferences()
