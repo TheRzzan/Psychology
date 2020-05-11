@@ -1,359 +1,376 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-        android:background="@color/fragment_background"
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_height="match_parent"
+        android:background="@color/fragment_background"
         android:fitsSystemWindows="false">
 
     <ScrollView
-            android:layout_above="@+id/linearButtons"
-            style="@style/ScrollViewStyle">
+            style="@style/ScrollViewStyle"
+            android:layout_above="@+id/linearButtons">
+
         <LinearLayout
                 android:id="@+id/linearSituation"
-                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
             <TextView
                     android:id="@+id/textDiaryEditorTime"
                     style="@style/TextView.Primary.Header"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:text="18 сентября, 2019"/>
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:text="18 сентября, 2019" />
 
             <TextView
-                    android:text="Что произошло? Опишите максимально объективно."
                     style="@style/TextView.Secondary"
                     android:layout_margin="@dimen/activity_vertical_margin"
-                    android:textColor="@android:color/black"/>
+                    android:text="Что произошло? Опишите максимально объективно."
+                    android:textColor="@android:color/black" />
 
             <EditText
+                    android:id="@+id/editTextDiarySituation"
+                    style="@style/EditTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minHeight="48dp"
-                    android:inputType="textPersonName|textMultiLine"
-                    android:maxLines="4"
-                    android:layout_marginBottom="24dp"
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:paddingLeft="@dimen/activity_horizontal_margin"
-                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="24dp"
+                    android:ems="10"
                     android:hint="Ситуация"
-                    android:ems="10"
-                    style="@style/EditTextStyle"
-                    android:id="@+id/editTextDiarySituation"/>
-
-            <TextView
-                    android:text="О чем вы думали?"
-                    style="@style/TextView.Secondary"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"
-                    android:layout_marginStart="@dimen/activity_horizontal_margin"
-                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:textColor="@android:color/black"/>
-
-            <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:inputType="textCapWords|textPersonName|textMultiLine"
                     android:minHeight="48dp"
-                    android:inputType="textPersonName|textMultiLine"
-                    android:maxLines="4"
-                    android:layout_marginBottom="24dp"
-                    android:layout_marginStart="@dimen/activity_horizontal_margin"
-                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
                     android:paddingLeft="@dimen/activity_horizontal_margin"
                     android:paddingRight="@dimen/activity_horizontal_margin"
-                    android:hint="Мысли"
-                    android:ems="10"
-                    style="@style/EditTextStyle"
-                    android:id="@+id/editTextDiaryThink"/>
+                    android:singleLine="false" />
 
             <TextView
-                    android:text="Выберите одну или несколько эмоций. Оцените степень выраженности в %."
                     style="@style/TextView.Secondary"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:textColor="@android:color/black"/>
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:text="О чем вы думали?"
+                    android:textColor="@android:color/black" />
+
+            <EditText
+                    android:id="@+id/editTextDiaryThink"
+                    style="@style/EditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="24dp"
+                    android:ems="10"
+                    android:hint="Мысли"
+                    android:inputType="textCapWords|textPersonName|textMultiLine"
+                    android:minHeight="48dp"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:singleLine="false" />
+
+            <TextView
+                    style="@style/TextView.Secondary"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:text="Выберите одну или несколько эмоций. Оцените степень выраженности в %."
+                    android:textColor="@android:color/black" />
 
             <LinearLayout
-                    android:layout_marginStart="@dimen/activity_horizontal_margin"
-                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin">
 
                 <LinearLayout
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginEnd="@dimen/diary_emotions_margin"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/diary_emotions_margin"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
                     <ImageView
+                            android:id="@+id/imageJoy"
                             android:layout_width="@dimen/emotion_icon_size"
                             android:layout_height="@dimen/emotion_icon_size"
                             android:layout_gravity="center"
-                            app:srcCompat="@drawable/emotion_non_active_joy"
-                            android:id="@+id/imageJoy"/>
+                            app:srcCompat="@drawable/emotion_non_active_joy" />
 
                     <TextView
-                            android:text="30%"
+                            android:id="@+id/textJoy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_width="wrap_content" android:visibility="gone"
-                            android:layout_height="wrap_content" android:id="@+id/textJoy"/>
+                            android:text="30%"
+                            android:visibility="gone" />
                 </LinearLayout>
 
                 <LinearLayout
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginEnd="@dimen/diary_emotions_margin"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/diary_emotions_margin"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
                     <ImageView
+                            android:id="@+id/imageSadness"
                             android:layout_width="@dimen/emotion_icon_size"
                             android:layout_height="@dimen/emotion_icon_size"
                             android:layout_gravity="center"
-                            app:srcCompat="@drawable/emotion_non_active_sedness"
-                            android:id="@+id/imageSadness"/>
+                            app:srcCompat="@drawable/emotion_non_active_sedness" />
 
                     <TextView
-                            android:text="30%"
+                            android:id="@+id/textSadness"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_width="wrap_content" android:visibility="gone"
-                            android:layout_height="wrap_content" android:id="@+id/textSadness"/>
+                            android:text="30%"
+                            android:visibility="gone" />
                 </LinearLayout>
 
                 <LinearLayout
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginEnd="@dimen/diary_emotions_margin"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/diary_emotions_margin"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
                     <ImageView
+                            android:id="@+id/imageAnnoyance"
                             android:layout_width="@dimen/emotion_icon_size"
                             android:layout_height="@dimen/emotion_icon_size"
                             android:layout_gravity="center"
-                            app:srcCompat="@drawable/emotion_non_active_annoyance"
-                            android:id="@+id/imageAnnoyance"/>
+                            app:srcCompat="@drawable/emotion_non_active_annoyance" />
 
                     <TextView
-                            android:text="30%"
+                            android:id="@+id/textAnnoyance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_width="wrap_content" android:visibility="gone"
-                            android:layout_height="wrap_content" android:id="@+id/textAnnoyance"/>
+                            android:text="30%"
+                            android:visibility="gone" />
                 </LinearLayout>
 
                 <LinearLayout
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginEnd="@dimen/diary_emotions_margin"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/diary_emotions_margin"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
                     <ImageView
+                            android:id="@+id/imageAnxiety"
                             android:layout_width="@dimen/emotion_icon_size"
                             android:layout_height="@dimen/emotion_icon_size"
                             android:layout_gravity="center"
-                            app:srcCompat="@drawable/emotion_non_active_anxiety"
-                            android:id="@+id/imageAnxiety"/>
+                            app:srcCompat="@drawable/emotion_non_active_anxiety" />
 
                     <TextView
-                            android:text="30%"
+                            android:id="@+id/textAnxiety"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_width="wrap_content" android:visibility="gone"
-                            android:layout_height="wrap_content" android:id="@+id/textAnxiety"/>
+                            android:text="30%"
+                            android:visibility="gone" />
                 </LinearLayout>
 
                 <LinearLayout
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginEnd="@dimen/diary_emotions_margin"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/diary_emotions_margin"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
                     <ImageView
+                            android:id="@+id/imageDisgust"
                             android:layout_width="@dimen/emotion_icon_size"
                             android:layout_height="@dimen/emotion_icon_size"
                             android:layout_gravity="center"
-                            app:srcCompat="@drawable/emotion_non_active_disgust"
-                            android:id="@+id/imageDisgust"/>
+                            app:srcCompat="@drawable/emotion_non_active_disgust" />
 
                     <TextView
-                            android:text="30%"
+                            android:id="@+id/textDisgust"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_width="wrap_content" android:visibility="gone"
-                            android:layout_height="wrap_content" android:id="@+id/textDisgust"/>
+                            android:text="30%"
+                            android:visibility="gone" />
                 </LinearLayout>
 
                 <LinearLayout
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginEnd="@dimen/diary_emotions_margin"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/diary_emotions_margin"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
                     <ImageView
+                            android:id="@+id/imageInterest"
                             android:layout_width="@dimen/emotion_icon_size"
                             android:layout_height="@dimen/emotion_icon_size"
                             android:layout_gravity="center"
-                            app:srcCompat="@drawable/emotion_non_active_interest"
-                            android:id="@+id/imageInterest"/>
+                            app:srcCompat="@drawable/emotion_non_active_interest" />
 
                     <TextView
-                            android:text="30%"
+                            android:id="@+id/textInterest"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_width="wrap_content" android:visibility="gone"
-                            android:layout_height="wrap_content" android:id="@+id/textInterest"/>
+                            android:text="30%"
+                            android:visibility="gone" />
                 </LinearLayout>
 
                 <LinearLayout
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginEnd="@dimen/diary_emotions_margin"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/diary_emotions_margin"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
                     <ImageView
+                            android:id="@+id/imageGuilt"
                             android:layout_width="@dimen/emotion_icon_size"
                             android:layout_height="@dimen/emotion_icon_size"
                             android:layout_gravity="center"
-                            app:srcCompat="@drawable/emotion_non_active_guilt"
-                            android:id="@+id/imageGuilt"/>
+                            app:srcCompat="@drawable/emotion_non_active_guilt" />
 
                     <TextView
-                            android:text="30%"
+                            android:id="@+id/textGuilt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_width="wrap_content" android:visibility="gone"
-                            android:layout_height="wrap_content" android:id="@+id/textGuilt"/>
+                            android:text="30%"
+                            android:visibility="gone" />
                 </LinearLayout>
 
                 <LinearLayout
-                        android:layout_weight="1"
-                        android:orientation="vertical"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
                     <ImageView
+                            android:id="@+id/imageResentment"
                             android:layout_width="@dimen/emotion_icon_size"
                             android:layout_height="@dimen/emotion_icon_size"
                             android:layout_gravity="center"
-                            app:srcCompat="@drawable/emotion_non_active_resentment"
-                            android:id="@+id/imageResentment"/>
+                            app:srcCompat="@drawable/emotion_non_active_resentment" />
 
                     <TextView
-                            android:text="30%"
+                            android:id="@+id/textResentment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_width="wrap_content" android:visibility="gone"
-                            android:layout_height="wrap_content" android:id="@+id/textResentment"/>
+                            android:text="30%"
+                            android:visibility="gone" />
                 </LinearLayout>
 
             </LinearLayout>
 
             <RelativeLayout
-                    android:layout_margin="@dimen/activity_vertical_margin"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_vertical_margin">
 
                 <TextView
                         android:id="@+id/textDiaryEmotion"
-                        android:text="Радость"
                         style="@style/TextView.Secondary"
                         android:layout_alignParentStart="true"
-                        android:textColor="@android:color/black"/>
+                        android:text="Радость"
+                        android:textColor="@android:color/black" />
 
                 <TextView
                         android:id="@+id/textDiaryPercent"
-                        android:text="70%"
-                        android:textStyle="bold"
                         style="@style/TextView.Secondary"
                         android:layout_alignParentEnd="true"
-                        android:textColor="@android:color/black"/>
+                        android:text="70%"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold" />
             </RelativeLayout>
 
             <SeekBar
                     android:id="@+id/seekBarDiaryEditor"
-                    android:layout_marginBottom="24dp"
-                    android:theme="@style/SeekBarStyle"
-                    android:min="1"
-                    android:max="100"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-            <TextView
-                    android:text="Что вы сделали или что вам захотелось сделать? Как отреагировало ваше тело?"
-                    style="@style/TextView.Secondary"
-                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:layout_marginStart="@dimen/activity_horizontal_margin"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"
-                    android:textColor="@android:color/black"/>
-
-            <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minHeight="48dp"
-                    android:inputType="textPersonName|textMultiLine"
-                    android:maxLines="4"
+                    android:layout_marginBottom="24dp"
+                    android:max="100"
+                    android:min="1"
+                    android:theme="@style/SeekBarStyle" />
+
+            <TextView
+                    style="@style/TextView.Secondary"
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
                     android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:text="Что вы сделали или что вам захотелось сделать? Как отреагировало ваше тело?"
+                    android:textColor="@android:color/black" />
+
+            <EditText
+                    android:id="@+id/editTextDiarySensation"
+                    style="@style/EditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:ems="10"
+                    android:hint="Поведение и телесные ощущения"
+                    android:inputType="textCapWords|textPersonName|textMultiLine"
+                    android:minHeight="48dp"
                     android:paddingLeft="@dimen/activity_horizontal_margin"
                     android:paddingRight="@dimen/activity_horizontal_margin"
-                    android:hint="Поведение и телесные ощущения"
-                    android:ems="10"
-                    style="@style/EditTextStyle"
-                    android:id="@+id/editTextDiarySensation"/>
+                    android:singleLine="false" />
 
 
         </LinearLayout>
     </ScrollView>
 
     <LinearLayout
-            android:orientation="vertical"
             android:id="@+id/linearButtons"
-            android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
 
         <Button
                 android:id="@+id/buttonDiaryMindChange"
-                android:text="Начать проработку мыслей"
                 style="@style/TextView.Button"
-                android:background="@drawable/rectangle_button"
-                android:layout_marginBottom="@dimen/activity_vertical_margin"
                 android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                android:visibility="gone"/>
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:background="@drawable/rectangle_button"
+                android:text="Начать проработку мыслей"
+                android:visibility="gone" />
 
         <Button
                 android:id="@+id/buttonDiaryHomeWork"
-                android:text="Выполнить домашнее задание"
                 style="@style/TextView.Button"
-                android:background="@drawable/rectangle_button"
-                android:layout_marginBottom="@dimen/activity_vertical_margin"
                 android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                android:visibility="gone"/>
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:background="@drawable/rectangle_button"
+                android:text="Выполнить домашнее задание"
+                android:visibility="gone" />
 
         <Button
                 android:id="@+id/buttonDiaryThinks"
-                android:text="Дневник мыслей"
                 style="@style/TextView.Button"
-                android:background="@drawable/rectangle_button"
-                android:layout_marginBottom="@dimen/activity_vertical_margin"
                 android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                android:visibility="gone"/>
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:background="@drawable/rectangle_button"
+                android:text="Дневник мыслей"
+                android:visibility="gone" />
 
         <Button
                 android:id="@+id/buttonDiarySave"
-                android:text="Сохранить"
                 style="@style/TextView.Button"
-                android:background="@drawable/rectangle_button"
-                android:layout_marginBottom="@dimen/activity_vertical_margin"
                 android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:background="@drawable/rectangle_button"
+                android:text="Сохранить" />
     </LinearLayout>
 </RelativeLayout>
