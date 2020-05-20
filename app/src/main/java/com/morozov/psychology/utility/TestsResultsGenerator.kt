@@ -405,7 +405,7 @@ class TestsResultsGenerator {
         val mListSZ = listOf(
             Range(0, 50), Range(51, 70), Range(71, 90),
             Range(91, 110), Range(111, 135), Range(136, 165),
-            Range(167, 195), Range(196, 225), Range(226, 400)
+            Range(166, 195), Range(196, 225), Range(226, 400)
         )
         val mListObsh = listOf(
             Range(0, 6), Range(7, 8), Range(8, 9),
