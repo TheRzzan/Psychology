@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.DatePicker
 import androidx.lifecycle.Observer
+import com.applandeo.materialcalendarview.builders.DatePickerBuilder
+import com.applandeo.materialcalendarview.listeners.OnSelectDateListener
 import com.arellomobile.mvp.MvpAppCompatFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.morozov.psychology.R
@@ -58,6 +60,22 @@ class MindChangeFragment: MvpAppCompatFragment(), MindChangeView, OnItemClickLis
 
         mPresenter.showThinkList(Days.daysBetween(epoch, now).days)
     }
+
+    private val selectedDayListener = OnSelectDateListener { calendarList ->
+            if (calendarList.isNotEmpty()) {
+                val calendarTmp = calendarList.first()
+
+                val epoch = MutableDateTime()
+                epoch.setDate(0)
+
+                val now = MutableDateTime()
+                now.setDate(calendarTmp.timeInMillis)
+
+                textDayMonthYear.text = SimpleDateFormat("dd.MM.yyyy").format(calendarTmp.time)
+
+                mPresenter.showThinkList(Days.daysBetween(epoch, now).days+1)
+            }
+        }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.mind_change_main_layout, container, false)
@@ -163,19 +181,29 @@ class MindChangeFragment: MvpAppCompatFragment(), MindChangeView, OnItemClickLis
     }
 
     override fun showCalendar() {
-        val dialog = DatePickerDialog(
-            context, calendarListener,
-            calendar.get(Calendar.YEAR),
-            calendar.get(Calendar.MONTH),
-            calendar.get(Calendar.DAY_OF_MONTH)
-        )
-
-        val dayMtYrFormat = SimpleDateFormat("dd/MM/yyyy")
-        val dateCal = dayMtYrFormat
-            .parse("${calendar.get(Calendar.DAY_OF_MONTH)}/${calendar.get(Calendar.MONTH) + 1}/${calendar.get(Calendar.YEAR)}")
-
-        dialog.datePicker.maxDate = dateCal.time
-        dialog.show()
+//        val dialog = DatePickerDialog(
+//            context, calendarListener,
+//            calendar.get(Calendar.YEAR),
+//            calendar.get(Calendar.MONTH),
+//            calendar.get(Calendar.DAY_OF_MONTH)
+//        )
+//
+//        val dayMtYrFormat = SimpleDateFormat("dd/MM/yyyy")
+//        val dateCal = dayMtYrFormat
+//            .parse("${calendar.get(Calendar.DAY_OF_MONTH)}/${calendar.get(Calendar.MONTH) + 1}/${calendar.get(Calendar.YEAR)}")
+//
+//        dialog.datePicker.maxDate = dateCal.time
+//        dialog.show()
+        DatePickerBuilder(context!!, selectedDayListener)
+            .setEvents(mPresenter.thinkLoader.getThinks().map {
+                it.toEvent()
+            })
+            .setHeaderColor(R.color.colorAccent)
+            .setSelectionColor(R.color.colorAccent)
+            .setDate(calendar)
+            .setMaximumDate(Calendar.getInstance())
+            .build()
+            .show()
     }
 
     /*
