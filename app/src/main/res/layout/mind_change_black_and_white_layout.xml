@@ -71,26 +71,14 @@
                     android:id="@+id/editBWThink"/>
 
             <TextView
-                    android:text="Вы заметили у себя черно-белое мышление, это значит, что часто вы видите всего два варианта развития событий: или так, или эдак; либо хорошо, либо плохо; либо правильно, либо неправильно. Сегодня нам предстоит поиск промежуточных вариантов между этими полюсами. Перед вами окошки, соответствующие континууму от 0 до 100%.\n\nРазберу для примера мысли «меня уволят из-за ошибки на работе» и «я буду выглядеть
-дураком, если пойду выступать перед всеми»."
-                    style="@style/TextView.Secondary"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"
-                    android:layout_marginStart="@dimen/activity_horizontal_margin"
-                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:textStyle="bold"
-                    android:textColor="@color/second_header_text"/>
-
-            <TextView
-                    android:text="Запишите в графу 100% позитивный полюс из вашей установки. Например, позитивное видение себя (буду молодец) или ситуации (заплатят)."
-                    style="@style/TextView.Secondary"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"
-                    android:layout_marginStart="@dimen/activity_horizontal_margin"
-                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:textStyle="bold"
-                    android:textColor="@color/second_header_text"/>
-
-            <TextView
-                    android:text="Запишите в графу 0% негативный полюс из вашей установки. Например, негативное видение себя (буду выглядеть дурой) или ситуации (не заплатят)."
+                    android:text="Вы заметили у себя черно-белое мышление, это значит, что часто вы видите всего два варианта развития событий: либо так, либо эдак; либо хорошо, либо плохо; либо правильно, либо неправильно. Сегодня нам предстоит поиск промежуточных вариантов между этими полюсами.
+Перед вами окошки, соответствующие континууму от 0% до 100%.
+Запишите в графу 100% - самый позитивный полюс, соответствующий вашей мысли.
+А в графу 0% - самый негативный полюс, соответствующий вашей установке.
+Разберу на примере двух мыслей:
+«меня уволят из-за ошибки на работе»: 0% - ничего не заплатят, 100% - все равно заплатят.
+«Я буду выглядеть дурой, если пойду выступать перед всеми»: 0% - «буду выглядеть дурой», 100% - «все пройдет хорошо, буду молодцом».
+"
                     style="@style/TextView.Secondary"
                     android:layout_marginBottom="@dimen/activity_vertical_margin"
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
