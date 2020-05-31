@@ -77,12 +77,12 @@ class TestsResultsGenerator {
         var i = 0
         val hashMap = mutableMapOf<String, String>()
         while (i < answers.size) {
-            hashMap["_$i"] = answers[i].toString()
-
             if (summationPoints.contains(i + 1)) {
                 score += answers[i] + 1
+                hashMap["_$i"] = (answers[i] + 1).toString()
             } else if (reversePoints.contains(i + 1)) {
                 score += reverceInt(answers[i] + 1, maxAnswers)
+                hashMap["_$i"] = reverceInt(answers[i] + 1, maxAnswers).toString()
             }
 
             i ++
