@@ -1,400 +1,412 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-        android:background="@color/fragment_background"
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto">
+        android:layout_height="match_parent"
+        android:background="@color/fragment_background">
 
     <androidx.core.widget.NestedScrollView
-            android:layout_alignParentTop="true"
+            style="@style/ScrollViewStyle"
             android:layout_above="@+id/buttonAddNewThink"
-            style="@style/ScrollViewStyle">
+            android:layout_alignParentTop="true">
 
         <LinearLayout
                 android:id="@+id/linearBW"
-                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
             <TextView
                     style="@style/TextView.Primary.Header"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:text="Черно-белое мышление"/>
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:text="Черно-белое мышление" />
 
             <TextView
-                    android:text="Ситуация:"
                     style="@style/TextView.Secondary"
-                    android:textStyle="bold"
                     android:layout_margin="@dimen/activity_vertical_margin"
-                    android:textColor="@color/second_header_text"/>
+                    android:text="Ситуация:"
+                    android:textColor="@color/second_header_text"
+                    android:textStyle="bold" />
 
             <EditText
+                    android:id="@+id/editBWSituation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minHeight="48dp"
-                    android:inputType="textPersonName|textMultiLine"
-                    android:maxLines="4"
-                    android:layout_marginBottom="24dp"
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="24dp"
                     android:backgroundTint="?attr/colorPrimary"
+                    android:ems="10"
+                    android:enabled="false"
                     android:hint="Ситуация"
-                    android:enabled="false"
-                    android:ems="10"
-                    android:textColor="@color/second_header_text"
-                    android:id="@+id/editBWSituation"/>
-
-            <TextView
-                    android:text="Новая мысль:"
-                    style="@style/TextView.Secondary"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"
-                    android:layout_marginStart="@dimen/activity_horizontal_margin"
-                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:textColor="@color/second_header_text"/>
-
-            <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minHeight="48dp"
                     android:inputType="textPersonName|textMultiLine"
                     android:maxLines="4"
-                    android:layout_marginBottom="24dp"
-                    android:layout_marginStart="@dimen/activity_horizontal_margin"
-                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:backgroundTint="?attr/colorPrimary"
-                    android:hint="Мысли"
-                    android:enabled="false"
-                    android:ems="10"
-                    android:textColor="@color/second_header_text"
-                    android:id="@+id/editBWThink"/>
+                    android:minHeight="48dp"
+                    android:textColor="@color/second_header_text" />
 
             <TextView
-                    android:text="Вы заметили у себя черно-белое мышление, это значит, что часто вы видите всего два варианта развития событий: либо так, либо эдак; либо хорошо, либо плохо; либо правильно, либо неправильно. Сегодня нам предстоит поиск промежуточных вариантов между этими полюсами.
-Перед вами окошки, соответствующие континууму от 0% до 100%.
-Запишите в графу 100% - самый позитивный полюс, соответствующий вашей мысли.
-А в графу 0% - самый негативный полюс, соответствующий вашей установке.
-Разберу на примере двух мыслей:
-«меня уволят из-за ошибки на работе»: 0% - ничего не заплатят, 100% - все равно заплатят.
-«Я буду выглядеть дурой, если пойду выступать перед всеми»: 0% - «буду выглядеть дурой», 100% - «все пройдет хорошо, буду молодцом».
-"
                     style="@style/TextView.Secondary"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:textStyle="bold"
-                    android:textColor="@color/second_header_text"/>
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:text="Новая мысль:"
+                    android:textColor="@color/second_header_text"
+                    android:textStyle="bold" />
+
+            <EditText
+                    android:id="@+id/editBWThink"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="24dp"
+                    android:backgroundTint="?attr/colorPrimary"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:hint="Мысли"
+                    android:inputType="textPersonName|textMultiLine"
+                    android:maxLines="4"
+                    android:minHeight="48dp"
+                    android:textColor="@color/second_header_text" />
+
+            <TextView
+                    style="@style/TextView.Secondary"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:text="Вы\u2000заметили\u2000у\u2000себя\u2000черно-белое\u2000мышление,\u2000это\u2000значит,\u2000что\u2000часто\u2000вы\u2000видите\u2000всего\u2000два\u2000варианта\u2000развития\u2000событий:\u2000либо\u2000так,\u2000либо\u2000эдак;\u2000либо\u2000хорошо,\u2000либо\u2000плохо;\u2000либо\u2000правильно,\u2000либо\u2000неправильно.\u2000Сегодня\u2000нам\u2000предстоит\u2000поиск\u2000промежуточных\u2000вариантов\u2000между\u2000этими\u2000полюсами.\nПеред\u2000вами\u2000окошки,\u2000соответствующие\u2000континууму\u2000от\u20000%\u2000до\u2000100%.\nЗапишите\u2000в\u2000графу\u2000100%\u2000-\u2000самый\u2000позитивный\u2000полюс,\u2000соответствующий\u2000вашей\u2000мысли.\nА\u2000в\u2000графу\u20000%\u2000-\u2000самый\u2000негативный\u2000полюс,\u2000соответствующий\u2000вашей\u2000установке.\nРазберу\u2000на\u2000примере\u2000двух\u2000мыслей:\n«Меня\u2000уволят\u2000из-за\u2000ошибки\u2000на\u2000работе»:\u20000%\u2000-\u2000ничего\u2000не\u2000заплатят,\u2000100%\u2000-\u2000все\u2000равно\u2000заплатят.\n«Я\u2000буду\u2000выглядеть\u2000дурой,\u2000если\u2000пойду\u2000выступать\u2000перед\u2000всеми»:\u20000%\u2000-\u2000«буду\u2000выглядеть\u2000дурой»,\u2000100%\u2000-\u2000«все\u2000пройдет\u2000хорошо,\u2000буду\u2000молодцом».».
+"
+                    android:textColor="@color/second_header_text"
+                    android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
-                    android:layout_marginBottom="24dp"
                     android:id="@+id/recyclerBW"
-                    style="@style/RecyclerViewStyle" android:layout_height="wrap_content"
-                    android:layout_width="match_parent"/>
-
-            <TextView
-                    android:text="А теперь вам предстоит честно ответить на вопросы и согласно своим ответам внести промежуточные переменные, а может даже сместить записанные ранее полюса в окошко с другим процентом."
-                    style="@style/TextView.Secondary"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"
-                    android:layout_marginStart="@dimen/activity_horizontal_margin"
-                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:textStyle="bold"
-                    android:textColor="@color/second_header_text"/>
-
-            <TextView
-                    android:text="Может ли быть что-то или кто-то, еще лучше, чем обозначенный вами 100% полюс? Например, могут ли вам заплатить не только зарплату, но ещё и дать премию. Может ли кто-то стать супер-молодцом и справиться еще лучше. Если это возможно, то сместите свой 100% полюс, ведь теперь у вас есть новые 100%"
-                    style="@style/TextView.Secondary"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"
-                    android:layout_marginStart="@dimen/activity_horizontal_margin"
-                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:textStyle="bold"
-                    android:textColor="@color/second_header_text"/>
-
-            <TextView
-                    android:text="Есть ли варианты развития событий, которые будут не так хороши как 90% или 100%, но при этом будут явно выше 0%? Впишите их в соответствующие графы. Например, могут выплатить аванс за ту часть работы, которая уже сделана, даже если в ней были совершены ошибки."
-                    style="@style/TextView.Secondary"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"
-                    android:layout_marginStart="@dimen/activity_horizontal_margin"
-                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:textStyle="bold"
-                    android:textColor="@color/second_header_text"/>
-
-            <TextView
-                    android:text="Может ли быть на земле что-либо хуже, чем выглядеть дурой? Может ли быть что-то или кто-то еще хуже, чем обозначенный вами 0% полюс? Например, могут ли с вас ещё и деньги потребовать в качестве неустойки? Может, вы даже знаете человека гораздо глупее? Если это возможно, то сместите свой 0% полюс, ведь теперь у вас есть новые 0%."
-                    style="@style/TextView.Secondary"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"
-                    android:layout_marginStart="@dimen/activity_horizontal_margin"
-                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:textStyle="bold"
-                    android:textColor="@color/second_header_text"/>
-
-            <TextView
-                    android:text="Постарайтесь заполнить полностью этот континуум, чтобы увидеть, где на самом деле находится данная ситуация."
-                    style="@style/TextView.Secondary"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"
-                    android:layout_marginStart="@dimen/activity_horizontal_margin"
-                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:textStyle="bold"
-                    android:textColor="@color/second_header_text"/>
-
-            <TextView
-                    android:text="Измените мысль так, чтобы она более реалистично оценивала ситуацию."
-                    style="@style/TextView.Secondary"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"
-                    android:layout_marginStart="@dimen/activity_horizontal_margin"
-                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:textStyle="bold"
-                    android:textColor="@color/second_header_text"/>
-
-            <EditText
+                    style="@style/RecyclerViewStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minHeight="48dp"
-                    android:inputType="textPersonName|textMultiLine"
-                    android:maxLines="4"
-                    android:layout_marginBottom="24dp"
-                    android:layout_marginStart="@dimen/activity_horizontal_margin"
-                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:paddingLeft="@dimen/activity_horizontal_margin"
-                    android:paddingRight="@dimen/activity_horizontal_margin"
-                    android:hint="Новая мысль"
-                    android:ems="10"
-                    style="@style/EditTextStyle"
-                    android:id="@+id/editNewThink"/>
+                    android:layout_marginBottom="24dp" />
 
             <TextView
-                    android:text="Какую эмоцию вызывает новая мысль? Насколько она выражена в %?"
                     style="@style/TextView.Secondary"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:textStyle="bold"
-                    android:textColor="@color/second_header_text"/>
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:text="А теперь вам предстоит честно ответить на вопросы и согласно своим ответам внести промежуточные переменные, а может даже сместить записанные ранее полюса в окошко с другим процентом."
+                    android:textColor="@color/second_header_text"
+                    android:textStyle="bold" />
+
+            <TextView
+                    style="@style/TextView.Secondary"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:text="Может ли быть что-то или кто-то, еще лучше, чем обозначенный вами 100% полюс? Например, могут ли вам заплатить не только зарплату, но ещё и дать премию. Может ли кто-то стать супер-молодцом и справиться еще лучше. Если это возможно, то сместите свой 100% полюс, ведь теперь у вас есть новые 100%"
+                    android:textColor="@color/second_header_text"
+                    android:textStyle="bold" />
+
+            <TextView
+                    style="@style/TextView.Secondary"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:text="Есть ли варианты развития событий, которые будут не так хороши как 90% или 100%, но при этом будут явно выше 0%? Впишите их в соответствующие графы. Например, могут выплатить аванс за ту часть работы, которая уже сделана, даже если в ней были совершены ошибки."
+                    android:textColor="@color/second_header_text"
+                    android:textStyle="bold" />
+
+            <TextView
+                    style="@style/TextView.Secondary"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:text="Может ли быть на земле что-либо хуже, чем выглядеть дурой? Может ли быть что-то или кто-то еще хуже, чем обозначенный вами 0% полюс? Например, могут ли с вас ещё и деньги потребовать в качестве неустойки? Может, вы даже знаете человека гораздо глупее? Если это возможно, то сместите свой 0% полюс, ведь теперь у вас есть новые 0%."
+                    android:textColor="@color/second_header_text"
+                    android:textStyle="bold" />
+
+            <TextView
+                    style="@style/TextView.Secondary"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:text="Постарайтесь заполнить полностью этот континуум, чтобы увидеть, где на самом деле находится данная ситуация."
+                    android:textColor="@color/second_header_text"
+                    android:textStyle="bold" />
+
+            <TextView
+                    style="@style/TextView.Secondary"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:text="Измените мысль так, чтобы она более реалистично оценивала ситуацию."
+                    android:textColor="@color/second_header_text"
+                    android:textStyle="bold" />
+
+            <EditText
+                    android:id="@+id/editNewThink"
+                    style="@style/EditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="24dp"
+                    android:ems="10"
+                    android:hint="Новая мысль"
+                    android:inputType="textPersonName|textMultiLine"
+                    android:maxLines="4"
+                    android:minHeight="48dp"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin" />
+
+            <TextView
+                    style="@style/TextView.Secondary"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:text="Какую эмоцию вызывает новая мысль? Насколько она выражена в %?"
+                    android:textColor="@color/second_header_text"
+                    android:textStyle="bold" />
 
             <LinearLayout
-                    android:layout_marginStart="@dimen/activity_horizontal_margin"
-                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin">
 
                 <LinearLayout
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginEnd="@dimen/diary_emotions_margin"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/diary_emotions_margin"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
                     <ImageView
+                            android:id="@+id/imageJoy"
                             android:layout_width="@dimen/emotion_icon_size"
                             android:layout_height="@dimen/emotion_icon_size"
                             android:layout_gravity="center"
-                            app:srcCompat="@drawable/emotion_non_active_joy"
-                            android:id="@+id/imageJoy"/>
+                            app:srcCompat="@drawable/emotion_non_active_joy" />
 
                     <TextView
-                            android:text="30%"
+                            android:id="@+id/textJoy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_width="wrap_content" android:visibility="gone"
-                            android:layout_height="wrap_content" android:id="@+id/textJoy"/>
+                            android:text="30%"
+                            android:visibility="gone" />
                 </LinearLayout>
 
                 <LinearLayout
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginEnd="@dimen/diary_emotions_margin"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/diary_emotions_margin"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
                     <ImageView
+                            android:id="@+id/imageSadness"
                             android:layout_width="@dimen/emotion_icon_size"
                             android:layout_height="@dimen/emotion_icon_size"
                             android:layout_gravity="center"
-                            app:srcCompat="@drawable/emotion_non_active_sedness"
-                            android:id="@+id/imageSadness"/>
+                            app:srcCompat="@drawable/emotion_non_active_sedness" />
 
                     <TextView
-                            android:text="30%"
+                            android:id="@+id/textSadness"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_width="wrap_content" android:visibility="gone"
-                            android:layout_height="wrap_content" android:id="@+id/textSadness"/>
+                            android:text="30%"
+                            android:visibility="gone" />
                 </LinearLayout>
 
                 <LinearLayout
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginEnd="@dimen/diary_emotions_margin"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/diary_emotions_margin"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
                     <ImageView
+                            android:id="@+id/imageAnnoyance"
                             android:layout_width="@dimen/emotion_icon_size"
                             android:layout_height="@dimen/emotion_icon_size"
                             android:layout_gravity="center"
-                            app:srcCompat="@drawable/emotion_non_active_annoyance"
-                            android:id="@+id/imageAnnoyance"/>
+                            app:srcCompat="@drawable/emotion_non_active_annoyance" />
 
                     <TextView
-                            android:text="30%"
+                            android:id="@+id/textAnnoyance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_width="wrap_content" android:visibility="gone"
-                            android:layout_height="wrap_content" android:id="@+id/textAnnoyance"/>
+                            android:text="30%"
+                            android:visibility="gone" />
                 </LinearLayout>
 
                 <LinearLayout
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginEnd="@dimen/diary_emotions_margin"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/diary_emotions_margin"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
                     <ImageView
+                            android:id="@+id/imageAnxiety"
                             android:layout_width="@dimen/emotion_icon_size"
                             android:layout_height="@dimen/emotion_icon_size"
                             android:layout_gravity="center"
-                            app:srcCompat="@drawable/emotion_non_active_anxiety"
-                            android:id="@+id/imageAnxiety"/>
+                            app:srcCompat="@drawable/emotion_non_active_anxiety" />
 
                     <TextView
-                            android:text="30%"
+                            android:id="@+id/textAnxiety"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_width="wrap_content" android:visibility="gone"
-                            android:layout_height="wrap_content" android:id="@+id/textAnxiety"/>
+                            android:text="30%"
+                            android:visibility="gone" />
                 </LinearLayout>
 
                 <LinearLayout
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginEnd="@dimen/diary_emotions_margin"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/diary_emotions_margin"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
                     <ImageView
+                            android:id="@+id/imageDisgust"
                             android:layout_width="@dimen/emotion_icon_size"
                             android:layout_height="@dimen/emotion_icon_size"
                             android:layout_gravity="center"
-                            app:srcCompat="@drawable/emotion_non_active_disgust"
-                            android:id="@+id/imageDisgust"/>
+                            app:srcCompat="@drawable/emotion_non_active_disgust" />
 
                     <TextView
-                            android:text="30%"
+                            android:id="@+id/textDisgust"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_width="wrap_content" android:visibility="gone"
-                            android:layout_height="wrap_content" android:id="@+id/textDisgust"/>
+                            android:text="30%"
+                            android:visibility="gone" />
                 </LinearLayout>
 
                 <LinearLayout
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginEnd="@dimen/diary_emotions_margin"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/diary_emotions_margin"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
                     <ImageView
+                            android:id="@+id/imageInterest"
                             android:layout_width="@dimen/emotion_icon_size"
                             android:layout_height="@dimen/emotion_icon_size"
                             android:layout_gravity="center"
-                            app:srcCompat="@drawable/emotion_non_active_interest"
-                            android:id="@+id/imageInterest"/>
+                            app:srcCompat="@drawable/emotion_non_active_interest" />
 
                     <TextView
-                            android:text="30%"
+                            android:id="@+id/textInterest"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_width="wrap_content" android:visibility="gone"
-                            android:layout_height="wrap_content" android:id="@+id/textInterest"/>
+                            android:text="30%"
+                            android:visibility="gone" />
                 </LinearLayout>
 
                 <LinearLayout
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginEnd="@dimen/diary_emotions_margin"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/diary_emotions_margin"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
                     <ImageView
+                            android:id="@+id/imageGuilt"
                             android:layout_width="@dimen/emotion_icon_size"
                             android:layout_height="@dimen/emotion_icon_size"
                             android:layout_gravity="center"
-                            app:srcCompat="@drawable/emotion_non_active_guilt"
-                            android:id="@+id/imageGuilt"/>
+                            app:srcCompat="@drawable/emotion_non_active_guilt" />
 
                     <TextView
-                            android:text="30%"
+                            android:id="@+id/textGuilt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_width="wrap_content" android:visibility="gone"
-                            android:layout_height="wrap_content" android:id="@+id/textGuilt"/>
+                            android:text="30%"
+                            android:visibility="gone" />
                 </LinearLayout>
 
                 <LinearLayout
-                        android:layout_weight="1"
-                        android:orientation="vertical"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
                     <ImageView
+                            android:id="@+id/imageResentment"
                             android:layout_width="@dimen/emotion_icon_size"
                             android:layout_height="@dimen/emotion_icon_size"
                             android:layout_gravity="center"
-                            app:srcCompat="@drawable/emotion_non_active_resentment"
-                            android:id="@+id/imageResentment"/>
+                            app:srcCompat="@drawable/emotion_non_active_resentment" />
 
                     <TextView
-                            android:text="30%"
+                            android:id="@+id/textResentment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_width="wrap_content" android:visibility="gone"
-                            android:layout_height="wrap_content" android:id="@+id/textResentment"/>
+                            android:text="30%"
+                            android:visibility="gone" />
                 </LinearLayout>
 
             </LinearLayout>
 
             <RelativeLayout
-                    android:layout_margin="@dimen/activity_vertical_margin"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_vertical_margin">
 
                 <TextView
                         android:id="@+id/textBWEmotion"
-                        android:text="Радость"
                         style="@style/TextView.Secondary"
                         android:layout_alignParentStart="true"
-                        android:textColor="@android:color/black"/>
+                        android:text="Радость"
+                        android:textColor="@android:color/black" />
 
                 <TextView
                         android:id="@+id/textBWEmotionsPercent"
-                        android:text="70%"
-                        android:textStyle="bold"
                         style="@style/TextView.Secondary"
                         android:layout_alignParentEnd="true"
-                        android:textColor="@android:color/black"/>
+                        android:text="70%"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold" />
             </RelativeLayout>
 
             <SeekBar
                     android:id="@+id/seekBarBWEmotions"
-                    android:layout_marginBottom="24dp"
-                    android:theme="@style/SeekBarStyle"
-                    android:min="1"
-                    android:max="100"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:max="100"
+                    android:min="1"
+                    android:theme="@style/SeekBarStyle" />
 
             <TextView
-                    android:text="Повторная запись новой мысли позволит вам лучше её запомнить."
                     style="@style/TextView.Secondary"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:textStyle="bold"
-                    android:textColor="@color/second_header_text"/>
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:text="Повторная запись новой мысли позволит вам лучше её запомнить."
+                    android:textColor="@color/second_header_text"
+                    android:textStyle="bold" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
     <Button
             android:id="@+id/buttonAddNewThink"
-            android:text="Внести новую мысль в дневник"
             style="@style/TextView.Button"
-            android:background="@drawable/rectangle_button"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"
             android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:background="@drawable/rectangle_button"
+            android:text="Внести новую мысль в дневник" />
 
 </RelativeLayout>
